@@ -4,7 +4,7 @@ package com.freedotech.app.ztly.model;
  * Created by Liwei on 2016/9/18.
  * t_user
  */
-public class User {
+public class User  extends CommonEntity{
     private Integer id;
     /**
      * 用户名

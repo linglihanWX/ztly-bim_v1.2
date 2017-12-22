@@ -1,6 +1,6 @@
 package com.freedotech.app.ztly.model;
 
-public class UserProject {
+public class UserProject  extends CommonEntity{
 	private Integer id;
 	private Integer userId;
 	private Integer projectId;

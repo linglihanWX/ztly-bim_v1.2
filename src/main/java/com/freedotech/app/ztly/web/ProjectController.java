@@ -19,12 +19,12 @@ import com.freedotech.app.ztly.service.IProjectService;
 public class ProjectController {
 	@Autowired
 	private IProjectService projectService;
-    @RequestMapping(value = "/index",method = RequestMethod.GET)
+    @RequestMapping(value = "/main",method = RequestMethod.GET)
     public String index(Model model){
     	User user = (User) SecurityUtils.getSubject().getPrincipal();
     	int userid = user.getId();
     	List<Project> plist = projectService.listProjectByUserId(userid);
     	model.addAttribute("plist", plist);
-        return "index";
+        return "main";
     }
 }

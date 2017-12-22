@@ -4,7 +4,7 @@ package com.freedotech.app.ztly.model;
  * Created by Liwei on 2016/9/18.
  * t_role_resource
  */
-public class RoleResource {
+public class RoleResource  extends CommonEntity{
     private Integer id;
     private Integer roleId;
     private Integer resourceId;

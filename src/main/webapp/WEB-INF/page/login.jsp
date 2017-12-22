@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <c:set var="ctx" value="<%=request.getContextPath()%>"></c:set>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +15,7 @@
 	<!-- start: Mobile Specific -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- end: Mobile Specific -->
-
+	<%@ include file="/WEB-INF/page/common/common.jsp" %>
 	<!-- start: CSS -->
 	<link id="bootstrap-style" href="${ctx}/static/page/common/css/bootstrap.min.css" rel="stylesheet">
 	
@@ -76,18 +74,18 @@
 						<a href="#"><i class="halflings-icon cog"></i></a>
 					</div>
 					<h2>登录你的账户</h2>
-					<form class="form-horizontal" action="${ctx }/login" method="post">
+					<form class="form-horizontal" action="${ctx}/toLogin" method="post">
 						<fieldset>
 
 							<div class="input-prepend" title="Username">
 								<span class="add-on"><i class="halflings-icon user"></i></span>
-								<input class="input-large span10" name="userName" id="userName" type="text" placeholder="用户名" />
+								<input class="input-large span10" name="username" id="userName" type="text" placeholder="用户名" />
 							</div>
 							<div class="clearfix"></div>
 
 							<div class="input-prepend" title="Password">
 								<span class="add-on"><i class="halflings-icon lock"></i></span>
-								<input class="input-large span10" name="userPwd" id="userPwd" type="password" placeholder="密码" />
+								<input class="input-large span10" name="password" id="userPwd" type="password" placeholder="密码" />
 							</div>
 							<div class="clearfix"></div>
 
@@ -116,66 +114,26 @@
 	<!--/fluid-row-->
 
 	<!-- start: JavaScript-->
-
-	<script src="${ctx}/static/page/common/js/jquery-1.9.1.min.js"></script>
-	
-	<script src="${ctx}/static/page/common/js/jquery-migrate-1.0.0.min.js"></script>
-
 	<script src="${ctx}/static/page/common/js/jquery-ui-1.10.0.custom.min.js"></script>
-
 	<script src="${ctx}/static/page/common/js/jquery.ui.touch-punch.js"></script>
-
 	<script src="${ctx}/static/page/common/js/modernizr.js"></script>
-
-	<script src="${ctx}/static/page/common/js/bootstrap.min.js"></script>
-
 	<script src="${ctx}/static/page/common/js/jquery.cookie.js"></script>
-
 	<script src='${ctx}/static/page/common/js/fullcalendar.min.js'></script>
-
-	<script src='${ctx}/static/page/common/js/jquery.dataTables.min.js'></script>
-
-	<script src="${ctx}/static/page/common/js/excanvas.js"></script>
-	
-	<script src="${ctx}/static/page/common/js/jquery.flot.js"></script>
-	
+	<script src="${ctx}/static/page/common/js/excanvas.js"></script>	
+	<script src="${ctx}/static/page/common/js/jquery.flot.js"></script>	
 	<script src="${ctx}/static/page/common/js/jquery.flot.pie.js"></script>
-	
 	<script src="${ctx}/static/page/common/js/jquery.flot.stack.js"></script>
-	
 	<script src="${ctx}/static/page/common/js/jquery.flot.resize.min.js"></script>
-
-	<script src="${ctx}/static/page/common/js/jquery.chosen.min.js"></script>
-
-	<script src="${ctx}/static/page/common/js/jquery.uniform.min.js"></script>
-
-	<script src="${ctx}/static/page/common/js/jquery.cleditor.min.js"></script>
-
 	<script src="${ctx}/static/page/common/js/jquery.noty.js"></script>
-
-	<script src="${ctx}/static/page/common/js/jquery.elfinder.min.js"></script>
-
-	<script src="${ctx}/static/page/common/js/jquery.raty.min.js"></script>
-
 	<script src="${ctx}/static/page/common/js/jquery.iphone.toggle.js"></script>
-
-	<script src="${ctx}/static/page/common/js/jquery.uploadify-3.1.min.js"></script>
-
 	<script src="${ctx}/static/page/common/js/jquery.gritter.min.js"></script>
-
 	<script src="${ctx}/static/page/common/js/jquery.imagesloaded.js"></script>
-
 	<script src="${ctx}/static/page/common/js/jquery.masonry.min.js"></script>
-
 	<script src="${ctx}/static/page/common/js/jquery.knob.modified.js"></script>
-
 	<script src="${ctx}/static/page/common/js/jquery.sparkline.min.js"></script>
-
 	<script src="${ctx}/static/page/common/js/counter.js"></script>
-
 	<script src="${ctx}/static/page/common/js/retina.js"></script>
 
-	<script src="${ctx}/static/page/common/js/custom.js"></script>
 	<!-- end: JavaScript-->
 
 </body>

@@ -13,7 +13,7 @@
 	<meta name="author" content="Dennis Ji">
 	<meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 	<!-- end: Meta -->
-
+<%@ include file="/WEB-INF/page/common/common_FD.jsp" %>
 	<!-- start: Mobile Specific -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- end: Mobile Specific -->
@@ -29,12 +29,6 @@
 	<link rel="stylesheet" href="${ctx }/static/page/common/css/common.css">
 	<link rel="stylesheet" href="${ctx }/static/page/common/css/reset.css">
 	<link rel="stylesheet" href="${ctx }/static/page/common/IconFont/iconfont.css">
-    <link href="http://res.gbim360.com/lib/freedo/rel/1.4.0.171017/Freedo/Widgets/widgets.css" rel="stylesheet">
-    <script src="http://res.gbim360.com/lib/freedo/rel/1.4.0.171017/Freedo/Freedo.js"></script>
-    <script src="http://res.gbim360.com/shared/1710_lodash/lodash.min.js"></script>
-    <script src="http://res2.gbim360.com/projects/FreedoHolo3DForWeb/develop/API/FreedoX.js"></script>
-	<link rel="stylesheet" href="${ctx }/static/webgl/compass/css/compass.css">
-	<script src="${ctx }/static/webgl/compass/js/Compass.js"></script>
 	<script src="${ctx }/static/page/common/js/FreeDoTool.js"></script>
 	<script src="${ctx }/static/page/common/js/jquery-1.9.1.min.js"></script>
 	<script src="${ctx }/static/page/designcoordination/mainbuilding/js/MainbuildingViewer.js"></script>

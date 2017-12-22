@@ -1,6 +1,4 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:set var="ctx" value="<%=request.getContextPath()%>"></c:set>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +11,8 @@
 	<meta name="author" content="Dennis Ji">
 	<meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 	<!-- end: Meta -->
-
+<%@ include file="/WEB-INF/page/common/common.jsp" %>
+<%@ include file="/WEB-INF/page/common/common_FD.jsp" %>
 	<!-- start: Mobile Specific -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- end: Mobile Specific -->
@@ -29,14 +28,7 @@
 	<link rel="stylesheet" href="${ctx }/static/page/common/css/common.css">
 	<link rel="stylesheet" href="${ctx }/static/page/common/css/reset.css">
 	<link rel="stylesheet" href="${ctx }/static/page/common/IconFont/iconfont.css">
-	<link href="http://res.gbim360.com/lib/freedo/rel/1.4.0.171017/Freedo/Widgets/widgets.css" rel="stylesheet">
-    <script src="http://res.gbim360.com/lib/freedo/rel/1.4.0.171017/Freedo/Freedo.js"></script>
-    <script src="http://res.gbim360.com/shared/1710_lodash/lodash.min.js"></script>
-    <script src="http://res2.gbim360.com/projects/FreedoHolo3DForWeb/develop/API/FreedoX.js"></script>
-	<link rel="stylesheet" href="${ctx }/static/webgl/compass/css/compass.css">
-	<script src="${ctx }/static/webgl/compass/js/Compass.js"></script>
 	<script src="${ctx }/static/page/common/js/FreeDoTool.js"></script>
-	<script src="${ctx }/static/page/common/js/jquery-1.9.1.min.js"></script>
 	
 	<link rel="stylesheet" href="${ctx }/static/page/common/js/zTreeStyle/zTreeStyle.css">
 	<script src="${ctx }/static/page/common/js/zTreeStyle/ztree.js"></script>
@@ -176,17 +168,8 @@
 	<script src="${ctx }/static/page/shigongguanli/downup/js/downup.js"></script>
 	<script src="${ctx }/static/webgl/pModel/js/move.js"></script>
 	<script src="${ctx}/static/page/common/js/FreeDoUtil.js"></script>
-	<script src="${ctx}/static/page/common/js/jquery-migrate-1.0.0.min.js"></script>
 	<script src="${ctx}/static/page/common/js/jquery-ui-1.10.0.custom.min.js"></script>
-	<script src="${ctx}/static/page/common/js/bootstrap.min.js"></script>
-	<script src='${ctx}/static/page/common/js/jquery.dataTables.min.js'></script>
-	<script src="${ctx}/static/page/common/js/jquery.chosen.min.js"></script>
-	<script src="${ctx}/static/page/common/js/jquery.uniform.min.js"></script>
-	<script src="${ctx}/static/page/common/js/jquery.cleditor.min.js"></script>
 	<script src="${ctx}/static/page/common/js/jquery.noty.js"></script>
-	<script src="${ctx}/static/page/common/js/jquery.elfinder.min.js"></script>
-	<script src="${ctx}/static/page/common/js/jquery.raty.min.js"></script>
-	<script src="${ctx}/static/page/common/js/jquery.uploadify-3.1.min.js"></script>
-	<script src="${ctx}/static/page/common/js/custom.js"></script>
+
 
 </html>

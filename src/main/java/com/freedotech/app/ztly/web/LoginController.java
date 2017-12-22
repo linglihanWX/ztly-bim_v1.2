@@ -26,13 +26,24 @@ import javax.security.auth.login.AccountLockedException;
 @Controller
 public class LoginController {
     private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
-
-    @RequestMapping(value = "/login",method = RequestMethod.GET)
+    /**
+     * 跳转到登录界面
+     * @return
+     */
+    @RequestMapping(value = "/",method = RequestMethod.GET)
     public String login(){
         return "login";
     }
+    /**
+     * 跳转到用户管理登录界面
+     * @return
+     */
+    @RequestMapping(value = "/1",method = RequestMethod.GET)
+    public String login1(){
+    	return "login1";
+    }
 
-    @RequestMapping(value = "/login",method = RequestMethod.POST)
+    @RequestMapping(value = "/toLogin",method = RequestMethod.POST)
     public String login(User user, Model model){
         String username = user.getUsername();
         String password = user.getPassword();
@@ -55,11 +66,40 @@ public class LoginController {
         }
         if(msg == null){
             //return "redirect:/admin/user/list";
-            return "redirect:index";
+            return "redirect:main";
         }
 
         model.addAttribute("msg",msg);
-        return "login";
+        return "/";
+    }
+    @RequestMapping(value = "/toLogin1",method = RequestMethod.POST)
+    public String login1(User user, Model model){
+    	String username = user.getUsername();
+    	String password = user.getPassword();
+    	logger.debug("username => " + username);
+    	logger.debug("password => " + password);
+    	UsernamePasswordToken token = new UsernamePasswordToken(username,password);
+    	Subject subject = SecurityUtils.getSubject();
+    	String msg = null;
+    	try {
+    		subject.login(token);
+    	} catch (UnknownAccountException e) {
+    		e.printStackTrace();
+    		msg = e.getMessage();
+    	} catch (IncorrectCredentialsException e){
+    		e.printStackTrace();
+    		msg = "密码不匹配(生产环境中应该写:用户名和密码的组合不正确)";
+    	} catch (LockedAccountException e){
+    		e.printStackTrace();
+    		msg = e.getMessage();
+    	}
+    	if(msg == null){
+    		return "redirect:/admin/user/list";
+    		//return "redirect:main";
+    	}
+    	
+    	model.addAttribute("msg",msg);
+    	return "1";
     }
 
     @RequestMapping(value = "/logout",method = RequestMethod.GET)

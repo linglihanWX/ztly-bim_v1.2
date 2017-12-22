@@ -4,7 +4,7 @@ package com.freedotech.app.ztly.model;
  * Created by Liwei on 2016/9/18.
  * t_user_role
  */
-public class UserRole {
+public class UserRole extends CommonEntity{
     private Integer id;
     private Integer userId;
     private Integer roleId;

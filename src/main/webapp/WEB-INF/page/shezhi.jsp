@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-        <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <c:set var="ctx" value="<%=request.getContextPath()%>"></c:set>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +12,7 @@
 	<meta name="author" content="Dennis Ji">
 	<meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 	<!-- end: Meta -->
-
+<%@ include file="/WEB-INF/page/common/common.jsp" %>
 	<!-- start: Mobile Specific -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- end: Mobile Specific -->
@@ -28,7 +26,6 @@
 	<link rel="stylesheet" href="${ctx }/static/page/common/css/common.css">
 	<link rel="stylesheet" href="${ctx }/static/page/common/css/reset.css">
 	<link rel="stylesheet" href="${ctx }/static/page/common/IconFont/iconfont.css">
-	<script src="${ctx }/static/page/common/js/jquery-1.9.1.min.js"></script>
 	<link rel="stylesheet" href="${ctx }/static/page/common/js/zTreeStyle/zTreeStyle.css">
 	<script src="${ctx }/static/page/common/js/zTreeStyle/ztree.js"></script>
 
@@ -231,18 +228,11 @@
 		</div>
 	</div>
 	<!-- start: JavaScript-->
-	<script src="${ctx }/static/page/common/js/jquery-migrate-1.0.0.min.js"></script>
+
 	<script src="${ctx }/static/page/common/js/jquery-ui-1.10.0.custom.min.js"></script>
-	<script src="${ctx }/static/page/common/js/bootstrap.min.js"></script>
-	<script src='${ctx }/static/page/common/js/jquery.dataTables.min.js'></script>
-	<script src="${ctx }/static/page/common/js/jquery.chosen.min.js"></script>
-	<script src="${ctx }/static/page/common/js/jquery.uniform.min.js"></script>
-	<script src="${ctx }/static/page/common/js/jquery.cleditor.min.js"></script>
+
 	<script src="${ctx }/static/page/common/js/jquery.noty.js"></script>
-	<script src="${ctx }/static/page/common/js/jquery.elfinder.min.js"></script>
-	<script src="${ctx }/static/page/common/js/jquery.raty.min.js"></script>
-	<script src="${ctx }/static/page/common/js/jquery.uploadify-3.1.min.js"></script>
-	<script src="${ctx }/static/page/common/js/custom.js"></script>
+
 	<!-- end: JavaScript-->
 	<script src="${ctx }/static/page/set/js/set.js"></script>
 
