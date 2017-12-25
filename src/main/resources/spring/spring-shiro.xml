@@ -57,7 +57,6 @@
         <property name="filterChainDefinitions">
             <value>
                 /admin/**=authc,resourceCheckFilter
-                /main = authc,resourceCheckFilter
                 /login=anon
             </value>
         </property>

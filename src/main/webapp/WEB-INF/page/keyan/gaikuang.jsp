@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="${ctx }/static/page/common/IconFont/iconfont.css">
     <link rel="stylesheet" href="${ctx }/static/page/common/js/zTreeStyle/zTreeStyle.css">
     <script src="${ctx }/static/page/common/js/zTreeStyle/ztree.js"></script>
-    <link rel="stylesheet" href="${ctx }/static/page/surveystudy/surveystudyGK/css/surveystudyGK.css">
+    <link rel="stylesheet" href="${ctx }/static/page/keyan/gaikuang/css/gaikuang.css">
      <link rel="stylesheet" href="${ctx }/static/page/common/css/media.css">
     <!--[if lt IE 9]>
     <link id="ie-style" href="css/ie.css" rel="stylesheet">
@@ -69,7 +69,7 @@
                     <!-- start: User Dropdown -->
                     <li class="dropdown">
                         <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="halflings-icon white user"></i>李荣
+                            <i class="halflings-icon white user"></i><shiro:principal property="nickname"/>
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
@@ -77,7 +77,7 @@
                                 <span>账户设置</span>
                             </li>
                             <li><a href="#"><i class="halflings-icon user"></i> 文件</a></li>
-                            <li><a href="${ctx }/loginPage"><i class="halflings-icon off"></i>退出登录</a></li>
+                            <li><a href="${ctx }/logout"><i class="halflings-icon off"></i>退出登录</a></li>
                         </ul>
                     </li>
                     <!-- end: User Dropdown -->
@@ -247,7 +247,7 @@
 </div>
 <script src="${ctx }/static/page/common/js/jquery-ui-1.10.0.custom.min.js"></script>
 <script src="${ctx }/static/page/common/js/echarts.min.js"></script>
-<script src="${ctx }/static/page/surveystudy/surveystudyGK/js/surveystudyGK.js"></script>
+<script src="${ctx }/static/page/keyan/gaikuang/js/gaikuang.js"></script>
 
 </body>
 

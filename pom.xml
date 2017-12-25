@@ -241,6 +241,7 @@
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
                 <configuration>
+                <!-- Jetty 热部署，以debug方式运行 -->
                     <httpConnector>
                         <port>8080</port>
                     </httpConnector>

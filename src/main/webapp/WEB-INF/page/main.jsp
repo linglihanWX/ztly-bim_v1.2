@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html;charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -93,7 +93,7 @@
 				<ul class="breadcrumb">
 					<i class="iconfont icon-hxzfont08"></i>
 					<li>
-						<a href="#">工程列表(5)</a>
+						<a href="#">工程列表(${plist.size()})</a>
 					</li>
 					<li class="lists">
 					<a href="#">新建项目</a>
@@ -104,7 +104,7 @@
 				<ul class="listProject">
 				  <c:forEach items="${plist}" var="project">
                        <li>
-						<a href="#">
+						<a href="${ctx }/keyan/toGaikuang">
 							<p><i class="iconfont icon-gongcheng"></i> ${project.name} </p>
 							<img src="${ctx }/static/page/main/img/tanggu.png" alt="">
 							<div class="des">
