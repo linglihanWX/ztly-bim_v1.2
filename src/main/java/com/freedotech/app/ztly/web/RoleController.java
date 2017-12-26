@@ -38,7 +38,7 @@ public class RoleController {
     public String list(Model model){
         List<Role> roleList = roleService.list();
         model.addAttribute("roleList",roleList);
-        return "role/list";
+        return "shiro/role/list";
     }
 
     /**
@@ -49,7 +49,7 @@ public class RoleController {
     public String add(Model model){
         // 为了表单回显的须要，要在 Model 里添加一个新对象
         model.addAttribute("role",new Role());
-        return "role/add";
+        return "shiro/role/add";
     }
 
     /**
@@ -74,7 +74,7 @@ public class RoleController {
     public String update(@PathVariable("id") Integer id, Model model){
         Role role = roleService.load(id);
         model.addAttribute("role",role);
-        return "role/update";
+        return "shiro/role/update";
     }
 
     /**
@@ -108,7 +108,7 @@ public class RoleController {
         model.addAttribute("hasResourceIds",hasResourceIds);
         model.addAttribute("resourceList",resourceAllList);
         model.addAttribute("role",role);
-        return "role/resources";
+        return "shiro/role/resources";
     }
 
     /**

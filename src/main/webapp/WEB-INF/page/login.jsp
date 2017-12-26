@@ -79,13 +79,13 @@
 
 							<div class="input-prepend" title="Username">
 								<span class="add-on"><i class="halflings-icon user"></i></span>
-								<input class="input-large span10" name="username" id="userName" type="text" placeholder="用户名" />
+								<input class="input-large span10" name="username" id="userName" type="text" placeholder="用户名" value="lirong"/>
 							</div>
 							<div class="clearfix"></div>
 
 							<div class="input-prepend" title="Password">
 								<span class="add-on"><i class="halflings-icon lock"></i></span>
-								<input class="input-large span10" name="password" id="userPwd" type="password" placeholder="密码" />
+								<input class="input-large span10" name="password" id="userPwd" type="password" placeholder="密码" value="123"/>
 							</div>
 							<div class="clearfix"></div>
 

@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>用户登录</title>
-        <link href="${pageContext.request.contextPath}/resources/bootstrap-3.3.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/static/page/shiro/bootstrap-3.3.0/css/bootstrap.min.css" rel="stylesheet">
         <style type="text/css">
             .loginTitle{
                 text-align: center;
@@ -17,7 +17,7 @@
                 <h1>用户、角色、权限管理系统</h1>
             </div>
             <hr>
-            <form class="form-horizontal" role="form" method="post" action="${pageContext.request.contextPath}/toLogin1">
+            <form class="form-horizontal" role="form" method="post" action="${pageContext.request.contextPath}/toShiroLogin">
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">用户名</label>
                     <div class="col-sm-10">

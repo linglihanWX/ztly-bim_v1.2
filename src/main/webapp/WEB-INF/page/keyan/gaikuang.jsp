@@ -130,8 +130,8 @@
             <ul class="breadcrumb">
                 <i class="iconfont icon-hxzfont08"></i>
                 <li class="lists">
-                    	<a href="${ctx }/toSurveystudyGK" class="activeList">项目概况</a>
-						<a href="${ctx }/toWater">水文数据</a>
+                    	<a href="${ctx }/keyan/toGaikuang" class="activeList">项目概况</a>
+						<a href="${ctx }/keyan/toShuiwen">水文数据</a>
 						<a href="${ctx }/toEnvironment">环境数据</a>
 						<a href="${ctx }/toGeology">地质数据</a>
 						<a href="#">风险数据</a>

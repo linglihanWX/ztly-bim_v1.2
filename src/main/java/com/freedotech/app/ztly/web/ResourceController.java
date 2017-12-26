@@ -33,7 +33,7 @@ public class ResourceController {
         // 查询到所有的权限列表
         List<Resource> resourceList = resourceService.listResource();
         model.addAttribute("resourceList",resourceList);
-        return "resource/list";
+        return "shiro/resource/list";
     }
 
     /**
@@ -44,7 +44,7 @@ public class ResourceController {
     public String add(Model model){
         Resource resource = new Resource();
         model.addAttribute("resource",resource);
-        return "resource/add";
+        return "shiro/resource/add";
     }
 
     /**
@@ -67,7 +67,7 @@ public class ResourceController {
     public String update(@PathVariable("id")Integer id,Model model){
         Resource resource = resourceService.load(id);
         model.addAttribute("resource",resource);
-        return "resource/update";
+        return "shiro/resource/update";
     }
 
     /**

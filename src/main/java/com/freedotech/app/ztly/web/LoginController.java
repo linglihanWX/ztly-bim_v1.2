@@ -38,9 +38,9 @@ public class LoginController {
      * 跳转到用户管理登录界面
      * @return
      */
-    @RequestMapping(value = "/1",method = RequestMethod.GET)
+    @RequestMapping(value = "/shiro",method = RequestMethod.GET)
     public String login1(){
-    	return "login1";
+    	return "shiro/login";
     }
 
     @RequestMapping(value = "/toLogin",method = RequestMethod.POST)
@@ -65,14 +65,13 @@ public class LoginController {
             msg = e.getMessage();
         }
         if(msg == null){
-            //return "redirect:/admin/user/list";
             return "redirect:main";
         }
 
         model.addAttribute("msg",msg);
-        return "/";
+        return "/login";
     }
-    @RequestMapping(value = "/toLogin1",method = RequestMethod.POST)
+    @RequestMapping(value = "/toShiroLogin",method = RequestMethod.POST)
     public String login1(User user, Model model){
     	String username = user.getUsername();
     	String password = user.getPassword();
@@ -95,13 +94,17 @@ public class LoginController {
     	}
     	if(msg == null){
     		return "redirect:/admin/user/list";
-    		//return "redirect:main";
     	}
     	
     	model.addAttribute("msg",msg);
-    	return "1";
+    	return "shiro/login";
     }
 
+    /**
+     * 退出登录，跳转到登录页面
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/logout",method = RequestMethod.GET)
     public String logout(Model model){
         Subject subject = SecurityUtils.getSubject();
@@ -109,9 +112,24 @@ public class LoginController {
         model.addAttribute("msg","您已经退出登录");
         return "login";
     }
-
+    /**
+     * 退出登录，跳转到登录页面(shiro用户管理)
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/tuichu",method = RequestMethod.GET)
+    public String tuichu(Model model){
+    	Subject subject = SecurityUtils.getSubject();
+    	subject.logout();
+    	model.addAttribute("msg","您已经退出登录");
+    	return "shiro/login";
+    }
+	/**
+	 * 跳转到页面（没有访问权限）
+	 * @return
+	 */
     @RequestMapping(value = "/unAuthorization")
     public String unAuthorization(){
-        return "unAuthorization";
+        return "shiro/unAuthorization";
     }
 }

@@ -35,7 +35,7 @@ public class UserController {
     @RequestMapping(value = "/list",method = RequestMethod.GET)
     public String list(Model model){
         model.addAttribute("list",userService.list());
-        return "user/list";
+        return "shiro/user/list";
     }
 
     /**
@@ -48,7 +48,7 @@ public class UserController {
         logger.debug("跳转到添加用户的页面");
         model.addAttribute("user",new User());
         model.addAttribute("roles",roleService.list());
-        return "user/add";
+        return "shiro/user/add";
     }
 
     /**
@@ -112,7 +112,7 @@ public class UserController {
         }
         // 指定用户拥有的角色信息
         model.addAttribute("hasRole", rids);
-        return "user/update";
+        return "shiro/user/update";
     }
 
     /**
@@ -143,7 +143,7 @@ public class UserController {
         User user = userService.load(userId);
         model.addAttribute("resources",resourceList);
         model.addAttribute("user",user);
-        return "user/resources";
+        return "shiro/user/resources";
     }
 
     /**

@@ -1,5 +1,11 @@
 package com.freedotech.app.ztly.dao;
 
-public class ShuiwenDao {
+import java.util.List;
+
+import com.freedotech.app.ztly.model.Shuiwen;
+
+public interface ShuiwenDao {
+
+	public List<Shuiwen> getShuiwenDataByProjectId(int projectid);
 
 }

@@ -47,7 +47,7 @@
         </div>
 
         <%-- 不要使用自结束 --%>
-        <script type="text/javascript" src="${pageContext.request.contextPath}/resources/jquery-3.1.0.min.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/static/page/shiro/jquery-3.1.0.min.js"></script>
         <script type="text/javascript">
             $(function(){
                 $(".status").each(function(){

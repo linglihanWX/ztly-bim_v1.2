@@ -3,5 +3,13 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.freedotech.app.ztly.dao.ShuiwenDao">
-
+	    <!-- 根据项目 id 查询相关的水文数据 -->
+    <select id="getShuiwenDataByProjectId" parameterType="int" resultType="Shuiwen">
+        SELECT
+            tks.*
+            FROM `t_project` tp
+            LEFT JOIN `t_keyan_project_shuiwen` tkps ON tp.`id` = tkps.project_id
+            LEFT JOIN `t_keyan_shuiwen` tks ON tkps.`shuiwen_id` = tks.id
+        WHERE tp.`id` = #{id}
+    </select>
 </mapper>

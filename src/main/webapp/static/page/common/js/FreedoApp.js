@@ -13,19 +13,23 @@ FreedoApp.viewers = {};
 FreedoApp.init = function(id) {
 	var viewer = new Freedo.Viewer(
 			id,
-			{
+			{	
 				animation : false,
 				baseLayerPicker : false,
 				fullscreenButton : false,
 				geocoder : false,
 				homeButton : false,
+				infoBox :false,
 				sceneModePicker : false,
+				selectionIndicator : false,
 				timeline : false,
 				navigationHelpButton : false,
 				navigationInstructionsInitiallyVisible : false,
 				selectedImageryProviderViewModel : false,
 				scene3DOnly : true,
-				orderIndependentTranslucency:false
+				clock : null,
+				showRenderLoopErrors : false,
+				automaticallyTrackDataSourceClocks:false,
 				/*terrainProvider:new FreeDo.FreeDoTerrainProvider({
 				    url : 'http://182.92.7.32:9090/30.50.90.120.90/',
 				    requestVertexNormals : true
@@ -66,11 +70,9 @@ FreedoApp.init = function(id) {
 	    show: true
 	})
 	var imageLayers = viewer.imageryLayers;
-	//imageLayers.addImageryProvider(imageryProvider2);
 	imageLayers.addImageryProvider(imageryProvider2);
-	
-	
 	imageLayers.addImageryProvider(imageryProvider1);
 	this.viewers[id] =  viewer;
+	 this.viewer[id]._cesiumWidget._creditContainer.style.display = "none";
 }
 

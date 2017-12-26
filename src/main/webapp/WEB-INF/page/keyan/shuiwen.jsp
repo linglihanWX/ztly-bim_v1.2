@@ -27,13 +27,12 @@
 	<link rel="stylesheet" href="${ctx }/static/page/common/css/reset.css">
 	<link rel="stylesheet" href="${ctx }/static/page/common/IconFont/iconfont.css">
 	<link rel="stylesheet" href="${ctx }/static/page/common/js/zTreeStyle/zTreeStyle.css">
-	<link rel="stylesheet" href="${ctx }/static/page/surveystudy/water/css/water.css">
+	<link rel="stylesheet" href="${ctx }/static/page/keyan/shuiwen/css/shuiwen.css">
 	<link rel="stylesheet" href="${ctx }/static/page/common/css/appendTools.css">
 	<!-- end: CSS -->
 	
 
 	<script src="${ctx }/static/page/common/js/FreeDoTool.js"></script>
-	<script src="${ctx }/static/page/common/js/jquery-1.9.1.min.js"></script>
 	<script src="${ctx }/static/page/common/js/zTreeStyle/ztree.js"></script>
 	<script src="${ctx }/static/page/common/js/echarts.common.min.js"></script>
 	 <link rel="stylesheet" href="${ctx }/static/page/common/css/media.css">
@@ -138,8 +137,8 @@
 				<ul class="breadcrumb">
 					<li class="lists">
 					<i class="iconfont icon-hxzfont08"></i>
-						<a href="${ctx }/toSurveystudyGK">项目概况</a>
-						<a href="${ctx }/toWater" class="activeList">水文数据</a>
+						<a href="${ctx }/toGaikuang">项目概况</a>
+						<a href="${ctx }/toShuiwen" class="activeList">水文数据</a>
 						<a href="${ctx }/toEnvironment">环境数据</a>
 						<a href="${ctx }/toGeology">地质数据</a>
 						<a href="#">风险数据</a>
@@ -198,38 +197,24 @@
 									</tr>
 								</thead>
 								<tbody>
+								 <c:forEach items="${shuiwenList}" var="shuiwen">
 									<tr>
-										<td>白洋淀水文保护</td>
-										<td>白洋淀</td>
-										<td>白洋淀中心城区</td>
-										<td>水二厂取水口</td>
-										<td>104.09</td>
-										<td>30.71</td>
-										<td>23.00</td>
-										<td>自来水二厂</td>
-										<td>自来水二厂</td>
-										<td>从一级保护区获取</td>
-										<td>从一级保护区获取</td>
-										<td>从二级保护区获取</td>
-										<td>从二级保护区获取</td>
-										<td></td>
+										<td>${shuiwen.name }</td>
+										<td>${shuiwen.address }</td>
+										<td>${shuiwen.servicetown }</td>
+										<td>${shuiwen.intakename }</td>
+										<td>${shuiwen.designability }</td>
+										<td>${shuiwen.intakelon }</td>
+										<td>${shuiwen.intakelat }</td>
+										<td>${shuiwen.onelevelwater }</td>
+										<td>${shuiwen.onelevelland }</td>
+										<td>${shuiwen.twolevelwater }</td>
+										<td>${shuiwen.twolevelland }</td>
+										<td>${shuiwen.prospectivewater }</td>
+										<td>${shuiwen.prospectiveland }</td>
+										<td>${shuiwen.remark }</td>
 									</tr>
-									<tr>
-										<td>大清河水文保护</td>
-										<td>清河</td>
-										<td>清河中心城区</td>
-										<td>水二厂取水口</td>
-										<td>104.08</td>
-										<td>30.71</td>
-										<td>15.00</td>
-										<td>自来水二厂</td>
-										<td>自来水二厂</td>
-										<td>从一级保护区获取</td>
-										<td>从一级保护区获取</td>
-										<td>从二级保护区获取</td>
-										<td>从二级保护区获取</td>
-										<td></td>
-									</tr>
+									</c:forEach>
 								</tbody>
 							</table>
 
@@ -297,13 +282,12 @@
  	<script src="${ctx }/static/page/common/js/tool.js"></script>
  	<script src="${ctx }/static/page/common/js/tableassign.js"></script>
 	<script src="${ctx }/static/page/common/js/appendTool.js"></script>
-	<script src="${ctx }/static/page/surveystudy/water/js/WaterViewer.js"></script>
+	<script src="${ctx }/static/page/keyan/shuiwen/js/shuiwen_viewer.js"></script>
 	<script src="${ctx }/static/webgl/Tool/surveyCallBack.js"></script>
-	<script src="${ctx }/static/page/surveystudy/water/js/water.js"></script>
-	
-	
-
-
+	<script src="${ctx }/static/page/keyan/shuiwen/js/shuiwen.js"></script>
+	<script type="text/javascript">
+	var nodeJson = ${shuiwenJson}
+	</script>
 	<!-- end: JavaScript-->
 </body>
 

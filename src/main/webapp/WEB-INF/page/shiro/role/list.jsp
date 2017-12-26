@@ -40,7 +40,7 @@
             <a id="deleteRoleBtn" class="btn btn-success" role="button">删除角色</a>
         </div>
 
-        <script type="text/javascript" src="${pageContext.request.contextPath}/resources/jquery-3.1.0.min.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/static/page/shiro/jquery-3.1.0.min.js"></script>
         <script type="text/javascript">
             $(function(){
                 $("#deleteRoleBtn").on("click",function(){
