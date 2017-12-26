@@ -104,7 +104,7 @@
 				<ul class="listProject">
 				  <c:forEach items="${plist}" var="project">
                        <li>
-						<a href="${ctx }/keyan/toGaikuang?projectid=${project.id}">
+						<a href="${ctx }/keyan/toGaikuang/${project.id}">
 							<p><i class="iconfont icon-gongcheng"></i> ${project.name} </p>
 							<img src="${ctx }/static/page/main/img/tanggu.png" alt="">
 							<div class="des">

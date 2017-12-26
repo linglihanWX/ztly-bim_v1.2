@@ -73,6 +73,5 @@ FreedoApp.init = function(id) {
 	imageLayers.addImageryProvider(imageryProvider2);
 	imageLayers.addImageryProvider(imageryProvider1);
 	this.viewers[id] =  viewer;
-	 this.viewer[id]._cesiumWidget._creditContainer.style.display = "none";
 }
 

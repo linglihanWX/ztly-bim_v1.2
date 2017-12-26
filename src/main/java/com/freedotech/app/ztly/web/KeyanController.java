@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,8 +27,8 @@ public class KeyanController {
      * 跳转到项目概况页面
      * @return
      */
-    @RequestMapping(value = "/toGaikuang",method = RequestMethod.GET)
-    public String toGaikuangPage(@RequestParam("projectid") String projectid){
+    @RequestMapping(value = "/toGaikuang/{projectid}",method = RequestMethod.GET)
+    public String toGaikuangPage(@PathVariable String projectid){
     	//获取当前认证实体，并把所进入项目的id存到其session中
     	SecurityUtils.getSubject().getSession().setAttribute("projectid", Integer.parseInt(projectid));
     	return "keyan/gaikuang";
