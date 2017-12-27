@@ -108,25 +108,25 @@
             <div class="nav-collapse sidebar-nav">
                 <ul class="nav nav-tabs nav-stacked main-menu">
 						<li>
-							<a href="${ctx }/toSurveystudyGK">
+							<a href="${ctx }/keyan/toGaikung">
 								<i class="iconfont icon-kcmanager"></i>
 								<span class="hidden-tablet">勘测可研</span>
 							</a>
 						</li>
 						<li>
-							<a href="${ctx }/toGaikuang">
+							<a href="${ctx }/sheji/toGaikuang">
 								<i class="iconfont icon-sheji"></i>
 								<span class="hidden-tablet">设计协同</span>
 							</a>
 						</li>
 						<li class="active">
-							<a href="${ctx }/toShigongguanliGK">
+							<a href="${ctx }/shigong/toGaikuang">
 								<i class="iconfont icon-construct"></i>
 								<span class="hidden-tablet">施工管理</span>
 							</a>
 						</li>
 						<li>
-							<a href="${ctx }/toYunweiGK">
+							<a href="${ctx }/yunwei/toGaikuang">
 								<i class="iconfont icon-Refresh"></i>
 								<span class="hidden-tablet">运维管理</span>
 							</a>

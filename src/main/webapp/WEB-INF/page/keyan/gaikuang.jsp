@@ -109,7 +109,7 @@
 							</a>
 						</li>
 						<li >
-							<a href="${ctx }/shigong/toGaikuangK">
+							<a href="${ctx }/shigong/toGaikuang">
 								<i class="iconfont icon-construct"></i>
 								<span class="hidden-tablet">施工管理</span>
 							</a>
