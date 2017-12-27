@@ -79,7 +79,7 @@
                     <!-- start: User Dropdown -->
                     <li class="dropdown">
                         <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="halflings-icon white user"></i>李荣
+                            <i class="halflings-icon white user"></i><shiro:principal property="nickname"/>
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
@@ -107,7 +107,7 @@
             <div class="nav-collapse sidebar-nav">
                 <ul class="nav nav-tabs nav-stacked main-menu">
                     <li>
-							<a href="${ctx }/toSurveystudyGK">
+							<a href="${ctx }/keyan/toGaikuang">
 								<i class="iconfont icon-kcmanager"></i>
 								<span class="hidden-tablet">勘测可研</span>
 							</a>
