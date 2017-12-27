@@ -43,7 +43,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <a class="brand" href="${ctx }/toIndex"><span>BIM全生命周期管理平台</span></a>
+            <a class="brand" href="${ctx }/toMain"><span>BIM全生命周期管理平台</span></a>
 
             <!-- start: Header Menu -->
             <div class="nav-no-collapse header-nav">
@@ -115,7 +115,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="${ctx }/yunwei/toGaikuang">
+							<a href="${ctx }/yunwei/toGaiKuang">
 								<i class="iconfont icon-Refresh"></i>
 								<span class="hidden-tablet">运维管理</span>
 							</a>

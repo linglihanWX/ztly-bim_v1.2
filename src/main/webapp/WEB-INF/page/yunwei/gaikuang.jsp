@@ -125,7 +125,7 @@
 							</a>
 						</li>
 						<li class="active">
-							<a href="${ctx }/toYunweiGK">
+							<a href="#">
 								<i class="iconfont icon-Refresh"></i>
 								<span class="hidden-tablet">运维管理</span>
 							</a>
@@ -140,9 +140,9 @@
             <ul class="breadcrumb">
                 <i class="iconfont icon-hxzfont08"></i>
                 <li class="lists">
-                		<a href="${ctx }/toYunweiGK" class="activeList">项目概况</a>
-						<a href="${ctx }/toSpacemgmt">空间管理</a>
-						<a href="${ctx }/toAssetmgmt">资产管理</a>
+                		<a href="${ctx }/keyan/toGaikuang" class="activeList">项目概况</a>
+						<a href="${ctx }/yunwei/toSpaceManage">空间管理</a>
+						<a href="${ctx }/yunwei/toZichan">资产管理</a>
 						<a href="#" >巡检管理</a>
 						<a href="#">维护管理</a>
 						<a href="#">调度管理</a>

@@ -2,19 +2,46 @@ $(function () {
     var h = $("#content").height();
     var h2 = $(".breadcrumb").height();
     $("#content .row-fluid").height(h - h2);
+            //	初始化地球
+	FreedoApp.init("earth");
+	 //	添加模型
+	$.ajax({
+		url:"/yunwei/getModelUrl",
+		type: "get",
+        contentType: "application/json; charset=utf-8",
+        success: function(data){
+      //  	向场景中添加模型
+        	FreedoApp.viewers["earth"].scene.primitives.add(new FreeDo.FreedoPModelset({
+        		url: data
+        	}));
+        	FreedoApp.viewers["earth"].camera.setView({
+             	destination :new FreeDo.Cartesian3(-2302923.868697135,4394881.466502352,3995119.1300424132),
+     			orientation: {
+     				heading : 3.4103115877496184,
+     				pitch : FreeDo.Math.toRadians(-90),
+     				roll : 3.1249876427485663
+     			}
+     		});
 
+        }
+	});
+            //	添加模型结束
+//	查询树列表
     $.ajax({
-        url: "getTangguData",
+        url: "/yunwei/getProjectModelTreeData",
         type: "get",
         dataType:"json",
         success: function (data) {
+        	if(null==data){
+        		window.confirm(data);
+        	}else{
             var zTreeObj;
             var setting = {
                 data: {
                     simpleData: {
                         enable: true,
-                        idKey: "uId",
-                        pIdKey: "pId",
+                        idKey: "uid",
+                        pIdKey: "pid",
                         rootPId: "-1"
                     }
                 },
@@ -29,6 +56,7 @@ $(function () {
                 });
             }
             zTreeObj = $.fn.zTree.init( $("#tree"), setting, data);
+        	}
         }
     });
 
@@ -231,8 +259,8 @@ $(function () {
         console.log(4);
         $("#menu").hide();
     });
-    AssetmgmtViewer.init("earth"); // 加载球模型
-    AssetmgmtViewer.initRightClick(globalviewer);
+  //    AssetmgmtViewer.init("earth"); // 加载球模型
+  //    AssetmgmtViewer.initRightClick(globalviewer);
     //AssetmgmtViewer.initLeftClick(globalviewer);
   //挖坑
 	var userdata2 =[
@@ -268,9 +296,9 @@ $(function () {
 		"static/page/shigongguanli/dungou/img/Land002.jpg",
 		"static/page/shigongguanli/dungou/img/Land004.jpg"
 	];
-	FreeDoUtil.dig(globalviewer,userdata2,imgarray);
+	//FreeDoUtil.dig(globalviewer,userdata2,imgarray);
 
-    var surveymanager = new SurveyManager(globalviewer,function(){});
+   // var surveymanager = new SurveyManager(globalviewer,function(){});
     /**
 	 *工具栏按钮点击 
 	 */
@@ -323,4 +351,5 @@ $(function () {
 		}
 		});
 	});
+           
 });

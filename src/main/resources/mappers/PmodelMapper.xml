@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.freedotech.app.ztly.dao.PmodelDao">
+	<!-- 根据用户 id 查询模型部件表名 -->
+	<select id="getUnitTableName" parameterType="String" resultType="String">
+		SELECT
+		tp.unitname
+		FROM
+		t_project_pmodel tpp
+		LEFT JOIN t_pmodel tp ON
+		tp.id = tpp.t_mod_id
+		LEFT JOIN t_project tpr ON tpr.id = tpp.t_pro_id
+		WHERE
+		tpr.id = #{id}
+	</select>
+	<!-- 根据用户 id 查询模型部件路径 -->
+	<select id="getModelUrlByProjectId" parameterType="String"
+		resultType="String">
+		SELECT
+		tp.url
+		FROM
+		t_project_pmodel tpp
+		LEFT JOIN t_pmodel tp ON tp.id = tpp.t_mod_id
+		LEFT JOIN t_project tpr ON tpr.id = tpp.t_pro_id
+		WHERE
+		tpr.id = #{projectid}
+
+	</select>
+</mapper>     
