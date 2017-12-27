@@ -5,17 +5,17 @@
 <mapper namespace="com.freedotech.app.ztly.dao.RoleDao">
 
     <insert id="add" parameterType="Role">
-        INSERT INTO t_role(`name`,sn)
+        INSERT INTO t_shiro_role(`name`,sn)
         VALUES (#{name},#{sn})
     </insert>
 
     <delete id="delete" parameterType="int">
-        DELETE FROM t_role
+        DELETE FROM t_shiro_role
         WHERE id = #{id}
     </delete>
 
     <delete id="batchDelete" parameterType="list">
-        DELETE FROM t_role
+        DELETE FROM t_shiro_role
         WHERE id IN
         <foreach collection="ids" separator="," item="id" open="(" close=")">
             #{id}
@@ -28,13 +28,13 @@
             `name`,
             sn
         FROM
-            t_role
+            t_shiro_role
         WHERE id = #{id}
     </select>
 
     <update id="update" parameterType="Role">
         UPDATE
-            t_role
+            t_shiro_role
         <set>
             <if test="name != null">
                 name = #{name},
@@ -52,7 +52,7 @@
             `name`,
             sn
         FROM
-            t_role
+            t_shiro_role
     </select>
 
     <select id="loadUserRole" resultType="UserRole" parameterType="map">
@@ -61,19 +61,19 @@
             user_id,
             role_id
         FROM
-            t_user_role
+            t_shiro_user_role
         WHERE
             user_id = #{userId} AND role_id = #{roleId}
     </select>
 
     <insert id="addUserRole" parameterType="map">
-        INSERT INTO `t_user_role`(`user_id`,`role_id`)
+        INSERT INTO `t_shiro_user_role`(`user_id`,`role_id`)
         VALUES(#{userId},#{roleId})
     </insert>
 
     <!-- 批量添加用户角色关联表数据 -->
     <insert id="addUserRoles" parameterType="map">
-        INSERT INTO `t_user_role`(`user_id`,`role_id`)
+        INSERT INTO `t_shiro_user_role`(`user_id`,`role_id`)
         VALUES
         <foreach collection="roleIds" item="role_id" separator=",">
             (#{userId},#{role_id})
@@ -81,14 +81,14 @@
     </insert>
 
     <delete id="deleteUserRole" parameterType="map">
-        DELETE FROM t_user_role
+        DELETE FROM t_shiro_user_role
         WHERE
             user_id = #{userId} AND role_id = #{roleId}
     </delete>
 
     <!-- 删除这个用户所有的角色 -->
     <delete id="deleteUserRoles">
-        DELETE FROM t_user_role
+        DELETE FROM t_shiro_user_role
         WHERE
             user_id = #{userId}
     </delete>
@@ -100,18 +100,18 @@
             tr.`name`,
             tr.`permission`,
             tr.`url`
-        FROM `t_resource` tr
-        LEFT JOIN `t_role_resource` trr ON tr.`id` = trr.`resource_id`
+        FROM `t_shiro_resource` tr
+        LEFT JOIN `t_shiro_role_resource` trr ON tr.`id` = trr.`resource_id`
         WHERE trr.`role_id` = #{roleId}
     </select>
 
     <insert id="addRoleResource" parameterType="map">
-        INSERT INTO t_role_resource(role_id,resource_id)
+        INSERT INTO t_shiro_role_resource(role_id,resource_id)
         VALUES(#{roleId},#{resourceId})
     </insert>
 
     <delete id="deleteRoleResource" parameterType="map">
-        DELETE FROM t_role_resource
+        DELETE FROM t_shiro_role_resource
         WHERE
             role_id = #{roleId} AND resource_id = #{resourceId}
     </delete>
@@ -122,13 +122,13 @@
             role_id,
             resource_id
         FROM
-            t_role_resource
+            t_shiro_role_resource
         WHERE
             role_id = #{roleId} AND resource_id = #{resourceId}
     </select>
 
     <delete id="batchDeleteRoleResource" parameterType="list">
-        DELETE FROM t_role_resource
+        DELETE FROM t_shiro_role_resource
         WHERE role_id IN
         <foreach collection="roleIds" item="roleId" open="(" separator="," close=")">
             #{roleId}
@@ -136,7 +136,7 @@
     </delete>
 
     <delete id="deleteRoleAndUser" parameterType="list">
-        DELETE FROM t_user_role
+        DELETE FROM t_shiro_user_role
         WHERE role_id in
         <foreach collection="ids" item="id" open="(" separator="," close=")">
             #{id}

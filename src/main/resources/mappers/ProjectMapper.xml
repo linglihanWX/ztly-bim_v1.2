@@ -12,7 +12,7 @@
             tp.`imgurl`
             FROM `t_project` tp
             LEFT JOIN `t_user_project` tup ON tp.`id` = tup.project_id
-            LEFT JOIN `t_user` tu ON tup.`user_id` = tu.id
+            LEFT JOIN `t_shiro_user` tu ON tup.`user_id` = tu.id
         WHERE tu.`id` = #{id}
     </select>
 

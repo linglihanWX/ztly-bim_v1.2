@@ -45,61 +45,61 @@
 </head>
 
 <body>
-	<!-- start: Header -->
-	<div class="navbar">
-		<div class="navbar-inner">
-			<div class="container-fluid">
-				<a class="btn btn-navbar" data-toggle="collapse" data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</a>
-				<a class="brand" href="${ctx }/toIndex"><span>BIM全生命周期管理平台</span></a>
+<!-- start: Header -->
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="btn btn-navbar" data-toggle="collapse"
+               data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="${ctx }/toIndex"><span>BIM全生命周期管理平台</span></a>
 
-				<!-- start: Header Menu -->
-				<div class="nav-no-collapse header-nav">
-					<ul class="nav pull-right">
+            <!-- start: Header Menu -->
+            <div class="nav-no-collapse header-nav">
+                <ul class="nav pull-right">
+                    <li class="dropdown hidden-phone">
+                        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="icon-bell"></i>
+                        </a>
+                    </li>
+                    <!-- start: Message Dropdown -->
 						<li class="dropdown hidden-phone">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="icon-bell"></i>
-							</a>
-						</li>
-						<!-- start: Message Dropdown -->
-						<li class="dropdown hidden-phone">
-							<a class="btn dropdown-toggle"  href="${ctx }/toSet">
+							<a class="btn dropdown-toggle"  href="${ctx }/toShezhi">
 								<i class="iconfont icon-set"></i>
 							</a>
 						</li>
 						<!-- start: Notifications Dropdown -->
 						<li class="dropdown hidden-phone">
-							<a class="btn dropdown-toggle" href="${ctx }/toIndex">
+							<a class="btn dropdown-toggle" href="${ctx }/toMain">
 								<i class="icon-home" style="font-size: 20px"></i>
 							</a>
 						</li>
-						<!-- end: Notifications Dropdown -->
-						<!-- start: User Dropdown -->
-						<li class="dropdown">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="halflings-icon white user"></i>李荣
-								<span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu">
-								<li class="dropdown-menu-title">
-									<span>账户设置</span>
-								</li>
-								<li><a href="#"><i class="halflings-icon user"></i> 文件</a></li>
-								<li><a href="${ctx }/loginPage"><i class="halflings-icon off"></i>退出登录</a></li>
-							</ul>
-						</li>
-						<!-- end: User Dropdown -->
-					</ul>
-				</div>
-				<!-- end: Header Menu -->
+                    <!-- end: Notifications Dropdown -->
+                    <!-- start: User Dropdown -->
+                    <li class="dropdown">
+                        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="halflings-icon white user"></i><shiro:principal property="nickname"/>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-menu-title">
+                                <span>账户设置</span>
+                            </li>
+                            <li><a href="#"><i class="halflings-icon user"></i> 文件</a></li>
+                            <li><a href="${ctx }/logout"><i class="halflings-icon off"></i>退出登录</a></li>
+                        </ul>
+                    </li>
+                    <!-- end: User Dropdown -->
+                </ul>
+            </div>
 
-			</div>
-		</div>
-	</div>
-	<!-- start: Header -->
+        </div>
+    </div>
+</div>
+<!-- start: Header -->
 
 	<div class="container-fluid-full">
 		<div class="row-fluid">
@@ -109,25 +109,25 @@
 				<div class="nav-collapse sidebar-nav">
 					<ul class="nav nav-tabs nav-stacked main-menu">
 						<li class="active">
-							<a href="${ctx }/toSurveystudyGK">
+							<a href="${ctx }/keyan/toGaikuang">
 								<i class="iconfont icon-kcmanager"></i>
 								<span class="hidden-tablet">勘测可研</span>
 							</a>
 						</li>
 						<li>
-							<a href="${ctx }/toGaikuang">
+							<a href="${ctx }/sheji/toGaikuang">
 								<i class="iconfont icon-sheji"></i>
 								<span class="hidden-tablet">设计协同</span>
 							</a>
 						</li>
 						<li >
-							<a href="${ctx }/toShigongguanliGK">
+							<a href="${ctx }/shigong/toGaikuangK">
 								<i class="iconfont icon-construct"></i>
 								<span class="hidden-tablet">施工管理</span>
 							</a>
 						</li>
 						<li>
-							<a href="${ctx }/toYunweiGK">
+							<a href="${ctx }/yunwei/toGaikuang">
 								<i class="iconfont icon-Refresh"></i>
 								<span class="hidden-tablet">运维管理</span>
 							</a>
@@ -142,17 +142,17 @@
 				<ul class="breadcrumb">
 				<i class="iconfont icon-hxzfont08"></i>
 					<li class="lists">
-						<a href="${ctx }/toSurveystudyGK">项目概况</a>
-						<a href="${ctx }/toWater">水文数据</a>
-						<a href="${ctx }/toEnvironment">环境数据</a>
-						<a href="${ctx }/toGeology" class="activeList">地质数据</a>
+						<a href="${ctx }/keyan/toGaikuang">项目概况</a>
+						<a href="${ctx }/keyan/toShuiwen">水文数据</a>
+						<a href="${ctx }/keyan/toHuanjing">环境数据</a>
+						<a href="${ctx }/keyan/toDizhi" class="activeList">地质数据</a>
 						<a href="#">风险数据</a>
 						<a href="#">环评报告</a>
 						<a href="#">政府批文</a>
 						<a href="#">项目信息</a>
 						<a href="#">数据导出</a>
-						<a href="${ctx }/toPlanRoute">规划选线</a>
-						<a href="${ctx }/toShow">3D综合展示</a>
+						<a href="${ctx }/keyan/toXuanxian">规划选线</a>
+						<a href="${ctx }/keyan/toZhanshi">3D综合展示</a>
 					</li>
 					<li>
 						<div id="div1" class="close1">

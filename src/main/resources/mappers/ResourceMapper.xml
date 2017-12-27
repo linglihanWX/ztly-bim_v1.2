@@ -11,16 +11,16 @@
             `permission`,
             `url`
         FROM
-          `t_resource`
+          `t_shiro_resource`
     </select>
 
     <insert id="add" parameterType="Resource">
-        insert into t_resource(name,permission,url)
+        insert into t_shiro_resource(name,permission,url)
         VALUES (#{name},#{permission},#{url})
     </insert>
 
     <update id="update" parameterType="Resource">
-        update t_resource
+        update t_shiro_resource
         <set>
             <if test="name != null">
                 name = #{name},
@@ -36,7 +36,7 @@
     </update>
 
     <delete id="delete" parameterType="int">
-        DELETE FROM t_resource
+        DELETE FROM t_shiro_resource
         WHERE id = #{id}
     </delete>
 
@@ -47,7 +47,7 @@
             `permission`,
             `url`
         FROM
-          `t_resource`
+          `t_shiro_resource`
         WHERE id = #{id}
     </select>
 

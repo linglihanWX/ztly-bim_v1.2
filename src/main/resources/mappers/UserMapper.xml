@@ -5,13 +5,13 @@
 <mapper namespace="com.freedotech.app.ztly.dao.UserDao">
 
     <insert id="add" parameterType="User" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO t_user(username,`password`,nickname,`status`)
+        INSERT INTO t_shiro_user(username,`password`,nickname,`status`)
         VALUES(#{username},#{password},#{nickname},#{status});
     </insert>
 
     <!-- 动态更新对象的写法 -->
     <update id="update" parameterType="User">
-        UPDATE t_user
+        UPDATE t_shiro_user
         <set>
             <if test="username != null">
                 username = #{username},
@@ -31,13 +31,13 @@
     </update>
 
     <delete id="delete" parameterType="int">
-        DELETE FROM t_user
+        DELETE FROM t_shiro_user
         where id = #{id}
     </delete>
 
     <!--  批量删除 -->
     <delete id="batchDelete" parameterType="list">
-        DELETE FROM t_user
+        DELETE FROM t_shiro_user
         where id in
         <foreach collection="ids" item="id" open="(" close=")" separator=",">
             #{id}
@@ -52,7 +52,7 @@
             nickname,
             `status`
         FROM
-            t_user
+            t_shiro_user
         WHERE
             id = #{id}
     </select>
@@ -65,7 +65,7 @@
             nickname,
             `status`
         FROM
-            t_user
+            t_shiro_user
     </select>
 
     <select id="loadByUserName" parameterType="string" resultType="User">
@@ -76,7 +76,7 @@
             nickname,
             `status`
         FROM
-            t_user
+            t_shiro_user
         WHERE
             username = #{username}
     </select>
@@ -89,18 +89,18 @@
             tu.nickname,
             tu.`status`
         FROM
-            t_user tu
-        LEFT JOIN t_user_role tur ON tu.id = tur.user_id
-        LEFT JOIN t_role tr ON tur.role_id = tr.id
+            t_shiro_user tu
+        LEFT JOIN t_shiro_user_role tur ON tu.id = tur.user_id
+        LEFT JOIN t_shiro_role tr ON tur.role_id = tr.id
         WHERE tr.id =#{rid}
     </select>
 
     <!-- 根据用户 id 查询这个用户拥有的所有资源（这里的资源就代表权限） -->
     <select id="listAllResources" resultType="Resource" parameterType="int">
         SELECT tr.`id`,tr.`name`,tr.`permission`,tr.`url`
-        FROM `t_resource` tr
-        LEFT JOIN `t_role_resource` trr ON tr.`id` = trr.`resource_id`
-        LEFT JOIN `t_user_role` tur ON trr.`role_id` = tur.role_id
+        FROM `t_shiro_resource` tr
+        LEFT JOIN `t_shiro_role_resource` trr ON tr.`id` = trr.`resource_id`
+        LEFT JOIN `t_shiro_user_role` tur ON trr.`role_id` = tur.role_id
         WHERE tur.user_id = #{uid}
     </select>
 
@@ -108,9 +108,9 @@
     <select id="listRoleSnByUser" parameterType="int" resultType="string">
         SELECT
             tr.sn
-        FROM `t_role` tr
-        LEFT JOIN `t_user_role` tur ON tr.`id` = tur.role_id
-        LEFT JOIN `t_user` tu ON tur.`user_id` = tu.id
+        FROM `t_shiro_role` tr
+        LEFT JOIN `t_shiro_user_role` tur ON tr.`id` = tur.role_id
+        LEFT JOIN `t_shiro_user` tu ON tur.`user_id` = tu.id
         WHERE tu.`id` = #{uid}
     </select>
 
@@ -120,9 +120,9 @@
             tr.`id`,
             tr.`name`,
             tr.`sn`
-            FROM `t_role` tr
-            LEFT JOIN `t_user_role` tur ON tr.`id` = tur.role_id
-            LEFT JOIN `t_user` tu ON tur.`user_id` = tu.id
+            FROM `t_shiro_role` tr
+            LEFT JOIN `t_shiro_user_role` tur ON tr.`id` = tur.role_id
+            LEFT JOIN `t_shiro_user` tu ON tur.`user_id` = tu.id
         WHERE tu.`id` = #{uid}
     </select>
 

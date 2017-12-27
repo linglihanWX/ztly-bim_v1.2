@@ -51,5 +51,23 @@ public class KeyanController {
      	model.addAttribute("shuiwenJson", nodeJson);
     	return "keyan/shuiwen";
     }
+    /**
+     * 跳转到环境数据页面
+     * @param model 存储返回的环境数据
+     * @return
+     */
+    @RequestMapping(value = "/toHuanjing",method = RequestMethod.GET)
+    public String toHuanjingPage(Model model){
+    	//得到当前认证实体所进入项目的id
+    	int id = (int) SecurityUtils.getSubject().getSession().getAttribute("projectid");
+    	//根据项目id得到项目相关的环境数据
+    	List<Shuiwen> list = keyanService.getHuanjingDataByProjectId(id);
+    	//json字符串格式的水文数据，用于三维页面
+    	String nodeJson = new Gson().toJson(list, ArrayList.class);
+    	//存储list和nodeJson，在页面上获取
+    	model.addAttribute("huanjingList", list);
+    	model.addAttribute("huanjingJson", nodeJson);
+    	return "keyan/huanjing";
+    }
 
 }

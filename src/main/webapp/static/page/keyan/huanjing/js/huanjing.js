@@ -2,10 +2,10 @@ $(function () {
 	var h = $(".container-fluid-full").height();
 	var h1 = $("#content .breadcrumb").height();
 	$("#tree").height(h - h1 - 24);
-	EnvironmentViewer.init("earth");
-	EnvironmentViewer.initModels();
-	EnvironmentViewer.initLeftClick(myviewer,showlabel);
-	myviewer.camera.setView({
+	FreedoApp.init("earth");
+	//EnvironmentViewer.initModels();
+	EnvironmentViewer.initLeftClick(FreedoApp.viewers["earth"],showlabel);
+	FreedoApp.viewers["earth"].camera.setView({
 				destination : new FreeDo.Cartesian3(-2176905.1385308662,4471880.533473881,3995906.2301306115),
 			    orientation : {
 			        heading : 0.8982847035993551,
@@ -17,19 +17,68 @@ $(function () {
     $("#tableInfo p span:last-of-type").click(function () {
         $("#tableInfo").hide();
     });
-	var surveymanager = new SurveyManager(myviewer,function(){});
-    $.ajax({
-        url: "./static/page/surveystudy/environment/environment.json",
-        type: "get",
-        dataType:"json",
-        success: function (data) {
-            
+	var surveymanager = new SurveyManager(FreedoApp.viewers["earth"],function(){}); 
+	
+	var treedata = [ {
+		"id" : 0,
+		"pId" : -1,
+		"name" : "环境数据"
+	} ]
+	var environmentEntitydata = {}
+	var environmentEntity = {}
+	var position = []
+	for (var i = 0; i < nodeJson.length; i++) {
+		// 加载水文图层
+		environmentEntitydata = JSON.parse(nodeJson[i].entity);
+		// 初始化树时所需要的数据
+		treedata.push({
+			"id" : nodeJson[i].id,
+			"pId" : 0,
+			"name" : environmentEntitydata.label.text
+		});
+		environmentEntity = FreedoApp.viewers["earth"].entities.add({
+			id:nodeJson[i].id,
+	    	name:environmentEntitydata.name,
+	    	show : true,
+	    	position : FreeDo.Cartesian3.fromDegrees(environmentEntitydata.position[0],environmentEntitydata.position[1]),
+	    	    point : { //点
+	    	        pixelSize : 5,
+	    	        color : FreeDo.Color.RED,
+	    	        outlineColor : FreeDo.Color.WHITE,
+	    	        outlineWidth : 2
+	    	   },
+		    label : { //文字标签
+		        text : environmentEntitydata.label.text,
+		        font : '14pt monospace',
+		        style : FreeDo.LabelStyle.FILL_AND_OUTLINE,
+		        outlineWidth : 2,
+		        verticalOrigin : FreeDo.VerticalOrigin.BOTTOM, //垂直方向以底部来计算标签的位置
+		        pixelOffset : new FreeDo.Cartesian2( 0, -9 )   //偏移量
+		    },    	
+	        polygon : {
+	            outline : true,
+	            outlineColor : FreeDo.Color.BLACK,
+	            hierarchy : {
+	                positions : FreeDo.Cartesian3.fromDegreesArray(environmentEntitydata.polygon.hierarchy.positions),
+	            },
+	            material : new FreeDo.GridMaterialProperty({
+	                color : FreeDo.Color.ORANGE,
+	                lineCount : new FreeDo.Cartesian2(15, 0),
+	                lineThickness : new FreeDo.Cartesian2(1, 1),
+	                lineOffset :  new FreeDo.Cartesian2(1100.9, 1100.9)
+	            }),
+	            height : 10,
+	            outline : true,
+	            outlineColor : FreeDo.Color.ORANGE                
+	        }
+	    });
+		environment[nodeJson[i].id]=environmentEntity;
+	}
             var zTreeObj;
             var setting = {
            		check:{
            			enable:true
            		},
-            
                 data: {
                     simpleData: {
                         enable: true,
@@ -43,45 +92,25 @@ $(function () {
                 	onClick:function(event, treeId, treeNode){
                 		$("#tableInfo").hide();
 						var id = treeNode.id;
-						switch (id) {
-						case 1:
-							myviewer.zoomTo(environment[id-1]);
-							break;
-						case 2:
-							myviewer.zoomTo(environment[id-1]);
-							break;
-						case 3:
-							myviewer.zoomTo(environment[id-1]);
-							break;
-						case 4:
-							myviewer.zoomTo(environment[id-1]);
-							break;
-						case 5:
-							myviewer.zoomTo(environment[id-1]);
-							break;
-						default:
-							
-							break;
-						}
+						FreedoApp.viewers["earth"].zoomTo(environment[id]);
+
 					},
 				     onCheck:function(event, treeId, treeNode){
 				    	 if(treeNode){
 				    		 	checkflag =treeNode.checked;
-								myviewer.zoomTo(environment[treeNode.id-1]);
-							}
+						 }
 				    	 if(checkflag){
-				    		 environment[treeNode.id-1].show=true;
+				    		 environment[treeNode.id].show=true;
 				    	 }else{
-				    		 environment[treeNode.id-1].show=false;
+				    		 environment[treeNode.id].show=false;
 				    	 }
 				     },
                 }
             }
-            zTreeObj = $.fn.zTree.init( $("#tree"), setting, data);
+            zTreeObj = $.fn.zTree.init( $("#tree"), setting, treedata);
             zTreeObj.checkAllNodes(true);
             zTreeObj.expandAll(true);
-        }
-    });
+
 	/**
 	 *工具栏按钮点击 
 	 */
@@ -134,7 +163,7 @@ $(function () {
 			//设置方法为none
 			surveymanager.setSurveyType(SurveyType.NONE);
 			//初始化原有的监听事件
-			EnvironmentViewer.initLeftClick(myviewer,showlabel);
+			EnvironmentViewer.initLeftClick(FreedoApp.viewers["earth"],showlabel);
 		}
 		});
 	});

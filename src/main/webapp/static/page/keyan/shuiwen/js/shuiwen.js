@@ -4,9 +4,7 @@ $(function() {
 	FreedoApp.init("earth");
 	//WaterViewer.initModels();
 	WaterViewer.initLeftClick(FreedoApp.viewers["earth"], showlabel);
-
-	new Compass(FreedoApp.viewers["earth"]);
-
+	//new Compass(FreedoApp.viewers["earth"]);
 	FreedoApp.viewers["earth"].camera.setView({
 		destination : new FreeDo.Cartesian3(-2204069.3877862454,4508542.272707851, 3976537.1194422017),
 		orientation : {
@@ -98,21 +96,12 @@ $(function() {
 			onClick : function(event, treeId, treeNode) {
 				$("#tableInfo").hide();
 				var id = treeNode.id;
-				switch (id) {
-				case 1:
 					FreedoApp.viewers["earth"].zoomTo(water[id]);
-					break;
-				case 2:
-					FreedoApp.viewers["earth"].zoomTo(water[id]);
-					break;
-				default:
-					break;
 				}
 			},
 			onCheck : function(event, treeId, treeNode) {
 				if (treeNode) {
 					checkflag = treeNode.checked;
-					FreedoApp.viewers["earth"].zoomTo(water[treeNode.id]);
 				}
 				if (checkflag) {
 					water[treeNode.id].show = true;
@@ -121,7 +110,8 @@ $(function() {
 				}
 			}
 		}
-	};
+		
+
 	zTreeObj = $.fn.zTree.init($("#tree"), setting, treedata);
 	zTreeObj.checkAllNodes(true);
 	zTreeObj.expandAll(true);
