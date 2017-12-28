@@ -30,14 +30,12 @@
 	<link rel="stylesheet" href="${ctx }/static/page/common/IconFont/iconfont.css">
 	<link rel="stylesheet" href="${ctx }/static/page/common/css/reset.css">
 	<link rel="stylesheet" href="${ctx }/static/page/common/css/appendTools.css">
-	<link rel="stylesheet" href="${ctx }/static/page/surveystudy/geology/css/geology.css">
+	<link rel="stylesheet" href="${ctx }/static/page/keyan/shuiwen/css/shuiwen.css">
 	<script src="${ctx }/static/page/common/js/FreeDoTool.js"></script>
 	<link rel="stylesheet" href="${ctx }/static/page/common/js/zTreeStyle/zTreeStyle.css">
 	<script src="${ctx }/static/page/common/js/zTreeStyle/ztree.js"></script>
-	<link rel="shortcut icon" href="img/favicon.ico">
-	<!-- end: Favicon -->
 
-	<link rel="stylesheet" href="${ctx }/static/page/surveystudy/water/css/water.css">
+	<link rel="stylesheet" href="${ctx }/static/page/keyan/dizhi/css/dizhi.css">
 	<script src="${ctx }/static/page/common/js/echarts.common.min.js"></script>
 	 <link rel="stylesheet" href="${ctx }/static/page/common/css/media.css">
 
@@ -55,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <a class="brand" href="${ctx }/toMain"><span>BIM全生命周期管理平台</span></a>
+            <a class="brand" href="${ctx }/toLogin"><span>BIM全生命周期管理平台</span></a>
 
             <!-- start: Header Menu -->
             <div class="nav-no-collapse header-nav">
@@ -73,7 +71,7 @@
 						</li>
 						<!-- start: Notifications Dropdown -->
 						<li class="dropdown hidden-phone">
-							<a class="btn dropdown-toggle" href="${ctx }/toMain">
+							<a class="btn dropdown-toggle" href="${ctx }/toLogin">
 								<i class="icon-home" style="font-size: 20px"></i>
 							</a>
 						</li>
@@ -180,7 +178,7 @@
 										<th rowspan="2">钻孔编号</th>
 										<th rowspan="2">钻孔深度</th>
 										<th rowspan="2">孔口高程</th>
-										<th colspan="2">坐标(m)</th>
+										<th colspan="2">坐标</th>
 										<th colspan="3">粉质黏土</th>
 										<th colspan="4">泥岩</th>
 										<th colspan="3">砂岩</th>
@@ -190,8 +188,8 @@
 										<th rowspan="2">操作</th>
 									</tr>
 									<tr>
-										<th>X</th>
-										<th>Y</th>
+										<th>Lon</th>
+										<th>Lat</th>
 										<th>深度</th>
 										<th>厚度</th>
 										<th>标高</th>
@@ -212,12 +210,13 @@
 									</tr>
 								</thead>
 								<tbody>
+								<c:forEach items="${dizhiList}" var="dizhi">
 									<tr>
-										<td>ZY01</td>
-										<td>10.40</td>
-										<td>887.56</td>
-										<td>33751.09</td>
-										<td>80139.50</td>
+										<td>${dizhi.drillingnum }</td>
+										<td>${dizhi.drillingdepth }</td>
+										<td>${dizhi.drillingaltitude }</td>
+										<td>${dizhi.drillinglon }</td>
+										<td>${dizhi.drillinglat }</td>
 										<td></td>
 										<td></td>
 										<td></td>
@@ -225,68 +224,19 @@
 										<td></td>
 										<td></td>
 										<td></td>
-										<td>10.40</td>
-										<td>10.40</td>
-										<td>10.40</td>
 										<td></td>
 										<td></td>
 										<td></td>
-										<td>5.20</td>
-										<td>5.20</td>
-										<td>882.36</td>
-										<td>1</td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td>${dizhi.samplingdepth }</td>
 										<td></td>
 									</tr>
-									<tr>
-										<td>ZY02</td>
-										<td>8.20</td>
-										<td>881.56</td>
-										<td>33727.98</td>
-										<td>80144.34</td>
-										<td>3.30</td>
-										<td>1.20</td>
-										<td>888.26</td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td>8.20</td>
-										<td>4.90</td>
-										<td>883.36</td>
-										<td>2.10</td>
-										<td>2.10</td>
-										<td>889.46</td>
-										<td>3.90</td>
-										<td>0.60</td>
-										<td>887.66</td>
-										<td></td>
-										<td></td>
-									</tr>
-									<tr>
-										<td>ZY03</td>
-										<td>8.20</td>
-										<td>891.65</td>
-										<td>33702.31</td>
-										<td>80123.34</td>
-										<td>3.40</td>
-										<td>1.50</td>
-										<td>883.21</td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td>8.20</td>
-										<td>4.90</td>
-										<td>883.36</td>
-										<td>2.80</td>
-										<td>2.60</td>
-										<td>890.60</td>
-										<td>4.40</td>
-										<td>1.60</td>
-										<td>887.25</td>
-										<td>1</td>
-										<td></td>
-									</tr>
+									</c:forEach>
 								</tbody>
 							</table>
 
@@ -317,9 +267,12 @@
 	<script src="${ctx }/static/page/common/js/change2D3D.js"></script>
 	<script src="${ctx }/static/webgl/drillingColumn/js/FDDrillingMgr.js"></script>
 	<script src="${ctx }/static/page/common/js/appendTool.js"></script>
-	<script src="${ctx }/static/page/surveystudy/geology/js/GeologyViewer.js"></script>
+	<script src="${ctx }/static/page/keyan/dizhi/js/dizhi_viewer.js"></script>
 	<script src="${ctx }/static/webgl/Tool/surveyCallBack.js"></script>
-	<script src="${ctx }/static/page/surveystudy/geology/js/geology.js"></script>
+	<script src="${ctx }/static/page/keyan/dizhi/js/dizhi.js"></script>
+	<script type="text/javascript">
+	var nodeJson = ${dizhiJson}
+	</script>
 </body>
 
 </html>

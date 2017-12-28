@@ -76,7 +76,7 @@ var FDDrillingMgr = function (viewer) {
 				pixelOffset : new FreeDo.Cartesian2( 0, -19 )   //偏移量  
 			} , 
 			billboard : { 
-				image : "static/webgl/drillingColumn/images/1.png",  
+				image : "../static/webgl/drillingColumn/images/1.png",  
 				width : 30,  
 				height : 30  
 			},  

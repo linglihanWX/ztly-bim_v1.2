@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.freedotech.app.ztly.dao.DizhiDao">
+	    <!-- 根据项目 id 查询相关的水文数据 -->
+    <select id="getDizhiDataByProjectId" parameterType="int" resultType="Dizhi">
+        SELECT
+            tkd.*
+            FROM `t_project` tp
+            LEFT JOIN `t_keyan_project_dizhi` tkpd ON tp.`id` = tkpd.project_id
+            LEFT JOIN `t_keyan_dizhi` tkd ON tkpd.`dizhi_id` = tkd.id
+        WHERE tp.`id` = #{id}
+    </select>
+</mapper>

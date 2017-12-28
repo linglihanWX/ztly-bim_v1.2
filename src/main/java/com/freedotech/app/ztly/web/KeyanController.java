@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.freedotech.app.ztly.model.Dizhi;
+import com.freedotech.app.ztly.model.Huanjing;
 import com.freedotech.app.ztly.model.Shuiwen;
 import com.freedotech.app.ztly.service.KeyanService;
 import com.google.gson.Gson;
@@ -61,13 +64,31 @@ public class KeyanController {
     	//得到当前认证实体所进入项目的id
     	int id = (int) SecurityUtils.getSubject().getSession().getAttribute("projectid");
     	//根据项目id得到项目相关的环境数据
-    	List<Shuiwen> list = keyanService.getHuanjingDataByProjectId(id);
+    	List<Huanjing> list = keyanService.getHuanjingDataByProjectId(id);
     	//json字符串格式的水文数据，用于三维页面
     	String nodeJson = new Gson().toJson(list, ArrayList.class);
     	//存储list和nodeJson，在页面上获取
     	model.addAttribute("huanjingList", list);
     	model.addAttribute("huanjingJson", nodeJson);
     	return "keyan/huanjing";
+    }
+    /**
+     * 跳转到地质数据页面
+     * @param model 存储返回的地质数据
+     * @return
+     */
+    @RequestMapping(value = "/toDizhi",method = RequestMethod.GET)
+    public String toDizhiPage(Model model){
+    	//得到当前认证实体所进入项目的id
+    	int id = (int) SecurityUtils.getSubject().getSession().getAttribute("projectid");
+    	//根据项目id得到项目相关的环境数据
+    	List<Dizhi> list = keyanService.getDizhiDataByProjectId(id);
+    	//json字符串格式的水文数据，用于三维页面
+    	String nodeJson = new Gson().toJson(list, ArrayList.class);
+    	//存储list和nodeJson，在页面上获取
+    	model.addAttribute("dizhiList", list);
+    	model.addAttribute("dizhiJson", nodeJson);
+    	return "keyan/dizhi";
     }
 
 }

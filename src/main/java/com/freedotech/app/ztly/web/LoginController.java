@@ -43,15 +43,18 @@ public class LoginController {
     	return "shiro/login";
     }
 
-    @RequestMapping(value = "/toLogin",method = RequestMethod.POST)
+    @RequestMapping(value = "/toLogin")
     public String login(User user, Model model){
+    	User currentuser = (User) SecurityUtils.getSubject().getPrincipal();
+    	 String msg = null;
+    	if(currentuser==null) {
         String username = user.getUsername();
         String password = user.getPassword();
         logger.debug("username => " + username);
         logger.debug("password => " + password);
         UsernamePasswordToken token = new UsernamePasswordToken(username,password);
         Subject subject = SecurityUtils.getSubject();
-        String msg = null;
+       
         try {
             subject.login(token);
         } catch (UnknownAccountException e) {
@@ -67,12 +70,15 @@ public class LoginController {
         if(msg == null){
             return "redirect:main";
         }
-
+    	}else {
+    		return "redirect:main";
+    	}
         model.addAttribute("msg",msg);
         return "/login";
     }
     @RequestMapping(value = "/toShiroLogin",method = RequestMethod.POST)
     public String login1(User user, Model model){
+
     	String username = user.getUsername();
     	String password = user.getPassword();
     	logger.debug("username => " + username);
