@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <a class="brand" href="${ctx }/toMain"><span>BIM全生命周期管理平台</span></a>
+            <a class="brand" href="${ctx }/toLogin"><span>BIM全生命周期管理平台</span></a>
 
             <!-- start: Header Menu -->
             <div class="nav-no-collapse header-nav">

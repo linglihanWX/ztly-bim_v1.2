@@ -29,7 +29,7 @@
     <!--<script src="./js/jquery-1.9.1.min.js"></script>-->
     <link rel="stylesheet" href="${ctx }/static/page/common/js/zTreeStyle/zTreeStyle.css">
     <script src="${ctx }/static/page/common/js/zTreeStyle/ztree.js"></script>
-    <link rel="stylesheet" href="${ctx }/static/page/shigongguanli/shigongguanliGK/css/shigongguanliGK.css">
+    <link rel="stylesheet" href="${ctx }/static/page/shigong/gaikuang/css/gaikuang.css">
     <link rel="stylesheet" href="${ctx }/static/page/common/css/media.css">
 
     <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -54,7 +54,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <a class="brand" href="${ctx }/toIndex"><span>BIM全生命周期管理平台</span></a>
+            <a class="brand" href="${ctx }/toMain"><span>BIM全生命周期管理平台</span></a>
 
             <!-- start: Header Menu -->
             <div class="nav-no-collapse header-nav">
@@ -65,17 +65,17 @@
                         </a>
                     </li>
                     <!-- start: Message Dropdown -->
-                    <li class="dropdown hidden-phone">
-                        <a class="btn dropdown-toggle" href="${ctx }/toSet">
-                            <i class="iconfont icon-set"></i>
-                        </a>
-                    </li>
-                    <!-- start: Notifications Dropdown -->
-                    <li class="dropdown hidden-phone">
-                        <a class="btn dropdown-toggle" href="${ctx }/toIndex">
-                            <i class="icon-home" style="font-size: 20px"></i>
-                        </a>
-                    </li>
+						<li class="dropdown hidden-phone">
+							<a class="btn dropdown-toggle"  href="${ctx }/toShezhi">
+								<i class="iconfont icon-set"></i>
+							</a>
+						</li>
+						<!-- start: Notifications Dropdown -->
+						<li class="dropdown hidden-phone">
+							<a class="btn dropdown-toggle" href="${ctx }/toLogin">
+								<i class="icon-home" style="font-size: 20px"></i>
+							</a>
+						</li>
                     <!-- end: Notifications Dropdown -->
                     <!-- start: User Dropdown -->
                     <li class="dropdown">
@@ -88,7 +88,7 @@
                                 <span>账户设置</span>
                             </li>
                             <li><a href="#"><i class="halflings-icon user"></i> 文件</a></li>
-                            <li><a href="${ctx }/loginPage"><i class="halflings-icon off"></i>退出登录</a></li>
+                            <li><a href="${ctx }/logout"><i class="halflings-icon off"></i>退出登录</a></li>
                         </ul>
                     </li>
                     <!-- end: User Dropdown -->
