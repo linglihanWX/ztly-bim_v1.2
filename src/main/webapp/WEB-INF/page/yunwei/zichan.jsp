@@ -33,34 +33,33 @@
     <link rel="stylesheet" href="${ctx}/static/page/common/js/zTreeStyle/zTreeStyle.css">
     <!-- end: CSS -->
 	<script src="${ctx}/static/page/common/js/FreeDoTool.js"></script>
-	<script src="${ctx}/static/page/common/js/jquery-1.9.1.min.js"></script>
 	<script src="${ctx}/static/page/common/js/zTreeStyle/ztree.js"></script>
-    <script type="text/javascript" src="${ctx}/static/page/common/js/bootstrap.min.js"></script>
     <script src="${ctx}/static/page/common/js/echarts.common.min.js"></script>
 	
 </head>
 
 <body>
 	<!-- start: Header -->
-	<div class="navbar">
-		<div class="navbar-inner">
-			<div class="container-fluid">
-				<a class="btn btn-navbar" data-toggle="collapse" data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</a>
-				<a class="brand" href="${ctx }/toMain"><span>BIM全生命周期管理平台</span></a>
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="btn btn-navbar" data-toggle="collapse"
+               data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="${ctx }/toMain"><span>BIM全生命周期管理平台</span></a>
 
-				<!-- start: Header Menu -->
-				<div class="nav-no-collapse header-nav">
-					<ul class="nav pull-right">
-						<li class="dropdown hidden-phone">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="icon-bell"></i>
-							</a>
-						</li>
-						<!-- start: Message Dropdown -->
+            <!-- start: Header Menu -->
+            <div class="nav-no-collapse header-nav">
+                <ul class="nav pull-right">
+                    <li class="dropdown hidden-phone">
+                        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="icon-bell"></i>
+                        </a>
+                    </li>
+                    <!-- start: Message Dropdown -->
 						<li class="dropdown hidden-phone">
 							<a class="btn dropdown-toggle"  href="${ctx }/toShezhi">
 								<i class="iconfont icon-set"></i>
@@ -68,33 +67,33 @@
 						</li>
 						<!-- start: Notifications Dropdown -->
 						<li class="dropdown hidden-phone">
-							<a class="btn dropdown-toggle" href="${ctx }/toMain">
+							<a class="btn dropdown-toggle" href="${ctx }/toLogin">
 								<i class="icon-home" style="font-size: 20px"></i>
 							</a>
 						</li>
-						<!-- end: Notifications Dropdown -->
-						<!-- start: User Dropdown -->
-						<li class="dropdown">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="halflings-icon white user"></i><shiro:principal property="nickname"/>
-								<span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu">
-								<li class="dropdown-menu-title">
-									<span>账户设置</span>
-								</li>
-								<li><a href="#"><i class="halflings-icon user"></i> 文件</a></li>
-								<li><a href="${ctx }/logout"><i class="halflings-icon off"></i>退出登录</a></li>
-							</ul>
-						</li>
-						<!-- end: User Dropdown -->
-					</ul>
-				</div>
+                    <!-- end: Notifications Dropdown -->
+                    <!-- start: User Dropdown -->
+                    <li class="dropdown">
+                        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="halflings-icon white user"></i><shiro:principal property="nickname"/>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-menu-title">
+                                <span>账户设置</span>
+                            </li>
+                            <li><a href="#"><i class="halflings-icon user"></i> 文件</a></li>
+                            <li><a href="${ctx }/logout"><i class="halflings-icon off"></i>退出登录</a></li>
+                        </ul>
+                    </li>
+                    <!-- end: User Dropdown -->
+                </ul>
+            </div>
 
-			</div>
-		</div>
-	</div>
-	<!-- start: Header -->
+        </div>
+    </div>
+</div>
+<!-- start: Header -->
 
 	<div class="container-fluid-full">
 		<div class="row-fluid">
@@ -122,7 +121,7 @@
 							</a>
 						</li>
 						<li class="active">
-							<a href="${ctx }/yunwei/toGaiKuang">
+							<a href="#">
 								<i class="iconfont icon-Refresh"></i>
 								<span class="hidden-tablet">运维管理</span>
 							</a>
@@ -134,18 +133,18 @@
 			<!-- start: Content -->
 			<div id="content" class="span10" style="min-heigth:238px;">
 				<ul class="breadcrumb">
-					<a href="${ctx }/toSpacemgmt">
+					<a href="${ctx }//yunwei/toGaikuang">
 					<i class="iconfont icon-return"></i>返回</a>
 					<li class="lists">
-						<a href="${ctx }/keyan/toGaikuang">项目概况</a>
-						<a href="${ctx }/yunwei/toSpaceManage">空间管理</a>
+						<a href="${ctx }/yunwei/toGaikuang">项目概况</a>
+						<a href="${ctx }/yunwei/toKongjianManage">空间管理</a>
 						<a href="#">资产管理</a>
 						<a href="#" >巡检管理</a>
 						<a href="#">维护管理</a>
 						<a href="#">调度管理</a>
 						<a href="#">风险管控</a>
 						<a href="#">应急指挥</a>
-						<a href="${ctx }/toJicheng">其他系统</a>
+						<a href="${ctx }/yunwei/toJicheng">其他系统</a>
 						<a href="#">知识库建设</a>
 					</li>
 				</ul>
@@ -325,7 +324,7 @@
 
 		<!--图纸资料-->
 		<div class="pic">
-			<img src="${ctx }/static/page/yunweimgmt/assetmgmt/img/jiegoupingmiantu1.png" alt="">
+			<img src="${ctx }/static/page/yunwei/zichan/img/jiegoupingmiantu1.png" alt="">
 			<input type="button" name="" id="" value="下载">
 		</div>
 	</div>
@@ -341,22 +340,14 @@
 		</p>
 
 		<div id="currData"></div>
-		<input type="hidden" id="modelUrl" value=${URL }>
 	</div>
 
 </body>
 	<script src="${ctx }/static/page/common/js/appendTool.js"></script>
-	<script src="${ctx}/static/page/common/js/jquery-migrate-1.0.0.min.js"></script>
-	<script src='${ctx}/static/page/common/js/jquery.dataTables.min.js'></script>
-	<script src="${ctx}/static/page/common/js/jquery.chosen.min.js"></script>
-	<script src="${ctx}/static/page/common/js/jquery.uniform.min.js"></script>
-	<script src="${ctx}/static/page/common/js/jquery.cleditor.min.js"></script>
 	<script src="${ctx}/static/page/common/js/jquery.noty.js"></script>
-	<script src="${ctx}/static/page/common/js/jquery.elfinder.min.js"></script>
-	<script src="${ctx}/static/page/common/js/jquery.raty.min.js"></script>
-	<script src="${ctx}/static/page/common/js/jquery.uploadify-3.1.min.js"></script>
 	<script src="${ctx }/static/webgl/Tool/surveyCallBack.js"></script>
 	<script src="${ctx }/static/page/yunwei/zichan/js/zichan.js"></script>
+	<script src="${ctx }/static/page/yunwei/zichan/js/zichan_viewer.js"></script>
 	<script src="${ctx }/static/webgl/pModel/js/move.js"></script>
 	<script src="${ctx}/static/page/common/js/FreeDoUtil.js"></script>
     <script src="${ctx}/static/page/common/js/FreedoApp.js"></script>

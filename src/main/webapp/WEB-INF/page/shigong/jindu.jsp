@@ -50,7 +50,7 @@
 	<!-- start: Favicon -->
 	<!-- end: Favicon -->
 
-	<link rel="stylesheet" href="${ctx }/static/page/shigongguanli/jinduguanli/css/sg.css">
+	<link rel="stylesheet" href="${ctx }/static/page/shigong/jindu/css/sg.css">
 
 <link rel="stylesheet" href="${ctx }/static/page/common/css/media.css">
 
@@ -78,13 +78,13 @@
 						</li>
 						<!-- start: Message Dropdown -->
 						<li class="dropdown hidden-phone">
-							<a class="btn dropdown-toggle"  href="${ctx }/toSet">
+							<a class="btn dropdown-toggle"  href="${ctx }/toShezhi">
 								<i class="iconfont icon-set"></i>
 							</a>
 						</li>
 						<!-- start: Notifications Dropdown -->
 						<li class="dropdown hidden-phone">
-							<a class="btn dropdown-toggle" href="${ctx }/toIndex">
+							<a class="btn dropdown-toggle" href="${ctx }/toMain">
 								<i class="icon-home" style="font-size: 20px"></i>
 							</a>
 						</li>
@@ -92,7 +92,7 @@
 						<!-- start: User Dropdown -->
 						<li class="dropdown">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="halflings-icon white user"></i>李荣
+								<i class="halflings-icon white user"></i><shiro:principal property="nickname"/>
 								<span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu">
@@ -170,14 +170,14 @@
 
 
 				<div class="row-fluid sortable">
-					<iframe src="${ctx }/static/page/shigongguanli/iframe/ebs/ebs.html" style="width: 100%;height: 100%;border: none;"></iframe>
+					<iframe src="${ctx }/static/page/shigong/iframe/ebs/ebs.html" style="width: 100%;height: 100%;border: none;"></iframe>
 				</div>
 			</div>
 		</div>
 	</div>
 
 </body>
-	<script src="${ctx }/static/page/shigongguanli/jinduguanli/js/pModel.js"></script>
+	<script src="${ctx }/static/page/shigong/jindu/js/pModel.js"></script>
 	<script src="${ctx}/static/page/common/js/jquery-ui-1.10.0.custom.min.js"></script>
 	<script src="${ctx}/static/page/common/js/jquery.noty.js"></script>
 

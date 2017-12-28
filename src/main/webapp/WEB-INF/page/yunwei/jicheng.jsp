@@ -26,9 +26,7 @@
 	<link rel="stylesheet" href="${ctx}/static/page/common/css/common.css">
 	<link rel="stylesheet" href="${ctx}/static/page/common/css/reset.css">
 	<link rel="stylesheet" href="${ctx}/static/page/common/IconFont/iconfont.css">
-	<script src="${ctx}/static/page/common/js/jquery-1.9.1.min.js"></script>
-	<link rel="stylesheet" href="${ctx}/static/page/yunweimgmt/jicheng/css/jicheng.css">
-	
+	<link rel="stylesheet" href="${ctx}/static/page/yunwei/jicheng/css/jicheng.css">	
     <link rel="stylesheet" href="${ctx }/static/page/common/css/media.css">
 </head>
 
@@ -54,13 +52,13 @@
 						</li>
 						<!-- start: Message Dropdown -->
 						<li class="dropdown hidden-phone">
-							<a class="btn dropdown-toggle"  href="${ctx }/toSet">
+							<a class="btn dropdown-toggle"  href="${ctx }/toShezhi">
 								<i class="iconfont icon-set"></i>
 							</a>
 						</li>
 						<!-- start: Notifications Dropdown -->
 						<li class="dropdown hidden-phone">
-							<a class="btn dropdown-toggle" href="${ctx }/toIndex">
+							<a class="btn dropdown-toggle" href="${ctx }/toLogin">
 								<i class="icon-home" style="font-size: 20px"></i>
 							</a>
 						</li>
@@ -68,7 +66,7 @@
 						<!-- start: User Dropdown -->
 						<li class="dropdown">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="halflings-icon white user"></i>李荣
+								<i class="halflings-icon white user"></i><shiro:principal property="nickname"/>
 								<span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu">
@@ -76,7 +74,7 @@
 									<span>账户设置</span>
 								</li>
 								<li><a href="#"><i class="halflings-icon user"></i> 文件</a></li>
-								<li><a href="${ctx }/loginPage"><i class="halflings-icon off"></i>退出登录</a></li>
+								<li><a href="${ctx }/loginout"><i class="halflings-icon off"></i>退出登录</a></li>
 							</ul>
 						</li>
 						<!-- end: User Dropdown -->
@@ -97,25 +95,25 @@
 				<div class="nav-collapse sidebar-nav">
 					<ul class="nav nav-tabs nav-stacked main-menu">
 						<li>
-							<a href="${ctx }/toSurveystudyGK">
+							<a href="${ctx }/keyan/toGaikuang">
 								<i class="iconfont icon-kcmanager"></i>
 								<span class="hidden-tablet">勘测可研</span>
 							</a>
 						</li>
 						<li>
-							<a href="${ctx }/toGaikuang">
+							<a href="${ctx }/sheji/toGaikuang">
 								<i class="iconfont icon-sheji"></i>
 								<span class="hidden-tablet">设计协同</span>
 							</a>
 						</li>
 						<li >
-							<a href="${ctx }/toShigongguanliGK">
+							<a href="${ctx }/shigong/toGaikuang">
 								<i class="iconfont icon-construct"></i>
 								<span class="hidden-tablet">施工管理</span>
 							</a>
 						</li>
 						<li class="active">
-							<a href="${ctx }/toYunweiGK">
+							<a href="#">
 								<i class="iconfont icon-Refresh"></i>
 								<span class="hidden-tablet">运维管理</span>
 							</a>
@@ -130,21 +128,21 @@
 				<ul class="breadcrumb">
 					<i class="iconfont icon-hxzfont08"></i>
 					<li class="lists">
-					<a href="${ctx }/toYunweiGK">项目概况</a>
-						<a href="${ctx }/toSpacemgmt">空间管理</a>
-						<a href="${ctx }/toAssetmgmt">资产管理</a>
+					<a href="${ctx }/yunwei/toGaikuang">项目概况</a>
+						<a href="${ctx }/yunwei/toKongjianManage">空间管理</a>
+						<a href="${ctx }/yunwei/toZichan">资产管理</a>
 						<a href="#" >巡检管理</a>
 						<a href="#">维护管理</a>
 						<a href="#">调度管理</a>
 						<a href="#">风险管控</a>
 						<a href="#">应急指挥</a>
-						<a href="${ctx }/toJicheng"  class="activeList">其他系统</a>
+						<a href="#"">其他系统</a>
 						<a href="#">知识库建设</a>
 					</li>
 
 
 				</ul>
-				<img src="${ctx }/static/page/yunweimgmt/jicheng/img/jicheng.jpg" alt="">
+				<img src="${ctx }/static/page/yunwei/jicheng/img/jicheng.jpg" alt="">
 
 			</div>
 		</div>
@@ -155,10 +153,9 @@
 
 	<script src="${ctx}/static/page/common/js/jquery-ui-1.10.0.custom.min.js"></script>
 	<script src="${ctx}/static/page/common/js/jquery.noty.js"></script>
-
 	<!-- end: JavaScript-->
-	<script src="${ctx}/static/page/yunweimgmt/jicheng/js/jicheng.js"></script>
-<script src="${ctx }/static/webgl/pModel/js/move.js"></script>
+	<script src="${ctx}/static/page/yunwei/jicheng/js/jicheng.js"></script>
+    <script src="${ctx }/static/webgl/pModel/js/move.js"></script>
 </body>
 
 </html>

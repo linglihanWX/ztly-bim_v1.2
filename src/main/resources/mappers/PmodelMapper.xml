@@ -16,16 +16,29 @@
 		tpr.id = #{id}
 	</select>
 	<!-- 根据用户 id 查询模型部件路径 -->
-	<select id="getModelUrlByProjectId" parameterType="String"
-		resultType="String">
+	<select id="getModelUrlByProjectId" parameterType="String" resultType="com.freedotech.app.ztly.model.Pmodel">
 		SELECT
-		tp.url
+		tp.id,
+		tp.name,
+		tp.url,
+		tp.x,
+		tp.y,
+		tp.z,
+		tp.heading,
+		tp.pitch,
+		tp.roll,
+		tp.scalex,
+		tp.scaley,
+		tp.scalez,
+		tp.unitname,
+		tp.hole,
+		tp.imagelayer
 		FROM
 		t_project_pmodel tpp
 		LEFT JOIN t_pmodel tp ON tp.id = tpp.t_mod_id
 		LEFT JOIN t_project tpr ON tpr.id = tpp.t_pro_id
 		WHERE
-		tpr.id = #{projectid}
-
+		tpr.id =
+		#{projectid}
 	</select>
 </mapper>     

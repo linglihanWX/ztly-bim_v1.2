@@ -61,7 +61,7 @@
 						</li>
 						<!-- start: Notifications Dropdown -->
 						<li class="dropdown hidden-phone">
-							<a class="btn dropdown-toggle" href="${ctx }/toMain">
+							<a class="btn dropdown-toggle" href="${ctx }/toLogin">
 								<i class="icon-home" style="font-size: 20px"></i>
 							</a>
 						</li>
@@ -115,7 +115,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="${ctx }/yunwei/toGaiKuang">
+							<a href="${ctx }/yunwei/toGaikuang">
 								<i class="iconfont icon-Refresh"></i>
 								<span class="hidden-tablet">运维管理</span>
 							</a>

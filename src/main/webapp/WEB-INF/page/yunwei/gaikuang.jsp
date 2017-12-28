@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="${ctx }/static/page/common/IconFont/iconfont.css">
     <link rel="stylesheet" href="${ctx }/static/page/common/js/zTreeStyle/zTreeStyle.css">
     <script src="${ctx }/static/page/common/js/zTreeStyle/ztree.js"></script>
-    <link rel="stylesheet" href="${ctx }/static/page/yunweimgmt/yunweiGK/css/yunweiGK.css">
+    <!-- <link rel="stylesheet" href="${ctx }/static/page/yunwei/yunwei/css/yunwei.css"> -->
 
     <link rel="stylesheet" href="${ctx }/static/page/common/css/media.css">
     <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <a class="brand" href="${ctx }/toIndex"><span>BIM全生命周期管理平台</span></a>
+            <a class="brand" href="${ctx }/toMain"><span>BIM全生命周期管理平台</span></a>
 
             <!-- start: Header Menu -->
             <div class="nav-no-collapse header-nav">
@@ -65,13 +65,13 @@
                     </li>
                     <!-- start: Message Dropdown -->
 						<li class="dropdown hidden-phone">
-							<a class="btn dropdown-toggle"  href="${ctx }/toSet">
+							<a class="btn dropdown-toggle"  href="${ctx }/toShezhi">
 								<i class="iconfont icon-set"></i>
 							</a>
 						</li>
 						<!-- start: Notifications Dropdown -->
 						<li class="dropdown hidden-phone">
-							<a class="btn dropdown-toggle" href="${ctx }/toIndex">
+							<a class="btn dropdown-toggle" href="${ctx }/toLogin">
 								<i class="icon-home" style="font-size: 20px"></i>
 							</a>
 						</li>
@@ -87,7 +87,7 @@
                                 <span>账户设置</span>
                             </li>
                             <li><a href="#"><i class="halflings-icon user"></i> 文件</a></li>
-                            <li><a href="${ctx }/loginPage"><i class="halflings-icon off"></i>退出登录</a></li>
+                            <li><a href="${ctx }/logout"><i class="halflings-icon off"></i>退出登录</a></li>
                         </ul>
                     </li>
                     <!-- end: User Dropdown -->
@@ -113,13 +113,13 @@
 							</a>
 						</li>
 						<li>
-							<a href="${ctx }/toGaikuang">
+							<a href="${ctx }/sheji/toGaikuang">
 								<i class="iconfont icon-sheji"></i>
 								<span class="hidden-tablet">设计协同</span>
 							</a>
 						</li>
 						<li >
-							<a href="${ctx }/toShigongguanliGK">
+							<a href="${ctx }/shigong/toGaikuang">
 								<i class="iconfont icon-construct"></i>
 								<span class="hidden-tablet">施工管理</span>
 							</a>
@@ -140,15 +140,15 @@
             <ul class="breadcrumb">
                 <i class="iconfont icon-hxzfont08"></i>
                 <li class="lists">
-                		<a href="${ctx }/keyan/toGaikuang" class="activeList">项目概况</a>
-						<a href="${ctx }/yunwei/toSpaceManage">空间管理</a>
+                		<a href="#">项目概况</a>
+						<a href="${ctx }/yunwei/toKongjianManage">空间管理</a>
 						<a href="${ctx }/yunwei/toZichan">资产管理</a>
 						<a href="#" >巡检管理</a>
 						<a href="#">维护管理</a>
 						<a href="#">调度管理</a>
 						<a href="#">风险管控</a>
 						<a href="#">应急指挥</a>
-						<a href="${ctx }/toJicheng">其他系统</a>
+						<a href="${ctx }/yunwei/toJicheng">其他系统</a>
 						<a href="#">知识库建设</a>
                 </li>
 
@@ -262,7 +262,7 @@
 </div>
 <script src="${ctx }/static/page/common/js/jquery-ui-1.10.0.custom.min.js"></script>
 <script src="${ctx }/static/page/common/js/echarts.min.js"></script>
-<script src="${ctx }/static/page/yunweimgmt/yunweiGK/js/yunweiGK.js"></script>
+<!-- <script src="${ctx }/static/page/yunwei/yunwei/js/yunwei.js"></script> -->
 
 </body>
 

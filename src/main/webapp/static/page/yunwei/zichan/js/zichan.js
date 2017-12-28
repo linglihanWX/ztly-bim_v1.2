@@ -6,14 +6,29 @@ $(function () {
 	FreedoApp.init("earth");
 	 //	添加模型
 	$.ajax({
-		url:"/yunwei/getModelUrl",
+		url:"/yunwei/getPmodel",
 		type: "get",
-        contentType: "application/json; charset=utf-8",
+		dataType:"json",
         success: function(data){
-      //  	向场景中添加模型
-        	FreedoApp.viewers["earth"].scene.primitives.add(new FreeDo.FreedoPModelset({
-        		url: data
-        	}));
+        	//解析json
+        	var model=eval(data);
+        	for(var key in model){
+        		//挖坑数据
+        		var holeData=eval(model[key].hole);
+        		//图层数据
+        		var imgarray=eval(model[key].imagelayer);
+        		 //向场景中添加模型
+        		var modelTile=FreedoApp.viewers["earth"].scene.primitives.add(new FreeDo.FreedoPModelset({
+            		url: model[key].url
+            	}));
+        		//移动模型到坑里
+        		modelTile.readyPromise.then(function() {
+            		moveModel(modelTile,model[key].x,model[key].y,model[key].z,model[key].heading,model[key].pitch,model[key].roll,model[key].scalex,model[key].scaley,model[key].scalez);
+            	});
+        		//挖坑
+            	FreeDoUtil.dig(FreedoApp.viewers["earth"],holeData,imgarray);
+        	}
+        	//镜头定位
         	FreedoApp.viewers["earth"].camera.setView({
              	destination :new FreeDo.Cartesian3(-2302923.868697135,4394881.466502352,3995119.1300424132),
      			orientation: {
@@ -162,17 +177,17 @@ $(function () {
 
 
     // 右击菜单
-/*    $("#init").contextmenu(function(event){
-        var event = event || window.event;
-        event.preventDefault();
-        window.event.returnValue = false;
-        $("#menu").css({
-            "display":"block",
-            "left":event.pageX+"px",
-            "top":event.pageY+"px"
-        });
-        return false;
-    });*/
+    //    $("#init").contextmenu(function(event){
+    //        var event = event || window.event;
+    //        event.preventDefault();
+    //        window.event.returnValue = false;
+    //        $("#menu").css({
+    //            "display":"block",
+    //            "left":event.pageX+"px",
+    //            "top":event.pageY+"px"
+    //        });
+    //        return false;
+    //    });
     $(document).click(function() {
         $("#menu").hide();
     });
@@ -260,45 +275,10 @@ $(function () {
         $("#menu").hide();
     });
   //    AssetmgmtViewer.init("earth"); // 加载球模型
-  //    AssetmgmtViewer.initRightClick(globalviewer);
-    //AssetmgmtViewer.initLeftClick(globalviewer);
-  //挖坑
-	var userdata2 =[
-		[				
-			{lon:117.65370327140586,lat: 39.029343874668385,height:0},
-			{lon:117.6566555867564,lat: 39.02867680988919,height:0},
-			{lon:117.65629167680271,lat: 39.027734051441556,height:0},
-			{lon:117.65337309822137,lat: 39.028390137191195,height:0}
-		],
+      AssetmgmtViewer.initRightClick(FreedoApp.viewers["earth"]);
+    //AssetmgmtViewer.initLeftClick(FreedoApp.viewers["earth"]);
 
-		[
-			{lon:117.65370327140586,lat: 39.029343874668385,height:-15},
-			{lon:117.6566555867564,lat: 39.02867680988919,height:-13},
-			{lon:117.65629167680271,lat: 39.027734051441556,height:-20},
-			{lon:117.65337309822137,lat: 39.028390137191195,height:-15}
-		],
-
-		[
-			{lon:117.65370327140586,lat: 39.029343874668385,height:-27},
-			{lon:117.6566555867564,lat: 39.02867680988919,height:-33},
-			{lon:117.65629167680271,lat: 39.027734051441556,height:-26},
-			{lon:117.65337309822137,lat: 39.028390137191195,height:-22}
-		],
-		[
-			{lon:117.65370327140586,lat: 39.029343874668385,height:-50},
-			{lon:117.6566555867564,lat: 39.02867680988919,height:-50},
-			{lon:117.65629167680271,lat: 39.027734051441556,height:-50},
-			{lon:117.65337309822137,lat: 39.028390137191195,height:-50}
-		]
-]
-	var imgarray = [
-		"static/page/shigongguanli/dungou/img/Land001.jpg",
-		"static/page/shigongguanli/dungou/img/Land002.jpg",
-		"static/page/shigongguanli/dungou/img/Land004.jpg"
-	];
-	//FreeDoUtil.dig(globalviewer,userdata2,imgarray);
-
-   // var surveymanager = new SurveyManager(globalviewer,function(){});
+    var surveymanager = new SurveyManager(FreedoApp.viewers["earth"],function(){});
     /**
 	 *工具栏按钮点击 
 	 */

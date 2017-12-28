@@ -80,7 +80,7 @@
                     <!-- start: User Dropdown -->
                     <li class="dropdown">
                         <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="halflings-icon white user"></i>李荣
+                            <i class="halflings-icon white user"></i><shiro:principal property="nickname"/>
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
@@ -142,7 +142,7 @@
                 <i class="iconfont icon-hxzfont08"></i>
                 <li class="lists">
                 		<a href="${ctx }/toShigongguanliGK" class="activeList">项目概况</a>
-						<a href="${ctx }/toEbs">进度管理</a>
+						<a href="${ctx }/shigong/toJindu">进度管理</a>
 						<a href="${ctx }/toPm">场景管理</a>
 						<a href="${ctx }/toSafe">安全管理</a>
 						<a href="${ctx }/toDungou">盾构监测</a>

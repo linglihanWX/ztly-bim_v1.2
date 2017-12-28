@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.freedotech.app.ztly.model.Node4ZTree;
+import com.freedotech.app.ztly.model.Pmodel;
 import com.freedotech.app.ztly.service.YunweiService;
 
 @Controller
@@ -27,7 +28,7 @@ public class YunweiController {
 	private YunweiService yunweiService;
 	private static final Logger logger = LoggerFactory.getLogger(YunweiController.class);
 //	跳转至运维概况首页
-	@RequestMapping("/toGaiKuang")
+	@RequestMapping("/toGaikuang")
 	public String toGaiKuangPage() {
 		return "yunwei/gaikuang";
 	}
@@ -50,15 +51,26 @@ public class YunweiController {
 		List<Node4ZTree> treeData = yunweiService.getProjectModelTreeData(projectid);
 		return treeData;
 	}
-	//获取模型路径
-	@RequestMapping(value="/getModelUrl",method=RequestMethod.GET)
+	//获取模型
+	@RequestMapping(value="/getPmodel",method=RequestMethod.GET,produces="application/json")
 	@ResponseBody
-	public String getModelUrl(HttpServletRequest request) {
+	public List<Pmodel> getModelUrl(HttpServletRequest request) {
 		//取得session中项目的id
 		HttpSession session = request.getSession();
 		String projectId=session.getAttribute("projectid")+"";
-		//获取模型部件路径
-		String url=yunweiService.getModelUrlByProjectId(projectId);
-		return url;
+		//获取模型
+		List<Pmodel> modelList=yunweiService.getModelUrlByProjectId(projectId);
+		System.out.println(modelList.toString());
+		return modelList;
+	}
+    //	跳转至空间管理页面
+	@RequestMapping("toKongjianManage")
+	public String toKongjianPage() {
+		return "yunwei/kongjian";
+	}
+	//  跳转至其他系统页面
+	@RequestMapping("toJicheng")
+	public String toJichengPage() {
+		return "/yunwei/jicheng";
 	}
 }
