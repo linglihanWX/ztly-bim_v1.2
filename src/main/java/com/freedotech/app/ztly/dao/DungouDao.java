@@ -1,11 +1,11 @@
-package com.freedotech.app.ztly.service;
+package com.freedotech.app.ztly.dao;
 
 import java.util.List;
 
 import com.freedotech.app.ztly.model.Dungou;
 
-public interface ShigongService {
-	
+public interface DungouDao {
+
 	List<Dungou> getOneHData();
 
 	List<Dungou> getSomeHData();
