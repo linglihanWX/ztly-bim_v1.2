@@ -30,10 +30,12 @@ public class KeyanController {
      * 跳转到项目概况页面
      * @return
      */
-    @RequestMapping(value = "/toGaikuang/{projectid}",method = RequestMethod.GET)
-    public String toGaikuangPage(@PathVariable String projectid){
-    	//获取当前认证实体，并把所进入项目的id存到其session中
-    	SecurityUtils.getSubject().getSession().setAttribute("projectid", Integer.parseInt(projectid));
+    @RequestMapping(value = "/toGaikuang",method = RequestMethod.GET)
+    public String toGaikuangPage(@RequestParam(required=false) String projectid){
+    	if(projectid!=null) {
+    		//获取当前认证实体，并把所进入项目的id存到其session中
+    		SecurityUtils.getSubject().getSession().setAttribute("projectid", Integer.parseInt(projectid));    		
+    	}
     	return "keyan/gaikuang";
     }
     /**
