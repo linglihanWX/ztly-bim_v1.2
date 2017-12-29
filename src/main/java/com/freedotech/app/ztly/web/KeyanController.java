@@ -92,5 +92,14 @@ public class KeyanController {
     	model.addAttribute("dizhiJson", nodeJson);
     	return "keyan/dizhi";
     }
+    /**
+     * 跳转到地质数据页面
+     * @param model 存储返回的地质数据
+     * @return
+     */
+    @RequestMapping(value = "/toXuanxian",method = RequestMethod.GET)
+    public String toXuanxian(){
+    	return "keyan/xuanxian";
+    }
 
 }

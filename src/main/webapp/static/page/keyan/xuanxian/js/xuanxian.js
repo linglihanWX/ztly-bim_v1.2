@@ -2,14 +2,48 @@ $(function () {
     var h = $("#content").height();
     var h2 = $(".breadcrumb").height();
     $("#content .row-fluid").height(h - h2);
-    planRouteViewer.init("init"); // 加载球模型
-    var sss = new SurveyManager(globalviewer,creatEntity);
+    FreedoApp.init("init");
+    var sss = new SurveyManager(FreedoApp.viewers["init"],creatEntity);
     sss.setSurveyType(SurveyType.LINE_DISTANCE);
-    FreeDoUtil.digpit(globalviewer);
+	$.ajax({
+		url:"/yunwei/getPmodel",
+		type: "get",
+		dataType:"json",
+        success: function(data){
+        	//解析json
+        	var model=eval(data);
+        	for(var key in model){
+        		//挖坑数据
+        		var holeData=eval(model[key].hole);
+        		//图层数据
+        		var imgarray=eval(model[key].imagelayer);
+        		 //向场景中添加模型
+        		var modelTile=FreedoApp.viewers["init"].scene.primitives.add(new FreeDo.FreedoPModelset({
+            		url: model[key].url
+            	}));
+        		//移动模型到坑里
+        		modelTile.readyPromise.then(function() {
+            		moveModel(modelTile,model[key].x,model[key].y,model[key].z,model[key].heading,model[key].pitch,model[key].roll,model[key].scalex,model[key].scaley,model[key].scalez);
+            	});
+        		//挖坑
+            	FreeDoUtil.dig(FreedoApp.viewers["init"],holeData,imgarray);
+        	}
+        	//镜头定位
+        	FreedoApp.viewers["init"].camera.setView({
+             	destination :new FreeDo.Cartesian3(-2302923.868697135,4394881.466502352,3995119.1300424132),
+     			orientation: {
+     				heading : 3.4103115877496184,
+     				pitch : FreeDo.Math.toRadians(-90),
+     				roll : 3.1249876427485663
+     			}
+     		});
+
+        }
+	});
 });
 var creatEntity = function(firstPoint,lastPoint) {
-	console.log(globalviewer.camera);
-	var road1 = globalviewer.entities.add( {  
+	console.log(FreedoApp.viewers["init"].camera);
+	var road1 = FreedoApp.viewers["init"].entities.add( {  
 		name : '道路1',  
 		position : FreeDo.Cartesian3.fromDegrees(117.6601106774757, 39.0278397440452,15 ),  
 		point : { //点  
@@ -36,7 +70,7 @@ var creatEntity = function(firstPoint,lastPoint) {
 	        material : 	FreeDo.Color.BLANCHEDALMOND.withAlpha(0.8)
 	    }
 	} );
-	var road2 = globalviewer.entities.add( {  
+	var road2 = FreedoApp.viewers["init"].entities.add( {  
 		name : '道路2',  
 		position : FreeDo.Cartesian3.fromDegrees(117.65717660285547, 39.029622371574646,15 ),  
 		point : { //点  
@@ -61,7 +95,7 @@ var creatEntity = function(firstPoint,lastPoint) {
 	        material : 	FreeDo.Color.BLANCHEDALMOND.withAlpha(0.8)
 	    }
 	} );
-	var river1 = globalviewer.entities.add( {  
+	var river1 = FreedoApp.viewers["init"].entities.add( {  
 		name : '水系1',  
 		position : FreeDo.Cartesian3.fromDegrees(117.65443147101222, 39.02762212630358,15 ),  
 		point : { //点  
@@ -87,7 +121,7 @@ var creatEntity = function(firstPoint,lastPoint) {
 	        material : 	FreeDo.Color.DEEPSKYBLUE.withAlpha(0.8)
 	    }
 	} );
-	var river2 = globalviewer.entities.add( {  
+	var river2 = FreedoApp.viewers["init"].entities.add( {  
 		name : '水系2',  
 		position : FreeDo.Cartesian3.fromDegrees(117.65066204707234, 39.02692651335879,15 ),  
 		point : { //点  

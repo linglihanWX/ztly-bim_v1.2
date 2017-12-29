@@ -29,11 +29,7 @@
 	<link rel="stylesheet" href="${ctx }/static/page/common/css/common.css">
 	<link rel="stylesheet" href="${ctx }/static/page/common/IconFont/iconfont.css">
 	<link rel="stylesheet" href="${ctx }/static/page/common/css/reset.css">
-	<script src="${ctx }/static/page/common/js/FreeDoTool.js"></script>
-	<script src="${ctx }/static/webgl/pModel/js/move.js"></script>
-	<script src="${ctx }/static/page/surveystudy/planRoute/js/planRouteViewer.js"></script>
-	<script src="${ctx }/static/page/surveystudy/planRoute/js/planRoute.js"></script>
-	<script src="${ctx }/static/webgl/Tool/surveyCallBack.js"></script>
+
 	<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
 	  	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -43,9 +39,9 @@
 	<!--[if IE 9]>
 		<link id="ie9style" href="css/ie9.css" rel="stylesheet">
 	<![endif]-->
-	<link rel="stylesheet" href="${ctx }/static/page/surveystudy/planRoute/css/planRoute.css">
+	<link rel="stylesheet" href="${ctx }/static/page/keyan/xuanxian/css/xuanxian.css">
 	 <link rel="stylesheet" href="${ctx }/static/page/common/css/media.css">
-		<script src="${ctx}/static/page/common/js/FreeDoUtil.js"></script>
+
 </head>
 
 <body>
@@ -169,4 +165,10 @@
 </body>
 	<script src="${ctx}/static/page/common/js/jquery-ui-1.10.0.custom.min.js"></script>
 	<script src="${ctx}/static/page/common/js/jquery.noty.js"></script>
+	<script src="${ctx}/static/page/common/js/FreeDoUtil.js"></script>
+	<script src="${ctx}/static/page/common/js/FreedoApp.js"></script>
+	<script src="${ctx }/static/page/common/js/FreeDoTool.js"></script>
+	<script src="${ctx }/static/webgl/pModel/js/move.js"></script>
+	<script src="${ctx }/static/webgl/Tool/surveyCallBack.js"></script>
+	<script src="${ctx }/static/page/keyan/xuanxian/js/xuanxian.js"></script>
 </html>
