@@ -15,8 +15,14 @@ public class Pmodel {
 	private Double scaley;
 	private Double scalez;
 	private String hole;
-	public String imagelayer;
-	private  String unitname;
+	private String imagelayer;
+	private String unitname;
+	private Double cameradx;
+	private Double cameraxy;
+	private Double cameradz;
+	private Double cameraheading;
+	private Double camerapitch;
+	private Double cameraroll;
 	public Integer getId() {
 		return id;
 	}
@@ -107,27 +113,41 @@ public class Pmodel {
 	public void setUnitname(String unitname) {
 		this.unitname = unitname;
 	}
-	public Pmodel() {
-		super();
+	public Double getCameradx() {
+		return cameradx;
 	}
-	public Pmodel(Integer id, String name, String url, Double x, Double y, Double z, Double heading, Double pitch,
-			Double roll, Double scalex, Double scaley, Double scalez, String hole, String imagelayer, String unitname) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.url = url;
-		this.x = x;
-		this.y = y;
-		this.z = z;
-		this.heading = heading;
-		this.pitch = pitch;
-		this.roll = roll;
-		this.scalex = scalex;
-		this.scaley = scaley;
-		this.scalez = scalez;
-		this.hole = hole;
-		this.imagelayer = imagelayer;
-		this.unitname = unitname;
+	public void setCameradx(Double cameradx) {
+		this.cameradx = cameradx;
+	}
+	public Double getCameraxy() {
+		return cameraxy;
+	}
+	public void setCameraxy(Double cameraxy) {
+		this.cameraxy = cameraxy;
+	}
+	public Double getCameradz() {
+		return cameradz;
+	}
+	public void setCameradz(Double cameradz) {
+		this.cameradz = cameradz;
+	}
+	public Double getCameraheading() {
+		return cameraheading;
+	}
+	public void setCameraheading(Double cameraheading) {
+		this.cameraheading = cameraheading;
+	}
+	public Double getCamerapitch() {
+		return camerapitch;
+	}
+	public void setCamerapitch(Double camerapitch) {
+		this.camerapitch = camerapitch;
+	}
+	public Double getCameraroll() {
+		return cameraroll;
+	}
+	public void setCameraroll(Double cameraroll) {
+		this.cameraroll = cameraroll;
 	}
 	
 }

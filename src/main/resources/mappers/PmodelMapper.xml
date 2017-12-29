@@ -18,21 +18,7 @@
 	<!-- 根据用户 id 查询模型部件路径 -->
 	<select id="getModelUrlByProjectId" parameterType="String" resultType="com.freedotech.app.ztly.model.Pmodel">
 		SELECT
-		tp.id,
-		tp.name,
-		tp.url,
-		tp.x,
-		tp.y,
-		tp.z,
-		tp.heading,
-		tp.pitch,
-		tp.roll,
-		tp.scalex,
-		tp.scaley,
-		tp.scalez,
-		tp.unitname,
-		tp.hole,
-		tp.imagelayer
+		tp.*
 		FROM
 		t_project_pmodel tpp
 		LEFT JOIN t_pmodel tp ON tp.id = tpp.t_mod_id

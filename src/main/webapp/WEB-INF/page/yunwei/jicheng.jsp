@@ -128,7 +128,7 @@
 				<ul class="breadcrumb">
 					<i class="iconfont icon-hxzfont08"></i>
 					<li class="lists">
-					<a href="${ctx }/yunwei/toGaikuang">项目概况</a>
+					   <a href="${ctx }/yunwei/toGaikuang">项目概况</a>
 						<a href="${ctx }/yunwei/toKongjianManage">空间管理</a>
 						<a href="${ctx }/yunwei/toZichan">资产管理</a>
 						<a href="#" >巡检管理</a>
@@ -136,7 +136,7 @@
 						<a href="#">调度管理</a>
 						<a href="#">风险管控</a>
 						<a href="#">应急指挥</a>
-						<a href="#"">其他系统</a>
+						<a href="#" class="activeList">其他系统</a>
 						<a href="#">知识库建设</a>
 					</li>
 

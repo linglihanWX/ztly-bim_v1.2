@@ -1,5 +1,55 @@
 package com.freedotech.app.ztly.web;
 
-public class ShejiController {
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+/**
+* <p>Title: ShejiController</p>
+* <p>Description: 设计模块  跳转页面控制器</p>
+* <p>Company: freedo</p> 
+*  @author freedoxiaolong 
+   @date 2017年12月29日*/
+@Controller
+@RequestMapping("/sheji")
+public class ShejiController {
+	//跳转至概况页面
+   @RequestMapping("/toGaikuang")
+	public String toGaikuangPage() {
+		return "/sheji/gaikuang";
+	}
+   //跳转至任务页面
+   @RequestMapping("/toRenwu")
+  	public String toRenwuPage() {
+  		return "/sheji/renwu";
+  	}
+   //跳转至文档管理页面
+   @RequestMapping("/toWendang")
+  	public String toWendangPage() {
+  		return "/sheji/wendang";
+  	}
+   //跳转至bim管理页面
+   @RequestMapping("/toBIMfangansheji")
+  	public String toBimPage() {
+  		return "/sheji/BIMfangansheji";
+  	}
+   //跳转至数字移交页面
+   @RequestMapping("/toYijiao")
+  	public String toYijiaoPage() {
+  		return "/sheji/yijiao";
+  	}
+   //跳转至3d展示页面
+   @RequestMapping("/toZhanshi")
+  	public String toZhanshiPage() {
+  		return "/sheji/zhanshi";
+  	}
+   //跳转至主体建筑页面
+   @RequestMapping("/toZhutijianzhu")
+   public String toZhutijianzhuPage() {
+	   return "/sheji/zhutijianzhu";
+   }
+   //跳转至版本对比页面
+   @RequestMapping("/toDuibi")
+   public String toDuibiPage() {
+	   return "/sheji/duibi";   
+	   }
 }

@@ -8,7 +8,7 @@ $(function () {
         })
     });
     $.ajax({
-        url: "static/page/designcoordination/shuziyijiao/shuziyijiao.json",
+        url: "../../../static/page/sheji/shuziyijiao/shuziyijiao.json",
         type: "get",
         dataType:"json",
         success: function (data) {

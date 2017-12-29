@@ -3,7 +3,7 @@ $(function () {
     var h1 = $("#content .breadcrumb").height();
     $("#tree").height(h - h1 - 27);
     $.ajax({
-        url: "static/page/designcoordination/designplan/designplan.json",
+        url: "../../../static/page/sheji/BIMfangansheji/designplan.json",
         type: "get",
         dataType:"json",
         success: function (data) {

@@ -4,7 +4,7 @@ $(function () {
 	$("#tree").height(h - h1 - 24);
 
     $.ajax({
-        url: "static/page/designcoordination/documentmgmt/doc.json",
+        url: "../../../static/page/sheji/wendang/doc.json",
         type: "get",
         dataType:"json",
         success: function (data) {
@@ -62,7 +62,7 @@ function toyulan(){
      		console.log(this);
      		var filename = $(this).parents("tr").children().eq(0).text();
      		var rootPath = getRootPath();
-     		window.open(rootPath+"/static/page/designcoordination/documentmgmt/wendang/"+filename);
+     		window.open(rootPath+"/static/page/sheji/wendang/wendang/"+filename);
      	})
      });
 }

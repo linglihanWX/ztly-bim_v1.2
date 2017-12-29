@@ -7,10 +7,9 @@ $(function () {
     var h3 = $(".breadcrumb").height();
     $("#content .row-fluid").height(h2 - h3);
     $(".dialogContent").height(h2-250);
-
 	var treeObj = {};
     $.ajax({
-        url: "getTangguData",
+        url: "/yunwei/getProjectModelTreeData",
         type: "get",
         dataType:"json",
         success: function (data) {
@@ -22,14 +21,14 @@ $(function () {
                 data: {
                     simpleData: {
                         enable: true,
-                        idKey: "uId",
-                        pIdKey: "pId",
+                        idKey: "uid",
+                        pIdKey: "pid",
                         rootPId: "-1"
                     }
                 },
                 callback:{
                 	onCheck:function(event, treeId, treeNode){
-                		var uid = treeNode.uId;
+                		var uid = treeNode.uid;
                 		switch (uid) {
 						case "e0b429b2-afe3-11e7-46c2-5ebc1b3c3ce2":
 							if(treeNode.checked){
@@ -91,7 +90,7 @@ $(function () {
                 		var nodes = treeObj.getCheckedNodes(false);
                 		var models =[];
                 		for(i in nodes){
-                			var uid = ["${component} === \'" + nodes[i].uId + "\'", 'false'];
+                			var uid = ["${component} === \'" + nodes[i].uid + "\'", 'false'];
                 			models.push(uid);
                 		}
                 		models.push(['true', 'true']);
@@ -349,7 +348,7 @@ $(function () {
 
     $(".hideModel").click(function () {
     	var treeObj = $.fn.zTree.getZTreeObj("tree");
-    	var nodes = treeObj.getNodesByParam("uId", catchModelTile, null);
+    	var nodes = treeObj.getNodesByParam("uid", catchModelTile, null);
     	treeObj.checkNode(nodes[0], false, true,true);
     	treeObj.expandNode(nodes[nodes.lenght-1]);
     	treeObj.updateNode(nodes[0]);
@@ -364,7 +363,7 @@ $(function () {
     	treeObj.checkAllNodes(true);
     	var models =[];
 		/*
-		 * for(i in nodes){ var uid = ["${component} === \'" + nodes[i].uId +
+		 * for(i in nodes){ var uid = ["${component} === \'" + nodes[i].uid +
 		 * "\'", 'false']; models.push(uid); }
 		 */
 		models.push(['true', 'true']);
@@ -399,7 +398,7 @@ $(function () {
 		 * else{ $("#attrInfo").hide(); }
 		 */
          var treeObj = $.fn.zTree.getZTreeObj("tree");
-     	var nodes = treeObj.getNodesByParam("uId", catchModelTile, null);
+     	var nodes = treeObj.getNodesByParam("uid", catchModelTile, null);
      	$("#shuxingmingcheng").text(nodes[0].name);
         $("#menu").hide();
     });

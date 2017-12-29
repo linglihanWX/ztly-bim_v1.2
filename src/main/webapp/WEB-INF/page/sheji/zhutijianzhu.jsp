@@ -31,119 +31,118 @@
 	<link rel="stylesheet" href="${ctx }/static/page/common/IconFont/iconfont.css">
 	<script src="${ctx }/static/page/common/js/FreeDoTool.js"></script>
 	<script src="${ctx }/static/page/common/js/jquery-1.9.1.min.js"></script>
-	<script src="${ctx }/static/page/designcoordination/mainbuilding/js/MainbuildingViewer.js"></script>
+	<script src="${ctx }/static/page/sheji/zhutijianzhu/js/zhutijianzhu_viewer.js"></script>
 	<script src="${ctx }/static/webgl/pModel/js/move.js"></script>
 	<link rel="stylesheet" href="${ctx }/static/page/common/js/zTreeStyle/zTreeStyle.css">
 	<script src="${ctx }/static/page/common/js/zTreeStyle/ztree.js"></script>
 
 	<!-- end: Favicon -->
 
-	<link rel="stylesheet" href="${ctx }/static/page/designcoordination/mainbuilding/css/mainbuilding.css">
+	<link rel="stylesheet" href="${ctx }/static/page/sheji/zhutijianzhu/css/zhutijianzhu.css">
 <link rel="stylesheet" href="${ctx }/static/page/common/css/media.css">
 
 </head>
 
 <body>
 	<!-- start: Header -->
-	<div class="navbar">
-		<div class="navbar-inner">
-			<div class="container-fluid">
-				<a class="btn btn-navbar" data-toggle="collapse" data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</a>
-				<a class="brand" href="${ctx }/toIndex"><span>BIM全生命周期管理平台</span></a>
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="btn btn-navbar" data-toggle="collapse"
+               data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="${ctx }/toLogin"><span>BIM全生命周期管理平台</span></a>
 
-				<!-- start: Header Menu -->
-				<div class="nav-no-collapse header-nav">
-					<ul class="nav pull-right">
+            <!-- start: Header Menu -->
+            <div class="nav-no-collapse header-nav">
+                <ul class="nav pull-right">
+                    <li class="dropdown hidden-phone">
+                        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="icon-bell"></i>
+                        </a>
+                    </li>
+                    <!-- start: Message Dropdown -->
 						<li class="dropdown hidden-phone">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="icon-bell"></i>
-							</a>
-						</li>
-						<!-- start: Message Dropdown -->
-						<li class="dropdown hidden-phone">
-							<a class="btn dropdown-toggle"  href="${ctx }/toSet">
+							<a class="btn dropdown-toggle"  href="${ctx }/toShezhi">
 								<i class="iconfont icon-set"></i>
 							</a>
 						</li>
 						<!-- start: Notifications Dropdown -->
 						<li class="dropdown hidden-phone">
-							<a class="btn dropdown-toggle" href="${ctx }/toIndex">
+							<a class="btn dropdown-toggle" href="${ctx }/toLogin">
 								<i class="icon-home" style="font-size: 20px"></i>
 							</a>
 						</li>
-						<!-- end: Notifications Dropdown -->
-						<!-- start: User Dropdown -->
-						<li class="dropdown">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="halflings-icon white user"></i>李荣
-								<span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu">
-								<li class="dropdown-menu-title">
-									<span>账户设置</span>
-								</li>
-								<li><a href="#"><i class="halflings-icon user"></i> 文件</a></li>
-								<li><a href="${ctx }/loginPage"><i class="halflings-icon off"></i>退出登录</a></li>
-							</ul>
-						</li>
-						<!-- end: User Dropdown -->
-					</ul>
-				</div>
-				<!-- end: Header Menu -->
+                    <!-- end: Notifications Dropdown -->
+                    <!-- start: User Dropdown -->
+                    <li class="dropdown">
+                        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="halflings-icon white user"></i><shiro:principal property="nickname"/>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-menu-title">
+                                <span>账户设置</span>
+                            </li>
+                            <li><a href="#"><i class="halflings-icon user"></i> 文件</a></li>
+                            <li><a href="${ctx }/logout"><i class="halflings-icon off"></i>退出登录</a></li>
+                        </ul>
+                    </li>
+                    <!-- end: User Dropdown -->
+                </ul>
+            </div>
 
-			</div>
-		</div>
-	</div>
-	<!-- start: Header -->
+        </div>
+    </div>
+</div>
+<!-- start: Header -->
 
-	<div class="container-fluid-full">
-		<div class="row-fluid">
+<div class="container-fluid-full">
+    <div class="row-fluid">
 
-			<!-- start: Main Menu -->
-			<div id="sidebar-left" class="span2">
-				<div class="nav-collapse sidebar-nav">
-					<ul class="nav nav-tabs nav-stacked main-menu">
-						<li class="active" id="structure">
-							<a>
-								<i class="icon-bar-chart"></i>
-								<span class="hidden-tablet">结构</span>
+        <!-- start: Main Menu -->
+        <div id="sidebar-left" class="span2">
+            <div class="nav-collapse sidebar-nav">
+                <ul class="nav nav-tabs nav-stacked main-menu">
+                    <li>
+							<a href="${ctx }/keyan/toGaikuang">
+								<i class="iconfont icon-kcmanager"></i>
+								<span class="hidden-tablet">勘测可研</span>
 							</a>
 						</li>
-						<li id="sence">
-							<a>
-								<i class="icon-envelope"></i>
-								<span class="hidden-tablet">场景</span>
+						<li class="active">
+							<a href="#">
+								<i class="iconfont icon-sheji"></i>
+								<span class="hidden-tablet">设计协同</span>
 							</a>
 						</li>
-						<li id="remark">
-							<a>
-								<i class="icon-tasks"></i>
-								<span class="hidden-tablet">备注</span>
+						<li >
+							<a href="${ctx }/shigong/toGaikuang">
+								<i class="iconfont icon-construct"></i>
+								<span class="hidden-tablet">施工管理</span>
 							</a>
 						</li>
-							
-						<li id="attribute">
-							<a>
-								<i class="icon-eye-open"></i>
-								<span class="hidden-tablet">属性</span>
+						<li>
+							<a href="${ctx }/yunwei/toGaikuang">
+								<i class="iconfont icon-Refresh"></i>
+								<span class="hidden-tablet">运维管理</span>
 							</a>
 						</li>
-					</ul>
-				</div>
-			</div>
-			<!-- end: Main Menu -->
+                </ul>
+            </div>
+        </div>
+        <!-- end: Main Menu -->
 
 			<!-- start: Content -->
 			<div id="content" class="span10">
 			<ul class="breadcrumb">
-					<a href="${ctx}/toDesign"><i class="iconfont icon-return"></i>返回</a>
+					<a href="${ctx}/sheji/toBIMfangansheji"><i class="iconfont icon-return"></i>返回</a>
 					<li class="lists">
 						<a href="#" class="activeList">方案审查</a>
-						<a href="${ctx}/toDesign">仿真设计</a>
+						<a href="${ctx}/sheji/toBIMfangansheji">仿真设计</a>
 					</li>
 					<li>
 						<div id="div1" class="close1">
@@ -188,15 +187,15 @@
 								<p><input type="search" placeholder="快速搜索备注"><i class="iconfont icon-search"></i></p>
 								<ul>
 									<li id="beizhu1">
-										<img src="${ctx }/static/page/designcoordination/designplan/img/anjianshebei.png" alt="">
+										<img src="${ctx }/static/page/sheji/BIMfangansheji/img/anjianshebei.png" alt="">
 										<p>安检设备皮带断裂。</p>
 									</li>
 									<li id="beizhu2">
-										<img src="${ctx }/static/page/designcoordination/designplan/img/diantishebei.png" alt="">
+										<img src="${ctx }/static/page/sheji/BIMfangansheji/img/diantishebei.png" alt="">
 										<p>楼梯倾斜度过大。</p>
 									</li>
 									<li id="beizhu3">
-										<img src="${ctx }/static/page/designcoordination/designplan/img/zhajishebei.png" alt="">
+										<img src="${ctx }/static/page/sheji/BIMfangansheji/img/zhajishebei.png" alt="">
 										<p>闸机设备间距过大。</p>
 									</li>
 								</ul>
@@ -236,7 +235,7 @@
 					</div>
 					<div id="showDraw">
 					      <p>出图<span class="hClose">关闭</span></p >
-					      <img src="${ctx }/static/page/designcoordination/mainbuilding/img/zhantingpingmiantu.png" alt="">
+					      <img src="${ctx }/static/page/sheji/zhutijianzhu/img/zhantingpingmiantu.png" alt="">
 					      <p>
 					         <input type="checkbox" name="">图例
 					         <input type="checkbox" name="">图签
@@ -245,7 +244,7 @@
 					      <button class="downLoad">下载</button>
 					 </div>
 					 <div class="bgImg">
-  							<img src="${ctx }/static/page/designcoordination/mainbuilding/img/zhantingpingmiantu.png" alt="" >
+  							<img src="${ctx }/static/page/sheji/zhutijianzhu/img/zhantingpingmiantu.png" alt="" >
    							<span>关闭</span>
 					</div>
 					<div class="layer">
@@ -326,7 +325,7 @@
 	                        <li>救援伤员应急演练</li>
 	                        <li>突发事故应急演练</li>
 	                    </ul>
-	                    <video src="${ctx }/static/page/designcoordination/mainbuilding/video/jiuyuanshipin.webm" controls></video>
+	                    <video src="${ctx }/static/page/sheji/zhutijianzhu/video/jiuyuanshipin.webm" controls></video>
 	                    <span>关闭</span>
                 </div>
 				</div>
@@ -406,7 +405,7 @@
         </div>
 </div>
 </body>
-	<script src="${ctx}/static/page/designcoordination/mainbuilding/js/mainbuilding.js"></script>
+	<script src="${ctx}/static/page/sheji/zhutijianzhu/js/zhutijianzhu.js"></script>
 	<script src="${ctx}/static/webgl/manyou/js/FDPAction_Camera.js"></script>
 	<script src="${ctx}/static/webgl/manyou/js/FDPCameraRoute.js"></script>
 	<script src="${ctx}/static/webgl/manyou/js/FDPScript.js"></script>

@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="${ctx }/static/page/common/IconFont/iconfont.css">
     <link rel="stylesheet" href="${ctx }/static/page/common/js/zTreeStyle/zTreeStyle.css">
     <script src="${ctx }/static/page/common/js/zTreeStyle/ztree.js"></script>
-    <!-- <link rel="stylesheet" href="${ctx }/static/page/yunwei/yunwei/css/yunwei.css"> -->
+    <link rel="stylesheet" href="${ctx }/static/page/yunwei/gaikuang/css/gaikuang.css">
 
     <link rel="stylesheet" href="${ctx }/static/page/common/css/media.css">
     <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -140,7 +140,7 @@
             <ul class="breadcrumb">
                 <i class="iconfont icon-hxzfont08"></i>
                 <li class="lists">
-                		<a href="#">项目概况</a>
+                		<a href="#" class="activeList">项目概况</a>
 						<a href="${ctx }/yunwei/toKongjianManage">空间管理</a>
 						<a href="${ctx }/yunwei/toZichan">资产管理</a>
 						<a href="#" >巡检管理</a>
@@ -262,7 +262,7 @@
 </div>
 <script src="${ctx }/static/page/common/js/jquery-ui-1.10.0.custom.min.js"></script>
 <script src="${ctx }/static/page/common/js/echarts.min.js"></script>
-<!-- <script src="${ctx }/static/page/yunwei/yunwei/js/yunwei.js"></script> -->
+<script src="${ctx }/static/page/yunwei/gaikuang/js/gaikuang.js"></script> 
 
 </body>
 
