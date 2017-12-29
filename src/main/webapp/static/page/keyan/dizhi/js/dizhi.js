@@ -26,6 +26,14 @@ $(function () {
 				}
 			}
 			dizhidata = JSON.parse(dizhistr);
+			for (let i = 1; i <= nodeJson.length; i++) {
+				for (let j = 1; j <= dizhidata[i-1].drilling.length; j++) {
+					$("#dzc"+nodeJson[i-1].id+"depth"+j).text(dizhidata[i-1].drilling[j-1].height);
+					$("#dzc"+nodeJson[i-1].id+"height"+j).text(dizhidata[i-1].drilling[j-1].altitude);
+					$("#dzc"+nodeJson[i-1].id+"standardheight"+j).text(dizhidata[i-1].drilling[j-1].standardheight);
+					
+				}
+			}
 			var treedata = [{
 				"id" : 0,
 				"pId" : -1,
@@ -122,79 +130,14 @@ $(function () {
 				}
 				});
 			});
+			
+			
 })
 
 var flyToModel=function(picked)
 {	
 	//FreedoApp.viewers["earth"].scene.preRender.removeEventListener(setdivfollow)
 	if(picked!=null){
-		/*$(".detailInfo").show();
-		switch (picked.id) {
-		case "钻井柱1_0":
-			GeologyViewer.fly(FreedoApp.viewers["earth"],115.999,39.001,80);
-			setablevalue2("粉质粘土","180","20","11");
-			break;
-		case "钻井柱1_1":
-			GeologyViewer.fly(FreedoApp.viewers["earth"],115.999,39.001,95);
-			setablevalue2("泥岩","95","5","9");
-			break;
-		case "钻井柱1_2":
-			$(".detailInfo ul").html("<li><span>名称</span><input type='text' value='沙岩'/></li><li><span>深度</span><input type='text' value='78米'/></li><li><span>厚度</span><input type='text' value='13米'/></li><li><span>标高</span><input type='text' value='15米'/></li>");
-			GeologyViewer.fly(FreedoApp.viewers["earth"],115.999,39.001,105);
-			setablevalue2("沙岩","78","13","15");
-			break;
-		case "钻井柱1_3":
-			GeologyViewer.fly(FreedoApp.viewers["earth"],115.999,39.001,115);
-			setablevalue2("素填土","50","10","10");
-			break;
-		case "钻井柱1_4":
-			GeologyViewer.fly(FreedoApp.viewers["earth"],115.999,39.001,120);
-			setablevalue2("强风华带","30","2","8");
-			break;
-		case "钻井柱2_0":
-			GeologyViewer.fly(FreedoApp.viewers["earth"],116.001,39,70);
-			setablevalue2("粉质粘土","98","2","11");
-			break;
-		case "钻井柱2_1":
-			GeologyViewer.fly(FreedoApp.viewers["earth"],116.001,39,73);
-			setablevalue2("泥岩","95","5","8");
-			break;
-		case "钻井柱2_2":
-			GeologyViewer.fly(FreedoApp.viewers["earth"],116.001,39,75);
-			setablevalue2("沙岩","93","3","15");
-			break;
-		case "钻井柱2_3":
-			GeologyViewer.fly(FreedoApp.viewers["earth"],116.001,39,81);
-			setablevalue2("素填土","90","10","10");
-			break;
-		case "钻井柱2_4":
-			GeologyViewer.fly(FreedoApp.viewers["earth"],116.001,39,90);
-			setablevalue2("强风华带","98","2","8");
-			break;
-		case "钻井柱3_0":
-			GeologyViewer.fly(FreedoApp.viewers["earth"],116.002,39.002,80);
-			setablevalue2("粉质粘土","28","20","11");
-			break;
-		case "钻井柱3_1":
-			GeologyViewer.fly(FreedoApp.viewers["earth"],116.002,39.002,90);
-			setablevalue2("泥岩","13","5","9");
-			break;
-		case "钻井柱3_2":
-			GeologyViewer.fly(FreedoApp.viewers["earth"],116.002,39.002,100);
-			setablevalue2("沙岩","21","13","15");
-			break;
-		case "钻井柱3_3":
-			GeologyViewer.fly(FreedoApp.viewers["earth"],116.002,39.002,110);
-			setablevalue2("素填土","18","10","10");
-			break;
-		case "钻井柱3_4":
-			GeologyViewer.fly(FreedoApp.viewers["earth"],116.002,39.002,120);
-			setablevalue2("强风华带","28","20","8");
-			break;
-
-		default:
-			break;
-		}*/
 		var treeObj = $.fn.zTree.getZTreeObj("tree");
 		if(picked.primitive.boundingSphere!=undefined){
 			var index = picked.id.split("_");

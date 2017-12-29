@@ -180,7 +180,7 @@
 										<th rowspan="2">孔口高程</th>
 										<th colspan="2">坐标</th>
 										<th colspan="3">粉质黏土</th>
-										<th colspan="4">泥岩</th>
+										<th colspan="3">泥岩</th>
 										<th colspan="3">砂岩</th>
 										<th colspan="3">素填土</th>
 										<th colspan="3">强风化带(m)</th>
@@ -188,12 +188,11 @@
 										<th rowspan="2">操作</th>
 									</tr>
 									<tr>
-										<th>Lon</th>
-										<th>Lat</th>
+										<th>经度</th>
+										<th>纬度</th>
 										<th>深度</th>
 										<th>厚度</th>
 										<th>标高</th>
-										<th>序号</th>
 										<th>深度</th>
 										<th>厚度</th>
 										<th>标高</th>
@@ -217,22 +216,21 @@
 										<td>${dizhi.drillingaltitude }</td>
 										<td>${dizhi.drillinglon }</td>
 										<td>${dizhi.drillinglat }</td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
+										<td id="dzc${dizhi.id }depth1"></td>
+										<td id="dzc${dizhi.id }height1"></td>
+										<td id="dzc${dizhi.id }standardheight1"></td>
+										<td id="dzc${dizhi.id }depth2"></td>
+										<td id="dzc${dizhi.id }height2"></td>
+										<td id="dzc${dizhi.id }standardheight2"></td>
+										<td id="dzc${dizhi.id }depth3"></td>
+										<td id="dzc${dizhi.id }height3"></td>
+										<td id="dzc${dizhi.id }standardheight3"></td>
+										<td id="dzc${dizhi.id }depth4"></td>
+										<td id="dzc${dizhi.id }height4"></td>
+										<td id="dzc${dizhi.id }standardheight4"></td>
+										<td id="dzc${dizhi.id }depth5"></td>
+										<td id="dzc${dizhi.id }height5"></td>
+										<td id="dzc${dizhi.id }standardheight5"></td>
 										<td>${dizhi.samplingdepth }</td>
 										<td></td>
 									</tr>
