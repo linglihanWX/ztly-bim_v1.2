@@ -13,3 +13,5 @@
 	<script src="${ctx}/static/page/common/js/jquery.raty.min.js"></script>
 	<script src="${ctx}/static/page/common/js/jquery.uploadify-3.1.min.js"></script>
 	<script src="${ctx}/static/page/common/js/custom.js"></script>
+	<script src="${ctx}/static/page/common/js/common.js"></script>
+	

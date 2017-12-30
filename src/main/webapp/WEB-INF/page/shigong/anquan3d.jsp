@@ -40,61 +40,7 @@
 </head>
 
 <body>
-	<!-- start: Header -->
-	<div class="navbar">
-		<div class="navbar-inner">
-			<div class="container-fluid">
-				<a class="btn btn-navbar" data-toggle="collapse" data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</a>
-				<a class="brand" href="${ctx }/toIndex"><span>BIM全生命周期管理平台</span></a>
-
-				<!-- start: Header Menu -->
-				<div class="nav-no-collapse header-nav">
-					<ul class="nav pull-right">
-						<li class="dropdown hidden-phone">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="icon-bell"></i>
-							</a>
-						</li>
-						<!-- start: Message Dropdown -->
-						<li class="dropdown hidden-phone">
-							<a class="btn dropdown-toggle"  href="${ctx }/toSet">
-								<i class="iconfont icon-set"></i>
-							</a>
-						</li>
-						<!-- start: Notifications Dropdown -->
-						<li class="dropdown hidden-phone">
-							<a class="btn dropdown-toggle" href="${ctx }/toIndex">
-								<i class="icon-home" style="font-size: 20px"></i>
-							</a>
-						</li>
-						<!-- end: Notifications Dropdown -->
-						<!-- start: User Dropdown -->
-						<li class="dropdown">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="halflings-icon white user"></i>李荣
-								<span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu">
-								<li class="dropdown-menu-title">
-									<span>账户设置</span>
-								</li>
-								<li><a href="#"><i class="halflings-icon user"></i> 文件</a></li>
-								<li><a href="${ctx }/loginPage"><i class="halflings-icon off"></i>退出登录</a></li>
-							</ul>
-						</li>
-						<!-- end: User Dropdown -->
-					</ul>
-				</div>
-
-			</div>
-		</div>
-	</div>
-	<!-- start: Header -->
-
+	<%@ include file="/WEB-INF/page/common/iframe/head.jsp" %>
 	<div class="container-fluid-full">
 		<div class="row-fluid">
 
@@ -148,18 +94,18 @@
 					<i class="iconfont icon-hxzfont08"></i>
 					<li style="margin-right: 20px;" id="return"><i class="iconfont icon-return"></i>返回</li>
 					<li class="lists">
-                		<a href="${ctx }/toShigongguanliGK">项目概况</a>
-						<a href="${ctx }/toEbs">进度管理</a>
-						<a href="${ctx }/toPm">场景管理</a>
-						<a href="${ctx }/toSafe" class="activeList">安全管理</a>
-						<a href="${ctx }/toDungou">盾构监测</a>
-						<a href="${ctx }/toRiskmgmt">风险管理</a>
+                		<a href="${ctx }/shigong/toGaikuang">项目概况</a>
+						<a href="${ctx }/shigong/toEbs">进度管理</a>
+						<a href="${ctx }/shigong/toPm">场景管理</a>
+						<a href="${ctx }/shigong/toAnquan" class="activeList">安全管理</a>
+						<a href="${ctx }/shigong/toDungou">盾构监测</a>
+						<a href="${ctx }/shigong/toFengxian">风险管理</a>
 						<a href="#">质量管理</a>
 						<a href="#">成本管理</a>
 						<a href="#">合同管理</a>
 						<a href="#">施工日志</a>
 						<a href="#">项目信息</a>
-						<a href="${ctx }/toWorkShow">3D综合展示</a>
+						<a href="${ctx }/shigong/toZhanshi">3D综合展示</a>
 					</li>
 					<li>
 						<div id="div1" class="open1">

@@ -6,7 +6,7 @@
 
     <!-- start: Meta -->
     <meta charset="utf-8">
-    <title>规划-项目概况</title>
+    <title>项目概况</title>
     <meta name="description" content="Bootstrap Metro Dashboard">
     <meta name="author" content="Dennis Ji">
     <meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
@@ -39,12 +39,13 @@
 <iframe src="../common/iframe/left.jsp" style="width: 100%;height: 100%;border: none;"></iframe> -->
 <%@ include file="/WEB-INF/page/common/iframe/head.jsp" %>
 <%@ include file="/WEB-INF/page/common/iframe/left.jsp" %>
+<span class="keyan" id="moduletype"></span>
         <!-- start: Content -->
         <div id="content" class="span10">
             <ul class="breadcrumb">
                 <i class="iconfont icon-hxzfont08"></i>
                 <li class="lists">
-						<a href="${ctx }/keyan/toGaikuang" class="activeList">项目概况</a>
+						<a href="#" class="activeList">项目概况</a>
 						<a href="${ctx }/keyan/toShuiwen">水文数据</a>
 						<a href="${ctx }/keyan/toHuanjing">环境数据</a>
 						<a href="${ctx }/keyan/toDizhi">地质数据</a>

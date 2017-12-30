@@ -43,7 +43,7 @@
 <body>
 <%@ include file="/WEB-INF/page/common/iframe/head.jsp" %>
 <%@ include file="/WEB-INF/page/common/iframe/left.jsp" %>
-
+<span class="keyan" id="moduletype"></span>
 			<!-- start: Content -->
 			<div id="content" class="span10">
 				<ul class="breadcrumb">
@@ -59,7 +59,7 @@
 						<a href="#">项目信息</a>
 						<a href="#">数据导出</a>
 						<a href="${ctx }/keyan/toXuanxian">规划选线</a>
-						<a href="${ctx }/keyan/toZhanshi" class="activeList">3D综合展示</a>
+						<a href="#" class="activeList">3D综合展示</a>
 					</li>
 					
 				</ul>

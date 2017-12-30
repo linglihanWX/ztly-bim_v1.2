@@ -45,7 +45,7 @@
 <body>
 <%@ include file="/WEB-INF/page/common/iframe/head.jsp" %>
 <%@ include file="/WEB-INF/page/common/iframe/left.jsp" %>
-
+<span class="keyan" id="moduletype"></span>
 			<!-- start: Content -->
 			<div id="content" class="span10">
 				<ul class="breadcrumb">
@@ -54,7 +54,7 @@
 						<a href="${ctx }/keyan/toGaikuang">项目概况</a>
 						<a href="${ctx }/keyan/toShuiwen">水文数据</a>
 						<a href="${ctx }/keyan/toHuanjing">环境数据</a>
-						<a href="${ctx }/keyan/toDizhi" class="activeList">地质数据</a>
+						<a href="#" class="activeList">地质数据</a>
 						<a href="#">风险数据</a>
 						<a href="#">环评报告</a>
 						<a href="#">政府批文</a>

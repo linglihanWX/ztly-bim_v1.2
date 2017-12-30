@@ -1,13 +1,12 @@
 package com.freedotech.app.ztly.dao;
 
 import java.util.List;
-
-import com.freedotech.app.ztly.model.Dungou;
+import java.util.Map;
 
 public interface DungouDao {
 
-	List<Dungou> getOneHData();
+	List<Map> getOneHData();
 
-	List<Dungou> getSomeHData();
+	List<Map> getSomeHData();
 
 }

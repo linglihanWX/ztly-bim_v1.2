@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +25,7 @@
     <link rel="stylesheet" href="${ctx }/static/page/common/css/common.css">
     <link rel="stylesheet" href="${ctx }/static/page/common/css/reset.css">
     <link rel="stylesheet" href="${ctx }/static/page/common/IconFont/iconfont.css">
-    <script src="${ctx }/static/page/shigongguanli/dungou/js/base-canvas.js"></script>
+    <script src="${ctx }/static/page/shigong/dungou/js/base-canvas.js"></script>
     <link rel="stylesheet" href="${ctx }/static/page/common/js/zTreeStyle/zTreeStyle.css">
     <link rel="stylesheet" href="${ctx }/static/page/common/css/appendTools.css">
     <script src="${ctx }/static/page/common/js/zTreeStyle/ztree.js"></script>
@@ -34,120 +35,32 @@
     <!--[if IE 9]>
     <link id="ie9style" href="css/ie9.css" rel="stylesheet">
     <![endif]-->
-    <link rel="stylesheet" href="${ctx }/static/page/shigongguanli/dungou/css/dungou.css">
+    <link rel="stylesheet" href="${ctx }/static/page/shigong/dungou/css/dungou.css">
     <link rel="stylesheet" href="${ctx }/static/page/common/css/media.css">
 </head>
 
 <body>
-<!-- start: Header -->
-<div class="navbar">
-    <div class="navbar-inner">
-        <div class="container-fluid">
-            <a class="btn btn-navbar" data-toggle="collapse"
-               data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </a>
-            <a class="brand" href="${ctx }/toIndex"><span>BIM全生命周期管理平台</span></a>
-
-            <!-- start: Header Menu -->
-            <div class="nav-no-collapse header-nav">
-                <ul class="nav pull-right">
-                    <li class="dropdown hidden-phone">
-                        <a class="btn dropdown-toggle" href="#">
-                            <i class="icon-bell"></i>
-                        </a>
-                    </li>
-                    <!-- start: Message Dropdown -->
-                    <li class="dropdown hidden-phone">
-                        <a class="btn dropdown-toggle" href="${ctx }/toSet">
-                            <i class="iconfont icon-set"></i>
-                        </a>
-                    </li>
-                    <!-- start: Notifications Dropdown -->
-                    <li class="dropdown hidden-phone">
-                        <a class="btn dropdown-toggle" href="${ctx }/toIndex">
-                            <i class="icon-home" style="font-size: 20px"></i>
-                        </a>
-                    </li>
-                    <!-- end: Notifications Dropdown -->
-                    <!-- start: User Dropdown -->
-                    <li class="dropdown">
-                        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="halflings-icon white user"></i>李荣
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-menu-title">
-                                <span>账户设置</span>
-                            </li>
-                            <li><a href="#"><i class="halflings-icon user"></i> 文件</a></li>
-                            <li><a href="${ctx }/loginPage"><i class="halflings-icon off"></i>退出登录</a></li>
-                        </ul>
-                    </li>
-                    <!-- end: User Dropdown -->
-                </ul>
-            </div>
-
-        </div>
-    </div>
-</div>
-<!-- start: Header -->
-
-<div class="container-fluid-full">
-    <div class="row-fluid">
-
-        <!-- start: Main Menu -->
-        <div id="sidebar-left" class="span2">
-            <div class="nav-collapse sidebar-nav">
-                <ul class="nav nav-tabs nav-stacked main-menu">
-                    	<li>
-							<a href="${ctx }/toSurveystudyGK">
-								<i class="iconfont icon-kcmanager"></i>
-								<span class="hidden-tablet">勘测可研</span>
-							</a>
-						</li>
-						<li>
-							<a href="${ctx }/toGaikuang">
-								<i class="iconfont icon-sheji"></i>
-								<span class="hidden-tablet">设计协同</span>
-							</a>
-						</li>
-						<li class="active">
-							<a href="${ctx }/toShigongguanliGK">
-								<i class="iconfont icon-construct"></i>
-								<span class="hidden-tablet">施工管理</span>
-							</a>
-						</li>
-						<li>
-							<a href="${ctx }/toYunweiGK">
-								<i class="iconfont icon-Refresh"></i>
-								<span class="hidden-tablet">运维管理</span>
-							</a>
-						</li>
-                </ul>
-            </div>
-        </div>
-        <!-- end: Main Menu -->
-
+<%@ include file="/WEB-INF/page/common/iframe/head.jsp" %>
+<%@ include file="/WEB-INF/page/common/iframe/left.jsp" %>
+    <c:set var="runtime" value="${runtimedata.get(0) }"></c:set>
         <!-- start: Content -->
+        <span class="shigong" id="moduletype"></span>
         <div id="content" class="span10">
             <ul class="breadcrumb">
                 <i class="iconfont icon-hxzfont08"></i>
                 <li class="lists">
-                    	<a href="${ctx }/toShigongguanliGK">项目概况</a>
-						<a href="${ctx }/toEbs">进度管理</a>
-						<a href="${ctx }/toPm">场景管理</a>
-						<a href="${ctx }/toSafe">安全管理</a>
-						<a href="${ctx }/toDungou"  class="activeList">盾构监测</a>
-						<a href="${ctx }/toRiskmgmt">风险管理</a>
+                		<a href="${ctx }/shigong/toGaikuang">项目概况</a>
+						<a href="${ctx }/shigong/toEbs">进度管理</a>
+						<a href="${ctx }/shigong/toPm">场景管理</a>
+						<a href="${ctx }/shigong/toAnquan">安全管理</a>
+						<a href="${ctx }/shigong/toDungou" class="activeList">盾构监测</a>
+						<a href="${ctx }/shigong/toFengxian">风险管理</a>
 						<a href="#">质量管理</a>
 						<a href="#">成本管理</a>
 						<a href="#">合同管理</a>
 						<a href="#">施工日志</a>
 						<a href="#">项目信息</a>
-						<a href="${ctx }/toWorkShow">3D综合展示</a>
+						<a href="${ctx }/shigong/toZhanshi">3D综合展示</a>
                 </li>
                 <li>
                     <div id="div1" class="close1">
@@ -197,23 +110,23 @@
                             <tbody>
                             <tr class="soil">
                                 <td>土压1(bar)</td>
-                                <td>0.3784722</td>
+                                <td>${runtime.c43 }</td>
                             </tr>
                             <tr class="soil">
                                 <td>土压2(bar)</td>
-                                <td>0.7777778</td>
+                                <td>${runtime.c44 }</td>
                             </tr>
                             <tr class="soil">
                                 <td>土压3(bar)</td>
-                                <td>0.8385417</td>
+                                <td>${runtime.c45 }</td>
                             </tr>
                             <tr class="soil">
                                 <td>土压4(bar)</td>
-                                <td>0.2829861</td>
+                                <td>${runtime.c46 }</td>
                             </tr>
                             <tr class="soil">
                                 <td>土压5(bar)</td>
-                                <td>0.6614583</td>
+                                <td>${runtime.c47 }</td>
                             </tr>
                             </tbody>
                         </table>
@@ -241,35 +154,35 @@
                             <tbody>
                             <tr class="oil-route">
                                 <td>油缸A行程(mm)</td>
-                                <td>657</td>
+                                <td>${runtime.c22 }</td>
                             </tr>
                             <tr class="oil-route">
                                 <td>油缸B行程(mm)</td>
-                                <td>642</td>
+                                <td>${runtime.c24 }</td>
                             </tr>
                             <tr class="oil-route">
                                 <td>油缸C行程(mm)</td>
-                                <td>641</td>
+                                <td>${runtime.c26 }</td>
                             </tr>
                             <tr class="oil-route">
                                 <td>油缸D行程(mm)</td>
-                                <td>638</td>
+                                <td>${runtime.c28 }</td>
                             </tr>
                             <tr class="oil-bar">
                                 <td>油缸A压力(bar)</td>
-                                <td>24.1898155</td>
+                                <td>${runtime.c23 }</td>
                             </tr>
                             <tr class="oil-bar">
                                 <td>油缸B压力(bar)</td>
-                                <td>26.8084488</td>
+                                <td>${runtime.c25 }</td>
                             </tr>
                             <tr class="oil-bar">
                                 <td>油缸C压力(bar)</td>
-                                <td>25.83912</td>
+                                <td>${runtime.c27 }</td>
                             </tr>
                             <tr class="oil-bar">
                                 <td>油缸D压力(bar)</td>
-                                <td>0</td>
+                                <td>${runtime.c29 }</td>
                             </tr>
                             </tbody>
                         </table>
@@ -296,35 +209,35 @@
                             <tbody>
                             <tr class="mud">
                                 <td>1注浆压力(bar)</td>
-                                <td>0</td>
+                                <td>${runtime.c55 }</td>
                             </tr>
                             <tr class="mud">
                                 <td>2注浆压力(bar)</td>
-                                <td>0.695891261</td>
+                                <td>${runtime.c57 }</td>
                             </tr>
                             <tr class="mud">
                                 <td>3注浆压力(bar)</td>
-                                <td>0</td>
+                                <td>${runtime.c59 }</td>
                             </tr>
                             <tr class="mud">
                                 <td>4注浆压力(bar)</td>
-                                <td>0.264033556 </td>
+                                <td>${runtime.c61 } </td>
                             </tr>
                             <tr class="mud-count">
                                 <td>1注浆量(strokes)</td>
-                                <td>1668</td>
+                                <td>${runtime.c56 }</td>
                             </tr>
                             <tr class="mud-count">
                                 <td>2注浆量(strokes)</td>
-                                <td>0</td>
+                                <td>${runtime.c58 }</td>
                             </tr>
                             <tr class="mud-count">
                                 <td>3注浆量(strokes)</td>
-                                <td>0</td>
+                                <td>${runtime.c60 }</td>
                             </tr>
                             <tr class="mud-count">
                                 <td>4注浆量(strokes)</td>
-                                <td>2052</td>
+                                <td>${runtime.c61 }</td>
                             </tr>
 
 
@@ -350,28 +263,28 @@
                             <tbody>
                             <tr>
                                 <td>刀盘偏移量X(mm)</td>
-                                <td>0.0</td>
+                                <td>${runtime.c9 }</td>
                                 <td>刀盘偏移量Y(mm)</td>
-                                <td>0.0</td>
+                                <td>${runtime.c10 }</td>
                             </tr>
                             <tr>
                                 <td>前部水平位移(mm)</td>
-                                <td>0.0</td>
+                                <td>${runtime.c4 }</td>
                                 <td>前部垂直位移(mm)</td>
-                                <td>0.0</td>
+                                <td>${runtime.c5 }</td>
                             </tr>
                             <tr>
                                 <td>尾部水平位移(mm)</td>
-                                <td>0.0</td>
+                                <td>${runtime.c6 }</td>
                                 <td>尾部垂直位移(mm)</td>
-                                <td>0.0</td>
+                                <td>${runtime.c7 }</td>
                             </tr>
 
                             </tr>
                             </tbody>
                         </table>
                         <canvas id="circleCanvas" width="380" height="380"></canvas>
-                        <img src="${ctx }/static/page/shigongguanli/dungou/img/yaw.png" class="yaw">
+                        <img src="${ctx }/static/page/shigong/dungou/img/yaw.png" class="yaw">
                         
                     </div>
                 </div>
@@ -397,23 +310,23 @@
                             <tbody>
                             <tr class="spiral">
                                 <td>压力(bar)</td>
-                                <td>0</td>
+                                <td>${runtime.c11 }</td>
                             </tr>
                             <tr class="deg">
                                 <td>油温(Deg.C)</td>
-                                <td>28.385416</td>
+                                <td>${runtime.c18 }</td>
                             </tr>
                             <tr class="torque">
                                 <td>扭矩(kN.m)</td>
-                                <td>0</td>
+                                <td>${runtime.c12 }</td>
                             </tr>
                             <tr class="speed">
                                 <td>转速(bar)</td>
-                                <td>0</td>
+                                <td>${runtime.c13 }</td>
                             </tr>
                             <tr class="aperture">
                                 <td>开度(mm)</td>
-                                <td>111.890625</td>
+                                <td>${runtime.c14 }</td>
                             </tr>
                             </tbody>
                         </table>
@@ -441,23 +354,23 @@
                             <tbody>
                             <tr class="hinge">
                                 <td>铰接油缸A行程(mm)</td>
-                                <td>57</td>
+                                <td>${runtime.c30 }</td>
                             </tr>
                             <tr class="hinge">
                                 <td>铰接油缸B行程(mm)</td>
-                                <td>48</td>
+                                <td>${runtime.c31 }</td>
                             </tr>
                             <tr class="hinge">
                                 <td>铰接油缸C行程(mm)</td>
-                                <td>36</td>
+                                <td>${runtime.c32 }</td>
                             </tr>
                             <tr class="hinge">
                                 <td>铰接油缸D行程(mm)</td>
-                                <td>22</td>
+                                <td>${runtime.c33 }</td>
                             </tr>
                             <tr class="hinge-bar">
                                 <td>铰接油缸压力(bar)</td>
-                                <td>0</td>
+                                <td>${runtime.c34 }</td>
                             </tr>
                             </tbody>
                         </table>
@@ -485,55 +398,55 @@
                             <tbody>
                             <tr class="froth-bar">
                                 <td>泡沫系统1压力(bar)</td>
-                                <td>0.79680264</td>
+                                <td>${runtime.c64 }</td>
                             </tr>
 
                             <tr class="air">
                                 <td>泡沫系统1空气流量(L/min)</td>
-                                <td>0</td>
+                                <td>${runtime.c65 }</td>
                             </tr>
                             <tr class="additive">
                                 <td>泡沫系统1添加剂流量(L/min)</td>
-                                <td>0</td>
+                                <td>${runtime.c66 }</td>
                             </tr>
                             <tr class="froth-bar">
                                 <td>泡沫系统2压力(bar)</td>
-                                <td>0.5193866</td>
+                                <td>${runtime.c67 }</td>
                             </tr>
 
                             <tr class="air">
                                 <td>泡沫系统2空气流量(L/min)</td>
-                                <td>0</td>
+                                <td>${runtime.c68 }</td>
                             </tr>
                             <tr class="additive">
                                 <td>泡沫系统2添加剂流量(L/min)</td>
-                                <td>0</td>
+                                <td>${runtime.c69 }</td>
                             </tr>
                             <tr class="froth-bar">
                                 <td>泡沫系统3压力(bar)</td>
-                                <td>0.546151638</td>
+                                <td>${runtime.c70 }</td>
                             </tr>
 
                             <tr class="air">
                                 <td>泡沫系统3空气流量(L/min)</td>
-                                <td>0</td>
+                                <td>${runtime.c71}</td>
                             </tr>
                             <tr class="additive">
                                 <td>泡沫系统3添加剂流量(L/min)</td>
-                                <td>0</td>
+                                <td>${runtime.c72 }</td>
                             </tr>
                             <tr class="froth-bar">
                                 <td>泡沫系统4压力(bar)</td>
-                                <td>0.4448785</td>
+                                <td>${runtime.c73 }</td>
                             </tr>
 
                             <tr class="air">
                                 <td>泡沫系统4空气流量(L/min)</td>
-                                <td>0</td>
+                                <td>${runtime.c74 }</td>
                             </tr>
                             <tr class="additive">
                                 <td>泡沫系统4添加剂流量(L/min)</td>
-                                <td>0</td>
+                                <td>${runtime.c75 }</td>
                             </tr>
                             </tbody>
                         </table>
@@ -568,14 +481,14 @@
 <script src="${ctx }/static/page/common/js/jquery.noty.js"></script>
 <!-- end: JavaScript-->
 <script src="${ctx }/static/page/common/js/echarts.min.js"></script>
-	<script src="${ctx }/static/webgl/pModel/js/move.js"></script>
+<script src="${ctx }/static/webgl/pModel/js/move.js"></script>
 <script src="${ctx }/static/page/common/js/FreeDoUtil.js"></script>
-<script src="${ctx }/static/page/shigongguanli/dungou/js/canvasCircle.js"></script>
-<script src="${ctx }/static/page/shigongguanli/dungou/js/tbm.js"></script>
+<script src="${ctx }/static/page/shigong/dungou/js/canvasCircle.js"></script>
+<script src="${ctx }/static/page/shigong/dungou/js/tbm.js"></script>
 <script src="${ctx }/static/page/common/js/appendTool.js"></script>
-<script src="${ctx }/static/page/shigongguanli/dungou/js/DungouViewer.js"></script>
+<script src="${ctx }/static/page/shigong/dungou/js/dungou_viewer.js"></script>
 <script src="${ctx }/static/webgl/Tool/surveyCallBack.js"></script>
-<script src="${ctx }/static/page/shigongguanli/dungou/js/dungou.js"></script>
+<script src="${ctx }/static/page/shigong/dungou/js/dungou.js"></script>
 
 </body>
 
