@@ -4,7 +4,6 @@ $(function () {
     $("#content .row-fluid").height(h - h2);
             //	初始化地球
 	FreedoApp.init("earth");
-	 //	添加模型
 	$.ajax({
 		url:"/yunwei/getPmodel",
 		type: "get",
@@ -30,7 +29,7 @@ $(function () {
             	FreeDoUtil.dig(FreedoApp.viewers["earth"],holeData,imgarray);
             	//镜头定位
             	FreedoApp.viewers["earth"].camera.setView({
-                 	destination :new FreeDo.Cartesian3(model[key].cameradx,model[key].cameraxy, model[key].cameradz),
+                 	destination :new FreeDo.Cartesian3.fromDegrees(model[key].cameralon,model[key].cameralat, model[key].cameraheight),
          			orientation: {
          				heading : model[key].cameraheading,
          				pitch : model[key].camerapitch,
@@ -42,7 +41,7 @@ $(function () {
 
         }
 	});
-            //	添加模型结束
+//	添加模型结束
 //	查询树列表
     $.ajax({
         url: "/yunwei/getProjectModelTreeData",

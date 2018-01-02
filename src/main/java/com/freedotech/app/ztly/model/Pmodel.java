@@ -17,9 +17,9 @@ public class Pmodel {
 	private String hole;
 	private String imagelayer;
 	private String unitname;
-	private Double cameradx;
-	private Double cameraxy;
-	private Double cameradz;
+	private Double cameralon;
+	private Double cameralat;
+	private Double cameraheight;
 	private Double cameraheading;
 	private Double camerapitch;
 	private Double cameraroll;
@@ -113,23 +113,23 @@ public class Pmodel {
 	public void setUnitname(String unitname) {
 		this.unitname = unitname;
 	}
-	public Double getCameradx() {
-		return cameradx;
+	public Double getCameralon() {
+		return cameralon;
 	}
-	public void setCameradx(Double cameradx) {
-		this.cameradx = cameradx;
+	public void setCameralon(Double cameralon) {
+		this.cameralon = cameralon;
 	}
-	public Double getCameraxy() {
-		return cameraxy;
+	public Double getCameralat() {
+		return cameralat;
 	}
-	public void setCameraxy(Double cameraxy) {
-		this.cameraxy = cameraxy;
+	public void setCameralat(Double cameralat) {
+		this.cameralat = cameralat;
 	}
-	public Double getCameradz() {
-		return cameradz;
+	public Double getCameraheight() {
+		return cameraheight;
 	}
-	public void setCameradz(Double cameradz) {
-		this.cameradz = cameradz;
+	public void setCameraheight(Double cameraheight) {
+		this.cameraheight = cameraheight;
 	}
 	public Double getCameraheading() {
 		return cameraheading;
@@ -149,5 +149,6 @@ public class Pmodel {
 	public void setCameraroll(Double cameraroll) {
 		this.cameraroll = cameraroll;
 	}
+	
 	
 }

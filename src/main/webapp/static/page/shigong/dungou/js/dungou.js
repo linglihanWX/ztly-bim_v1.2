@@ -33,14 +33,9 @@ $(function () {
             	});
         		//挖坑
             	FreeDoUtil.dig(FreedoApp.viewers["earth"],holeData,imgarray);
-//                var cartesian = new FreeDo.Cartesian3(model[key].cameradx,model[key].cameraxy, model[key].cameradz)
-//                var cartographic = FreedoApp.viewers["earth"].scene.globe.ellipsoid.cartesianToCartographic(cartesian);
-//                var point=[ cartographic.longitude / Math.PI * 180, cartographic.latitude / Math.PI * 180];
-//                console.log(point);
-            	
             	//镜头定位
             	FreedoApp.viewers["earth"].camera.setView({
-                 	destination :new FreeDo.Cartesian3.fromDegrees(model[key].cameradx,model[key].cameraxy, model[key].cameradz),
+                 	destination :new FreeDo.Cartesian3.fromDegrees(model[key].cameralon,model[key].cameralat, model[key].cameraheight),
          			orientation: {
          				heading : model[key].cameraheading,
          				pitch : model[key].camerapitch,

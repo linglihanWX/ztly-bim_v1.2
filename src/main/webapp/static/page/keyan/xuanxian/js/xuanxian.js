@@ -5,7 +5,7 @@ $(function () {
     FreedoApp.init("init");
     var sss = new SurveyManager(FreedoApp.viewers["init"],creatEntity);
     sss.setSurveyType(SurveyType.LINE_DISTANCE);
-	$.ajax({
+    $.ajax({
 		url:"/yunwei/getPmodel",
 		type: "get",
 		dataType:"json",
@@ -17,6 +17,7 @@ $(function () {
         		var holeData=eval(model[key].hole);
         		//图层数据
         		var imgarray=eval(model[key].imagelayer);
+        		console.log( model[key].url);
         		 //向场景中添加模型
         		var modelTile=FreedoApp.viewers["init"].scene.primitives.add(new FreeDo.FreedoPModelset({
             		url: model[key].url
@@ -27,16 +28,17 @@ $(function () {
             	});
         		//挖坑
             	FreeDoUtil.dig(FreedoApp.viewers["init"],holeData,imgarray);
+            	//镜头定位
+            	FreedoApp.viewers["init"].camera.setView({
+                 	destination :new FreeDo.Cartesian3.fromDegrees(model[key].cameralon,model[key].cameralat, model[key].cameraheight),
+         			orientation: {
+         				heading : model[key].cameraheading,
+         				pitch : model[key].camerapitch,
+         				roll : model[key].cameraroll
+         			}
+         		});
         	}
-        	//镜头定位
-        	FreedoApp.viewers["init"].camera.setView({
-             	destination :new FreeDo.Cartesian3(-2302923.868697135,4394881.466502352,3995119.1300424132),
-     			orientation: {
-     				heading : 3.4103115877496184,
-     				pitch : FreeDo.Math.toRadians(-90),
-     				roll : 3.1249876427485663
-     			}
-     		});
+        	
 
         }
 	});
