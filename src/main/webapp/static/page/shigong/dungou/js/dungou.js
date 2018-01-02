@@ -3,9 +3,7 @@ $(function () {
     var h2 = $(".breadcrumb").height();
     $("#content .row-fluid").height(h - h2);
     FreedoApp.init("earth");
-   // DungouViewer.initLeftClick(FreedoApp.viewers["earth"],function(){});
     var surveymanager = new SurveyManager(FreedoApp.viewers["earth"],function(){});
-    //initPipingPit();
 
     
     //	初始化地球
@@ -42,6 +40,38 @@ $(function () {
          				roll : model[key].cameraroll
          			}
          		});
+            	if(model[key].name == "railway"){
+            		//地铁对应的盾构机
+            	}else if(model[key].name == "tunnel"){
+            		//海底隧道对应的盾构机
+            		
+            		modelTile.style = new FreeDo.FreedoPModelStyle({
+    					color : {
+    						conditions : [
+    								[ "${component} === \'盾构轮廓-1 盾构轮廓-1 [333451]@2\'","color('white',0.5)" ],
+    								[ "${component} === \'内衬轮廓-1 内衬轮廓-1 [341109]@4\'","color('white',0.5)" ],
+    								[ "true", "color('white')" ] ]
+    					}
+    				});
+            		
+            		var pitch = 0;
+            		FreedoApp.viewers["earth"].scene.preRender.addEventListener(function() {
+            			if (pitch > 360)
+            				pitch = 0;
+            			pitch = pitch + 1;
+            			primitive.modelMatrix = FreeDoTool.getModelMatrix(113.6609628070344, 22.791190110267943, -502, 50, pitch, 0, 1.8, 1.8, 1.8);
+
+            		});
+            		var primitive = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf({
+            			id : "盾构机",
+            			url : "../static/page/shigong/dungou/gltf/dun_gou_dao_tou.gltf",
+            			show : true, // default
+            			modelMatrix : FreeDoTool.getModelMatrix(113.6609628070344, 22.791190110267943, -502, 287, 0, 0, 1.8, 1.8, 1.8),
+            			allowPicking : true, // not pickable
+            			debugShowBoundingVolume : false, // default
+            			debugWireframe : false
+            		}));
+            	}
         	}
         	
 

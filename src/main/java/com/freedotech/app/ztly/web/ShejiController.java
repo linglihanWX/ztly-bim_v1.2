@@ -20,10 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.freedotech.app.ztly.model.Pm;
-import com.freedotech.app.ztly.model.TransferNode;
 import com.freedotech.app.ztly.service.ShejiService;
-import com.freedotech.app.ztly.utils.TransferNodeUtil;
 
 /**
 * <p>Title: ShejiController</p>
@@ -98,16 +95,5 @@ public class ShejiController {
 			return entity;
 		}
 	}
-   //大桥数据查询
-   @RequestMapping(value="/pm/selectAll",produces="application/json;charset=utf-8")
-   @ResponseBody
-	public List<TransferNode> selectAll() throws JsonProcessingException{
-		long startMili=System.currentTimeMillis();
-		List<Pm> pms=shejiService.selectAll();
-		List<TransferNode> nodes=TransferNodeUtil.transferPmList(pms);
-		long endMili=System.currentTimeMillis();
-		System.out.println("PM_SelectAll 总耗时为："+(endMili-startMili)+"毫秒");
-		
-		return nodes;
-	}
+
 }

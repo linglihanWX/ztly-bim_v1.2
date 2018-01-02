@@ -31,7 +31,7 @@ $(function() {
 	new TbmDeviation(a);
 
 	// 加载树
-
+/*
 	var zTreeObj;
 	var setting = {
 		data : {
@@ -43,7 +43,7 @@ $(function() {
 			}
 		},
 		callback : {
-			onClick : function(event, treeId, treeNode) {/*
+			onClick : function(event, treeId, treeNode) {
 				var id = treeNode.id;
 				if (id > 0) {
 					$(".detailInfo ul")
@@ -60,26 +60,34 @@ $(function() {
 					$(".detailInfo").show();
 
 				}
-			*/}
+			}
 		}
-	};
-	var data = [ {
-		"id" : 0,
-		"pId" : -1,
-		"name" : "管道"
-	} ]
-	var node = {};
-	for (var i = 1; i < 345; i++) {
-		node = {
-			"id" : i,
-			"pId" : 0,
-			"name" : "第" + i + "环"
-		};
-		data.push(node);
-	}
-	zTreeObj = $.fn.zTree.init($("#tree"), setting, data);
-	zTreeObj.expandAll(true);
+	};*/
+    $.ajax({
+        url: "/yunwei/getProjectModelTreeData",
+        type: "get",
+        dataType:"json",
+        success: function (data) {
+        	if(null==data){
+        		window.confirm(data);
+        	}else{
+            var zTreeObj;
+            var setting = {
+                data: {
+                    simpleData: {
+                        enable: true,
+                        idKey: "uid",
+                        pIdKey: "pid",
+                        rootPId: "-1"
+                    }
+                }
 
+            };
+
+            zTreeObj = $.fn.zTree.init( $("#tree"), setting, data);
+        	}
+        }
+    });
 	// 二三维切换
 	$("#div1").click(function() {
 		if ($("#div1").hasClass("open1")) {
