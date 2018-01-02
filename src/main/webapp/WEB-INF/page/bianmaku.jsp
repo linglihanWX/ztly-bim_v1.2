@@ -26,10 +26,9 @@
 	<link rel="stylesheet" href="${ctx }/static/page/common/css/common.css">
 	<link rel="stylesheet" href="${ctx }/static/page/common/css/reset.css">
 	<link rel="stylesheet" href="${ctx }/static/page/common/IconFont/iconfont.css">
-	<script src="${ctx }/static/page/common/js/jquery-1.9.1.min.js"></script>
 	<link rel="stylesheet" href="${ctx }/static/page/common/js/zTreeStyle/zTreeStyle.css">
 	<script src="${ctx }/static/page/common/js/zTreeStyle/ztree.js"></script>
-	<link rel="stylesheet" href="${ctx }/static/page/set/css/codeLibrary.css">
+	<link rel="stylesheet" href="${ctx }/static/page/shezhi/css/bianmaku.css">
 </head>
 
 <body>
@@ -43,10 +42,10 @@
 
 					<i class="iconfont icon-hxzfont08"></i>
 					<li class="lists">
-						<a href="${ctx }/toSet" >用户</a>
+						<a href="${ctx }/admin/user/toShezhi" >用户</a>
 						<a href="#">权限</a>
 						<a href="#">组织</a>
-						<a href="${ctx }/toCodeLibrary" class="activeList">编码库</a>
+						<a href="${ctx }/toBianmaku" class="activeList">编码库</a>
 						<a href="#">文档库</a>
 						<a href="#">基础库配置</a>
 					</li>
@@ -64,7 +63,7 @@
 							</div>
 						</div>
 						<div class="box-content">
-							<img src="${ctx }/static/page/set/img/codelibrary.png" alt="">
+							<img src="${ctx }/static/page/shezhi/img/codelibrary.png" alt="">
 						</div>
 					</div>
 				</div>
@@ -76,7 +75,7 @@
 	<script src="${ctx }/static/page/common/js/jquery.noty.js"></script>
 
 	<!-- end: JavaScript-->
-	<script src="${ctx }/static/page/set/js/set.js"></script>
+	<script src="${ctx }/static/page/shezhi/js/shezhi.js"></script>
 
 </body>
 

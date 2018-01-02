@@ -168,4 +168,8 @@ public class UserController {
         }
         return result;
     }
+    @RequestMapping("/toShezhi")
+    public String toShezhiPage() {
+    	return "/shezhi";
+    }
 }

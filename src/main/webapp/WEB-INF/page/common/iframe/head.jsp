@@ -23,7 +23,7 @@
                     </li>
                     <!-- start: Message Dropdown -->
 						<li class="dropdown hidden-phone">
-							<a class="btn dropdown-toggle"  href="${ctx }/toShezhi">
+							<a class="btn dropdown-toggle"  href="${ctx }/admin/user/toShezhi">
 								<i class="iconfont icon-set"></i>
 							</a>
 						</li>

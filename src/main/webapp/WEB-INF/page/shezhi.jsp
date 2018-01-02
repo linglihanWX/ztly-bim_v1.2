@@ -32,7 +32,7 @@
 	<!-- start: Favicon -->
 	<!-- end: Favicon -->
 
-	<link rel="stylesheet" href="${ctx }/static/page/set/css/set.css">
+	<link rel="stylesheet" href="${ctx }/static/page/shezhi/css/shezhi.css">
 
 
 </head>
@@ -49,10 +49,10 @@
 
 					<i class="iconfont icon-hxzfont08"></i>
 					<li class="lists">
-						<a href="${ctx }/toSet" class="activeList">用户</a>
+						<a href="${ctx }/admin/user/toShezhi" class="activeList">用户</a>
 						<a href="#">权限</a>
 						<a href="#">组织</a>
-						<a href="${ctx }/toCodeLibrary">编码库</a>
+						<a href="${ctx }/toBianmaku">编码库</a>
 						<a href="#">文档库</a>
 						<a href="#">基础库配置</a>
 					</li>
@@ -181,7 +181,7 @@
 	<script src="${ctx }/static/page/common/js/jquery.noty.js"></script>
 
 	<!-- end: JavaScript-->
-	<script src="${ctx }/static/page/set/js/set.js"></script>
+	<script src="${ctx }/static/page/shezhi/js/shezhi.js"></script>
 
 </body>
 
