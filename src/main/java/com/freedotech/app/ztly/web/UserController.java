@@ -168,6 +168,7 @@ public class UserController {
         }
         return result;
     }
+    //点击设置图标跳转至设置页面(可在此处查询登录记录)
     @RequestMapping("/toShezhi")
     public String toShezhiPage() {
     	return "/shezhi";
