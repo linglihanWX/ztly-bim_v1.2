@@ -9,7 +9,7 @@ $(function () {
     $(".dialogContent").height(h2-250);
 	var treeObj = {};
     $.ajax({
-        url: "/yunwei/getProjectModelTreeData",
+        url: "/PModel/getProjectModelTreeData",
         type: "get",
         dataType:"json",
         success: function (data) {
