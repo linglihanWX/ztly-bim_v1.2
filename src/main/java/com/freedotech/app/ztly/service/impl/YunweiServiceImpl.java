@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.freedotech.app.ztly.dao.TreeNodeDao;
 import com.freedotech.app.ztly.dao.PmodelDao;
 import com.freedotech.app.ztly.model.Node4ZTree;
+import com.freedotech.app.ztly.model.Pm;
 import com.freedotech.app.ztly.model.Pmodel;
 import com.freedotech.app.ztly.service.YunweiService;
 
@@ -30,6 +31,7 @@ public class YunweiServiceImpl implements YunweiService {
 		}
 		return null;
 	}
+	//获取模型
 	@Override
 	public List<Pmodel> getModelUrlByProjectId(String projectid) {
 		List<Pmodel> modelList = pmodelDao.getModelUrlByProjectId(projectid);

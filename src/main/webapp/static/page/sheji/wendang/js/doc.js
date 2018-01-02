@@ -52,7 +52,7 @@ function todownload(){
      	$(this).click(function(){
      		console.log(this);
      		var filename = $(this).parents("tr").children().eq(0).text();
-     		window.location.href = "download?filename="+filename;
+     		window.location.href = "/sheji/download?filename="+filename;
      	})
      });
 }
@@ -62,7 +62,7 @@ function toyulan(){
      		console.log(this);
      		var filename = $(this).parents("tr").children().eq(0).text();
      		var rootPath = getRootPath();
-     		window.open(rootPath+"/static/page/sheji/wendang/wendang/"+filename);
+     		window.open("/static/page/sheji/wendang/wendang/"+filename);
      	})
      });
 }

@@ -50,7 +50,12 @@
 			<artifactId>spring-test</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-
+        <!-- 文件下载依赖 -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.4</version>
+        </dependency>
 		<!-- 数据库相关依赖 -->
 		<dependency>
 			<groupId>org.mybatis</groupId>

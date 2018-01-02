@@ -1,7 +1,29 @@
 package com.freedotech.app.ztly.web;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.io.FileUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.freedotech.app.ztly.model.Pm;
+import com.freedotech.app.ztly.model.TransferNode;
+import com.freedotech.app.ztly.service.ShejiService;
+import com.freedotech.app.ztly.utils.TransferNodeUtil;
 
 /**
 * <p>Title: ShejiController</p>
@@ -12,6 +34,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/sheji")
 public class ShejiController {
+	@Autowired
+	private ShejiService shejiService;;
 	//跳转至概况页面
    @RequestMapping("/toGaikuang")
 	public String toGaikuangPage() {
@@ -52,4 +76,38 @@ public class ShejiController {
    public String toDuibiPage() {
 	   return "/sheji/duibi";   
 	   }
+   //文件下载控制器
+   @RequestMapping("/download")
+   public ResponseEntity<byte[]> downloadFile(HttpServletRequest request,@RequestParam("filename") String filename,Model model){
+		ResponseEntity<byte[]> entity = null;
+		try {
+			String path = request.getSession().getServletContext().getRealPath("/static/page/sheji/wendang/wendang/");
+			System.out.println(path);
+			File file =new File(path+File.separator+filename);
+			HttpHeaders headers = new HttpHeaders();
+			String downloadfilename = new String(filename.getBytes("UTF-8"), "iso-8859-1");
+			//System.out.println(downloadfilename);
+			headers.setContentDispositionFormData("attachment", downloadfilename);
+			headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+			entity = new ResponseEntity<byte[]>(FileUtils.readFileToByteArray(file),headers,HttpStatus.CREATED);
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}finally{
+			return entity;
+		}
+	}
+   //大桥数据查询
+   @RequestMapping(value="/pm/selectAll",produces="application/json;charset=utf-8")
+   @ResponseBody
+	public List<TransferNode> selectAll() throws JsonProcessingException{
+		long startMili=System.currentTimeMillis();
+		List<Pm> pms=shejiService.selectAll();
+		List<TransferNode> nodes=TransferNodeUtil.transferPmList(pms);
+		long endMili=System.currentTimeMillis();
+		System.out.println("PM_SelectAll 总耗时为："+(endMili-startMili)+"毫秒");
+		
+		return nodes;
+	}
 }

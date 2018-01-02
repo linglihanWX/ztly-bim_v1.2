@@ -10,7 +10,7 @@ $(function () {
         })
     });
     $.ajax({
-        url: "static/page/designcoordination/historycompare/hdata.json",
+        url: "/static/page/sheji/duibi/hdata.json",
         type: "get",
         dataType:"json",
         success: function (data) {

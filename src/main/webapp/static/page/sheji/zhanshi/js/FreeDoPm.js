@@ -138,7 +138,7 @@ FreeDoEarth.getTiandituGloble =function() {
 FreeDoEarth.initModels=function(callback)
 {
 	$.ajax({
-		url:"../../../../pm/selectAll",
+		url:"../../../../sheji/pm/selectAll",
 		dataType:"JSON",
 		success:function(content){
 			

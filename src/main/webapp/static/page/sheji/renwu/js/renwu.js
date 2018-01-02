@@ -83,9 +83,9 @@ $(function () {
         var $text = $("#newTask textarea").val();
         var num = $list.length + 1;
         if(num < 10){
-            $("#taskList tbody").append("<tr><td>0"+ num+"</td> <td>"+$text+"</td><td>未开始</td><td><img src='static/page/designcoordination/task/img/rightHand.svg'>指派 <img src='static/page/designcoordination/task/img/right.svg'>提交任务</td></tr>");
+            $("#taskList tbody").append("<tr><td>0"+ num+"</td> <td>"+$text+"</td><td>未开始</td><td><img src='/static/page/sheji/renwu/img/rightHand.svg'>指派 <img src='/static/page/sheji/renwu/img/right.svg'>提交任务</td></tr>");
         }else{
-            $("#taskList tbody").append("<tr> <td>"+num+"</td> <td>"+$text+"</td><td>未开始</td><td><img src='static/page/designcoordination/task/img/rightHand.svg'>指派 <img src='static/page/designcoordination/task/img/right.svg'>提交任务</td></tr>");
+            $("#taskList tbody").append("<tr> <td>"+num+"</td> <td>"+$text+"</td><td>未开始</td><td><img src='/static/page/sheji/renwu/img/rightHand.svg'>指派 <img src='/static/page/sheji/renwu/img/right.svg'>提交任务</td></tr>");
         }
         $("#newTask").hide();
         //$("#gbk").addClass("btnActive").siblings().removeClass("btnActive");
@@ -129,9 +129,9 @@ $(function () {
             var text =  $(".data3").text();
             var text1 =  $(".data6").text();
             if (num < 10) {
-                $("#taskList tbody").append("<tr><td>0" + num + "</td><td>" + text + "</td><td>未开始</td><td><img src='static/page/designcoordination/task/img/rightHand.svg'>指派 <img src='static/page/designcoordination/task/img/right.svg'>提交任务</td></tr><tr><td>0" +( num+1) + "</td><td>" + text1 + "</td><td>未开始</td><td><img src='static/page/designcoordination/task/img/rightHand.svg'>指派 <img src='static/page/designcoordination/task/img/right.svg'>提交任务</td></tr>");
+                $("#taskList tbody").append("<tr><td>0" + num + "</td><td>" + text + "</td><td>未开始</td><td><img src='/static/page/sheji/renwu/img/rightHand.svg'>指派 <img src='/static/page/sheji/renwu/img/right.svg'>提交任务</td></tr><tr><td>0" +( num+1) + "</td><td>" + text1 + "</td><td>未开始</td><td><img src='/static/page/sheji/renwu/img/rightHand.svg'>指派 <img src='/static/page/sheji/renwu/img/right.svg'>提交任务</td></tr>");
             } else {
-                $("#taskList tbody").append("<tr> <td>" + num + "</td> <td>" + text + "</td><td>未开始</td><td><img src='static/page/designcoordination/task/img/rightHand.svg'>指派 <img src='static/page/designcoordination/task/img/right.svg'>提交任务</td></tr><tr> <td>" + ( num+1) + "</td> <td>" + text1 + "</td><td>未开始</td><td><img src='static/page/designcoordination/task/img/rightHand.svg'>指派 <img src='static/page/designcoordination/task/img/right.svg'>提交任务</td></tr>");
+                $("#taskList tbody").append("<tr> <td>" + num + "</td> <td>" + text + "</td><td>未开始</td><td><img src='/static/page/sheji/renwu/img/rightHand.svg'>指派 <img src='/static/page/sheji/renwu/img/right.svg'>提交任务</td></tr><tr> <td>" + ( num+1) + "</td> <td>" + text1 + "</td><td>未开始</td><td><img src='/static/page/sheji/renwu/img/rightHand.svg'>指派 <img src='/static/page/sheji/renwu/img/right.svg'>提交任务</td></tr>");
             }
             $("#importFiles").hide();
         }

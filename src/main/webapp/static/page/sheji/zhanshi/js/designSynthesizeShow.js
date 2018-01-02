@@ -51,6 +51,7 @@ $(function() {
 		$(this).addClass("active").siblings().removeClass("active");
 		$("#js").tree({
 			url : "../../common/data/tree_data.json",
+			method:"get",
 			onSelect : function(node) {
 				designShow.selectedNode = node;
 				if (node.text == "路径1") {

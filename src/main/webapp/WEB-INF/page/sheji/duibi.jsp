@@ -29,7 +29,7 @@
 	<link rel="stylesheet" href="${ctx }/static/page/common/IconFont/iconfont.css">
 	<link rel="stylesheet" href="${ctx }/static/page/common/js/zTreeStyle/zTreeStyle.css">
 	<script src="${ctx }/static/page/common/js/zTreeStyle/ztree.js"></script>
-	<link rel="stylesheet" href="${ctx }/static/page/designcoordination/historycompare/css/hCompare.css">
+	<link rel="stylesheet" href="${ctx }/static/page/sheji/duibi/css/duibi.css">
 	
     <link rel="stylesheet" href="${ctx }/static/page/common/css/media.css">
 </head>
@@ -43,14 +43,14 @@
 				<ul class="breadcrumb">
 					<i class="iconfont icon-hxzfont08"></i>
 					<li class="lists">
-					<a href="${ctx }/toGaikuang">项目概况</a>
-						<a href="${ctx }/toTask">任务</a>
-						<a href="${ctx }/toDesign" class="activeList">BIM方案设计</a>
-						<a href="${ctx }/toDocument">文档管理</a>
-						<a href="#">项目信息</a>
-						<a href="${ctx }/toShuziyijiao">数字移交</a>
-						<a href="${ctx }/toDesignShow">3D综合展示</a>
-					</li>
+                    <a href="#">项目概况</a>
+                    <a href="${ctx }/sheji/toRenwu">任务</a>
+                    <a href="${ctx }/sheji/toBIMfangansheji" class="activeList">BIM方案设计</a>
+                    <a href="${ctx }/sheji/toWendang">文档管理</a>
+                    <a href="#">项目信息</a>
+                    <a href="${ctx }/sheji/toYijiao">数字移交</a>
+                    <a href="${ctx }/sheji/toZhanshi">3D综合展示</a>
+                </li>
 					<li style="margin-left:20px;">
 					<input id="shijiaotongbu" type="checkbox">视角同步
 					<input id="gaoliangchayi" type="checkbox">高亮差异
@@ -106,7 +106,7 @@
 	<!-- start: JavaScript-->
 	<script src="${ctx }/static/page/common/js/jquery-ui-1.10.0.custom.min.js"></script>
 	<script src="${ctx }/static/page/common/js/jquery.noty.js"></script>
-	<script src="${ctx }/static/page/designcoordination/historycompare/js/hCompare.js"></script>
+	<script src="${ctx }/static/page/sheji/duibi/js/duibi.js"></script>
 	<!-- end: JavaScript-->
 
 </body>
