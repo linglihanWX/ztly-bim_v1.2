@@ -1,6 +1,6 @@
 package com.freedotech.app.ztly.model;
 
-public class Pmodel {
+public class PModel {
 
 	private Integer id;
 	private String name;

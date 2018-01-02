@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.freedotech.app.ztly.model.Node4ZTree;
-import com.freedotech.app.ztly.model.Pmodel;
+import com.freedotech.app.ztly.model.PModel;
 import com.freedotech.app.ztly.service.YunweiService;
 
 @Controller
