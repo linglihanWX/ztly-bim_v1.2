@@ -49,7 +49,7 @@
 					<i class="iconfont icon-return"></i>返回</a>
 					<li class="lists">
 						<a href="${ctx }/yunwei/toGaikuang">项目概况</a>
-						<a href="${ctx }/yunwei/toKongjianManage">空间管理</a>
+						<a href="#">空间管理</a>
 						<a href="#" class="activeList">资产管理</a>
 						<a href="#" >巡检管理</a>
 						<a href="#">维护管理</a>
