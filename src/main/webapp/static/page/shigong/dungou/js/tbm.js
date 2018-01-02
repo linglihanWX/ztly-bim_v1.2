@@ -43,7 +43,7 @@ $(function() {
 			}
 		},
 		callback : {
-			onClick : function(event, treeId, treeNode) {
+			onClick : function(event, treeId, treeNode) {/*
 				var id = treeNode.id;
 				if (id > 0) {
 					$(".detailInfo ul")
@@ -60,7 +60,7 @@ $(function() {
 					$(".detailInfo").show();
 
 				}
-			}
+			*/}
 		}
 	};
 	var data = [ {

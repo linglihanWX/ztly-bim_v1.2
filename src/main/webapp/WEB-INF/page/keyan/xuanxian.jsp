@@ -78,7 +78,6 @@
 	<script src="${ctx}/static/page/common/js/jquery-ui-1.10.0.custom.min.js"></script>
 	<script src="${ctx}/static/page/common/js/jquery.noty.js"></script>
 	<script src="${ctx}/static/page/common/js/FreeDoUtil.js"></script>
-	<script src="${ctx}/static/page/common/js/FreedoApp.js"></script>
 	<script src="${ctx }/static/page/common/js/FreeDoTool.js"></script>
 	<script src="${ctx }/static/webgl/pModel/js/move.js"></script>
 	<script src="${ctx }/static/webgl/Tool/surveyCallBack.js"></script>

@@ -2,11 +2,59 @@ $(function () {
     var h = $("#content").height();
     var h2 = $(".breadcrumb").height();
     $("#content .row-fluid").height(h - h2);
-    DungouViewer.init("earth"); // 加载球模型
-    DungouViewer.initLeftClick(globalviewer,function(){});
-    var surveymanager = new SurveyManager(globalviewer,function(){});
-    initPipingPit();
+    FreedoApp.init("earth");
+   // DungouViewer.initLeftClick(FreedoApp.viewers["earth"],function(){});
+    var surveymanager = new SurveyManager(FreedoApp.viewers["earth"],function(){});
+    //initPipingPit();
 
+    
+    //	初始化地球
+	 //	添加模型
+	$.ajax({
+		url:"/yunwei/getPmodel",
+		type: "get",
+		dataType:"json",
+        success: function(data){
+        	//解析json
+        	var model=eval(data);
+        	for(var key in model){
+        		//挖坑数据
+        		var holeData=eval(model[key].hole);
+        		//图层数据
+        		var imgarray=eval(model[key].imagelayer);
+        		console.log( model[key].url);
+        		 //向场景中添加模型
+        		var modelTile=FreedoApp.viewers["earth"].scene.primitives.add(new FreeDo.FreedoPModelset({
+            		url: model[key].url
+            	}));
+        		//移动模型到坑里
+        		modelTile.readyPromise.then(function() {
+            		moveModel(modelTile,model[key].x,model[key].y,model[key].z,model[key].heading,model[key].pitch,model[key].roll,model[key].scalex,model[key].scaley,model[key].scalez);
+            	});
+        		//挖坑
+            	FreeDoUtil.dig(FreedoApp.viewers["earth"],holeData,imgarray);
+//                var cartesian = new FreeDo.Cartesian3(model[key].cameradx,model[key].cameraxy, model[key].cameradz)
+//                var cartographic = FreedoApp.viewers["earth"].scene.globe.ellipsoid.cartesianToCartographic(cartesian);
+//                var point=[ cartographic.longitude / Math.PI * 180, cartographic.latitude / Math.PI * 180];
+//                console.log(point);
+            	
+            	//镜头定位
+            	FreedoApp.viewers["earth"].camera.setView({
+                 	destination :new FreeDo.Cartesian3.fromDegrees(model[key].cameradx,model[key].cameraxy, model[key].cameradz),
+         			orientation: {
+         				heading : model[key].cameraheading,
+         				pitch : model[key].camerapitch,
+         				roll : model[key].cameraroll
+         			}
+         		});
+        	}
+        	
+
+        }
+	});
+    
+    
+    
 	/**
 	 *工具栏按钮点击 
 	 */
@@ -60,13 +108,13 @@ $(function () {
 			//设置方法为none
 			surveymanager.setSurveyType(SurveyType.NONE);
 			//初始化原有的监听事件
-			DungouViewer.initLeftClick(globalviewer,function(){});
+			DungouViewer.initLeftClick(FreedoApp.viewers["earth"],function(){});
 		}
 		});
 	});
 });
-var centerpoint = [];
-/**
+/*var centerpoint = [];
+*//**
  * 通过计算插入管道（管道无ID）
  * @param lon 经度
  * @param lat 纬度
@@ -74,7 +122,7 @@ var centerpoint = [];
  * @param gdlength 管道长度
  * @param num 数量
  * @returns geometryInstances 数组
- */
+ *//*
 function calculateZB1(longitude,latitude,height,gdlength,num){
 	//地理坐标
 	var cartographic1  = {longitude:2.0534816290463516,  latitude:0.6811787630410361,height:height};
@@ -84,8 +132,8 @@ function calculateZB1(longitude,latitude,height,gdlength,num){
 	//纬度差值
 	var amplitude2 = (cartographic1.latitude-cartographic2.latitude);
 	//地理坐标转世界坐标
-	var cartesian1 = globalviewer.scene.globe.ellipsoid.cartographicToCartesian (cartographic1);
-	var cartesian2 = globalviewer.scene.globe.ellipsoid.cartographicToCartesian (cartographic2);
+	var cartesian1 = FreedoApp.viewers["earth"].scene.globe.ellipsoid.cartographicToCartesian (cartographic1);
+	var cartesian2 = FreedoApp.viewers["earth"].scene.globe.ellipsoid.cartographicToCartesian (cartographic2);
 	//两点距离的平方
 	var dsquare = FreeDo.Cartesian3.distanceSquared(cartesian1,cartesian2);
 	//gblength所对应的经度差值与纬度差值
@@ -122,7 +170,7 @@ function calculateZB1(longitude,latitude,height,gdlength,num){
 	}
 	return DTWL;
 }
-/**
+*//**
  * 通过计算插入管道
  * @param lon 经度
  * @param lat 纬度
@@ -130,7 +178,7 @@ function calculateZB1(longitude,latitude,height,gdlength,num){
  * @param gdlength 管道长度
  * @param num 数量
  * @returns geometryInstances 数组
- */
+ *//*
 function calculateZB2(longitude,latitude,height,gdlength,num){
 	//地理坐标
 	var cartographic1  = {longitude:2.0534816290463516,  latitude:0.6811787630410361,height:height};
@@ -140,8 +188,8 @@ function calculateZB2(longitude,latitude,height,gdlength,num){
 	//纬度差值
 	var amplitude2 = (cartographic1.latitude-cartographic2.latitude);
 	//地理坐标转世界坐标
-	var cartesian1 = globalviewer.scene.globe.ellipsoid.cartographicToCartesian (cartographic1);
-	var cartesian2 = globalviewer.scene.globe.ellipsoid.cartographicToCartesian (cartographic2);
+	var cartesian1 = FreedoApp.viewers["earth"].scene.globe.ellipsoid.cartographicToCartesian (cartographic1);
+	var cartesian2 = FreedoApp.viewers["earth"].scene.globe.ellipsoid.cartographicToCartesian (cartographic2);
 	//两点距离的平方
 	var dsquare = FreeDo.Cartesian3.distanceSquared(cartesian1,cartesian2);
 	//gblength所对应的经度差值与纬度差值
@@ -186,11 +234,11 @@ function computeCircle(radius) {
     }
     return positions;
 }
-/*//显示标牌
+//显示标牌
 function showlabel(id,position){
 	$(".msgInfo").hide();
 	var pick= new FreeDo.Cartesian2(position.x,position.y);
-	cartesian = globalviewer.scene.globe.pick(globalviewer.camera.getPickRay(pick), globalviewer.scene);
+	cartesian = FreedoApp.viewers["earth"].scene.globe.pick(FreedoApp.viewers["earth"].camera.getPickRay(pick), FreedoApp.viewers["earth"].scene);
 	if(id!=undefined&&id.indexOf("管道")>-1){
 		removeFollowLisener();
 		addFollowListener();
@@ -202,21 +250,21 @@ var cartesian= null;
 var flag = false;
 var htmlOverlay = document.getElementById('showmsg');
 var addFollowListener=function(){
-	flag = globalviewer.scene.preRender.addEventListener(setScreenPostion);
+	flag = FreedoApp.viewers["earth"].scene.preRender.addEventListener(setScreenPostion);
 }
 var removeFollowLisener= function(){
 	if(flag==true){
-		globalviewer.scene.preRender.removeEventListener(setScreenPostion);
+		FreedoApp.viewers["earth"].scene.preRender.removeEventListener(setScreenPostion);
 		flag = false;
 	}
 }
 var setScreenPostion=function (){	
-	var canvasPosition = globalviewer.scene.cartesianToCanvasCoordinates(cartesian);
+	var canvasPosition = FreedoApp.viewers["earth"].scene.cartesianToCanvasCoordinates(cartesian);
 	    if (FreeDo.defined(canvasPosition)) {
 	        htmlOverlay.style.top = canvasPosition.y -150+ 'px';
 	        htmlOverlay.style.left = canvasPosition.x +220+ 'px';
 	    }
-}*/
+}
 //加载坑和管道
 var guandao2 = null;
 function initPipingPit(){
@@ -261,17 +309,17 @@ function initPipingPit(){
 		"static/page/shigongguanli/dungou/img/Land002.jpg",
 		"static/page/shigongguanli/dungou/img/Land004.jpg"
 	];
-	FreeDoUtil.dig(globalviewer,userdata2,imgarray);
+	FreeDoUtil.dig(FreedoApp.viewers["earth"],userdata2,imgarray);
     var pitch = 0;
     var matrix = null;
     //盾构机旋转
-    globalviewer.scene.preRender.addEventListener(function(){
+    FreedoApp.viewers["earth"].scene.preRender.addEventListener(function(){
     	if(pitch>360)pitch=0;
     	pitch = pitch+1;
     	primitive.modelMatrix = getModelMatrix(180*2.0534865154587263/Math.PI,180*0.6811776815929453/Math.PI,-23,287,pitch,0,1.2,1.2,1.2);
     	
     });
-	var primitive = globalviewer.scene.primitives.add(FreeDo.Model.fromGltf(
+	var primitive = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
         {
             id: "盾构机",
             url: "static/page/shigongguanli/dungou/gltf/dun_gou_dao_tou.gltf",
@@ -288,26 +336,26 @@ function initPipingPit(){
        
        var array1 = calculateZB1(2.0534816290463516,0.6811787630410361,-28,1.2,20);
        var array2 = calculateZB2(2.0534807581666916,0.6811761975379643,-28,1.2,344);
-       var guandao1 = globalviewer.scene.primitives.add(new Freedo.Primitive({
+       var guandao1 = FreedoApp.viewers["earth"].scene.primitives.add(new Freedo.Primitive({
     	   geometryInstances : array1,
     	   appearance: new FreeDo.PerInstanceColorAppearance( {  
     		   flat : true,
     		   translucent : false
     	   })  
        })); 
-       guandao2 = globalviewer.scene.primitives.add(new Freedo.Primitive({
+       guandao2 = FreedoApp.viewers["earth"].scene.primitives.add(new Freedo.Primitive({
            geometryInstances : array2,
            appearance: new FreeDo.PerInstanceColorAppearance( {  
         		flat : true,
         		translucent : false
            })  
        })); 
-       /*setInterval(function () {
+       setInterval(function () {
            if (offsetwenli.x > 51) {
            	offsetwenli.x = 50;
            }
            offsetwenli.x += 0.005;
-         }, 10);*/
+         }, 10);
 }
 function fanxuanTree(id){
  	var treeObj = $.fn.zTree.getZTreeObj("tree");
@@ -330,3 +378,4 @@ function getModelMatrix(lon,lat,height,heading,pitch,roll,scaleX,scaleY,scaleZ)
 		FreeDo.Matrix4.multiply(transform,scaleMatrix,matrix4);
 		return matrix4;
 }
+*/
