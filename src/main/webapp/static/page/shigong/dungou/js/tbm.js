@@ -1347,4 +1347,8 @@ $(function() {
 		clearTime();
 		$("#chart").hide();
 	});
+	
+	$("#showHistoryData").click(function(){
+		$("#history").show();
+	});
 });

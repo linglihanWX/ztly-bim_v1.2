@@ -237,7 +237,7 @@
                             </tr>
                             <tr class="mud-count">
                                 <td>4注浆量(strokes)</td>
-                                <td>${runtime.c61 }</td>
+                                <td>${runtime.c62 }</td>
                             </tr>
 
 
@@ -452,7 +452,129 @@
                         </table>
                     </div>
                 </div>
-
+				<button id="showHistoryData">历史数据</button>
+				<div class="box" id="history">
+                    <div class="box-header">
+                        <h2><i class="halflings-icon white align-justify"></i><span class="break"></span>历史数据</h2>
+                        <div class="box-icon">
+                            <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+                        </div>
+                    </div>
+                    <div class="box-content" id="historydata">
+                        <table class="table table-striped table-bordered ">
+                            <thead>
+                            <tr>
+                                <th style="width:100px">时间</th>
+                                <th>土压1</th>
+                                <th>土压2</th>
+                                <th>土压3</th>
+                                <th>土压4</th>
+                                <th>土压5</th>
+                                <th>油缸A行程(mm)</th>
+                                <th>油缸B行程(mm)</th>
+                                <th>油缸C行程(mm)</th>
+                                <th>油缸D行程(mm)</th>
+                                <th>油缸A压力(bar)</th>
+                                <th>油缸B压力(bar)</th>
+                                <th>油缸C压力(bar)</th>
+                                <th>油缸D压力(bar)</th>
+                                <th>1注浆压力(bar)</th>
+                                <th>2注浆压力(bar)</th>
+                                <th>3注浆压力(bar)</th>
+                                <th>4注浆压力(bar)</th>
+                                <th>1注浆量(strokes)</th>
+                                <th>2注浆量(strokes)</th>
+                                <th>3注浆量(strokes)</th>
+                                <th>4注浆量(strokes)</th>
+                                <th>刀盘偏移量X(mm)</th>
+                                <th>刀盘偏移量Y(mm)</th>
+                                <th>前部水平位移(mm)</th>
+                                <th>前部垂直位移(mm)</th>
+                                <th>尾部水平位移(mm)</th>
+                                <th>尾部垂直位移(mm)</th>
+                                <th>压力(bar)</th>
+                                <th>油温(Deg.C)</th>
+                                <th>扭矩(kN.m)</th>
+                                <th>转速(bar)</th>
+                                <th>开度(mm)</th>
+                                <th>铰接油缸A行程(mm)</th>
+                                <th>铰接油缸B行程(mm)</th>
+                                <th>铰接油缸C行程(mm)</th>
+                                <th>铰接油缸D行程(mm)</th>
+                                <th>铰接油缸压力(bar)</th>
+                                <th>泡沫系统1压力(bar)</th>
+                                <th>泡沫系统1空气流量(L/min)</th>
+                                <th>泡沫系统1添加剂流量(L/min)</th>
+                                <th>泡沫系统2压力(bar)</th>
+                                <th>泡沫系统2空气流量(L/min)</th>
+                                <th>泡沫系统2添加剂流量(L/min)</th>
+                                <th>泡沫系统3压力(bar)</th>
+                                <th>泡沫系统3空气流量(L/min)</th>
+                                <th>泡沫系统3添加剂流量(L/min)</th>
+                                <th>泡沫系统4压力(bar)</th>
+                                <th>泡沫系统4空气流量(L/min)</th>
+                                <th>泡沫系统4添加剂流量(L/min)</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            	<c:forEach items="${historydata }" var="history">
+								<tr>
+									<td>${history.timestamp }</td>
+									<td>${history.c43 }</td>
+									<td>${history.c44 }</td>
+									<td>${history.c45 }</td>
+									<td>${history.c46 }</td>
+									<td>${history.c47 }</td>
+									<td>${history.c22 }</td>
+									<td>${history.c24 }</td>
+									<td>${history.c26 }</td>
+									<td>${history.c28 }</td>
+									<td>${history.c23 }</td>
+									<td>${history.c25 }</td>
+									<td>${history.c27 }</td>
+									<td>${history.c29 }</td>
+									<td>${history.c55 }</td>
+									<td>${history.c57 }</td>
+									<td>${history.c59 }</td>
+									<td>${history.c61 }</td>
+									<td>${history.c56 }</td>
+									<td>${history.c58 }</td>
+									<td>${history.c60 }</td>
+									<td>${history.c62 }</td>
+									<td>${history.c9 }</td>
+									<td>${history.c10 }</td>
+									<td>${history.c4 }</td>
+									<td>${history.c5 }</td>
+									<td>${history.c6 }</td>
+									<td>${history.c7 }</td>
+									<td>${history.c11 }</td>
+									<td>${history.c18 }</td>
+									<td>${history.c12 }</td>
+									<td>${history.c13 }</td>
+									<td>${history.c14 }</td>
+									<td>${history.c30 }</td>
+									<td>${history.c31 }</td>
+									<td>${history.c32 }</td>
+									<td>${history.c33 }</td>
+									<td>${history.c34 }</td>
+									<td>${history.c64 }</td>
+									<td>${history.c65 }</td>
+									<td>${history.c66 }</td>
+									<td>${history.c67 }</td>
+									<td>${history.c68 }</td>
+									<td>${history.c69 }</td>
+									<td>${history.c70 }</td>
+									<td>${history.c71 }</td>
+									<td>${history.c72 }</td>
+									<td>${history.c73 }</td>
+									<td>${history.c74 }</td>
+									<td>${history.c75 }</td>
+								</tr>
+								</c:forEach>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
 
                 <div class="changeToThree">
                     <div id="tree" class="ztree"></div>
