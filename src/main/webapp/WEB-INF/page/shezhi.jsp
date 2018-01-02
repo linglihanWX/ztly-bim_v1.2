@@ -52,7 +52,7 @@
 						<a href="${ctx }/admin/user/toShezhi" class="activeList">用户</a>
 						<a href="#">权限</a>
 						<a href="#">组织</a>
-						<a href="${ctx }/toBianmaku">编码库</a>
+						<a href="${ctx }/Shezhi/toBianmaku">编码库</a>
 						<a href="#">文档库</a>
 						<a href="#">基础库配置</a>
 					</li>

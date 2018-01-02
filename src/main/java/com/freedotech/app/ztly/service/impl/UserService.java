@@ -1,6 +1,5 @@
 package com.freedotech.app.ztly.service.impl;
 
-import com.freedotech.app.ztly.cache.BaseCacheService;
 import com.freedotech.app.ztly.dao.RoleDao;
 import com.freedotech.app.ztly.dao.UserDao;
 import com.freedotech.app.ztly.kit.ShiroKit;
@@ -9,7 +8,6 @@ import com.freedotech.app.ztly.model.Role;
 import com.freedotech.app.ztly.model.User;
 import com.freedotech.app.ztly.service.IUserService;
 
-import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.LockedAccountException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.slf4j.Logger;

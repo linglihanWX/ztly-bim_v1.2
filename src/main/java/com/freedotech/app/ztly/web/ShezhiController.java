@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 *  @author freedoxiaolong 
    @date 2018年1月2日*/
 @Controller
-@RequestMapping("/")
+@RequestMapping("/Shezhi")
 public class ShezhiController {
  
 	//跳转至编码库页面
