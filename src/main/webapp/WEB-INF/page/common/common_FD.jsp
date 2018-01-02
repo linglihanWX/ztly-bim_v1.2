@@ -7,4 +7,3 @@
 <link rel="stylesheet" href="${ctx }/static/webgl/compass/css/compass.css">
 <script src="${ctx }/static/webgl/compass/js/Compass.js"></script>
 <script src="${ctx }/static/page/common/js/FreedoApp.js"></script>
-<script src="${ctx }/static/page/common/js/FreeDoTool.js"></script>
