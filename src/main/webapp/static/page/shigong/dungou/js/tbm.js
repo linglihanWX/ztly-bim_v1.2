@@ -64,7 +64,7 @@ $(function() {
 		}
 	};*/
     $.ajax({
-        url: "/yunwei/getProjectModelTreeData",
+        url: "/PModel/getProjectModelTreeData",
         type: "get",
         dataType:"json",
         success: function (data) {

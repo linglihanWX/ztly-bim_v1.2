@@ -6,7 +6,7 @@ $(function () {
     var sss = new SurveyManager(FreedoApp.viewers["init"],creatEntity);
     sss.setSurveyType(SurveyType.LINE_DISTANCE);
     $.ajax({
-		url:"/yunwei/getPmodel",
+		url:"/PModel/getPmodel",
 		type: "get",
 		dataType:"json",
         success: function(data){

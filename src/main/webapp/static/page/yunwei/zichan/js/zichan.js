@@ -5,7 +5,7 @@ $(function () {
             //	初始化地球
 	FreedoApp.init("earth");
 	$.ajax({
-		url:"/yunwei/getPmodel",
+		url:"/PModel/getPmodel",
 		type: "get",
 		dataType:"json",
         success: function(data){
@@ -44,7 +44,7 @@ $(function () {
 //	添加模型结束
 //	查询树列表
     $.ajax({
-        url: "/yunwei/getProjectModelTreeData",
+        url: "/PModel/getProjectModelTreeData",
         type: "get",
         dataType:"json",
         success: function (data) {

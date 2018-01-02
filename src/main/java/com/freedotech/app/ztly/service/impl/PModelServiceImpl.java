@@ -3,13 +3,14 @@ package com.freedotech.app.ztly.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.freedotech.app.ztly.dao.PmodelDao;
 import com.freedotech.app.ztly.dao.TreeNodeDao;
 import com.freedotech.app.ztly.model.Node4ZTree;
 import com.freedotech.app.ztly.model.Pmodel;
 import com.freedotech.app.ztly.service.PModelService;
-
+@Service
 public class PModelServiceImpl implements PModelService {
 	@Autowired
 	private TreeNodeDao getTreeNodeDao;

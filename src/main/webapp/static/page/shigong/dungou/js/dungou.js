@@ -9,7 +9,7 @@ $(function () {
     //	初始化地球
 	 //	添加模型
 	$.ajax({
-		url:"/yunwei/getPmodel",
+		url:"/PModel/getPmodel",
 		type: "get",
 		dataType:"json",
         success: function(data){
