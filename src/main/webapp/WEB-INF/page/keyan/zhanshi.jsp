@@ -32,7 +32,7 @@
 	<link rel="stylesheet" href="${ctx }/static/page/common/js/zTreeStyle/zTreeStyle.css">
 	<script src="${ctx }/static/page/common/js/zTreeStyle/ztree.js"></script>
 	<link rel="stylesheet" href="${ctx }/static/page/common/js/zTreeStyle/zTreeStyle.css">
-	<link rel="stylesheet" href="${ctx }/static/page/surveystudy/show/css/show.css">
+	<link rel="stylesheet" href="${ctx }/static/page/keyan/zhanshi/css/zhanshi.css">
 		<link rel="stylesheet" href="${ctx }/static/page/common/css/appendTools.css">
 	<script src="${ctx }/static/page/common/js/echarts.common.min.js"></script>
  <link rel="stylesheet" href="${ctx }/static/page/common/css/media.css">
@@ -124,13 +124,17 @@
 	<script src="${ctx }/static/page/common/js/jquery.noty.js"></script>
 	<script src="${ctx }/static/page/common/js/tool.js"></script>
 	<script src="${ctx }/static/page/common/js/tableassign.js"></script>
-	
-	<!-- end: JavaScript-->
 	<script src="${ctx }/static/webgl/drillingColumn/js/FDDrillingMgr.js"></script>
 	<script src="${ctx }/static/page/common/js/appendTool.js"></script>
-	<script src="${ctx }/static/page/surveystudy/show/js/ShowViewer.js"></script>
+	<script src="${ctx }/static/page/keyan/zhanshi/js/zhanshi_viewer.js"></script>
 	<script src="${ctx }/static/webgl/Tool/surveyCallBack.js"></script>
-	<script src="${ctx }/static/page/surveystudy/show/js/show.js"></script>
+	<script src="${ctx }/static/page/keyan/zhanshi/js/zhanshi.js"></script>
+	<script type="text/javascript">
+	var shuiwenJson = ${shuiwenstr}
+	var huanjingJson = ${huanjingstr}
+	var dizhiJson = ${dizhistr}
+	</script>
+	<!-- end: JavaScript-->
 	
 
 </body>

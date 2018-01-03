@@ -3,8 +3,6 @@ $(function () {
 	var h = $(".container-fluid-full").height();
 	var h1 = $("#content .breadcrumb").height();
 	$("#tree").height(h - h1 - 24);
-        	//GeologyViewer.init("earth");
-        	//GeologyViewer.initModels();
 			FreedoApp.init("earth");
         	FreedoApp.viewers["earth"].camera.setView( 
         			{

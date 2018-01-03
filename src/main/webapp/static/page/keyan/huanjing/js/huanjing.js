@@ -3,7 +3,6 @@ $(function () {
 	var h1 = $("#content .breadcrumb").height();
 	$("#tree").height(h - h1 - 24);
 	FreedoApp.init("earth");
-	//EnvironmentViewer.initModels();
 	EnvironmentViewer.initLeftClick(FreedoApp.viewers["earth"],showlabel);
 	FreedoApp.viewers["earth"].camera.setView({
 				destination : new FreeDo.Cartesian3(-2176905.1385308662,4471880.533473881,3995906.2301306115),

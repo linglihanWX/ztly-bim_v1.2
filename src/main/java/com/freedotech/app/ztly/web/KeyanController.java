@@ -93,13 +93,31 @@ public class KeyanController {
     	return "keyan/dizhi";
     }
     /**
-     * 跳转到地质数据页面
-     * @param model 存储返回的地质数据
+     * 跳转到选线页面
      * @return
      */
     @RequestMapping(value = "/toXuanxian",method = RequestMethod.GET)
     public String toXuanxian(){
     	return "keyan/xuanxian";
     }
-
+    /**
+     * 跳转到地质数据页面
+     * @param model 存储返回的地质数据
+     * @return
+     */
+    @RequestMapping(value = "/toZhanshi",method = RequestMethod.GET)
+    public String toZhanshiPage(Model model){
+    	//得到当前认证实体所进入项目的id
+    	int id = (int) SecurityUtils.getSubject().getSession().getAttribute("projectid");
+    	List<Shuiwen> shuiwenlist = keyanService.getShuiwenDataByProjectId(id);
+    	List<Huanjing> huanjinglist = keyanService.getHuanjingDataByProjectId(id);
+    	List<Dizhi> dizhilist = keyanService.getDizhiDataByProjectId(id);
+    	String shuiwenstr = new Gson().toJson(shuiwenlist, ArrayList.class);
+    	String huanjingstr = new Gson().toJson(huanjinglist, ArrayList.class);
+    	String dizhistr = new Gson().toJson(dizhilist, ArrayList.class);
+    	model.addAttribute("shuiwenstr", shuiwenstr);
+    	model.addAttribute("huanjingstr", huanjingstr);
+    	model.addAttribute("dizhistr", dizhistr);
+    	return "keyan/zhanshi";
+    }
 }
