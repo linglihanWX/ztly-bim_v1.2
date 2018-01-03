@@ -36,6 +36,7 @@ var FDDrillingMgr = function (viewer) {
 		    var primitive = viewer.scene.primitives.add(FreeDo.Model.fromGltf(
 		        {
 		            id: id,
+		            type:"dizhiceng",
 		            url: url,
 		            show: true,                     // default
 		            modelMatrix: modelMatrix,
@@ -65,7 +66,8 @@ var FDDrillingMgr = function (viewer) {
 	function addDsc(id,lon,lat) {
 		var citizensBankPark = viewer.entities.add( {  
 			id : id,
-			name : id,  
+			name : id,
+			type:"drilling",
 			position : FreeDo.Cartesian3.fromDegrees( lon, lat ),  
 			label : { //文字标签  
 				text : id,  

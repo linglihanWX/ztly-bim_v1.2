@@ -68,7 +68,8 @@ $(function () {
 			"pId" : 3,
 			"name" : primitive.id,
 			"type" :"地质数据",
-			"index":i-treelength
+			"index":i-treelength,
+			"nocheck":true
 		});
 	}
 	var zTreeObj;
@@ -92,12 +93,55 @@ $(function () {
 		},
 		callback : {
 			onClick : function(event, treeId, treeNode) {
+				var datatype = treeNode.type;
+				var index =treeNode.index;
+				switch (datatype) {
+				case "水文数据":
+					FreedoApp.viewers["earth"].zoomTo(water[index]);
+					break;
+				case "环境数据":
+					FreedoApp.viewers["earth"].zoomTo(environment[index]);
+					break;
+				case "地质数据":
+					var index = treeNode.index;
+					ShowViewer.fly(FreedoApp.viewers["earth"],dizhiJson[index].drillinglon,dizhiJson[index].drillinglat,70,function(){})
+					break;
 
+				default:
+					break;
 				}
-			},
+				},
+			
 			onCheck : function(event, treeId, treeNode) {
+				var datatype = treeNode.type;
+				var index = treeNode.index;
+				switch (datatype) {
+				case "水文数据":
+					if (treeNode) {
+						checkflag = treeNode.checked;
+					}
+					if (checkflag) {
+						water[index].show = true;
+					} else {
+						water[index].show = false;
+					}
+					break;
+				case "环境数据":
+					if (treeNode) {
+						checkflag = treeNode.checked;
+					}
+					if (checkflag) {
+						environment[index].show = true;
+					} else {
+						environment[index].show = false;
+					}
+					break;
+				default:
+					break;
+				}
 
 			}
+	}
 		}
 	zTreeObj = $.fn.zTree.init($("#tree"), setting, treedata);
 	zTreeObj.checkAllNodes(true);
@@ -111,7 +155,8 @@ $(function () {
 		// 加载水文图层
 		waterEntitydata = JSON.parse(shuiwenJson[i].entity);
 		waterEntity = FreedoApp.viewers["earth"].entities.add({
-					id : "shuiwen_"+shuiwenJson[i].id,
+					id : "shuiwen_"+i,
+					type:"shuiwen",
 					name : waterEntitydata.name,
 					show : waterEntitydata.show,
 					position : FreeDo.Cartesian3.fromDegrees(waterEntitydata.position[0],waterEntitydata.position[1]),
@@ -144,7 +189,7 @@ $(function () {
 						outlineColor : FreeDo.Color.BLUE
 					}
 				});
-		water[shuiwenJson[i].id]=waterEntity;
+		water.push(waterEntity);
 	}
 	var environmentEntitydata = {}
 	var environmentEntity = {}
@@ -152,7 +197,8 @@ $(function () {
 		// 初始化树时所需要的数据
 		environmentEntitydata = JSON.parse(huanjingJson[i].entity);
 		environmentEntity = FreedoApp.viewers["earth"].entities.add({
-			id:"huanjing_"+huanjingJson[i].id,
+			id:"huanjing_"+i,
+			type:"huanjing",
 	    	name:environmentEntitydata.name,
 	    	show : true,
 	    	position : FreeDo.Cartesian3.fromDegrees(environmentEntitydata.position[0],environmentEntitydata.position[1]),
@@ -187,7 +233,7 @@ $(function () {
 	            outlineColor : FreeDo.Color.ORANGE                
 	        }
 	    });
-		environment[huanjingJson[i].id]=environmentEntity;
+		environment.push(environmentEntity);
 	}
 	//加载钻井柱
 	var drillingMgr = FDDrillingMgr(FreedoApp.viewers["earth"]);
@@ -270,18 +316,74 @@ $(function () {
 var cartesian= null;
 var str_ghqmc,str_xmmc,str_bgmc,str_kjbj,str_xzqh,str_rjztmj,str_ghqmj,str_gdqx,str_znjg,str_zqgm,str_fzfx,str_czhfzmb =null;
 function showlabel(data,data2){
-	
 	if(data!=null){
 		if(flag==true){
 			removeFollowListener();
 		}
-			let	name = data2.id.name;
-			if(data2.id=="钻井柱1_0"){
-			}else{
-				cartesian = transform(data);
-				$(".msgInfo").html("钻孔编号：钻井柱3<br>日期：2017-9-24<br>钻孔深度：8<br>孔口高程：113")
-				$(".msgInfo").show();
+		console.log(data2);
+		var key = data2.id.type;
+		switch (key) {
+		case "shuiwen":
+			var id = data2.id.id;
+			var shuiwenid = parseInt(id.split("_")[1]);
+				str_ghqmc=shuiwenJson[shuiwenid].name;
+				str_xmmc=shuiwenJson[shuiwenid].name;
+				str_bgmc=shuiwenJson[shuiwenid].name+"控制性工程规划报告书";
+				str_kjbj="中心村以均匀布局形式带动基层村发展的空间结构形态";
+				str_xzqh="河北省保定市安新县";
+				str_rjztmj="99.24平方米";
+				str_ghqmj="993公顷";
+				str_gdqx="2008-2025年";
+				str_znjg="中心镇是全镇的政治、经济、文化及交通中心，是以发展第三产业、农副产品精深加工及蔬菜等包装业和物流业为主的综合开发区，中心村是村民行政、文化娱乐中心、初级商贸中心，基层村是村民活动中心";
+				str_zqgm="现状人口为8350，规划近期到2010年，镇区人口为8750，规划近期2015到年，镇区人口为9750，规划近期2025到年，镇区人口为10450";
+				str_fzfx="旅游用地发展方向为向东发展";
+				str_czhfzmb="2015年城镇人口为8430，城镇人口比重为33%<br>2015年城镇人口为10452，城镇人口比重为38%";
+				TableAssign.setablevalue(str_ghqmc,str_xmmc,str_bgmc,str_kjbj,str_xzqh,str_rjztmj,str_ghqmj,str_gdqx,str_znjg,str_zqgm,str_fzfx,str_czhfzmb)
+				$("#tableInfo").show();
+			break;
+		case "huanjing":
+			var id = data2.id.id
+			var huanjingid = parseInt(id.split("_")[1]);
+			var huanjingjson = JSON.parse(huanjingJson[huanjingid].entity);
+			str_ghqmc=huanjingjson.label.text;
+			str_xmmc=huanjingjson.label.text;
+			str_bgmc=huanjingjson.label.text+"控制性工程规划报告书";
+			str_kjbj="中心村以均匀布局形式带动基层村发展的空间结构形态";
+			str_xzqh="河北省保定市安新县";
+			str_rjztmj="99.24平方米";
+			str_ghqmj="993公顷";
+			str_gdqx="2008-2025年";
+			str_znjg="中心镇是全镇的政治、经济、文化及交通中心，是以发展第三产业、农副产品精深加工及蔬菜等包装业和物流业为主的综合开发区，中心村是村民行政、文化娱乐中心、初级商贸中心，基层村是村民活动中心";
+			str_zqgm="现状人口为8350，规划近期到2010年，镇区人口为8750，规划近期2015到年，镇区人口为9750，规划近期2025到年，镇区人口为10450";
+			str_fzfx="旅游用地发展方向为向东发展";
+			str_czhfzmb="2015年城镇人口为8430，城镇人口比重为33%<br>2015年城镇人口为10452，城镇人口比重为38%";
+			TableAssign.setablevalue(str_ghqmc,str_xmmc,str_bgmc,str_kjbj,str_xzqh,str_rjztmj,str_ghqmj,str_gdqx,str_znjg,str_zqgm,str_fzfx,str_czhfzmb)
+			$("#tableInfo").show();
+			break;
+		case "drilling":
+			cartesian = transform(data);
+			var id = data2.id.id
+			var index = null;
+			for (var i = 0; i < dizhiJson.length; i++) {
+				var primitive = JSON.parse(dizhiJson[i].primitive);
+				if(primitive.id==id){
+					index = i
+					break;
+				}
 			}
+			$(".msgInfo").html("钻孔编号："+dizhiJson[index].drillingnum+"<br>日期："+format(dizhiJson[index].drillingdate)+"<br>钻孔深度："+dizhiJson[index].drillingdepth+"<br>孔口高程："+dizhiJson[index].drillingaltitude)
+			$(".msgInfo").show();
+			break;
+
+		default:
+			if(data2.id.includes("钻井柱")){
+				var id = parseInt(data2.id.split("_")[0].slice(3));
+				console.log(id);
+			}
+
+			break;
+		}
+
 			addFollowListener();
 			
 	}else{

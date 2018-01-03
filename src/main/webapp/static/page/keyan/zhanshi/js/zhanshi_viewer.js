@@ -47,7 +47,7 @@ ShowViewer.initLeftClick = function(viewer,callback) {
 		var roll = viewer.camera.roll;
 		//console.log(x+","+y+","+z+","+heading+","+pitch+","+roll);
 		$(".msgInfo").hide();
-		$(".msgInfo").hide();
+		//$(".msgInfo").hide();
 		var picked = viewer.scene.pick(movement.position);
 		if(picked==undefined){
 			ShowViewer.changeColor(picked);

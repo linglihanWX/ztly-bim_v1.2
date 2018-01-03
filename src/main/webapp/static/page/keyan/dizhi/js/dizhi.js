@@ -191,12 +191,3 @@ var setablevalue2 = function(name,deep,thick,sheight){
 	$(".detailInfo ul").html("<li><span>名称</span><input type='text' value='"+name+"'/></li><li><span>深度</span><input type='text' value='"+deep+"米'/></li><li><span>厚度</span><input type='text' value='"+thick+"米'/></li><li><span>标高</span><input type='text' value='"+sheight+"米'/></li>");
 }
 
-var format = function (strTime) {  
-	var date = new Date(strTime);
-    var y = date.getFullYear();  
-    var m = date.getMonth() + 1;  
-    m = m < 10 ? '0' + m : m;  
-    var d = date.getDate();  
-    d = d < 10 ? ('0' + d) : d;  
-    return y + '-' + m + '-' + d;  
-}; 
