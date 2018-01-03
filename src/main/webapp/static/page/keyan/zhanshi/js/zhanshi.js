@@ -1,4 +1,5 @@
 var flag = false;
+var dizhidata = []
 $(function () {
 	var h = $(".container-fluid-full").height();
 	var h1 = $("#content .breadcrumb").height();
@@ -377,8 +378,23 @@ function showlabel(data,data2){
 
 		default:
 			if(data2.id.includes("钻井柱")){
-				var id = parseInt(data2.id.split("_")[0].slice(3));
-				console.log(id);
+				var id = data2.id.split("_")[0];
+				var ceng = parseInt(data2.id.split("_")[1]);
+				var index = null;
+				for (var i = 0; i < dizhiJson.length; i++) {
+					var primitive = JSON.parse(dizhiJson[i].primitive);
+					if(primitive.id==id){
+						index = i
+						break;
+					}
+				}
+				var lon = dizhiJson[index].drillinglon;
+				var lat = dizhiJson[index].drillinglat;
+				var altitude= dizhidata[index].drilling[ceng].altitude;
+				ShowViewer.fly(FreedoApp.viewers["earth"],lon,lat,altitude+70,function(){})
+				$(".msgInfo").html("名称："+id+"<br>深度："+altitude+"米<br>厚度："+dizhidata[index].drilling[ceng].height+"米<br>标高："+dizhidata[index].drilling[ceng].standardheight+"米");
+				$(".msgInfo").show();
+				cartesian = transform1([lon,lat,altitude]);
 			}
 
 			break;
