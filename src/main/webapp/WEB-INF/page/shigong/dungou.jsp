@@ -58,20 +58,15 @@
 	<div id="content" class="span10">
 		<ul class="breadcrumb">
 			<i class="iconfont icon-hxzfont08"></i>
-		 <li class="lists">
-                		<a href="${ctx }/shigong/toGaikuang">项目概况</a>
-						<a href="${ctx }/shigong/toJindu">进度管理</a>
-						<a href="${ctx }/shigong/toChangjing">场景管理</a>
-						<a href="${ctx }/shigong/toAnquan">安全管理</a>
-						<a href="${ctx }/shigong/toDungou" class="activeList">盾构监测</a>
-						<a href="${ctx }/shigong/toFengxian">风险管理</a>
-						<a href="#">质量管理</a>
-						<a href="#">成本管理</a>
-						<a href="#">合同管理</a>
-						<a href="#">施工日志</a>
-						<a href="#">项目信息</a>
-						<a href="${ctx }/shigong/toZhanshi">3D综合展示</a>
-                </li>
+			<li class="lists"><a href="${ctx }/shigong/toGaikuang">项目概况</a>
+				<a href="${ctx }/shigong/toEbs">进度管理</a> <a
+				href="${ctx }/shigong/toPm">场景管理</a> <a
+				href="${ctx }/shigong/toAnquan">安全管理</a> <a
+				href="${ctx }/shigong/toDungou" class="activeList">盾构监测</a> <a
+				href="${ctx }/shigong/toFengxian">风险管理</a> <a href="#">质量管理</a> <a
+				href="#">成本管理</a> <a href="#">合同管理</a> <a href="#">施工日志</a> <a
+				href="#">项目信息</a> <a href="${ctx }/shigong/toZhanshi">3D综合展示</a></li>
+			<li>
 				<div id="div1" class="close1">
 					<div id="div2" class="close2"></div>
 				</div> <span class="twoThree">2D</span>
@@ -502,7 +497,7 @@
 				</div>
 			</div>
 			<button id="showHistoryData">历史数据</button>
-			<div class="box" id="history">
+			<div class="box historyhide" id="history">
 				<div class="box-header">
 					<h2>
 						<i class="halflings-icon white align-justify"></i><span
@@ -632,7 +627,7 @@
 			<div class="changeToThree">
 				<div id="tree" class="ztree"></div>
 				<div id="earth"></div>
-				<!-- <div class="tipbox" id="tipbox1">
+				<div class="tipbox" id="tipbox1">
 					<p>提示</p>
 					<ul>
 						<li>当前风险覆盖范围<span>60</span>m</li>
@@ -657,7 +652,7 @@
 						<li>北京十六号线</li>
 						<li>第二期（第<span>1</span>区间）</li>
 					</ul>
-				</div> -->
+				</div>
 				<div class="detailInfo">
 					<ul>
 						<li><span>名称</span><input type="text" /></li>
