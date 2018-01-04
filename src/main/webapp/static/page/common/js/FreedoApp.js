@@ -30,10 +30,15 @@ FreedoApp.init = function(id) {
 				clock : null,
 				showRenderLoopErrors : false,
 				automaticallyTrackDataSourceClocks:false,
-				/*terrainProvider:new FreeDo.FreeDoTerrainProvider({
-				    url : 'http://182.92.7.32:9090/30.50.90.120.90/',
-				    requestVertexNormals : true
-				})*/
+				imageryProvider : new Freedo.WebMapTileServiceImageryProvider({
+					url : "http://{s}.tianditu.com/img_c/wmts?service=WMTS&request=GetTile&version=1.0.0&LAYER=img&tileMatrixSet={TileMatrixSet}&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style={style}&format=tiles",
+					style:"default",
+					tileMatrixSetID:"c",
+					tilingScheme:new Freedo.GeographicTilingScheme(),
+					tileMatrixLabels:["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18"],
+					maximumLevel:17,
+					subdomains : ["t0","t1","t2","t3","t4","t5","t6","t7"]
+				})
 			}
 	);
 	$(".cesium-viewer-bottom,.cesium-viewer-toolbar").remove();
@@ -70,7 +75,7 @@ FreedoApp.init = function(id) {
 	    show: true
 	})
 	var imageLayers = viewer.imageryLayers;
-	imageLayers.addImageryProvider(imageryProvider2);
+	//imageLayers.addImageryProvider(imageryProvider2);
 	imageLayers.addImageryProvider(imageryProvider1);
 	this.viewers[id] =  viewer;
 	new Compass(viewer);
