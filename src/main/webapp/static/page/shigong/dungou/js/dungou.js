@@ -3,6 +3,7 @@ $(function () {
     var h2 = $(".breadcrumb").height();
     $("#content .row-fluid").height(h - h2);
     FreedoApp.init("earth");
+    DungouViewer.initLeftClick(FreedoApp.viewers["earth"],function(){});
     var surveymanager = new SurveyManager(FreedoApp.viewers["earth"],function(){});
 
     
@@ -43,8 +44,12 @@ $(function () {
             	if(model[key].name == "railway"){
             		//地铁对应的盾构机
             	}else if(model[key].name == "tunnel"){
+            	//定位到2号坑盾构机的位置
+                	FreedoApp.viewers["earth"].camera.setView({
+                     	destination : new FreeDo.Cartesian3.fromDegrees(113.66039473378382, 22.782948633936098,-550),
+             			orientation : new FreeDo.HeadingPitchRoll(5.437420397295509,-0.11731154719345604,6.281381851419862)
+                	});
             		//海底隧道对应的盾构机
-            		
             		modelTile.style = new FreeDo.FreedoPModelStyle({
     					color : {
     						conditions : [
@@ -71,6 +76,144 @@ $(function () {
             			debugShowBoundingVolume : false, // default
             			debugWireframe : false
             		}));
+            		
+//            		//2号坑
+//            		var hole2Data = [
+//					            		[
+//						            		{lon:113.64593380167418, lat:22.778770250966016,height:1},
+//						            		{lon:113.6628310531113,  lat:22.79305705713331,height:1},
+//						            		{lon:113.66723822667922, lat:22.78875008072337,height:1},
+//						            		{lon:113.65076908372689, lat:22.774286257239158,height:1}
+//					            		],
+//					            		[
+//					            			{lon:113.64593380167418, lat:22.778770250966016,height:-500},
+//					            			{lon:113.6628310531113,  lat:22.79305705713331,height:-500},
+//					            			{lon:113.66723822667922, lat:22.78875008072337,height:-500},
+//						            		{lon:113.65076908372689, lat:22.774286257239158,height:-500}
+//					            		],
+//					            		[
+//					            			{lon:113.64593380167418, lat:22.778770250966016,height:-600},
+//					            			{lon:113.6628310531113,  lat:22.79305705713331,height:-600},
+//					            			{lon:113.66723822667922, lat:22.78875008072337,height:-600},
+//						            		{lon:113.65076908372689, lat:22.774286257239158,height:-600}
+//					            		],
+//					            		[
+//					            			{lon:113.64593380167418, lat:22.778770250966016,height:-700},
+//					            			{lon:113.6628310531113,  lat:22.79305705713331,height:-700},
+//					            			{lon:113.66723822667922, lat:22.78875008072337,height:-700},
+//					            			{lon:113.65076908372689, lat:22.774286257239158, height:-700}
+//					            		],
+//					            		[
+//					            			{lon:113.64593380167418, lat:22.778770250966016,height:-800},
+//					            			{lon:113.6628310531113,  lat:22.79305705713331,height:-800},
+//				            				{lon:113.66723822667922, lat:22.78875008072337,height:-800},
+//				            				{lon:113.65076908372689, lat:22.774286257239158, height:-800}
+//					            		]
+//					            	];
+//            		var imgarray2 = [
+//            			"/static/page/common/img/hole/water.jpg",
+//            			"/static/page/common/img/hole/Land003.jpg",
+//            			"/static/page/common/img/hole/Land004.jpg",
+//            			"/static/page/common/img/hole/Land002.jpg"
+//            			]
+//            		FreeDoUtil.dig(FreedoApp.viewers["earth"],hole2Data,imgarray2);
+            		//entity绘制的线路
+            		var line1 = FreedoApp.viewers["earth"].entities.add({ 
+            			id:1,
+            		    name : '具有一定高度的线', 
+            		    type :"line",
+            		    polyline : {  
+            		        positions : FreeDo.Cartesian3.fromDegreesArrayHeights(  
+            		            [
+            		            	113.64614940531897, 22.778576538826982, -630,
+            		            	113.65482304242103, 22.78583487031061,-610
+            		            	]  
+            		        ),  
+            		        width : 5,  
+            		        material : new FreeDo.PolylineOutlineMaterialProperty({  
+            		            color : FreeDo.Color.GREEN,  
+            		            outlineWidth : 1,  
+            		            outlineColor : FreeDo.Color.BLACK  
+            		        })  
+            		    }  
+            		});
+            		var line2 = FreedoApp.viewers["earth"].entities.add({  
+            			id:2,
+            			name : '具有一定高度的线', 
+            			type :"line",
+            			polyline : {  
+            				positions : FreeDo.Cartesian3.fromDegreesArrayHeights(  
+            						[
+            							113.65482304242103, 22.78583487031061, -610,
+            							113.65713401517607, 22.787744674022917,-580
+            							]  
+            				),  
+            				width : 5,  
+            				material : new FreeDo.PolylineOutlineMaterialProperty({  
+            					color : FreeDo.Color.BLUE,  
+            					outlineWidth : 1,  
+            					outlineColor : FreeDo.Color.BLACK  
+            				})  
+            			}  
+            		});
+            		var line3 = FreedoApp.viewers["earth"].entities.add({  
+            			id:3,
+            			name : '具有一定高度的线',  
+            			type :"line",
+            			polyline : {  
+            				positions : FreeDo.Cartesian3.fromDegreesArrayHeights(  
+            						[
+            							113.65713401517607, 22.787744674022917, -580,
+            							113.66004961353387, 22.790307562206543,-490
+            							]  
+            				),  
+            				width : 5,  
+            				material : new FreeDo.PolylineOutlineMaterialProperty({  
+            					color : FreeDo.Color.BLUEVIOLET,  
+            					outlineWidth : 1,  
+            					outlineColor : FreeDo.Color.BLACK  
+            				})  
+            			}  
+            		});
+            		var line4 = FreedoApp.viewers["earth"].entities.add({  
+            			id:4,
+            			name : '具有一定高度的线',  
+            			type :"line",
+            			polyline : {  
+            				positions : FreeDo.Cartesian3.fromDegreesArrayHeights(  
+            						[
+            							113.66004961353387, 22.790307562206543, -490,
+            							113.66301755136372, 22.792709921496122,-380
+            							]  
+            				),  
+            				width : 5,  
+            				material : new FreeDo.PolylineOutlineMaterialProperty({  
+            					color : FreeDo.Color.BLUE,  
+            					outlineWidth : 1,  
+            					outlineColor : FreeDo.Color.BLACK  
+            				})  
+            			}  
+            		});
+            		var verticaline = FreedoApp.viewers["earth"].entities.add({  
+            			id:5,
+            			name : '具有一定高度的线',  
+            			type :"line",
+            			polyline : {  
+            				positions : FreeDo.Cartesian3.fromDegreesArrayHeights(  
+            						[
+            							113.65713401517607, 22.787744674022917, -580,
+            							113.65713401517607, 22.787744674022917,-800
+            							]  
+            				),  
+            				width : 5,  
+            				material : new FreeDo.PolylineOutlineMaterialProperty({  
+            					color : FreeDo.Color.ORANGE,  
+            					outlineWidth : 1,  
+            					outlineColor : FreeDo.Color.BLACK  
+            				})  
+            			}  
+            		});
+            		
             	}
         	}
         	
@@ -404,3 +547,10 @@ function getModelMatrix(lon,lat,height,heading,pitch,roll,scaleX,scaleY,scaleZ)
 		return matrix4;
 }
 */
+function showtips(picked){
+	console.log(pikced)
+	if(picked!=undefined){
+		
+	}
+	
+}

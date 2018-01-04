@@ -12,20 +12,18 @@ DungouViewer.initLeftClick = function(viewer,callback) {
 		var cartesian = globalviewer.scene.globe.pick(globalviewer.camera.getPickRay(pick), globalviewer.scene);
 		console.log(cartesian);*/
 		var picked = viewer.scene.pick(movement.position);
+		console.log(picked);
 		var pick= new FreeDo.Cartesian2(movement.position.x,movement.position.y);
 		var cartesian = viewer.scene.globe.pick(viewer.camera.getPickRay(pick), viewer.scene);
 		var cartographic = viewer.scene.globe.ellipsoid.cartesianToCartographic(cartesian);
 		var point=[ cartographic.longitude / Math.PI * 180, cartographic.latitude / Math.PI * 180];
 		console.log(point);
-		if(picked!==undefined&&picked.id!==undefined&&typeof picked.id == "string"){
-			var pickedid = picked.id;
-			var id = parseInt(pickedid.slice(1,pickedid.length-1));
-			DungouViewer.changeColor(pickedid);
-			fanxuanTree(id);
-			$(".detailInfo ul").html("<li><span>名称</span><input type='text' value='"+pickedid+"'/></li><li><span>推力（N）</span><input type='text' value='"+(id+5)*3+"'/></li> <li><span>刀盘转速（rpm）</span><input type='text' value='"+parseInt((id+3.7)*100)+"'/></li><li><span>旋转方向</span><input type='text'value='顺时针'/></li>");
-			$(".detailInfo").show();
+//		console.log(FreedoApp.viewers["earth"].camera)
+//		console.log(FreedoApp.viewers["earth"].camera.heading+","+FreedoApp.viewers["earth"].camera.pitch+","+FreedoApp.viewers["earth"].camera.roll)
+		if(picked!=undefined){
+			callback(undefined);
 		}else{
-			$(".detailInfo").hide();
+			callback(picked);
 		}
 	}, FreeDo.ScreenSpaceEventType.LEFT_CLICK);
 }
