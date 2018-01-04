@@ -59,8 +59,8 @@
 		<ul class="breadcrumb">
 			<i class="iconfont icon-hxzfont08"></i>
 			<li class="lists"><a href="${ctx }/shigong/toGaikuang2">项目概况</a>
-				<a href="${ctx }/shigong/toEbs">进度管理</a> <a
-				href="${ctx }/shigong/toPm">场景管理</a> <a
+				<a href="${ctx }/shigong/toJindu">进度管理</a> <a
+				href="${ctx }/shigong/toChangjing">场景管理</a> <a
 				href="${ctx }/shigong/toAnquan">安全管理</a> <a
 				href="${ctx }/shigong/toDungou" class="activeList">盾构监测</a> <a
 				href="${ctx }/shigong/toFengxian">风险管理</a> <a href="#">质量管理</a> <a
