@@ -21,7 +21,8 @@ $(function () {
 	var treedata = [ {
 		"id" : 0,
 		"pId" : -1,
-		"name" : "环境数据"
+		"name" : "环境数据",
+		"nocheck":true
 	} ]
 	var environmentEntitydata = {}
 	var environmentEntity = {}

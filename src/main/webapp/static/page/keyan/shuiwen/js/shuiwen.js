@@ -23,7 +23,8 @@ $(function() {
 	var treedata = [ {
 		"id" : 0,
 		"pId" : -1,
-		"name" : "水文数据"
+		"name" : "水文数据",
+			"nocheck":true
 	} ]
 	var waterEntitydata = {}
 	var waterEntity = {}
@@ -78,11 +79,11 @@ $(function() {
 	var setting = {
 		check : {
 			enable : true,
-			chkStyle : "checkbox",
-			chkboxType : {
-				"Y" : "p",
-				"N" : "s"
-			}
+//			chkStyle : "checkbox",
+//			chkboxType : {
+//				"Y" : "p",
+//				"N" : "s"
+//			}
 		},
 		data : {
 			simpleData : {
@@ -97,8 +98,7 @@ $(function() {
 				$("#tableInfo").hide();
 				var id = treeNode.id;
 					FreedoApp.viewers["earth"].zoomTo(water[id]);
-				}
-			},
+				},
 			onCheck : function(event, treeId, treeNode) {
 				if (treeNode) {
 					checkflag = treeNode.checked;
@@ -109,6 +109,7 @@ $(function() {
 					water[treeNode.id].show = false;
 				}
 			}
+		}
 		}
 		
 
