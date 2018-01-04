@@ -58,15 +58,20 @@
 	<div id="content" class="span10">
 		<ul class="breadcrumb">
 			<i class="iconfont icon-hxzfont08"></i>
-			<li class="lists"><a href="${ctx }/shigong/toGaikuang">项目概况</a>
-				<a href="${ctx }/shigong/toEbs">进度管理</a> <a
-				href="${ctx }/shigong/toPm">场景管理</a> <a
-				href="${ctx }/shigong/toAnquan">安全管理</a> <a
-				href="${ctx }/shigong/toDungou" class="activeList">盾构监测</a> <a
-				href="${ctx }/shigong/toFengxian">风险管理</a> <a href="#">质量管理</a> <a
-				href="#">成本管理</a> <a href="#">合同管理</a> <a href="#">施工日志</a> <a
-				href="#">项目信息</a> <a href="${ctx }/shigong/toZhanshi">3D综合展示</a></li>
-			<li>
+		 <li class="lists">
+                		<a href="${ctx }/shigong/toGaikuang">项目概况</a>
+						<a href="${ctx }/shigong/toJindu">进度管理</a>
+						<a href="${ctx }/shigong/toChangjing">场景管理</a>
+						<a href="${ctx }/shigong/toAnquan">安全管理</a>
+						<a href="${ctx }/shigong/toDungou" class="activeList">盾构监测</a>
+						<a href="${ctx }/shigong/toFengxian">风险管理</a>
+						<a href="#">质量管理</a>
+						<a href="#">成本管理</a>
+						<a href="#">合同管理</a>
+						<a href="#">施工日志</a>
+						<a href="#">项目信息</a>
+						<a href="${ctx }/shigong/toZhanshi">3D综合展示</a>
+                </li>
 				<div id="div1" class="close1">
 					<div id="div2" class="close2"></div>
 				</div> <span class="twoThree">2D</span>

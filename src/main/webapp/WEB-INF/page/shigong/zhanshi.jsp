@@ -30,7 +30,7 @@
 	<link rel="stylesheet" href="${ctx }/static/page/common/css/reset.css">
 	<link rel="stylesheet" href="${ctx }/static/page/common/IconFont/iconfont.css">
 	<script src="${ctx }/static/page/common/js/jquery-1.9.1.min.js"></script>
-	<link rel="stylesheet" href="${ctx }/static/page/shigongguanli/jinduguanli/css/sg.css">
+	<link rel="stylesheet" href="${ctx }/static/page/shigong/jinduguanli/css/sg.css">
 	
     <link rel="stylesheet" href="${ctx }/static/page/common/css/media.css">
 </head>
@@ -45,8 +45,8 @@
 					<li class="lists">
 					<i class="iconfont icon-hxzfont08"></i>
               		<a href="${ctx }/shigong/toGaikuang">项目概况</a>
-						<a href="${ctx }/shigong/toEbs">进度管理</a>
-						<a href="${ctx }/shigong/toPm">场景管理</a>
+						<a href="${ctx }/shigong/toJindu">进度管理</a>
+						<a href="${ctx }/shigong/toChangjing">场景管理</a>
 						<a href="${ctx }/shigong/toAnquan">安全管理</a>
 						<a href="${ctx }/shigong/toDungou">盾构监测</a>
 						<a href="${ctx }/shigong/toFengxian">风险管理</a>
@@ -60,7 +60,7 @@
 					
 				</ul>
 				<div class="row-fluid sortable" id="diqiu">
-					<iframe src="${ctx }/static/page/shigongguanli/workshow/workshow.html" style="width: 100%;height: 100%;border: none;"></iframe>
+					<iframe src="${ctx }/static/page/shigong/zhanshi/workshow.html" style="width: 100%;height: 100%;border: none;"></iframe>
 				</div>
 			</div>
 

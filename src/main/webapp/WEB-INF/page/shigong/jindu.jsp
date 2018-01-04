@@ -67,7 +67,7 @@
 					<li class="lists">
                		<a href="${ctx }/yunwei/toGaikuang">项目概况</a>
 						<a href="#" class="activeList">进度管理</a>
-						<a href="${ctx }/shigong/toPm">场景管理</a>
+						<a href="${ctx }/shigong/toChangjing">场景管理</a>
 						<a href="${ctx }/shigong/toAnquan">安全管理</a>
 						<a href="${ctx }/shigong/toDungou">盾构监测</a>
 						<a href="${ctx }/shigong/toFengxian">风险管理</a>

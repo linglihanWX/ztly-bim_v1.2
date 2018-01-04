@@ -48,7 +48,7 @@
 	<!-- start: Favicon -->
 	<!-- end: Favicon -->
 
-	<link rel="stylesheet" href="${ctx }/static/page/shigongguanli/jinduguanli/css/sg.css">
+	<link rel="stylesheet" href="${ctx }/static/page/shigong/jinduguanli/css/sg.css">
 
 <link rel="stylesheet" href="${ctx }/static/page/common/css/media.css">
 
@@ -64,7 +64,7 @@
 					<li class="lists">
 					<i class="iconfont icon-hxzfont08"></i>
                 		<a href="${ctx }/shigong/toGaikuang">项目概况</a>
-						<a href="${ctx }/shigong/toEbs">进度管理</a>
+						<a href="${ctx }/shigong/toJindu">进度管理</a>
 						<a href="#" class="activeList">场景管理</a>
 						<a href="${ctx }/shigong/toAnquan">安全管理</a>
 						<a href="${ctx }/shigong/toDungou">盾构监测</a>
@@ -81,7 +81,7 @@
 
 
 				<div class="row-fluid sortable">
-					<iframe src="${ctx }/static/page/shigongguanli/iframe/pm/pm.html" style="width: 100%;height: 100%;border: none;"></iframe>
+					<iframe src="${ctx }/static/page/shigong/iframe/pm/pm.html" style="width: 100%;height: 100%;border: none;"></iframe>
 				</div>
 			</div>
 		</div>
@@ -89,7 +89,7 @@
 
 </body>
 
-	<script src="${ctx }/static/page/shigongguanli/jinduguanli/js/pModel.js"></script>
+	<script src="${ctx }/static/page/shigong/jinduguanli/js/pModel.js"></script>
 	<script src="${ctx}/static/page/common/js/jquery-ui-1.10.0.custom.min.js"></script>
 
 	<script src="${ctx}/static/page/common/js/jquery.noty.js"></script>

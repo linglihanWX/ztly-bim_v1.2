@@ -34,6 +34,16 @@ public class ShigongController {
 	public String toJinduPage() {
 		return "/shigong/jindu";
 	}
+	//跳转至施工管理模块的场景管理模块
+	@RequestMapping("/toChangjing")
+	public String toChangjingPage() {
+		return "/shigong/changjing";
+	}
+	//跳转至施工管理模块的安全管理模块
+		@RequestMapping("/toAnquan")
+		public String toAnquanPage() {
+			return "/shigong/anquan";
+		}
 	/**
 	 * 跳转到盾构页面
 	 * @return
@@ -47,5 +57,14 @@ public class ShigongController {
 		model.addAttribute("historydata", listsome);
 		return "/shigong/dungou";
 	}
-	
+	//跳转至施工管理模块的风险管理模块
+		@RequestMapping("/toFengxian")
+		public String toFengxianPage() {
+			return "/shigong/fengxian";
+		}
+		//跳转至施工管理模块的展示管理模块
+		@RequestMapping("/toZhanshi")
+		public String toZhanshiPage() {
+			return "/shigong/zhanshi";
+		}
 }

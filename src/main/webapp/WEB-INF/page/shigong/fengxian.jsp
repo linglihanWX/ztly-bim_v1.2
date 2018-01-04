@@ -29,7 +29,7 @@
 	<link rel="stylesheet" href="${ctx }/static/page/common/IconFont/iconfont.css">
 
 
-	<link rel="stylesheet" href="${ctx }/static/page/shigongguanli/riskmgmt/css/riskmgmt.css">
+	<link rel="stylesheet" href="${ctx }/static/page/shigong/riskmgmt/css/riskmgmt.css">
 	<script src="${ctx }/static/page/common/js/echarts.common.min.js"></script>
 	
     <link rel="stylesheet" href="${ctx }/static/page/common/css/media.css">
@@ -381,7 +381,7 @@
 	<script src="${ctx }/static/page/common/js/jquery.knob.modified.js"></script>
 	<script src="${ctx }/static/page/common/js/jquery.sparkline.min.js"></script>
 	<script src="${ctx }/static/page/common/js/counter.js"></script>
-	<script src="${ctx }/static/page/shigongguanli/riskmgmt/js/riskmgmt.js"></script>
+	<script src="${ctx }/static/page/shigong/riskmgmt/js/riskmgmt.js"></script>
 </body>
 
 </html>
