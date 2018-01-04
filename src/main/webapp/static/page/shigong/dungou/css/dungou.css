@@ -95,6 +95,8 @@ body {
     height: 99%;
     overflow-x:auto;
     padding:5px 0 0  0;
+    z-index:2;
+    background: #fff;
 }
 #earth{
     position: absolute!important;
@@ -263,7 +265,7 @@ a.brand span {
     transform: rotate(-10deg);
 }
 #history{
-	display:none;
+
 	position:absolute;
 	left:50%;
 	top:50%;
@@ -280,17 +282,20 @@ a.brand span {
 	overflow-x:scroll;
 	overflow-y:scroll;
 }
-
+.historyhide{
+	display:none!important;
+}
 
 .tipbox{
     position: absolute;
-
+	display:none;
     width: auto;
     height:auto;
     min-width: 200px;
     border-radius: 5px;
     color: #fff;
     background-color: #0b5fa7;
+    z-index:1;
 }
 .tipbox p{
     text-indent: 1rem;

@@ -3,7 +3,7 @@ $(function () {
     var h2 = $(".breadcrumb").height();
     $("#content .row-fluid").height(h - h2);
     FreedoApp.init("earth");
-    DungouViewer.initLeftClick(FreedoApp.viewers["earth"],function(){});
+    DungouViewer.initLeftClick(FreedoApp.viewers["earth"],showtips);
     var surveymanager = new SurveyManager(FreedoApp.viewers["earth"],function(){});
 
     
@@ -547,10 +547,27 @@ function getModelMatrix(lon,lat,height,heading,pitch,roll,scaleX,scaleY,scaleZ)
 		return matrix4;
 }
 */
-function showtips(picked){
-	console.log(pikced)
-	if(picked!=undefined){
-		
-	}
+function showtips(picked,screenposition){
+			if(picked!=undefined&&picked.id!=undefined&&picked.id.type!=undefined){				
+				if(picked.id.type=="line"){
+					$("#tipbox1").css({
+						left:screenposition.x-150,
+						top:screenposition.y-50
+					}).show()
+					$("#tipbox2").css({
+						left:screenposition.x+150,
+						top:screenposition.y-70
+					}).show()
+					$("#tipbox3").css({
+						left:screenposition.x-150,
+						top:screenposition.y+50
+					}).show()
+					$("#tipbox4").css({
+						left:screenposition.x+150,
+						top:screenposition.y+70
+					}).show()
+				}
+			}
+
 	
 }

@@ -1349,6 +1349,10 @@ $(function() {
 	});
 	
 	$("#showHistoryData").click(function(){
-		$("#history").show();
+		$("#history").removeClass("historyhide");
 	});
+	$(".btn-close").click(function(){
+		$("#history").addClass("historyhide");
+	});
+	
 });
