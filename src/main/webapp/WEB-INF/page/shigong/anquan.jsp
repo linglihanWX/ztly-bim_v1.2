@@ -27,6 +27,7 @@
 	<link rel="stylesheet" href="${ctx }/static/page/common/IconFont/iconfont.css">
 	<link rel="stylesheet" href="${ctx }/static/page/shigongguanli/safe/css/safe.css">
 	<link rel="stylesheet" href="${ctx }/static/page/common/css/media.css">
+	<link rel="stylesheet" href="${ctx }/static/page/shigong/anquan/css/anquan.css">
 	<!-- end: CSS -->
 <script src="${ctx }/static/page/common/js/echarts.common.min.js"></script>
 </head>
