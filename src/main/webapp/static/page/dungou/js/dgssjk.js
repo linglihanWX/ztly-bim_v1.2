@@ -37,6 +37,7 @@ $(function () {
         async:false,
         dataType:'json',
         success:function (data) {
+        	console.log(data)
             infoData = data;
         },error:function (err) {
             console.log(err);

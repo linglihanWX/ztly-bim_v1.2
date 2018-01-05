@@ -411,3 +411,48 @@ html,body{
     width: 40px;
     height: 100%;
 }
+
+
+.tipbox{
+    position: absolute;
+	display:none;
+    width: auto;
+    height:auto;
+    min-width: 200px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #0b5fa7;
+    z-index:1;
+}
+.tipbox p{
+    text-indent: 1rem;
+    width:auto;
+    height: 25px;
+    line-height: 25px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #214b5f;
+
+}
+.tipbox ul li{
+    text-indent: 1rem;
+    width:auto;
+    height: 25px;
+    line-height: 25px;
+}
+#tipbox1{
+	left: 30%;
+    top: 30%;
+}
+#tipbox2{
+	    left: 50%;
+    top: 30%;
+}
+#tipbox3{
+	    left: 30%;
+    top: 50%;
+}
+#tipbox4{
+	    left: 50%;
+    top: 50%;
+}

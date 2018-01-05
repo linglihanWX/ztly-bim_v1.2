@@ -7,7 +7,7 @@ $(function () {
     DungouViewer.initLeftDbClick(FreedoApp.viewers["earth"])
     DungouViewer.initLeftDown(FreedoApp.viewers["earth"],hidetips)
    // var surveymanager = new SurveyManager(FreedoApp.viewers["earth"],function(){});
-
+    cameraControl(FreedoApp.viewers["earth"]);
     
     //	初始化地球
 	 //	添加模型

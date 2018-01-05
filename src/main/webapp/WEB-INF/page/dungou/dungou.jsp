@@ -106,6 +106,34 @@
                     <img src="${ctx }/static/page/dungou/img/danger.png" alt="">
                 </p>
             </div>
+            
+            				<div class="tipbox" id="tipbox1">
+					<p>提示</p>
+					<ul>
+						<li>当前风险覆盖范围<span>60</span>m</li>
+					</ul>
+				</div>
+				<div class="tipbox" id="tipbox2">
+					<p>提示：即将下穿构建筑物</p>
+					<ul>
+						<li>1、注意控制注浆量</li>
+						<li>2、加强构建筑物监测与巡查</li>
+					</ul>
+				</div>
+				<div class="tipbox" id="tipbox3">
+					<p>提示</p>
+					<ul>
+						<li>距风险范围<span>130</span>m</li>
+					</ul>
+				</div>
+				<div class="tipbox" id="tipbox4">
+					<p>当前位置</p>
+					<ul>
+						<li>北京十六号线</li>
+						<li>第二期（第<span>1</span>区间）</li>
+					</ul>
+				</div>
+            
             <img src="${ctx }/static/page/dungou/img/sliderDown.png"  class="changeSize" alt="">
         </div>
         <div class="content-bottom">
@@ -114,7 +142,6 @@
                 <canvas id="cvs" width="500" height="500"></canvas>
             </div>
             <div class="info-middle">
-
             </div>
             <div class="info-right">
                 <p>盾构机偏移 <i class="iconfont icon-out"></i></p>
@@ -132,12 +159,12 @@
     <span class="close">×</span>
     <ul class="list"></ul>
 </div>
-<script src="${ctx }/static/page/common/js/echarts.common.min.js"></script>
 <script src="${ctx }/static/page/dungou/js/nav.js"></script>
 <script src="${ctx }/static/page/dungou/js/drag.js"></script>
 <script src="${ctx }/static/page/dungou/js/base-canvas.js"></script>
 <script src="${ctx }/static/page/dungou/js/canvasCircle.js"></script>
 <script src="${ctx }/static/page/dungou/js/dgssjk.js"></script>
+<script src="${ctx }/static/webgl/caozuoqi/cameraControlRightAdjust.js"></script>
 <script src="${ctx }/static/page/dungou/js/dungou_viewer.js"></script>
 <script src="${ctx }/static/page/dungou/js/dungou.js"></script>
 </body>
