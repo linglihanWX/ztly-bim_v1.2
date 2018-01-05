@@ -45,9 +45,7 @@ public class LoginController {
 
     @RequestMapping(value = "/toLogin")
     public String login(User user, Model model){
-    	User currentuser = (User) SecurityUtils.getSubject().getPrincipal();
     	 String msg = null;
-    	if(currentuser==null) {
         String username = user.getUsername();
         String password = user.getPassword();
         logger.debug("username => " + username);
@@ -70,9 +68,7 @@ public class LoginController {
         if(msg == null){
             return "redirect:main";
         }
-    	}else {
-    		return "redirect:main";
-    	}
+
         model.addAttribute("msg",msg);
         return "/login";
     }
