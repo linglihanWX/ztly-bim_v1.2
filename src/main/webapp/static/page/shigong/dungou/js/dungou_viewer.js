@@ -27,6 +27,17 @@ DungouViewer.initLeftClick = function(viewer,callback) {
 		}
 	}, FreeDo.ScreenSpaceEventType.LEFT_CLICK);
 }
+DungouViewer.initLeftDown = function(viewer,callback) {
+	screenSpaceEventHandler = new FreeDo.ScreenSpaceEventHandler(viewer.canvas);
+	screenSpaceEventHandler.setInputAction(function(movement){
+		callback();
+	}, FreeDo.ScreenSpaceEventType.LEFT_DOWN);
+}
+DungouViewer.initLeftDbClick = function(viewer) {
+	screenSpaceEventHandler = new FreeDo.ScreenSpaceEventHandler(viewer.canvas);
+	screenSpaceEventHandler.setInputAction(function(movement){
+	}, FreeDo.ScreenSpaceEventType.LEFT_DOUBLE_CLICK);
+}
 //移除原有的监听事件
 DungouViewer.removeListener = function(){
 	screenSpaceEventHandler.removeInputAction(FreeDo.ScreenSpaceEventType.LEFT_CLICK);

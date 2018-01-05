@@ -4,6 +4,8 @@ $(function () {
     $("#content .row-fluid").height(h - h2);
     FreedoApp.init("earth");
     DungouViewer.initLeftClick(FreedoApp.viewers["earth"],showtips);
+    DungouViewer.initLeftDbClick(FreedoApp.viewers["earth"])
+    DungouViewer.initLeftDown(FreedoApp.viewers["earth"],hidetips)
     var surveymanager = new SurveyManager(FreedoApp.viewers["earth"],function(){});
 
     
@@ -120,7 +122,7 @@ $(function () {
             		//entity绘制的线路
             		var line1 = FreedoApp.viewers["earth"].entities.add({ 
             			id:1,
-            		    name : '具有一定高度的线', 
+            		    name : '线', 
             		    type :"line",
             		    polyline : {  
             		        positions : FreeDo.Cartesian3.fromDegreesArrayHeights(  
@@ -139,7 +141,7 @@ $(function () {
             		});
             		var line2 = FreedoApp.viewers["earth"].entities.add({  
             			id:2,
-            			name : '具有一定高度的线', 
+            			name : '线', 
             			type :"line",
             			polyline : {  
             				positions : FreeDo.Cartesian3.fromDegreesArrayHeights(  
@@ -158,7 +160,7 @@ $(function () {
             		});
             		var line3 = FreedoApp.viewers["earth"].entities.add({  
             			id:3,
-            			name : '具有一定高度的线',  
+            			name : '线',  
             			type :"line",
             			polyline : {  
             				positions : FreeDo.Cartesian3.fromDegreesArrayHeights(  
@@ -177,7 +179,7 @@ $(function () {
             		});
             		var line4 = FreedoApp.viewers["earth"].entities.add({  
             			id:4,
-            			name : '具有一定高度的线',  
+            			name : '线',  
             			type :"line",
             			polyline : {  
             				positions : FreeDo.Cartesian3.fromDegreesArrayHeights(  
@@ -196,8 +198,8 @@ $(function () {
             		});
             		var verticaline = FreedoApp.viewers["earth"].entities.add({  
             			id:5,
-            			name : '具有一定高度的线',  
-            			type :"line",
+            			name : '线',  
+            			type :"verticaline",
             			polyline : {  
             				positions : FreeDo.Cartesian3.fromDegreesArrayHeights(  
             						[
@@ -566,8 +568,13 @@ function showtips(picked,screenposition){
 						left:screenposition.x+150,
 						top:screenposition.y+70
 					}).show()
+				}else{
+					hidetips();
 				}
+			}else{
+				hidetips();
 			}
-
-	
+}
+function hidetips(){
+	$("#tipbox1,#tipbox2,#tipbox3,#tipbox4").hide();
 }
