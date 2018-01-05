@@ -124,6 +124,7 @@ $(function () {
             			id:1,
             		    name : '线', 
             		    type :"line",
+            		    data:[60,130],
             		    polyline : {  
             		        positions : FreeDo.Cartesian3.fromDegreesArrayHeights(  
             		            [
@@ -143,6 +144,7 @@ $(function () {
             			id:2,
             			name : '线', 
             			type :"line",
+            			data:[50,120],
             			polyline : {  
             				positions : FreeDo.Cartesian3.fromDegreesArrayHeights(  
             						[
@@ -162,6 +164,7 @@ $(function () {
             			id:3,
             			name : '线',  
             			type :"line",
+            			data:[40,110],
             			polyline : {  
             				positions : FreeDo.Cartesian3.fromDegreesArrayHeights(  
             						[
@@ -181,6 +184,7 @@ $(function () {
             			id:4,
             			name : '线',  
             			type :"line",
+            			data:[30,100],
             			polyline : {  
             				positions : FreeDo.Cartesian3.fromDegreesArrayHeights(  
             						[
@@ -568,6 +572,9 @@ function showtips(picked,screenposition){
 						left:screenposition.x+150,
 						top:screenposition.y+70
 					}).show()
+					$("#tipbox1 ul li span").text(picked.id.data[0]);
+					$("#tipbox3 ul li span").text(picked.id.data[1]);
+					$("#tipbox4 ul li span").text(picked.id.id);
 				}else{
 					hidetips();
 				}
