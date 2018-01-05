@@ -48,10 +48,10 @@
 	<!-- start: Favicon -->
 	<!-- end: Favicon -->
 
-	<link rel="stylesheet" href="${ctx }/static/page/shigong/jinduguanli/css/sg.css">
+	<link rel="stylesheet" href="${ctx }/static/page/shigong/jindu/css/sg.css">
 
 <link rel="stylesheet" href="${ctx }/static/page/common/css/media.css">
-<link rel="stylesheet" href="${ctx }/static/page/shigong/fengxian/css/fengxian.css">
+
 </head>
 
 <body>
@@ -89,8 +89,7 @@
 
 </body>
 
-	<script src="${ctx }/static/page/shigong/jinduguanli/js/pModel.js"></script>
+	<script src="${ctx }/static/webgl/pModel/js/pModel.js"></script>
 	<script src="${ctx}/static/page/common/js/jquery-ui-1.10.0.custom.min.js"></script>
-
 	<script src="${ctx}/static/page/common/js/jquery.noty.js"></script>
 </html>

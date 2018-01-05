@@ -25,9 +25,8 @@
 	<link rel="stylesheet" href="${ctx }/static/page/common/css/common.css">
 	<link rel="stylesheet" href="${ctx }/static/page/common/css/reset.css">
 	<link rel="stylesheet" href="${ctx }/static/page/common/IconFont/iconfont.css">
-	<link rel="stylesheet" href="${ctx }/static/page/shigongguanli/safe/css/safe.css">
-	<link rel="stylesheet" href="${ctx }/static/page/common/css/media.css">
 	<link rel="stylesheet" href="${ctx }/static/page/shigong/anquan/css/anquan.css">
+	<link rel="stylesheet" href="${ctx }/static/page/common/css/media.css">
 	<!-- end: CSS -->
 <script src="${ctx }/static/page/common/js/echarts.common.min.js"></script>
 </head>
@@ -480,8 +479,8 @@
 	<script src="${ctx }/static/page/common/js/jquery.sparkline.min.js"></script>
 	<script src="${ctx }/static/page/common/js/counter.js"></script>
 	<script src="${ctx }/static/page/common/js/retina.js"></script>
-	<script src="${ctx }/static/page/shigongguanli/safe/js/safe.js"></script>
-	<script src="${ctx }/static/page/shigongguanli/safe/js/safepie.js"></script>
+	<script src="${ctx }/static/page/shigong/anquan/js/anquan.js"></script>
+	<script src="${ctx }/static/page/shigong/anquan/js/anquan_pie.js"></script>
 </body>
 
 </html>
