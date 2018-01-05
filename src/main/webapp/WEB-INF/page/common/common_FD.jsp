@@ -6,5 +6,9 @@
 <!-- 指北针 -->
 <link rel="stylesheet" href="${ctx }/static/webgl/compass/css/compass.css">
 <script src="${ctx }/static/webgl/compass/js/Compass.js"></script>
+<!-- 调整PMODEL模型 -->
+<script src="${ctx }/static/webgl/pModel/js/move.js"></script>
+
 <script src="${ctx }/static/page/common/js/FreedoApp.js"></script>
 <script src="${ctx }/static/page/common/js/FreeDoTool.js"></script>
+<script src="${ctx }/static/page/common/js/FreeDoUtil.js"></script>

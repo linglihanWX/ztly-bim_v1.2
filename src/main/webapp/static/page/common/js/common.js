@@ -7,6 +7,8 @@ $(function () {
 		$("#shigong").addClass("active");
 	}else if($("#moduletype").hasClass("yunwei")){
 		$("#yunwei").addClass("active");
+	}else if($("#moduletype").hasClass("dungou")){
+		$("#dungou").addClass("active");
 	}
    
 });

@@ -32,6 +32,12 @@
 								<span class="hidden-tablet">运维管理</span>
 							</a>
 						</li>
+						<li id="dungou">
+							<a href="${ctx }/dungou">
+								<i class="iconfont icon-Refresh"></i>
+								<span class="hidden-tablet">盾构管理</span>
+							</a>
+						</li>
                 </ul>
             </div>
         </div>

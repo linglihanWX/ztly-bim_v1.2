@@ -35,8 +35,6 @@
 <script src="${ctx }/static/page/shigong/dungou/js/base-canvas.js"></script>
 <link rel="stylesheet"
 	href="${ctx }/static/page/common/js/zTreeStyle/zTreeStyle.css">
-<link rel="stylesheet"
-	href="${ctx }/static/page/common/css/appendTools.css">
 <script src="${ctx }/static/page/common/js/zTreeStyle/ztree.js"></script>
 <!--[if lt IE 9]>
     <link id="ie-style" href="css/ie.css" rel="stylesheet">
@@ -678,13 +676,10 @@
 	<script src="${ctx }/static/page/common/js/jquery.noty.js"></script>
 	<!-- end: JavaScript-->
 	<script src="${ctx }/static/page/common/js/echarts.min.js"></script>
-	<script src="${ctx }/static/webgl/pModel/js/move.js"></script>
 	<script src="${ctx }/static/page/common/js/FreeDoUtil.js"></script>
 	<script src="${ctx }/static/page/shigong/dungou/js/canvasCircle.js"></script>
 	<script src="${ctx }/static/page/shigong/dungou/js/tbm.js"></script>
-	<script src="${ctx }/static/page/common/js/appendTool.js"></script>
 	<script src="${ctx }/static/page/shigong/dungou/js/dungou_viewer.js"></script>
-	<script src="${ctx }/static/webgl/Tool/surveyCallBack.js"></script>
 	<script src="${ctx }/static/page/shigong/dungou/js/dungou.js"></script>
 
 </body>
