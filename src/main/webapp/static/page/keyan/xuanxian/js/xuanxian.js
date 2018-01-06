@@ -22,22 +22,34 @@ $(function () {
         		var modelTile=FreedoApp.viewers["init"].scene.primitives.add(new FreeDo.FreedoPModelset({
             		url: model[key].url
             	}));
-        		//移动模型到坑里
-        		modelTile.readyPromise.then(function() {
-            		moveModel(modelTile,model[key].x,model[key].y,model[key].z,model[key].heading,model[key].pitch,model[key].roll,model[key].scalex,model[key].scaley,model[key].scalez);
-            	});
-        		//挖坑
-            	FreeDoUtil.dig(FreedoApp.viewers["init"],holeData,imgarray);
-            	//镜头定位
-            	FreedoApp.viewers["init"].camera.setView({
-                 	destination :new FreeDo.Cartesian3.fromDegrees(model[key].cameralon,model[key].cameralat, model[key].cameraheight),
-         			orientation: {
-         				heading : model[key].cameraheading,
-         				pitch : model[key].camerapitch,
-         				roll : model[key].cameraroll
-         			}
-         		});
+        		if(model[key].x!=0||model[key].y!=0||model[key].z!=0||model[key].heading!=0||model[key].pitch!=0||model[key].roll!=0||model[key].scalex!=1||model[key].scaley!=1||model[key].scalez!=1){
+        			//调整模型位置
+        			modelTile.readyPromise.then(function() {
+        				moveModel(modelTile,model[key].x,model[key].y,model[key].z,model[key].heading,model[key].pitch,model[key].roll,model[key].scalex,model[key].scaley,model[key].scalez);
+        			});
+        		}
+        		if(holeData!=null&&imgarray!=null){
+        			//挖坑
+        			FreeDoUtil.dig(FreedoApp.viewers["init"],holeData,imgarray);
+        		}
+        		if(model[key].cameralon!=null||model[key].cameralat!=null||model[key].cameraheight!=null||model[key].cameraheading!=null||model[key].camerapitch!=null||model[key].cameraroll!=null){        			
+
+        			//镜头定位
+        			FreedoApp.viewers["init"].camera.setView({
+        				destination :new FreeDo.Cartesian3.fromDegrees(model[key].cameralon,model[key].cameralat, model[key].cameraheight),
+        				orientation: {
+        					heading : model[key].cameraheading,
+        					pitch : model[key].camerapitch,
+        					roll : model[key].cameraroll
+        				}
+        			});
+        		}else{
+        			modelTile.readyPromise.then(function() {
+        				FreedoApp.viewers["init"].camera.flyToBoundingSphere(modelTile.boundingSphere);
+        			});
+        		}
         	}
+
         	
 
         }

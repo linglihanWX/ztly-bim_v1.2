@@ -6,19 +6,19 @@
     "son": [
       {
         "name": "土压1",
-        "value": 0.56
+        "value": 0.4
       },
       {
         "name": "土压2",
-        "value": 0.56
+        "value": 1.5
       },
       {
         "name": "土压3",
-        "value": 0.56
+        "value": 1.7
       },
       {
         "name": "土压4",
-        "value": 0.56
+        "value": 0.0
       }
     ]
   },
@@ -41,11 +41,11 @@
       },
       {
         "name": "开度(mm)",
-        "value": "100"
+        "value": "1352"
       },
       {
         "name": "油温(DEG.C)",
-        "value": "100"
+        "value": "45"
       }
     ]
   },
@@ -56,35 +56,35 @@
     "son": [
       {
         "name": "油缸A行程(mm)",
-        "value": 100
+        "value": 1838.0
       },
       {
         "name": "油缸B行程(mm)",
-        "value": 100
+        "value": -15.0
       },
       {
         "name": "油缸C行程(mm)",
-        "value": 100
+        "value": 1821.0
       },
       {
         "name": "油缸D行程(mm)",
-        "value": 100
+        "value": 1769.0
       },
       {
         "name": "油缸A压力(bar)",
-        "value": 100
+        "value": 0.2
       },
       {
         "name": "油缸B压力(bar)",
-        "value": 100
+        "value": 0.98
       },
       {
         "name": "油缸C压力(bar)",
-        "value": 100
+        "value": 0.3
       },
       {
         "name": "油缸D压力(bar)",
-        "value": 100
+        "value": 0.15
       }
     ]
   },
@@ -95,23 +95,23 @@
     "son": [
       {
         "name": "铰接油缸A行程(mm)",
-        "value": "100"
+        "value": "98.0"
       },
       {
         "name": "铰接油缸B行程(mm)",
-        "value": "100"
+        "value": "46.0"
       },
       {
         "name": "铰接油缸C行程(mm)",
-        "value": "100"
+        "value": "25.0"
       },
       {
         "name": "铰接油缸D行程(mm)",
-        "value": "100"
+        "value": "43.0"
       },
       {
         "name": "铰接油缸压力(bar)",
-        "value": "100"
+        "value": "0.8"
       }
     ]
   },
@@ -122,35 +122,35 @@
     "son": [
       {
         "name": "1注浆压力(bar)",
-        "value": "100"
+        "value": "0.35"
       },
       {
         "name": "2注浆压力(bar)",
-        "value": "100"
+        "value": "0.27"
       },
       {
         "name": "3注浆压力(bar)",
-        "value": "100"
+        "value": "0.66"
       },
       {
         "name": "4注浆压力(bar)",
-        "value": "100"
+        "value": "0.53"
       },
       {
         "name": "1注浆量(strokes)",
-        "value": "100"
+        "value": "532"
       },
       {
         "name": "2注浆量(strokes)",
-        "value": "100"
+        "value": "653"
       },
       {
         "name": "3注浆量(strokes)",
-        "value": "100"
+        "value": "498"
       },
       {
         "name": "4注浆量(strokes)",
-        "value": "100"
+        "value": "275"
       }
     ]
   },
@@ -161,51 +161,51 @@
     "son": [
       {
         "name": "泡沫系统1压力(bar)",
-        "value": "100"
+        "value": "0.19"
       },
       {
         "name": "泡沫系统2压力(bar)",
-        "value": "100"
+        "value": "0.53"
       },
       {
         "name": "泡沫系统3压力(bar)",
-        "value": "100"
+        "value": "0.47"
       },
       {
         "name": "泡沫系统4压力(bar)",
-        "value": "100"
+        "value": "0.52"
       },
       {
         "name": "泡沫系统1空气流量(L/min)",
-        "value": "100"
+        "value": "73"
       },
       {
         "name": "泡沫系统2空气流量(L/min)",
-        "value": "100"
+        "value": "32"
       },
       {
         "name": "泡沫系统3空气流量(L/min)",
-        "value": "100"
+        "value": "65"
       },
       {
         "name": "泡沫系统4空气流量(L/min)",
-        "value": "100"
+        "value": "132"
       },
       {
         "name": "泡沫系统1添加剂流量(L/min)",
-        "value": "100"
+        "value": "9.8"
       },
       {
         "name": "泡沫系统2添加剂流量(L/min)",
-        "value": "100"
+        "value": "6.3"
       },
       {
         "name": "泡沫系统3添加剂流量(L/min)",
-        "value": "100"
+        "value": "2.1"
       },
       {
         "name": "泡沫系统4添加剂流量(L/min)",
-        "value": "100"
+        "value": "3.2"
       }
     ]
   },
@@ -216,11 +216,11 @@
     "son":[
       {
         "name":"经度(度)",
-        "value":100
+        "value":132.5254256256
       },
       {
         "name":"纬度(度)",
-        "value":40
+        "value":26.4514521
       },
       {
         "name":"高度(米)",

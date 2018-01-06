@@ -6,7 +6,7 @@ $(function () {
     DungouViewer.initLeftClick(FreedoApp.viewers["earth"],showtips);
     DungouViewer.initLeftDbClick(FreedoApp.viewers["earth"])
     DungouViewer.initLeftDown(FreedoApp.viewers["earth"],hidetips)
-    var surveymanager = new SurveyManager(FreedoApp.viewers["earth"],function(){});
+    //var surveymanager = new SurveyManager(FreedoApp.viewers["earth"],function(){});
 
     
     //	初始化地球
@@ -28,196 +28,206 @@ $(function () {
         		var modelTile=FreedoApp.viewers["earth"].scene.primitives.add(new FreeDo.FreedoPModelset({
             		url: model[key].url
             	}));
-        		//移动模型到坑里
-        		modelTile.readyPromise.then(function() {
-            		moveModel(modelTile,model[key].x,model[key].y,model[key].z,model[key].heading,model[key].pitch,model[key].roll,model[key].scalex,model[key].scaley,model[key].scalez);
-            	});
-        		//挖坑
-            	FreeDoUtil.dig(FreedoApp.viewers["earth"],holeData,imgarray);
-            	//镜头定位
-            	FreedoApp.viewers["earth"].camera.setView({
-                 	destination :new FreeDo.Cartesian3.fromDegrees(model[key].cameralon,model[key].cameralat, model[key].cameraheight),
-         			orientation: {
-         				heading : model[key].cameraheading,
-         				pitch : model[key].camerapitch,
-         				roll : model[key].cameraroll
-         			}
-         		});
-            	if(model[key].name == "railway"){
-            		//地铁对应的盾构机
-            	}else if(model[key].name == "tunnel"){
-            	//定位到2号坑盾构机的位置
-                	FreedoApp.viewers["earth"].camera.setView({
-                     	destination : new FreeDo.Cartesian3.fromDegrees(113.66039473378382, 22.782948633936098,-550),
-             			orientation : new FreeDo.HeadingPitchRoll(5.437420397295509,-0.11731154719345604,6.281381851419862)
-                	});
-            		//海底隧道对应的盾构机
-            		modelTile.style = new FreeDo.FreedoPModelStyle({
-    					color : {
-    						conditions : [
-    								[ "${component} === \'盾构轮廓-1 盾构轮廓-1 [333451]@2\'","color('white',0.5)" ],
-    								[ "${component} === \'内衬轮廓-1 内衬轮廓-1 [341109]@4\'","color('white',0.5)" ],
-    								[ "true", "color('white')" ] ]
-    					}
-    				});
-            		
-            		var pitch = 0;
-            		FreedoApp.viewers["earth"].scene.preRender.addEventListener(function() {
-            			if (pitch > 360)
-            				pitch = 0;
-            			pitch = pitch + 1;
-            			primitive.modelMatrix = FreeDoTool.getModelMatrix(113.6609628070344, 22.791190110267943, -502, 50, pitch, 0, 1.8, 1.8, 1.8);
+        		if(model[key].x!=0||model[key].y!=0||model[key].z!=0||model[key].heading!=0||model[key].pitch!=0||model[key].roll!=0||model[key].scalex!=1||model[key].scaley!=1||model[key].scalez!=1){
+        			//调整模型位置
+        			modelTile.readyPromise.then(function() {
+        				moveModel(modelTile,model[key].x,model[key].y,model[key].z,model[key].heading,model[key].pitch,model[key].roll,model[key].scalex,model[key].scaley,model[key].scalez);
+        			});
+        		}
+        		if(holeData!=null&&imgarray!=null){
+        			//挖坑
+        			FreeDoUtil.dig(FreedoApp.viewers["earth"],holeData,imgarray);
+        		}
+        		if(model[key].cameralon!=null||model[key].cameralat!=null||model[key].cameraheight!=null||model[key].cameraheading!=null||model[key].camerapitch!=null||model[key].cameraroll!=null){        			
 
-            		});
-            		var primitive = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf({
-            			id : "盾构机",
-            			url : "../static/page/shigong/dungou/gltf/dun_gou_dao_tou.gltf",
-            			show : true, // default
-            			modelMatrix : FreeDoTool.getModelMatrix(113.6609628070344, 22.791190110267943, -502, 287, 0, 0, 1.8, 1.8, 1.8),
-            			allowPicking : true, // not pickable
-            			debugShowBoundingVolume : false, // default
-            			debugWireframe : false
-            		}));
-            		
-//            		//2号坑
-//            		var hole2Data = [
-//					            		[
-//						            		{lon:113.64593380167418, lat:22.778770250966016,height:1},
-//						            		{lon:113.6628310531113,  lat:22.79305705713331,height:1},
-//						            		{lon:113.66723822667922, lat:22.78875008072337,height:1},
-//						            		{lon:113.65076908372689, lat:22.774286257239158,height:1}
-//					            		],
-//					            		[
-//					            			{lon:113.64593380167418, lat:22.778770250966016,height:-500},
-//					            			{lon:113.6628310531113,  lat:22.79305705713331,height:-500},
-//					            			{lon:113.66723822667922, lat:22.78875008072337,height:-500},
-//						            		{lon:113.65076908372689, lat:22.774286257239158,height:-500}
-//					            		],
-//					            		[
-//					            			{lon:113.64593380167418, lat:22.778770250966016,height:-600},
-//					            			{lon:113.6628310531113,  lat:22.79305705713331,height:-600},
-//					            			{lon:113.66723822667922, lat:22.78875008072337,height:-600},
-//						            		{lon:113.65076908372689, lat:22.774286257239158,height:-600}
-//					            		],
-//					            		[
-//					            			{lon:113.64593380167418, lat:22.778770250966016,height:-700},
-//					            			{lon:113.6628310531113,  lat:22.79305705713331,height:-700},
-//					            			{lon:113.66723822667922, lat:22.78875008072337,height:-700},
-//					            			{lon:113.65076908372689, lat:22.774286257239158, height:-700}
-//					            		],
-//					            		[
-//					            			{lon:113.64593380167418, lat:22.778770250966016,height:-800},
-//					            			{lon:113.6628310531113,  lat:22.79305705713331,height:-800},
-//				            				{lon:113.66723822667922, lat:22.78875008072337,height:-800},
-//				            				{lon:113.65076908372689, lat:22.774286257239158, height:-800}
-//					            		]
-//					            	];
-//            		var imgarray2 = [
-//            			"/static/page/common/img/hole/water.jpg",
-//            			"/static/page/common/img/hole/Land003.jpg",
-//            			"/static/page/common/img/hole/Land004.jpg",
-//            			"/static/page/common/img/hole/Land002.jpg"
-//            			]
-//            		FreeDoUtil.dig(FreedoApp.viewers["earth"],hole2Data,imgarray2);
-            		//entity绘制的线路
-            		var line1 = FreedoApp.viewers["earth"].entities.add({ 
-            			id:1,
-            		    name : '线', 
-            		    type :"line",
-            		    polyline : {  
-            		        positions : FreeDo.Cartesian3.fromDegreesArrayHeights(  
-            		            [
-            		            	113.64614940531897, 22.778576538826982, -630,
-            		            	113.65482304242103, 22.78583487031061,-610
-            		            	]  
-            		        ),  
-            		        width : 5,  
-            		        material : new FreeDo.PolylineOutlineMaterialProperty({  
-            		            color : FreeDo.Color.GREEN,  
-            		            outlineWidth : 1,  
-            		            outlineColor : FreeDo.Color.BLACK  
-            		        })  
-            		    }  
-            		});
-            		var line2 = FreedoApp.viewers["earth"].entities.add({  
-            			id:2,
-            			name : '线', 
-            			type :"line",
-            			polyline : {  
-            				positions : FreeDo.Cartesian3.fromDegreesArrayHeights(  
-            						[
-            							113.65482304242103, 22.78583487031061, -610,
-            							113.65713401517607, 22.787744674022917,-580
-            							]  
-            				),  
-            				width : 5,  
-            				material : new FreeDo.PolylineOutlineMaterialProperty({  
-            					color : FreeDo.Color.BLUE,  
-            					outlineWidth : 1,  
-            					outlineColor : FreeDo.Color.BLACK  
-            				})  
-            			}  
-            		});
-            		var line3 = FreedoApp.viewers["earth"].entities.add({  
-            			id:3,
-            			name : '线',  
-            			type :"line",
-            			polyline : {  
-            				positions : FreeDo.Cartesian3.fromDegreesArrayHeights(  
-            						[
-            							113.65713401517607, 22.787744674022917, -580,
-            							113.66004961353387, 22.790307562206543,-490
-            							]  
-            				),  
-            				width : 5,  
-            				material : new FreeDo.PolylineOutlineMaterialProperty({  
-            					color : FreeDo.Color.BLUEVIOLET,  
-            					outlineWidth : 1,  
-            					outlineColor : FreeDo.Color.BLACK  
-            				})  
-            			}  
-            		});
-            		var line4 = FreedoApp.viewers["earth"].entities.add({  
-            			id:4,
-            			name : '线',  
-            			type :"line",
-            			polyline : {  
-            				positions : FreeDo.Cartesian3.fromDegreesArrayHeights(  
-            						[
-            							113.66004961353387, 22.790307562206543, -490,
-            							113.66301755136372, 22.792709921496122,-380
-            							]  
-            				),  
-            				width : 5,  
-            				material : new FreeDo.PolylineOutlineMaterialProperty({  
-            					color : FreeDo.Color.BLUE,  
-            					outlineWidth : 1,  
-            					outlineColor : FreeDo.Color.BLACK  
-            				})  
-            			}  
-            		});
-            		var verticaline = FreedoApp.viewers["earth"].entities.add({  
-            			id:5,
-            			name : '线',  
-            			type :"verticaline",
-            			polyline : {  
-            				positions : FreeDo.Cartesian3.fromDegreesArrayHeights(  
-            						[
-            							113.65713401517607, 22.787744674022917, -580,
-            							113.65713401517607, 22.787744674022917,-800
-            							]  
-            				),  
-            				width : 5,  
-            				material : new FreeDo.PolylineOutlineMaterialProperty({  
-            					color : FreeDo.Color.ORANGE,  
-            					outlineWidth : 1,  
-            					outlineColor : FreeDo.Color.BLACK  
-            				})  
-            			}  
-            		});
-            		
-            	}
+        			//镜头定位
+        			FreedoApp.viewers["earth"].camera.setView({
+        				destination :new FreeDo.Cartesian3.fromDegrees(model[key].cameralon,model[key].cameralat, model[key].cameraheight),
+        				orientation: {
+        					heading : model[key].cameraheading,
+        					pitch : model[key].camerapitch,
+        					roll : model[key].cameraroll
+        				}
+        			});
+        		}else{
+        			modelTile.readyPromise.then(function() {
+        				FreedoApp.viewers["earth"].camera.flyToBoundingSphere(modelTile.boundingSphere);
+        			});
+        		}
+            	if(model[key].name == "tunnel"){
+                	//定位到2号坑盾构机的位置
+                    	FreedoApp.viewers["earth"].camera.setView({
+                         	destination : new FreeDo.Cartesian3.fromDegrees(113.66039473378382, 22.782948633936098,-550),
+                 			orientation : new FreeDo.HeadingPitchRoll(5.437420397295509,-0.11731154719345604,6.281381851419862)
+                    	});
+                		//海底隧道对应的盾构机
+                		modelTile.style = new FreeDo.FreedoPModelStyle({
+        					color : {
+        						conditions : [
+        								[ "${component} === \'盾构轮廓-1 盾构轮廓-1 [333451]@2\'","color('white',0.5)" ],
+        								[ "${component} === \'内衬轮廓-1 内衬轮廓-1 [341109]@4\'","color('white',0.5)" ],
+        								[ "true", "color('white')" ] ]
+        					}
+        				});
+                		
+                		var pitch = 0;
+                		FreedoApp.viewers["earth"].scene.preRender.addEventListener(function() {
+                			if (pitch > 360)
+                				pitch = 0;
+                			pitch = pitch + 1;
+                			primitive.modelMatrix = FreeDoTool.getModelMatrix(113.6609628070344, 22.791190110267943, -502, 50, pitch, 0, 1.8, 1.8, 1.8);
+
+                		});
+                		var primitive = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf({
+                			id : "盾构机",
+                			url : "../static/page/shigong/dungou/gltf/dun_gou_dao_tou.gltf",
+                			show : true, // default
+                			modelMatrix : FreeDoTool.getModelMatrix(113.6609628070344, 22.791190110267943, -502, 287, 0, 0, 1.8, 1.8, 1.8),
+                			allowPicking : true, // not pickable
+                			debugShowBoundingVolume : false, // default
+                			debugWireframe : false
+                		}));
+                		
+//                		//2号坑
+//                		var hole2Data = [
+//    					            		[
+//    						            		{lon:113.64593380167418, lat:22.778770250966016,height:1},
+//    						            		{lon:113.6628310531113,  lat:22.79305705713331,height:1},
+//    						            		{lon:113.66723822667922, lat:22.78875008072337,height:1},
+//    						            		{lon:113.65076908372689, lat:22.774286257239158,height:1}
+//    					            		],
+//    					            		[
+//    					            			{lon:113.64593380167418, lat:22.778770250966016,height:-500},
+//    					            			{lon:113.6628310531113,  lat:22.79305705713331,height:-500},
+//    					            			{lon:113.66723822667922, lat:22.78875008072337,height:-500},
+//    						            		{lon:113.65076908372689, lat:22.774286257239158,height:-500}
+//    					            		],
+//    					            		[
+//    					            			{lon:113.64593380167418, lat:22.778770250966016,height:-600},
+//    					            			{lon:113.6628310531113,  lat:22.79305705713331,height:-600},
+//    					            			{lon:113.66723822667922, lat:22.78875008072337,height:-600},
+//    						            		{lon:113.65076908372689, lat:22.774286257239158,height:-600}
+//    					            		],
+//    					            		[
+//    					            			{lon:113.64593380167418, lat:22.778770250966016,height:-700},
+//    					            			{lon:113.6628310531113,  lat:22.79305705713331,height:-700},
+//    					            			{lon:113.66723822667922, lat:22.78875008072337,height:-700},
+//    					            			{lon:113.65076908372689, lat:22.774286257239158, height:-700}
+//    					            		],
+//    					            		[
+//    					            			{lon:113.64593380167418, lat:22.778770250966016,height:-800},
+//    					            			{lon:113.6628310531113,  lat:22.79305705713331,height:-800},
+//    				            				{lon:113.66723822667922, lat:22.78875008072337,height:-800},
+//    				            				{lon:113.65076908372689, lat:22.774286257239158, height:-800}
+//    					            		]
+//    					            	];
+//                		var imgarray2 = [
+//                			"/static/page/common/img/hole/water.jpg",
+//                			"/static/page/common/img/hole/Land003.jpg",
+//                			"/static/page/common/img/hole/Land004.jpg",
+//                			"/static/page/common/img/hole/Land002.jpg"
+//                			]
+//                		FreeDoUtil.dig(FreedoApp.viewers["earth"],hole2Data,imgarray2);
+                		//entity绘制的线路
+                		var line1 = FreedoApp.viewers["earth"].entities.add({ 
+                			id:1,
+                		    name : '线', 
+                		    type :"line",
+                		    polyline : {  
+                		        positions : FreeDo.Cartesian3.fromDegreesArrayHeights(  
+                		            [
+                		            	113.64614940531897, 22.778576538826982, -630,
+                		            	113.65482304242103, 22.78583487031061,-610
+                		            	]  
+                		        ),  
+                		        width : 5,  
+                		        material : new FreeDo.PolylineOutlineMaterialProperty({  
+                		            color : FreeDo.Color.GREEN,  
+                		            outlineWidth : 1,  
+                		            outlineColor : FreeDo.Color.BLACK  
+                		        })  
+                		    }  
+                		});
+                		var line2 = FreedoApp.viewers["earth"].entities.add({  
+                			id:2,
+                			name : '线', 
+                			type :"line",
+                			polyline : {  
+                				positions : FreeDo.Cartesian3.fromDegreesArrayHeights(  
+                						[
+                							113.65482304242103, 22.78583487031061, -610,
+                							113.65713401517607, 22.787744674022917,-580
+                							]  
+                				),  
+                				width : 5,  
+                				material : new FreeDo.PolylineOutlineMaterialProperty({  
+                					color : FreeDo.Color.BLUE,  
+                					outlineWidth : 1,  
+                					outlineColor : FreeDo.Color.BLACK  
+                				})  
+                			}  
+                		});
+                		var line3 = FreedoApp.viewers["earth"].entities.add({  
+                			id:3,
+                			name : '线',  
+                			type :"line",
+                			polyline : {  
+                				positions : FreeDo.Cartesian3.fromDegreesArrayHeights(  
+                						[
+                							113.65713401517607, 22.787744674022917, -580,
+                							113.66004961353387, 22.790307562206543,-490
+                							]  
+                				),  
+                				width : 5,  
+                				material : new FreeDo.PolylineOutlineMaterialProperty({  
+                					color : FreeDo.Color.BLUEVIOLET,  
+                					outlineWidth : 1,  
+                					outlineColor : FreeDo.Color.BLACK  
+                				})  
+                			}  
+                		});
+                		var line4 = FreedoApp.viewers["earth"].entities.add({  
+                			id:4,
+                			name : '线',  
+                			type :"line",
+                			polyline : {  
+                				positions : FreeDo.Cartesian3.fromDegreesArrayHeights(  
+                						[
+                							113.66004961353387, 22.790307562206543, -490,
+                							113.66301755136372, 22.792709921496122,-380
+                							]  
+                				),  
+                				width : 5,  
+                				material : new FreeDo.PolylineOutlineMaterialProperty({  
+                					color : FreeDo.Color.BLUE,  
+                					outlineWidth : 1,  
+                					outlineColor : FreeDo.Color.BLACK  
+                				})  
+                			}  
+                		});
+                		var verticaline = FreedoApp.viewers["earth"].entities.add({  
+                			id:5,
+                			name : '线',  
+                			type :"verticaline",
+                			polyline : {  
+                				positions : FreeDo.Cartesian3.fromDegreesArrayHeights(  
+                						[
+                							113.65713401517607, 22.787744674022917, -580,
+                							113.65713401517607, 22.787744674022917,-800
+                							]  
+                				),  
+                				width : 5,  
+                				material : new FreeDo.PolylineOutlineMaterialProperty({  
+                					color : FreeDo.Color.ORANGE,  
+                					outlineWidth : 1,  
+                					outlineColor : FreeDo.Color.BLACK  
+                				})  
+                			}  
+                		});
+                		
+                	}
         	}
+
         	
 
         }

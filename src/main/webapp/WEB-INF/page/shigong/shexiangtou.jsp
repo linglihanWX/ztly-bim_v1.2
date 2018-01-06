@@ -92,9 +92,9 @@
 	</div>
 </body>
 	<script src="${ctx }/static/page/common/js/appendTool.js"></script>
-	<script src="${ctx }/static/page/shigongguanli/camera/js/CameraViewer.js"></script>
+	<script src="${ctx }/static/page/shigong/shexiantou/js/shexiangtou_viewer.js"></script>
 	<script src="${ctx }/static/webgl/Tool/surveyCallBack.js"></script>
-	<script src="${ctx }/static/page/shigongguanli/camera/js/camera.js"></script>
+	<script src="${ctx }/static/page/shigong/shexiangtou/js/shexiangtou.js"></script>
 	<script src="${ctx }/static/webgl/pModel/js/move.js"></script>
 	<script src="${ctx}/static/page/common/js/FreeDoUtil.js"></script>
 	<script src="${ctx}/static/page/common/js/jquery-ui-1.10.0.custom.min.js"></script>

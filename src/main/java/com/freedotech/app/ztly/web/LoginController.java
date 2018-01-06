@@ -50,9 +50,11 @@ public class LoginController {
         String password = user.getPassword();
         logger.debug("username => " + username);
         logger.debug("password => " + password);
-        UsernamePasswordToken token = new UsernamePasswordToken(username,password);
         Subject subject = SecurityUtils.getSubject();
-       
+        if(subject.isAuthenticated()) {
+        	return "redirect:main";
+        }
+        UsernamePasswordToken token = new UsernamePasswordToken(username,password);
         try {
             subject.login(token);
         } catch (UnknownAccountException e) {

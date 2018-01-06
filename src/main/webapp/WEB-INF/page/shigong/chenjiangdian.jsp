@@ -32,7 +32,7 @@
 	
 	<link rel="stylesheet" href="${ctx }/static/page/common/js/zTreeStyle/zTreeStyle.css">
 	<script src="${ctx }/static/page/common/js/zTreeStyle/ztree.js"></script>
-	<link rel="stylesheet" href="${ctx }/static/page/shigongguanli/downup/css/downup.css">
+	<link rel="stylesheet" href="${ctx }/static/page/shigong/chenjiangdian/css/chenjiandian.css">
 	<script src="${ctx }/static/page/common/js/echarts.common.min.js"></script>
 	<link rel="stylesheet" href="${ctx }/static/page/common/css/appendTools.css">
 
@@ -77,9 +77,9 @@
 	
 </body>
 		<script src="${ctx }/static/page/common/js/appendTool.js"></script>
-	<script src="${ctx }/static/page/shigongguanli/downup/js/DownupViewer.js"></script>
+	<script src="${ctx }/static/page/shigong/chenjiangdian/js/DownupViewer.js"></script>
 	<script src="${ctx }/static/webgl/Tool/surveyCallBack.js"></script>
-	<script src="${ctx }/static/page/shigongguanli/downup/js/downup.js"></script>
+	<script src="${ctx }/static/page/shigong/chenjiangdian/js/chenjiandian.js"></script>
 	<script src="${ctx }/static/webgl/pModel/js/move.js"></script>
 	<script src="${ctx}/static/page/common/js/FreeDoUtil.js"></script>
 	<script src="${ctx}/static/page/common/js/jquery-ui-1.10.0.custom.min.js"></script>

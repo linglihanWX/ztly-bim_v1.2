@@ -33,7 +33,7 @@
 	
 	<script src="${ctx }/static/page/common/js/echarts.common.min.js"></script>
 	<script src="${ctx }/static/page/common/js/echarts.common.min.js"></script>
-	<link rel="stylesheet" href="${ctx }/static/page/shigongguanli/safe/css/safeThree.css">
+	<link rel="stylesheet" href="${ctx }/static/page/shigong/anquan/css/anquan3d.css">
 	<link rel="stylesheet" href="${ctx }/static/page/common/css/appendTools.css">
 	
 	 <link rel="stylesheet" href="${ctx }/static/page/common/css/media.css">
@@ -272,12 +272,11 @@
 	<script src="${ctx }/static/page/common/js/jquery.sparkline.min.js"></script>
 	<script src="${ctx }/static/page/common/js/counter.js"></script>
 	<script src="${ctx }/static/page/common/js/appendTool.js"></script>
-	<script src="${ctx }/static/page/shigongguanli/safe/js/SafeThreeViewer.js"></script>
+	<script src="${ctx }/static/page/shigong/anquan/js/anquan3d_viewer.js"></script>
 	<script src="${ctx }/static/webgl/Tool/surveyCallBack.js"></script>
-	<script src="${ctx }/static/page/shigongguanli/safe/js/safeThree.js"></script>
-	<script src="${ctx }/static/page/shigongguanli/safe/js/safethreepie.js"></script>
-	<script src="${ctx }/static/webgl/pModel/js/move.js"></script>
-	<script src="${ctx}/static/page/common/js/FreeDoUtil.js"></script>
+	<script src="${ctx }/static/page/shigong/anquan/js/anquan3d.js"></script>
+	<script src="${ctx }/static/page/shigong/anquan/js/anquan3d_pie.js"></script>
+
 </body>
 
 </html>

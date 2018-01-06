@@ -44,6 +44,10 @@ public class ShigongController {
 		public String toAnquanPage() {
 			return "/shigong/anquan";
 		}
+		@RequestMapping("/toAnquan3d")
+		public String toAnquan3dPage() {
+			return "/shigong/anquan3d";
+		}
 	/**
 	 * 跳转到盾构页面
 	 * @return
@@ -57,10 +61,20 @@ public class ShigongController {
 		model.addAttribute("historydata", listsome);
 		return "/shigong/dungou";
 	}
-	//跳转至施工管理模块的风险管理模块
+	//跳转至施工管理模块的风险页面
 		@RequestMapping("/toFengxian")
 		public String toFengxianPage() {
 			return "/shigong/fengxian";
+		}
+		//跳转至施工管理模块的摄像头页面
+		@RequestMapping("/toShexiangtou")
+		public String toShexiangtouPage() {
+			return "/shigong/shexiangtou";
+		}
+		//跳转至施工管理模块的沉降点页面
+		@RequestMapping("/tochenjiangdian")
+		public String tochenjiangdianPage() {
+			return "/shigong/chenjiangdian";
 		}
 		//跳转至施工管理模块的展示管理模块
 		@RequestMapping("/toZhanshi")

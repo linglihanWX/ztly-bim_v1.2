@@ -57,9 +57,9 @@ $(function () {
 		]
 ]
 	var imgarray = [
-		"static/page/shigongguanli/dungou/img/Land001.jpg",
-		"static/page/shigongguanli/dungou/img/Land002.jpg",
-		"static/page/shigongguanli/dungou/img/Land004.jpg"
+		"../static/page/shigong/dungou/img/Land001.jpg",
+		"../static/page/shigong/dungou/img/Land002.jpg",
+		"../static/page/shigong/dungou/img/Land004.jpg"
 	];
 	FreeDoUtil.dig(myviewer,userdata2,imgarray);
 

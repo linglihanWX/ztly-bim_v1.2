@@ -55,7 +55,7 @@
                        <li>
 						<a href="${ctx }/keyan/toGaikuang?projectid=${project.id}">
 							<p><i class="iconfont icon-gongcheng"></i> ${project.name} </p>
-							<img src="${ctx }/static/page/main/img/tanggu.png" alt="">
+							<img src="${project.imgurl}" alt="">
 							<div class="des">
 								<p>负责人员 : 杨强</p>
 								<p>设计单位 : 六院</p>

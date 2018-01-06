@@ -1,9 +1,6 @@
 $(function () {
 
     var timer = null ;
-
-    //FreedoApp.init("earth");
-
     // canvas画图
     renderDrilling();
 
@@ -55,7 +52,7 @@ $(function () {
                     if(infoData[i].type == 1){
                         str = `<div id="${infoData[i].id}"><p>${infoData[i].name}<i class="iconfont icon-out"></i></p><ul>`;
                     }else if(infoData[i].type == 2){
-                        str = `<div id="${infoData[i].id}"><p>${infoData[i].name}<span><input type="checkbox">三维展示</span></p><ul>`;
+                        str = `<div id="${infoData[i].id}"><p>${infoData[i].name}<span><input name="paomo" type="checkbox">三维展示</span></p><ul>`;
                     }
                     for (var  j = 0; j < infoData[i].son.length; j++) {
                         str += `<li><span>${infoData[i].son[j].name}:</span><span>${infoData[i].son[j].value}</span></li>`;
@@ -74,7 +71,7 @@ $(function () {
         if(i < 6){
             str1 += `<li><input type="checkbox" checked name="" data-id="${infoData[i].id}">${infoData[i].name}</li>`;
         }else{
-            str1 += `<li><input type="checkbox" name="" data-id="${infoData[i].id}">${infoData[i].name}</li>`;
+            str1 += `<li><input type="checkbox" name="paomo" data-id="${infoData[i].id}">${infoData[i].name}</li>`;
         }
     }
     $(".list").append(str1);
@@ -103,7 +100,7 @@ $(function () {
                               if(infoData[i].type == 1){
                                   str = `<div id="${infoData[i].id}"><p>${infoData[i].name}<i class="iconfont icon-out"></i></p><ul>`;
                               }else if(infoData[i].type == 2){
-                                  str = `<div id="${infoData[i].id}"><p>${infoData[i].name}<span><input type="checkbox">三维展示</span></p><ul>`;
+                                  str = `<div id="${infoData[i].id}"><p>${infoData[i].name}<span><input name="paomo" type="checkbox">三维展示</span></p><ul>`;
                               }
                               for (var  j = 0; j < infoData[i].son.length; j++) {
                                   str += `<li><span>${infoData[i].son[j].name}:</span><span>${infoData[i].son[j].value}</span></li>`;
@@ -195,4 +192,23 @@ $(function () {
         renderTbmDeviation();
         resetHeight();
     });
+    
+    //点击三维展示复选框事件
+    $("[name='paomo']:checkbox").change(function(){ 
+    	var paomostr = "<p>泡沫系统</p>"+$(".info-middle #5 ul").html();
+            if ($(this).prop('checked')) {  
+                console.log("选中")
+				FreedoApp.viewers["earth"].camera.setView({
+					destination : new FreeDo.Cartesian3.fromDegrees(113.6609116922713,22.790849054668495, -520),
+							orientation : new FreeDo.HeadingPitchRoll(0.24403164042572545,0.47931146843386174,0.0006638315736546829)
+				});
+                $("#tipbox5").append(paomostr).css({
+                	left : 50,
+                	top : 50
+                }).show();
+            }else{
+            	console.log("未选中")
+            	$("#tipbox5").children().remove().hide();
+            }
+    })
 });

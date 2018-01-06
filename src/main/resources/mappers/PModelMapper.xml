@@ -20,9 +20,9 @@
 		SELECT
 		tp.*
 		FROM
-		t_project_pmodel tpp
-		LEFT JOIN t_pmodel tp ON tp.id = tpp.t_mod_id
-		LEFT JOIN t_project tpr ON tpr.id = tpp.t_pro_id
+		t_project tpr
+		LEFT JOIN t_project_pmodel tpp ON tpr.id = tpp.t_mod_id
+		LEFT JOIN t_pmodel tp ON tp.id = tpp.t_pro_id
 		WHERE
 		tpr.id =
 		#{projectid}

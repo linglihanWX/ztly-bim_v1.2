@@ -107,7 +107,7 @@
                 </p>
             </div>
             
-            				<div class="tipbox" id="tipbox1">
+            	<div class="tipbox" id="tipbox1">
 					<p>提示</p>
 					<ul>
 						<li>当前风险覆盖范围<span>60</span>m</li>
@@ -132,6 +132,9 @@
 						<li>北京十六号线</li>
 						<li>第二期（第<span>1</span>区间）</li>
 					</ul>
+				</div>
+				<div class="tipbox" id="tipbox5">
+					
 				</div>
             
             <img src="${ctx }/static/page/dungou/img/sliderDown.png"  class="changeSize" alt="">

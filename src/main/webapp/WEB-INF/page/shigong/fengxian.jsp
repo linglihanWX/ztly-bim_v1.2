@@ -29,7 +29,7 @@
 	<link rel="stylesheet" href="${ctx }/static/page/common/IconFont/iconfont.css">
 
 
-	<link rel="stylesheet" href="${ctx }/static/page/shigong/riskmgmt/css/riskmgmt.css">
+	<link rel="stylesheet" href="${ctx }/static/page/shigong/fengxian/css/fengxian.css">
 	<script src="${ctx }/static/page/common/js/echarts.common.min.js"></script>
 	
     <link rel="stylesheet" href="${ctx }/static/page/common/css/media.css">
@@ -61,9 +61,9 @@
 				</ul>
 				<div class="row-fluid sortable">
 					<div id="left">
-						<a href="${ctx }/toCamera" id="spy">摄像头监控</a>
+						<a href="${ctx }/shigong/toShexiangtou" id="spy">摄像头监控</a>
 						<span></span>
-						<a href="${ctx }/toDownup" id="downup">沉降检测</a>
+						<a href="${ctx }/shigong/toChenjiangdian" id="downup">沉降检测</a>
 						<!-- <a href="#">3</a> -->
 
 					</div>
@@ -381,7 +381,7 @@
 	<script src="${ctx }/static/page/common/js/jquery.knob.modified.js"></script>
 	<script src="${ctx }/static/page/common/js/jquery.sparkline.min.js"></script>
 	<script src="${ctx }/static/page/common/js/counter.js"></script>
-	<script src="${ctx }/static/page/shigong/riskmgmt/js/riskmgmt.js"></script>
+	<script src="${ctx }/static/page/shigong/fengxian/js/fengxian.js"></script>
 </body>
 
 </html>

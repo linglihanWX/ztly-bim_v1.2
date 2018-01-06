@@ -11,7 +11,7 @@ $(function () {
         } else {
             $("#div1").removeClass("close1").addClass("open1");
             $(".twoThree").html("3D");
-            window.location.href ="toSafeThree";
+            window.location.href ="toAnquan3d";
         }
 
         if ($("#div2").hasClass("open2")) {
