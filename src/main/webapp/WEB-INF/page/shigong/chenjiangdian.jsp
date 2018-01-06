@@ -28,11 +28,10 @@
 	<link rel="stylesheet" href="${ctx }/static/page/common/css/common.css">
 	<link rel="stylesheet" href="${ctx }/static/page/common/css/reset.css">
 	<link rel="stylesheet" href="${ctx }/static/page/common/IconFont/iconfont.css">
-	<script src="${ctx }/static/page/common/js/FreeDoTool.js"></script>
 	
 	<link rel="stylesheet" href="${ctx }/static/page/common/js/zTreeStyle/zTreeStyle.css">
 	<script src="${ctx }/static/page/common/js/zTreeStyle/ztree.js"></script>
-	<link rel="stylesheet" href="${ctx }/static/page/shigong/chenjiangdian/css/chenjiandian.css">
+	<link rel="stylesheet" href="${ctx }/static/page/shigong/chenjiangdian/css/chenjiangdian.css">
 	<script src="${ctx }/static/page/common/js/echarts.common.min.js"></script>
 	<link rel="stylesheet" href="${ctx }/static/page/common/css/appendTools.css">
 
@@ -47,7 +46,7 @@
 			<span class="shigong" id="moduletype"></span>
 			<div id="content" class="span10">
 				<ul class="breadcrumb">
-					<a href="${ctx }/toRiskmgmt"><i class="iconfont icon-return"></i>返回</a>
+					<a href="${ctx }/shigong/toFengxian"><i class="iconfont icon-return"></i>返回</a>
 					<li>
                 		<a href="${ctx }/shigong/toGaikuang">项目概况</a>
 						<a href="${ctx }/shigong/toJindu">进度管理</a>
@@ -79,9 +78,7 @@
 		<script src="${ctx }/static/page/common/js/appendTool.js"></script>
 	<script src="${ctx }/static/page/shigong/chenjiangdian/js/DownupViewer.js"></script>
 	<script src="${ctx }/static/webgl/Tool/surveyCallBack.js"></script>
-	<script src="${ctx }/static/page/shigong/chenjiangdian/js/chenjiandian.js"></script>
-	<script src="${ctx }/static/webgl/pModel/js/move.js"></script>
-	<script src="${ctx}/static/page/common/js/FreeDoUtil.js"></script>
+	<script src="${ctx }/static/page/shigong/chenjiangdian/js/chenjiangdian.js"></script>
 	<script src="${ctx}/static/page/common/js/jquery-ui-1.10.0.custom.min.js"></script>
 	<script src="${ctx}/static/page/common/js/jquery.noty.js"></script>
 

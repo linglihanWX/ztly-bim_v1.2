@@ -11,7 +11,7 @@ $(function () {
         if ($("#div1").hasClass("open1")) {
             $("#div1").removeClass("open1").addClass("close1");
             $(".twoThree").html("2D");
-            window.location.href ="toSafe";
+            window.location.href ="toAnquan";
         } else {
             $("#div1").removeClass("close1").addClass("open1");
             $(".twoThree").html("3D");
@@ -24,56 +24,64 @@ $(function () {
         }
     });
     $("#return").click(function () {
-        window.location.href = "toSafe";
+        window.location.href = "toAnquan";
     });
-    SafeThreeViewer.init("earth");
-  //挖坑
-	var userdata2 =[
-		[				
-			{lon:117.65370327140586,lat: 39.029343874668385,height:0},
-			{lon:117.6566555867564,lat: 39.02867680988919,height:0},
-			{lon:117.65629167680271,lat: 39.027734051441556,height:0},
-			{lon:117.65337309822137,lat: 39.028390137191195,height:0}
-		],
+    FreedoApp.init("earth");
+    SafeThreeViewer.initLabel(FreedoApp.viewers["earth"]);
+    $.ajax({
+		url:"/PModel/getPmodel",
+		type: "get",
+		dataType:"json",
+        success: function(data){
+        	//解析json
+        	var model=eval(data);
+        	for(var key in model){
+        		//挖坑数据
+        		var holeData=eval(model[key].hole);
+        		//图层数据
+        		var imgarray=eval(model[key].imagelayer);
+        		console.log( model[key].url);
+        		 //向场景中添加模型
+        		var modelTile=FreedoApp.viewers["earth"].scene.primitives.add(new FreeDo.FreedoPModelset({
+            		url: model[key].url
+            	}));
+        		globalModelTile = modelTile;
+        		if(model[key].x!=0||model[key].y!=0||model[key].z!=0||model[key].heading!=0||model[key].pitch!=0||model[key].roll!=0||model[key].scalex!=1||model[key].scaley!=1||model[key].scalez!=1){
+        			//调整模型位置
+        			modelTile.readyPromise.then(function() {
+        				moveModel(modelTile,model[key].x,model[key].y,model[key].z,model[key].heading,model[key].pitch,model[key].roll,model[key].scalex,model[key].scaley,model[key].scalez);
+        			});
+        		}
+        		if(holeData!=null&&imgarray!=null){
+        			//挖坑
+        			FreeDoUtil.dig(FreedoApp.viewers["earth"],holeData,imgarray);
+        		}
+        		if(model[key].cameralon!=null||model[key].cameralat!=null||model[key].cameraheight!=null||model[key].cameraheading!=null||model[key].camerapitch!=null||model[key].cameraroll!=null){        			
 
-		[
-			{lon:117.65370327140586,lat: 39.029343874668385,height:-15},
-			{lon:117.6566555867564,lat: 39.02867680988919,height:-13},
-			{lon:117.65629167680271,lat: 39.027734051441556,height:-20},
-			{lon:117.65337309822137,lat: 39.028390137191195,height:-15}
-		],
+        			//镜头定位
+        			FreedoApp.viewers["earth"].camera.setView({
+        				destination :new FreeDo.Cartesian3.fromDegrees(model[key].cameralon,model[key].cameralat, model[key].cameraheight),
+        				orientation: {
+        					heading : model[key].cameraheading,
+        					pitch : model[key].camerapitch,
+        					roll : model[key].cameraroll
+        				}
+        			});
+        		}else{
+        			modelTile.readyPromise.then(function() {
+        				FreedoApp.viewers["earth"].camera.flyToBoundingSphere(modelTile.boundingSphere);
+        			});
+        		}
+        	}
 
-		[
-			{lon:117.65370327140586,lat: 39.029343874668385,height:-27},
-			{lon:117.6566555867564,lat: 39.02867680988919,height:-33},
-			{lon:117.65629167680271,lat: 39.027734051441556,height:-26},
-			{lon:117.65337309822137,lat: 39.028390137191195,height:-22}
-		],
-		[
-			{lon:117.65370327140586,lat: 39.029343874668385,height:-50},
-			{lon:117.6566555867564,lat: 39.02867680988919,height:-50},
-			{lon:117.65629167680271,lat: 39.027734051441556,height:-50},
-			{lon:117.65337309822137,lat: 39.028390137191195,height:-50}
-		]
-]
-	var imgarray = [
-		"../static/page/shigong/dungou/img/Land001.jpg",
-		"../static/page/shigong/dungou/img/Land002.jpg",
-		"../static/page/shigong/dungou/img/Land004.jpg"
-	];
-	FreeDoUtil.dig(myviewer,userdata2,imgarray);
+        	
 
-    myviewer.camera.setView({
-		destination :new FreeDo.Cartesian3(-2302833.762201284,4394746.398731597,3994809.016901712),
-		orientation: {
-			heading : 0.26411536311211936,
-			pitch : -0.8723260495776195,
-			roll : 0.0013380152154160996
-		}
+        }
 	});
-    SafeThreeViewer.initLeftClick(myviewer);
-    SafeThreeViewer.initWheel(myviewer);
-    var surveymanager = new SurveyManager(myviewer,function(){});
+
+    SafeThreeViewer.initLeftClick(FreedoApp.viewers["earth"]);
+    SafeThreeViewer.initWheel(FreedoApp.viewers["earth"]);
+    var surveymanager = new SurveyManager(FreedoApp.viewers["earth"],function(){});
     $(".table tbody tr").each(function(){
     	$(this).click(function(){
     		 var content = $(this).children().eq(1).text();
@@ -171,7 +179,7 @@ $(function () {
 			//设置方法为none
 			surveymanager.setSurveyType(SurveyType.NONE);
 			//初始化原有的监听事件
-			SafeThreeViewer.initLeftClick(myviewer);
+			SafeThreeViewer.initLeftClick(FreedoApp.viewers["earth"]);
 		}
 		});
 	});

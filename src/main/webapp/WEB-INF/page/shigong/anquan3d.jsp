@@ -29,7 +29,7 @@
 	<link rel="stylesheet" href="${ctx }/static/page/common/css/reset.css">
 	<link rel="stylesheet" href="${ctx }/static/page/common/IconFont/iconfont.css">
 	<script src="${ctx }/static/page/common/js/FreeDoTool.js"></script>
-	<script src="${ctx }/static/page/common/js/jquery-1.9.1.min.js"></script>
+
 	
 	<script src="${ctx }/static/page/common/js/echarts.common.min.js"></script>
 	<script src="${ctx }/static/page/common/js/echarts.common.min.js"></script>

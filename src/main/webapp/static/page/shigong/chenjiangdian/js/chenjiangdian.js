@@ -5,9 +5,59 @@ $(function () {
 
     var h1 = $("#dailog").height();
     $(".dialogContent").height(h1-284);
-
+    FreedoApp.init("earth");
+    DownupViewer.initDownup(FreedoApp.viewers["earth"]);
     $.ajax({
-        url: "static/page/shigongguanli/downup/downup.json",
+		url:"/PModel/getPmodel",
+		type: "get",
+		dataType:"json",
+        success: function(data){
+        	//解析json
+        	var model=eval(data);
+        	for(var key in model){
+        		//挖坑数据
+        		var holeData=eval(model[key].hole);
+        		//图层数据
+        		var imgarray=eval(model[key].imagelayer);
+        		console.log( model[key].url);
+        		 //向场景中添加模型
+        		var modelTile=FreedoApp.viewers["earth"].scene.primitives.add(new FreeDo.FreedoPModelset({
+            		url: model[key].url
+            	}));
+        		if(model[key].x!=0||model[key].y!=0||model[key].z!=0||model[key].heading!=0||model[key].pitch!=0||model[key].roll!=0||model[key].scalex!=1||model[key].scaley!=1||model[key].scalez!=1){
+        			//调整模型位置
+        			modelTile.readyPromise.then(function() {
+        				moveModel(modelTile,model[key].x,model[key].y,model[key].z,model[key].heading,model[key].pitch,model[key].roll,model[key].scalex,model[key].scaley,model[key].scalez);
+        			});
+        		}
+        		if(holeData!=null&&imgarray!=null){
+        			//挖坑
+        			FreeDoUtil.dig(FreedoApp.viewers["earth"],holeData,imgarray);
+        		}
+        		if(model[key].cameralon!=null||model[key].cameralat!=null||model[key].cameraheight!=null||model[key].cameraheading!=null||model[key].camerapitch!=null||model[key].cameraroll!=null){        			
+
+        			//镜头定位
+        			FreedoApp.viewers["earth"].camera.setView({
+        				destination :new FreeDo.Cartesian3.fromDegrees(model[key].cameralon,model[key].cameralat, model[key].cameraheight),
+        				orientation: {
+        					heading : model[key].cameraheading,
+        					pitch : model[key].camerapitch,
+        					roll : model[key].cameraroll
+        				}
+        			});
+        		}else{
+        			modelTile.readyPromise.then(function() {
+        				FreedoApp.viewers["earth"].camera.flyToBoundingSphere(modelTile.boundingSphere);
+        			});
+        		}
+        	}
+
+        	
+
+        }
+	});
+    $.ajax({
+        url: "../static/page/shigong/chenjiangdian/downup.json",
         type: "get",
         dataType:"json",
         success: function (data) {
@@ -25,7 +75,7 @@ $(function () {
                 	onClick:function(event, treeId, treeNode){
                 		
                 		if(treeNode.id>0&&treeNode.id<=10)
-							globalviewer.zoomTo(downuppoints[treeNode.id]);
+							FreedoApp.viewers["earth"].zoomTo(downuppoints[treeNode.id]);
 
 						
                 	}
@@ -41,43 +91,7 @@ $(function () {
         }
     });
 
-    DownupViewer.init("earth"); // 加载球模型
-  //挖坑
-	var userdata2 =[
-		[				
-			{lon:117.65370327140586,lat: 39.029343874668385,height:0},
-			{lon:117.6566555867564,lat: 39.02867680988919,height:0},
-			{lon:117.65629167680271,lat: 39.027734051441556,height:0},
-			{lon:117.65337309822137,lat: 39.028390137191195,height:0}
-		],
-
-		[
-			{lon:117.65370327140586,lat: 39.029343874668385,height:-15},
-			{lon:117.6566555867564,lat: 39.02867680988919,height:-13},
-			{lon:117.65629167680271,lat: 39.027734051441556,height:-20},
-			{lon:117.65337309822137,lat: 39.028390137191195,height:-15}
-		],
-
-		[
-			{lon:117.65370327140586,lat: 39.029343874668385,height:-27},
-			{lon:117.6566555867564,lat: 39.02867680988919,height:-33},
-			{lon:117.65629167680271,lat: 39.027734051441556,height:-26},
-			{lon:117.65337309822137,lat: 39.028390137191195,height:-22}
-		],
-		[
-			{lon:117.65370327140586,lat: 39.029343874668385,height:-50},
-			{lon:117.6566555867564,lat: 39.02867680988919,height:-50},
-			{lon:117.65629167680271,lat: 39.027734051441556,height:-50},
-			{lon:117.65337309822137,lat: 39.028390137191195,height:-50}
-		]
-]
-	var imgarray = [
-		"static/page/shigongguanli/dungou/img/Land001.jpg",
-		"static/page/shigongguanli/dungou/img/Land002.jpg",
-		"static/page/shigongguanli/dungou/img/Land004.jpg"
-	];
-	FreeDoUtil.dig(globalviewer,userdata2,imgarray);
-
+    
     //初始化
     var myChart = echarts.init(document.getElementById('chart'));
     option = {
@@ -132,10 +146,10 @@ $(function () {
         ]
     };
     myChart.setOption(option);
-    DownupViewer.initLeftClick(globalviewer,showDiv);
-    DownupViewer.initLeftDown(globalviewer,hideDiv);
-    //DownupViewer.initDbLeftClick(globalviewer);
-    var surveymanager = new SurveyManager(globalviewer,function(){});
+    DownupViewer.initLeftClick(FreedoApp.viewers["earth"],showDiv);
+    DownupViewer.initLeftDown(FreedoApp.viewers["earth"],hideDiv);
+
+    var surveymanager = new SurveyManager(FreedoApp.viewers["earth"],function(){});
     /**
 	 *工具栏按钮点击 
 	 */
@@ -188,8 +202,8 @@ $(function () {
 			//设置方法为none
 			surveymanager.setSurveyType(SurveyType.NONE);
 			//初始化原有的监听事件
-		    DownupViewer.initLeftClick(globalviewer);
-		    DownupViewer.initLeftDown(globalviewer,hideDiv);
+		    DownupViewer.initLeftClick(FreedoApp.viewers["earth"]);
+		    DownupViewer.initLeftDown(FreedoApp.viewers["earth"],hideDiv);
 		}
 		});
 		

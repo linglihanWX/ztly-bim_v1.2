@@ -72,8 +72,8 @@ public class ShigongController {
 			return "/shigong/shexiangtou";
 		}
 		//跳转至施工管理模块的沉降点页面
-		@RequestMapping("/tochenjiangdian")
-		public String tochenjiangdianPage() {
+		@RequestMapping("/toChenjiangdian")
+		public String toChenjiangdianPage() {
 			return "/shigong/chenjiangdian";
 		}
 		//跳转至施工管理模块的展示管理模块

@@ -29,8 +29,6 @@
 	<link rel="stylesheet" href="${ctx }/static/page/common/css/common.css">
 	<link rel="stylesheet" href="${ctx }/static/page/common/css/reset.css">
 	<link rel="stylesheet" href="${ctx }/static/page/common/IconFont/iconfont.css">
-	<script src="${ctx }/static/page/common/js/FreeDoTool.js"></script>
-
 	<script src="${ctx }/static/page/common/js/echarts.common.min.js"></script>
 	<link rel="stylesheet" href="${ctx }/static/page/common/js/zTreeStyle/zTreeStyle.css">
 	<script src="${ctx }/static/page/common/js/zTreeStyle/ztree.js"></script>
@@ -46,7 +44,7 @@
 	<![endif]-->
 
 
-	<link rel="stylesheet" href="${ctx }/static/page/shigongguanli/camera/css/camera.css">
+	<link rel="stylesheet" href="${ctx }/static/page/shigong/shexiangtou/css/shexiangtou.css">
 	<link rel="stylesheet" href="${ctx }/static/page/common/css/appendTools.css">
 	
     <link rel="stylesheet" href="${ctx }/static/page/common/css/media.css">
@@ -61,9 +59,9 @@
 			<!-- start: Content -->
 			<div id="content" class="span10">
 				<ul class="breadcrumb">
-					<a href="${ctx }/toRiskmgmt"><i class="iconfont icon-return"></i>返回</a>
+					<a href="${ctx }/shigong/toFengxian"><i class="iconfont icon-return"></i>返回</a>
 					<li>
-               		<a href="${ctx }/yunwei/toGaikuang">项目概况</a>
+               		<a href="${ctx }/shigong/toGaikuang">项目概况</a>
 						<a href="${ctx }/shigong/toEbs">进度管理</a>
 						<a href="${ctx }/shigong/toPm">场景管理</a>
 						<a href="${ctx }/shigong/toAnquan">安全管理</a>
@@ -85,18 +83,16 @@
 						</div>
 					</div>
 
-					<div id="earth"><img alt="" src="${ctx}/static/page/shigongguanli/camera/img/cameracontent.png" id="detailInfo"></div>
+					<div id="earth"><img alt="" src="${ctx}/static/page/shigong/shexiangtou/img/cameracontent.png" id="detailInfo"></div>
 				</div>
 			</div>
 		</div>
 	</div>
 </body>
 	<script src="${ctx }/static/page/common/js/appendTool.js"></script>
-	<script src="${ctx }/static/page/shigong/shexiantou/js/shexiangtou_viewer.js"></script>
+	<script src="${ctx }/static/page/shigong/shexiangtou/js/shexiangtou_viewer.js"></script>
 	<script src="${ctx }/static/webgl/Tool/surveyCallBack.js"></script>
 	<script src="${ctx }/static/page/shigong/shexiangtou/js/shexiangtou.js"></script>
-	<script src="${ctx }/static/webgl/pModel/js/move.js"></script>
-	<script src="${ctx}/static/page/common/js/FreeDoUtil.js"></script>
 	<script src="${ctx}/static/page/common/js/jquery-ui-1.10.0.custom.min.js"></script>
 
 
