@@ -69,7 +69,7 @@
     </div>
     <div class="content">
         <div class="content-middle">
-            <div id="earth">
+            <div id="earth" style="overflow:hidden">
                 <p>
                     <span class="dghh">环号:506</span>
                     <span class="line">左线</span>当前环<span class="line">110</span>状态停止
@@ -81,9 +81,7 @@
                     <li class="three-page"><i class="iconfont icon-swzs"></i>&nbsp;&nbsp;&nbsp;三维页面</li>
                     <li class="two-page"><i class="iconfont icon-yemian"></i>&nbsp;&nbsp;&nbsp;二维页面</li>
                 </ul>
-            </div>
-        </div>
-                    	<div class="tipbox" id="tipbox1">
+                <div class="tipbox" id="tipbox1">
 					<p>提示</p>
 					<ul>
 						<li>当前风险覆盖范围<span>60</span>m</li>
@@ -115,6 +113,9 @@
 				<div class="tipbox" id="tipbox6">
 					
 				</div>
+            </div>
+        </div>
+
         <div class="content-bottom">
             <div class="info-left">
                 <p>主监控 <i class="iconfont icon-out"></i></p>
