@@ -33,7 +33,7 @@
 							</a>
 						</li>
 						<li id="dungou">
-							<a href="${ctx }/dungou">
+							<a href="${ctx }/ProSystem/dungou/toGaikuang">
 								<i class="iconfont icon-Refresh"></i>
 								<span class="hidden-tablet">盾构管理</span>
 							</a>

@@ -136,6 +136,9 @@
 				<div class="tipbox" id="tipbox5">
 					
 				</div>
+				<div class="tipbox" id="tipbox6">
+					
+				</div>
             
             <img src="${ctx }/static/page/dungou/img/sliderDown.png"  class="changeSize" alt="">
         </div>

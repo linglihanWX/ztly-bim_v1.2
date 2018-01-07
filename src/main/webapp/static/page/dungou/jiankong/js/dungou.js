@@ -71,7 +71,7 @@ $(function () {
             		});
             		var primitive = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf({
             			id : "盾构机",
-            			url : "../static/page/shigong/dungou/gltf/dun_gou_dao_tou.gltf",
+            			url : "../../static/page/shigong/dungou/gltf/dun_gou_dao_tou.gltf",
             			show : true, // default
             			modelMatrix : FreeDoTool.getModelMatrix(113.6609628070344, 22.791190110267943, -502, 287, 0, 0, 1.8, 1.8, 1.8),
             			allowPicking : true, // not pickable

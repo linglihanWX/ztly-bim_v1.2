@@ -1,6 +1,7 @@
 $(function () {
 
     var timer = null ;
+
     // canvas画图
     renderDrilling();
 
@@ -9,32 +10,40 @@ $(function () {
 
 
     // 三维窗口的大小改变
-    $(".changeSize").on("click",function () {
-        $(".content-bottom").toggle();
-        if($(".content-bottom").css("display") == "block"){
-            $(this).attr("src","static/page/dungou/img/sliderDown.png");
-            $(".content-middle").stop().animate({
-                "height":400
-            },"fast");
-        }else{
-            $(this).attr("src","static/page/dungou/img/sliderUp.png");
-            var height = $(".content").height() - 40;
-            $(".content-middle").stop().animate({
-                "height":height
-            },"fast");
-        }
+    $(".main-page").on("click",function () {
+
+       /* $(".content-middle").stop().animate({
+            "height":400
+        },"fast");*/
+        $(".content-middle").css({"height":400});
+        $(".content-bottom").show();
+
     });
+
+    $(".three-page").on("click",function () {
+        $(".content-middle").css({"height":100+"%"});
+        $(".content-bottom").hide();
+    });
+    $(".two-page").on("click",function () {
+        $(".content").hide();
+        $(".page-info").show();
+    });
+    $(".returnPage").on("click",function () {
+        $(".content").show();
+        $(".page-info").hide();
+    });
+
+
 
     var infoData = [];
     var dataArr = [0,1,2,3,4,5];
     // 请求信息数据
     $.ajax({
-        url:"static/page/dungou/json/data.json",
+        url:"../../static/page/dungou/jiankong/json/data.json",
         type:"get",
         async:false,
         dataType:'json',
         success:function (data) {
-        	console.log(data)
             infoData = data;
         },error:function (err) {
             console.log(err);
@@ -52,13 +61,30 @@ $(function () {
                     if(infoData[i].type == 1){
                         str = `<div id="${infoData[i].id}"><p>${infoData[i].name}<i class="iconfont icon-out"></i></p><ul>`;
                     }else if(infoData[i].type == 2){
-                        str = `<div id="${infoData[i].id}"><p>${infoData[i].name}<span><input name="paomo" type="checkbox">三维展示</span></p><ul>`;
+                        str = `<div id="${infoData[i].id}"><p>${infoData[i].name}<span><input id="sanwei`+i+`" type="checkbox">三维展示</span></p><ul>`;
                     }
                     for (var  j = 0; j < infoData[i].son.length; j++) {
                         str += `<li><span>${infoData[i].son[j].name}:</span><span>${infoData[i].son[j].value}</span></li>`;
                     }
                     str += `</ul></div>`;
                     $(".info-middle").append(str);
+                    if(i==5){
+                	    $("#sanwei5").change(function(){
+                	    	var str = "<p>泡沫系统</p>"+$(".info-middle #5 ul").html();
+                	    	if ($(this).prop('checked')){
+                				FreedoApp.viewers["earth"].camera.setView({
+                					destination : new FreeDo.Cartesian3.fromDegrees(113.6609116922713,22.790849054668495, -520),
+                							orientation : new FreeDo.HeadingPitchRoll(0.24403164042572545,0.47931146843386174,0.0006638315736546829)
+                				});
+                	            $("#tipbox5").append(str).css({
+                	            	left : "20%",
+                	            	top : "20%"
+                	            }).show();
+                	    	}else{
+                	    		$("#tipbox5").children().remove().hide();
+                	    	}
+                	    })
+                  }
                 }
             }
         }
@@ -71,11 +97,13 @@ $(function () {
         if(i < 6){
             str1 += `<li><input type="checkbox" checked name="" data-id="${infoData[i].id}">${infoData[i].name}</li>`;
         }else{
-            str1 += `<li><input type="checkbox" name="paomo" data-id="${infoData[i].id}">${infoData[i].name}</li>`;
+            str1 += `<li><input type="checkbox" data-id="${infoData[i].id}">${infoData[i].name}</li>`;
         }
     }
     $(".list").append(str1);
 
+
+    // 隐藏按钮的点击
     $(".showCheckList").on("click",function () {
        $(".list-box").stop().slideDown();
     });
@@ -100,13 +128,31 @@ $(function () {
                               if(infoData[i].type == 1){
                                   str = `<div id="${infoData[i].id}"><p>${infoData[i].name}<i class="iconfont icon-out"></i></p><ul>`;
                               }else if(infoData[i].type == 2){
-                                  str = `<div id="${infoData[i].id}"><p>${infoData[i].name}<span><input name="paomo" type="checkbox">三维展示</span></p><ul>`;
+                                  str = `<div id="${infoData[i].id}"><p>${infoData[i].name}<span><input id="sanwei`+i+`" type="checkbox">三维展示</span></p><ul>`;
                               }
                               for (var  j = 0; j < infoData[i].son.length; j++) {
                                   str += `<li><span>${infoData[i].son[j].name}:</span><span>${infoData[i].son[j].value}</span></li>`;
                               }
                               str += `</ul></div>`;
                               $(".info-middle").append(str);
+                            
+                          }
+                          if(i==6){
+                        	    $("#sanwei6").change(function(){
+                        	    	var str = "<p>掘进位置实时监控</p>"+$(".info-middle #6 ul").html();
+                        	    	if ($(this).prop('checked')){
+                        				FreedoApp.viewers["earth"].camera.setView({
+                        					destination : new FreeDo.Cartesian3.fromDegrees(113.6609116922713,22.790849054668495, -520),
+                        							orientation : new FreeDo.HeadingPitchRoll(0.24403164042572545,0.47931146843386174,0.0006638315736546829)
+                        				});
+                        	            $("#tipbox6").append(str).css({
+                        	            	left : "70%",
+                        	            	top : "20%"
+                        	            }).show();
+                        	    	}else{
+                        	    		$("#tipbox6").children().remove().hide();
+                        	    	}
+                        	    })
                           }
                       }
                   }
@@ -192,23 +238,12 @@ $(function () {
         renderTbmDeviation();
         resetHeight();
     });
-    
-    //点击三维展示复选框事件
-    $("[name='paomo']:checkbox").change(function(){ 
-    	var paomostr = "<p>泡沫系统</p>"+$(".info-middle #5 ul").html();
-            if ($(this).prop('checked')) {  
-                console.log("选中")
-				FreedoApp.viewers["earth"].camera.setView({
-					destination : new FreeDo.Cartesian3.fromDegrees(113.6609116922713,22.790849054668495, -520),
-							orientation : new FreeDo.HeadingPitchRoll(0.24403164042572545,0.47931146843386174,0.0006638315736546829)
-				});
-                $("#tipbox5").append(paomostr).css({
-                	left : 50,
-                	top : 50
-                }).show();
-            }else{
-            	console.log("未选中")
-            	$("#tipbox5").children().remove().hide();
-            }
-    })
+//    showPMXT();
+//    showSSJK();
 });
+function showPMXT(){
+	
+}
+function showSSJK(){
+
+}
