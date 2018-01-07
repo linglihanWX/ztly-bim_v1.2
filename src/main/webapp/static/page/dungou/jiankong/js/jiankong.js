@@ -241,9 +241,3 @@ $(function () {
 //    showPMXT();
 //    showSSJK();
 });
-function showPMXT(){
-	
-}
-function showSSJK(){
-
-}

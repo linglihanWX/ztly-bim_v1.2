@@ -424,6 +424,7 @@ html,body{
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     background-color: #fff;
+    z-index:2;
 }
 .close{
     position: absolute;
@@ -1057,7 +1058,3 @@ html,body{
 	    left: 50%;
     top: 50%;
 }
-
-
-
-.
