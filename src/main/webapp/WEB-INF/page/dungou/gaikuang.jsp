@@ -68,12 +68,12 @@
         <div class="content-middle">
             <div id="earth" class="not-full-screen">
                 <p>剖面视图
-                    <i class="iconfont icon-bqp bqp"></i>
+                    <i class="iconfont icon-qp qp"></i>
                 </p>
                 <img alt="" src="${ctx }/static/page/dungou/gaikuang/img/poumian.png" style="width:100%;height:100%">
             </div>
             <div id="earth1" class="full-screen">
-                <p><span>俯视视图</span><span></span><span>按时掘进</span><span></span><span>掘进延时</span> <i class="iconfont icon-qp qp"></i></p>
+                <p><span>俯视视图</span><span></span><span>按时掘进</span><span></span><span>掘进延时</span> <i class="iconfont icon-bqp bqp"></i></p>
             </div>
         </div>
         <div class="content-bottom">

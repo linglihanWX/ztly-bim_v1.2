@@ -5,9 +5,15 @@ $(function () {
     getPoints(FreedoApp.viewers["earth1"])
     var array = initEntities(FreedoApp.viewers["earth1"])
     $(".bqp").on("click",function () {
+    if($("#earth1").hasClass("full-screen")){    	
+    	for (var i = 0; i < array.length; i++) {
+    		array[i].show = false;
+    	}
+    }else{
 		for (var i = 0; i < array.length; i++) {
-			array[i].show = false;
+			array[i].show = true;
 		}
+    }
         $(".qp").toggleClass("icon-bqp icon-qp");
         $(this).toggleClass("icon-bqp icon-qp");
         $(this).parent().parent().toggleClass("full-screen not-full-screen");
@@ -15,9 +21,15 @@ $(function () {
 
     });
     $(".qp").on("click",function () {
-		for (var i = 0; i < array.length; i++) {
-			array[i].show = true;
-		}
+        if($("#earth1").hasClass("full-screen")){    	
+        	for (var i = 0; i < array.length; i++) {
+        		array[i].show = false;
+        	}
+        }else{
+    		for (var i = 0; i < array.length; i++) {
+    			array[i].show = true;
+    		}
+        }
         $(".bqp").toggleClass("icon-bqp icon-qp");
         $(this).toggleClass("icon-bqp icon-qp");
         $(this).parent().parent().toggleClass("full-screen not-full-screen");
@@ -28,7 +40,7 @@ $(function () {
     var chartOne = echarts.init(document.getElementById('chartOne'));
     var option1 = {
         title: {
-            text: '对数轴示例',
+            text: '检测信息',
             left: 'left'
         },
         tooltip: {
