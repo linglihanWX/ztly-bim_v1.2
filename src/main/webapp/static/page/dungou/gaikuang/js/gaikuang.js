@@ -65,7 +65,7 @@ $(function () {
             containLabel: true
         },
         yAxis: {
-            type: 'log',
+            type: 'value',
             name: 'y'
         },
         series: [
@@ -113,7 +113,7 @@ $(function () {
             containLabel: true
         },
         yAxis: {
-            type: 'log',
+            type: 'value',
             name: 'y'
         },
         series: [
