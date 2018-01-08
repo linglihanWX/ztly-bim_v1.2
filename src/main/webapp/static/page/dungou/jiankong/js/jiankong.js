@@ -1,5 +1,6 @@
 $(function () {
-
+	   $(".three-menu li:nth-of-type(2) a").addClass("second-active").parent().siblings().children("a").removeClass("second-active")
+       
     var timer = null ;
 
     // canvas画图
