@@ -64,7 +64,7 @@ $(function() {
 		}
 	};*/
     $.ajax({
-        url: "/PModel/getProjectModelTreeData",
+        url: "../PModel/getProjectModelTreeData",
         type: "get",
         dataType:"json",
         success: function (data) {

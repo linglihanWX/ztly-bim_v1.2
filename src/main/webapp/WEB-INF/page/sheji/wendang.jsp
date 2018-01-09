@@ -87,7 +87,7 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td><img src='/static/page/sheji/wendang/img/pdf.jpg' alt=''>S-1-01-010.PDF</td>
+										<td><img src='../static/page/sheji/wendang/img/pdf.jpg' alt=''>S-1-01-010.PDF</td>
 										<td>V2.1</td>
 										<td>821.27 kb</td>
 										<td>2017/03/04 17:36:25</td>
@@ -95,7 +95,7 @@
 										<td><button class='xz'>下载</button><button class='yl'>预览</button></td><td>已提交</td>
 									</tr>
 									<tr>
-										<td><img src='/static/page/sheji/wendang/img/pdf.jpg' alt=''>S-1-03-011.PDF</td>
+										<td><img src='../static/page/sheji/wendang/img/pdf.jpg' alt=''>S-1-03-011.PDF</td>
 										<td>V2.2</td>
 										<td>865.01 kb</td>
 										<td>2017/07/12 12:36:25</td>
@@ -103,7 +103,7 @@
 										<td><button class='xz'>下载</button><button class='yl'>预览</button></td><td>已提交</td>
 									</tr>
 									<tr>
-										<td><img src='/static/page/sheji/wendang/img/pdf.jpg' alt=''>S-1-03-012.PDF</td>
+										<td><img src='../static/page/sheji/wendang/img/pdf.jpg' alt=''>S-1-03-012.PDF</td>
 										<td>V2.3</td>
 										<td>899.36 kb</td>
 										<td>2017/08/29 06:36:25</td>
@@ -111,7 +111,7 @@
 										<td><button class='xz'>下载</button><button class='yl'>预览</button></td><td>已提交</td>
 									</tr>
 									<tr>
-										<td><img src='/static/page/sheji/wendang/img/pdf.jpg' alt=''>S-1-05-013.PDF</td>
+										<td><img src='../static/page/sheji/wendang/img/pdf.jpg' alt=''>S-1-05-013.PDF</td>
 										<td>V2.3</td>
 										<td>912.86 kb</td>
 										<td>2017/09/23 22:12:05</td>

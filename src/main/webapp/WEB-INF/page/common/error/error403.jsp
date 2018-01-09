@@ -7,7 +7,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>403错误</title>
+<style>
+	html,body{
+	widht:100%;
+	height:100%}
+</style>
 </head>
-<body style="text-align: center;background:url('${ctx}/static/page/common/img/error/error403.png') center center; background-repeat:no-repeat">
+<body style="background:url('${ctx}/static/page/common/img/error/error403.png') center center; background-repeat:no-repeat">
 </body>
 </html>
