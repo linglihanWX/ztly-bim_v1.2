@@ -141,7 +141,7 @@
                         <p><span>4#土压</span><span>0.200mpa</span></p>
                         <p><span>3#加泥加水流量</span><span>0L/min</span></p>
                         <p><span>内圈温度</span><span>23°C</span></p>
-                        <p><span>外圈温度</span><span>23°C<</span></p>
+                        <p><span>外圈温度</span><span>23°C</span></p>
                     </div>
                 </div>
                 <div class="left-page-two">
@@ -203,7 +203,7 @@
                         <img src="${ctx }/static/page/dungou/jiankong/img/dgqt/zjg.png" alt="">
                        <div>
                            <ul>
-                               <li><span>注浆</span><span>压力A<br>Mpa</span><span>压力B<br>Mpa</span><span>流量A<br>L/Min</span><span>>流量B<br>L/Min</span></li>
+                               <li><span>注浆</span><span>压力A<br>Mpa</span><span>压力B<br>Mpa</span><span>流量A<br>L/Min</span><span>流量B<br>L/Min</span></li>
                                <li><span>1#</span><span>0.51</span><span>0.00</span><span>0</span><span>0</span></li>
                                <li><span>2#</span><span>0.06</span><span>0.00</span><span>0</span><span>0</span></li>
                                <li><span>3#</span><span>0.06</span><span>0.00</span><span>0</span><span>0</span></li>
