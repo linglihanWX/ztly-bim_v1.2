@@ -9,7 +9,7 @@ $(function () {
     $(".dialogContent").height(h2-250);
 	var treeObj = {};
     $.ajax({
-        url: "/PModel/getProjectModelTreeData",
+        url: "../PModel/getProjectModelTreeData",
         type: "get",
         dataType:"json",
         success: function (data) {
@@ -148,9 +148,9 @@ $(function () {
 		]
 ]
 	var imgarray = [
-		"/static/page/shigong/dungou/img/Land001.jpg",
-		"/static/page/shigong/dungou/img/Land002.jpg",
-		"/static/page/shigong/dungou/img/Land004.jpg"
+		"../static/page/shigong/dungou/img/Land001.jpg",
+		"../static/page/shigong/dungou/img/Land002.jpg",
+		"../static/page/shigong/dungou/img/Land004.jpg"
 	];
 	FreeDoUtil.dig(myviewer,userdata2,imgarray);
 

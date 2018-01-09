@@ -130,17 +130,17 @@ MainBuildingViewer.init = function (earthId,baseImageryProvider) {
 		ceshistate =true;
 		MainBuildingViewer.right(window.merightclick);
 		var imageMaterial1 = new FreeDo.ImageMaterialProperty ({
-			image : "/static/page/sheji/zhutijianzhu/img/tuzhi/jiegoupingmiantu1.png",
+			image : "../static/page/sheji/zhutijianzhu/img/tuzhi/jiegoupingmiantu1.png",
 			repeat : new FreeDo.Cartesian2(1.0, 1.0),
 			transparent : true,
 		});
 		var imageMaterial2 = new FreeDo.ImageMaterialProperty ({
-			image : "/static/page/sheji/zhutijianzhu/img/tuzhi/shebeipingmiantu1.png",
+			image : "../static/page/sheji/zhutijianzhu/img/tuzhi/shebeipingmiantu1.png",
 			repeat : new FreeDo.Cartesian2(1.0, 1.0),
 			transparent : true,
 		});
 		var imageMaterial3 = new FreeDo.ImageMaterialProperty ({
-			image : "/static/page/sheji/zhutijianzhu/img/tuzhi/zhantingpingmiantu1.png",
+			image : "../static/page/sheji/zhutijianzhu/img/tuzhi/zhantingpingmiantu1.png",
 			repeat : new FreeDo.Cartesian2(1.0, 1.0),
 			transparent : true,
 		});
@@ -208,7 +208,7 @@ MainBuildingViewer.init = function (earthId,baseImageryProvider) {
 		        pixelOffset : new FreeDo.Cartesian2( 0, -18 )   //偏移量  
 		    },  
 		    billboard : { //图标  
-		        image : "/static/page/sheji/zhutijianzhu/img/tuceng/hispital.svg",  
+		        image : "../static/page/sheji/zhutijianzhu/img/tuceng/hispital.svg",  
 		        width : 50,  
 		        height : 50  
 		    },  
@@ -231,7 +231,7 @@ MainBuildingViewer.init = function (earthId,baseImageryProvider) {
 				pixelOffset : new FreeDo.Cartesian2( 0, -18 )   //偏移量  
 			},  
 			billboard : { //图标  
-				image : "/static/page/sheji/zhutijianzhu/img/tuceng/hispital.svg",  
+				image : "../static/page/sheji/zhutijianzhu/img/tuceng/hispital.svg",  
 				width : 50,  
 				height : 50  
 			},  
@@ -254,7 +254,7 @@ MainBuildingViewer.init = function (earthId,baseImageryProvider) {
 				pixelOffset : new FreeDo.Cartesian2( 0, -18 )   //偏移量  
 			},  
 			billboard : { //图标  
-				image : "/static/page/sheji/zhutijianzhu/img/tuceng/police.svg",  
+				image : "../static/page/sheji/zhutijianzhu/img/tuceng/police.svg",  
 				width : 50,  
 				height : 50  
 			},  
@@ -277,7 +277,7 @@ MainBuildingViewer.init = function (earthId,baseImageryProvider) {
 				pixelOffset : new FreeDo.Cartesian2( 0, -18 )   //偏移量  
 			},  
 			billboard : { //图标  
-				image : "/static/page/sheji/zhutijianzhu/img/tuceng/police.svg",  
+				image : "../static/page/sheji/zhutijianzhu/img/tuceng/police.svg",  
 				width : 50,  
 				height : 50  
 			},  
@@ -300,7 +300,7 @@ MainBuildingViewer.init = function (earthId,baseImageryProvider) {
 				pixelOffset : new FreeDo.Cartesian2( 0, -18 )   //偏移量  
 			},  
 			billboard : { //图标  
-				image : "/static/page/sheji/zhutijianzhu/img/tuceng/firecontrol.svg",  
+				image : "../static/page/sheji/zhutijianzhu/img/tuceng/firecontrol.svg",  
 				width : 50,  
 				height : 50  
 			},  
@@ -323,7 +323,7 @@ MainBuildingViewer.init = function (earthId,baseImageryProvider) {
 				pixelOffset : new FreeDo.Cartesian2( 0, -18 )   //偏移量  
 			},  
 			billboard : { //图标  
-				image : "/static/page/sheji/zhutijianzhu/img/tuceng/firecontrol.svg",  
+				image : "../static/page/sheji/zhutijianzhu/img/tuceng/firecontrol.svg",  
 				width : 50,  
 				height : 50  
 			},  

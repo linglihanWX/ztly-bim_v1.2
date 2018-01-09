@@ -100,7 +100,7 @@ $(function () {
     CameraViewer.initLeftDown(FreedoApp.viewers["earth"],hideDiv);
 
     $.ajax({
-		url:"/PModel/getPmodel",
+		url:"../PModel/getPmodel",
 		type: "get",
 		dataType:"json",
         success: function(data){
@@ -111,6 +111,15 @@ $(function () {
         		var holeData=eval(model[key].hole);
         		//图层数据
         		var imgarray=eval(model[key].imagelayer);
+        		var path = window.location.pathname;
+        		var patharray = path.split("/");
+        		for (var i = 0; i < imgarray.length; i++) {
+        			var str ="";
+        			for (var j = 0; j < patharray.length-3; j++) {
+        				 str = str+"../"
+					}
+        			imgarray[i] = str+imgarray[i] ;
+				}
         		console.log( model[key].url);
         		 //向场景中添加模型
         		var modelTile=FreedoApp.viewers["earth"].scene.primitives.add(new FreeDo.FreedoPModelset({

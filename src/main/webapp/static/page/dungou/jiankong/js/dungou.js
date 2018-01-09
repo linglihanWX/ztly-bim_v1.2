@@ -12,7 +12,7 @@ $(function () {
     //	初始化地球
 	 //	添加模型
 	$.ajax({
-		url:"/PModel/getPmodel",
+		url:"../../PModel/getPmodel",
 		type: "get",
 		dataType:"json",
         success: function(data){
@@ -32,6 +32,16 @@ $(function () {
         		modelTile.readyPromise.then(function() {
             		moveModel(modelTile,model[key].x,model[key].y,model[key].z,model[key].heading,model[key].pitch,model[key].roll,model[key].scalex,model[key].scaley,model[key].scalez);
             	});
+        		
+        		var path = window.location.pathname;
+        		var patharray = path.split("/");
+        		for (var i = 0; i < imgarray.length; i++) {
+        			var str ="";
+        			for (var j = 0; j < patharray.length-3; j++) {
+        				 str = str+"../"
+					}
+        			imgarray[i] = str+imgarray[i] ;
+				}
         		//挖坑
             	FreeDoUtil.dig(FreedoApp.viewers["earth"],holeData,imgarray);
             	//镜头定位

@@ -6,7 +6,7 @@ $(function () {
     var sss = new SurveyManager(FreedoApp.viewers["init"],creatEntity);
     sss.setSurveyType(SurveyType.LINE_DISTANCE);
     $.ajax({
-		url:"/PModel/getPmodel",
+		url:"../PModel/getPmodel",
 		type: "get",
 		dataType:"json",
         success: function(data){
@@ -17,6 +17,15 @@ $(function () {
         		var holeData=eval(model[key].hole);
         		//图层数据
         		var imgarray=eval(model[key].imagelayer);
+        		var path = window.location.pathname;
+        		var patharray = path.split("/");
+        		for (var i = 0; i < imgarray.length; i++) {
+        			var str ="";
+        			for (var j = 0; j < patharray.length-3; j++) {
+        				 str = str+"../"
+					}
+        			imgarray[i] = str+imgarray[i] ;
+				}
         		console.log( model[key].url);
         		 //向场景中添加模型
         		var modelTile=FreedoApp.viewers["init"].scene.primitives.add(new FreeDo.FreedoPModelset({
@@ -28,6 +37,7 @@ $(function () {
         				moveModel(modelTile,model[key].x,model[key].y,model[key].z,model[key].heading,model[key].pitch,model[key].roll,model[key].scalex,model[key].scaley,model[key].scalez);
         			});
         		}
+        		
         		if(holeData!=null&&imgarray!=null){
         			//挖坑
         			FreeDoUtil.dig(FreedoApp.viewers["init"],holeData,imgarray);

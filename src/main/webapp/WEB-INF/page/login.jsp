@@ -29,9 +29,6 @@
 	    rel='stylesheet' type='text/css'>
 	<!-- end: CSS -->
 
-	<!-- start: Favicon -->
-	<link rel="shortcut icon" href="img/favicon.ico">
-	<!-- end: Favicon -->
 
 	<style type="text/css">
 		body {

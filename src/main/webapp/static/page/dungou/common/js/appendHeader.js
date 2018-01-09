@@ -16,8 +16,8 @@ $(function () {
                     <li>
                         <a href="javascript:;" class="nav-item-active"><i class="iconfont icon-dgj"></i><span>盾构管理</span><i class="iconfont icon-arrow-down  second-arrow"></i></a>
                         <ul class="three-menu">
-                            <li> <a href="/ProSystem/dungou/toGaikuang" class="second-active"><span>项目概况</span></a></li>
-                            <li> <a href="/ProSystem/dungou/toJiankong" ><span>盾构监控</span></a></li>
+                            <li> <a href="../../ProSystem/dungou/toGaikuang" class="second-active"><span>项目概况</span></a></li>
+                            <li> <a href="../../ProSystem/dungou/toJiankong" ><span>盾构监控</span></a></li>
                             <li> <a href="javascript:;"><span>安全风险</span></a></li>
                             <li> <a href="javascript:;"><span>预警处理</span></a></li>
                             <li> <a href="javascript:;"><span>进度管理</span></a></li>
