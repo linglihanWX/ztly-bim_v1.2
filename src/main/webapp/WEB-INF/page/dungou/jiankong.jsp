@@ -29,7 +29,7 @@
         <div class="user-handler">
             <span><i class="iconfont icon-self"></i><span>个人中心</span></span>
             <span><i class="iconfont icon-message"><span>2</span></i><span>消息中心</span></span>
-            <span><i class="iconfont icon-out-login"></i><span>退出登录</span></span>
+            <a href="${ctx }/logout"><span><i class="iconfont icon-out-login"></i><span>退出登录</span></span></a>
         </div>
 
     </div>
@@ -129,7 +129,7 @@
                 <p><span>2017-11-22</span><span>13:21:56</span></p>
             </div>
         </div>
-        <div class="page-info--bottom">
+        <div class="page-info-bottom">
             <div class="page-info-bottom-left">
                 <div class="left-page-one">
                     <p>土压舱</p>
@@ -180,7 +180,7 @@
                             </ul>
                             <p></p>
                             <ul>
-                                <li><span>&nbsp;<br>&nbsp;</span><span>行程<br>(mm)</span><span>速度<br>(mm/Min)</span><span>油压<br>(Mpa)</span></li>
+                                <li><span>&nbsp;<br>&nbsp;</span><span>行程<br>mm</span><span>速度<br>mm/Min</span><span>油压<br>Mpa</span></li>
                                 <li><span>上部</span><span>410</span><span>0</span><span>1.00</span></li>
                                 <li><span>右部</span><span>405</span><span>0</span><span>1.00</span></li>
                                 <li><span>下部</span><span>404</span><span>0</span><span>1.00</span></li>

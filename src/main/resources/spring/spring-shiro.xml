@@ -56,8 +56,15 @@
         </property> -->
         <property name="filterChainDefinitions">
             <value>
+                /logout=anon
+                /main=authc
+                /toBianmaku=authc
+                /keyan/**=authc
+                /sheji/**=authc
+                /shigong/**=authc
+                /yunwei/**=authc
+                /ProSystem/dungou/**=authc
                 /admin/**=authc,resourceCheckFilter
-                /login=anon
             </value>
         </property>
     </bean>

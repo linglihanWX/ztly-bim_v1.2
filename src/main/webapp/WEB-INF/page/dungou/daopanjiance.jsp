@@ -28,7 +28,7 @@
         <div class="user-handler">
             <span><i class="iconfont icon-self"></i><span>个人中心</span></span>
             <span><i class="iconfont icon-message"><span>2</span></i><span>消息中心</span></span>
-            <span><i class="iconfont icon-out-login"></i><span>退出登录</span></span>
+           <a href="${ctx }/logout"><span><i class="iconfont icon-out-login"></i><span>退出登录</span></span></a>
         </div>
 
     </div>

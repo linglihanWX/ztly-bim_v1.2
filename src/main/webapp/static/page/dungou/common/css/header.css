@@ -53,6 +53,9 @@ html,body{
     display: inline-block;
 
 }
+.user-handler a{
+	color:#fff;
+}
 .user-handler>span{
     display: inline-block;
     cursor: pointer;

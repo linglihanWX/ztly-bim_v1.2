@@ -30,7 +30,7 @@ public class LoginController {
      * 跳转到登录界面
      * @return
      */
-    @RequestMapping(value = "/",method = RequestMethod.GET)
+    @RequestMapping(value = {"/","login"},method = RequestMethod.GET)
     public String login(){
         return "login";
     }
@@ -51,9 +51,7 @@ public class LoginController {
         logger.debug("username => " + username);
         logger.debug("password => " + password);
         Subject subject = SecurityUtils.getSubject();
-        if(subject.isAuthenticated()) {
-        	return "redirect:main";
-        }
+
         UsernamePasswordToken token = new UsernamePasswordToken(username,password);
         try {
             subject.login(token);
@@ -72,7 +70,7 @@ public class LoginController {
         }
 
         model.addAttribute("msg",msg);
-        return "/login";
+        return "login";
     }
     @RequestMapping(value = "/toShiroLogin",method = RequestMethod.POST)
     public String login1(User user, Model model){

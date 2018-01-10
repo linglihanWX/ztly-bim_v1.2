@@ -3,10 +3,10 @@ $(function () {
             <li class="nav-item">
                 <a href="javascript:;"><span>全生命周期</span><i class="iconfont icon-down-arrow "></i></a>
                 <ul class="second-menu">
-                    <li> <a href="javascript:;"><i class="iconfont icon-kcmanager"></i><span>勘测可研</span><i class="iconfont icon-arrow-down second-arrow"></i></a></li>
-                    <li> <a href="javascript:;"><i class="iconfont icon-sheji"></i><span>设计协同</span><i class="iconfont icon-arrow-down second-arrow"></i></a></li>
-                    <li> <a href="javascript:;"><i class="iconfont icon-yh"></i><span>隐患管理</span><i class="iconfont icon-arrow-down second-arrow"></i></a></li>
-                    <li> <a href="javascript:;"><i class="iconfont icon-yunwei"></i><span>运维管理</span><i class="iconfont icon-arrow-down second-arrow"></i></a></li>
+                    <li> <a href="../../keyan/toGaikuang"><i class="iconfont icon-kcmanager"></i><span>勘测可研</span><i class="iconfont icon-arrow-down second-arrow"></i></a></li>
+                    <li> <a href="../../sheji/toGaikuang"><i class="iconfont icon-sheji"></i><span>设计协同</span><i class="iconfont icon-arrow-down second-arrow"></i></a></li>
+                    <li> <a href="#"><i class="iconfont icon-yh"></i><span>隐患管理</span><i class="iconfont icon-arrow-down second-arrow"></i></a></li>
+                    <li> <a href="../../yunwei/toGaikuang"><i class="iconfont icon-yunwei"></i><span>运维管理</span><i class="iconfont icon-arrow-down second-arrow"></i></a></li>
                 </ul>
             </li>
 
