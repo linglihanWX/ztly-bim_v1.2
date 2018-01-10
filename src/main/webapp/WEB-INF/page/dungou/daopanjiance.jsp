@@ -59,7 +59,7 @@
                            <p>超挖量</p>
                            <p><span>实测值：</span><span><span></span>mm</span></p>
                            <p><span>设定值：</span><span><span></span>mm</span></p>
-                           <p><button id="returnPage">缩回</button></p>
+                           <p><button id="returnPage">返回</button></p>
                        </div>
                    </div>
                </div>

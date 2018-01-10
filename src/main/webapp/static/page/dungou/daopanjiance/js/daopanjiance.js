@@ -6,19 +6,7 @@ $(function () {
     setSize(".top-two>div",".top-two>div img");
     setSize(".top-three>div",".top-three>div img");
     setSize(".page-bottom-two>div",".page-bottom-two>div img");
-    /**
-     * 设置图片代销并居中
-     * @param el
-     */
-    function setSize(el1,el2) {
-        let width = $(el1).width();
-        let height = $(el1).height();
-        let size = width >= height? height: width;
-        $(el2).css({
-            "width":size,
-            "height":size
-        });
-    }
+
 
     $(".page-nav ul>li").each(function () {
        $(this).click(function () {
@@ -45,6 +33,8 @@ $(function () {
     // 渲染超挖刀的数据
     $(".cwd-info>p:nth-of-type(2)>span:nth-of-type(2)>span").html(dataInfo[0].realVal);
     $(".cwd-info>p:nth-of-type(3)>span:nth-of-type(2)>span").html(dataInfo[0].setVal);
+
+    $(".top-two>div").append("<div class='span-click'>13</div>")
 
 
     // 渲染刀盘喷水的数据
@@ -79,6 +69,12 @@ $(function () {
                     width:70+"%"
                 });
             }
+            setSize(".top-one>div",".top-one>div img");
+            setSize(".top-two>div",".top-two>div img");
+            setSize(".top-three>div",".top-three>div img");
+            setSize(".page-bottom-two>div",".page-bottom-two>div img");
+            setArcSize(".page-bottom-two>div",".out-box");
+            setLineHeight();
         });
     });
 
@@ -167,4 +163,19 @@ $(function () {
         setArcSize(".page-bottom-two>div",".out-box");
         setLineHeight();
     });
+    /**
+     * 设置图片代销并居中
+     * @param el
+     */
+    function setSize(el1,el2) {
+        let width = $(el1).width();
+        let height = $(el1).height();
+        let size = width >= height? height: width;
+        $(el2).css({
+            "width":size,
+            "height":size,
+            "margin-left": -size / 2,
+            "margin-top": -size / 2
+        });
+    }
 });
