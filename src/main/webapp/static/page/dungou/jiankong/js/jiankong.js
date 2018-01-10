@@ -34,7 +34,10 @@ $(function () {
         $(".page-info").hide();
     });
 
-
+    $(".info-left .icon-out").on("click",function () {
+        console.log(1);
+        window.location.href = '../../ProSystem/dungou/toDaopanjiance';
+    });
 
     var infoData = [];
     var dataArr = [0,1,2,3,4,5];

@@ -1,100 +1,8 @@
 @charset "UTF-8";
-html,body{
-    width: 100%;
-    height: 100%;
-    min-width: 1200px;
-}
-#header{
-    width: 100%;
-    height: 100px;
-    padding: 10px 20px;
-    background-color: #0c5eaa;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-
-}
-.logo{
-    display: inline-block;
-    width: auto;
-    height: 100%;
-}
-.logo img{
-    height: 100%;
-    width:auto;
-}
-.user{
-    float: right;
-    width: auto;
-    height: 100%;
-    color: #fff;
-    font-size: 16px;
-}
-.user-info{
-    display: inline-block;
-    width: auto;
-    height: 80px;
-    line-height: 80px;
-    cursor: pointer;
-}
-.user-info:hover span{
-    color: rgba(255,255,255,.7);
-}
-.user-info img{
-    position: relative;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    vertical-align: middle;
-    margin-right: 5px;
-}
-.user-handler{
-    display: inline-block;
-
-}
-.user-handler>span{
-    display: inline-block;
-    cursor: pointer;
-}
-.user-handler>span>span{
-    position: relative;
-    top: 2px;
-}
-.user-handler>span:hover{
-    color: rgba(255,255,255,.7);
-}
-.user-handler i{
-    position: relative;
-    font-size: 24px;
-    vertical-align: middle;
-    margin:0 5px 0 15px ;
-}
-.user-handler i span{
-    position: absolute;
-    right: -5px;
-    top: -5px;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 15px;
-    color: #fff;
-    background-color: red;
-    font-size: 12px;
-}
-#contentBox{
-    width: 100%;
-    height:calc(100% - 100px);
-}
-.nav{
-    float: left;
-    width: 200px;
-    height: 100%;
-}
 .content{
     width: auto;
     height: 100%;
-    padding: 10px;
+    padding: 5px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -104,7 +12,8 @@ html,body{
 .content-middle{
     position: relative;
     width: 100%;
-    height: 400px;
+    height: 40%;
+    /*height: 400px;*/
     background-color: #e8e8e8;
 }
 
@@ -113,10 +22,11 @@ html,body{
     position: absolute;
     top: 0;
     left: 0;
-    height: 30px;
+    height: 20px;
     width: 100%;
-    line-height: 30px;
+    line-height: 20px;
     padding-left: 20px;
+    font-size: 14px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -127,9 +37,9 @@ html,body{
 #earth p i,#earth1 p i{
     float: right;
     display: inline-block;
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
     text-align: center;
     color: #fff;
     cursor: pointer;
@@ -150,30 +60,21 @@ html,body{
     height:50%!important;
     z-index:3!important;
 }
-.full-screen .compassDiv{
-	display:block;
-}
-.not-full-screen .compassDiv{
-	display:none;
-}
-.compassDiv{
-	top:30px!important;
-}
 
 #earth1>p>span{
     display: inline-block;
     vertical-align: top;
-    height: 30px;
-    line-height: 30px;
+    height: 20px;
+    line-height: 20px;
 }
 #earth1>p>span:nth-of-type(2),
 #earth1>p>span:nth-of-type(4){
     display: inline-block;
-    width: 30px;
-    height: 20px;
-    vertical-align: middle;
+    width: 20px;
+    height: 15px;
+    vertical-align: top;
     background-color: red;
-    margin: 0 5px 0 10px;
+    margin: 3px 5px 0 10px;
 }
 #earth1>p>span:nth-of-type(2){
     background-color: #C33A30;
@@ -181,11 +82,10 @@ html,body{
 #earth1>p>span:nth-of-type(4){
     background-color: #FC733D;
 }
-
-
 .content-bottom{
     width: 100%;
-    height:calc(100% - 400px);
+    /*height:calc(100% - 400px);*/
+    height: 60%;
     font-size: 0;
 }
 .content-bottom>div{
@@ -213,13 +113,14 @@ html,body{
     position: relative;
     width: 100%;
     height: 30px;
-    font-size: 18px;
+    font-size: 14px;
     padding-left: 2%;
     text-align: left;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     color: #000;
+    font-weight: bold;
     line-height: 30px;
 }
 .info-left>div>p:first-of-type::after{

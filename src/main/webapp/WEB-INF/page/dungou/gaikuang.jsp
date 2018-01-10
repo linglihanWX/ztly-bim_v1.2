@@ -8,6 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <title>盾构实时监控</title>
+       <link rel="stylesheet" href="${ctx }/static/page/dungou/common/css/header.css">
     <link rel="stylesheet" href="${ctx }/static/page/common/css/reset.css">
     <link rel="stylesheet" type="text/css" href="${ctx }/static/page/common/css/nav.css">
     <link rel="stylesheet" type="text/css" href="${ctx }/static/page/dungou/jiankong/font/iconfont.css">
@@ -18,11 +19,11 @@
 <body>
 <header id="header">
     <div class="logo">
-        <img src="${ctx }/static/page/dungou/jiankong/img/logo.png" alt="">
+        <img src="${ctx }/static/page/dungou/common/img/logo.png" alt="">
     </div>
     <div class="user">
         <div class="user-info">
-            <img src="${ctx }/static/page/dungou/jiankong/img/avatar.jpg" alt="" class="user-img">
+            <img src="${ctx }/static/page/dungou/common/img/avatar.jpg" alt="" class="user-img">
              <shiro:principal property="nickname"/>
         </div>
         <div class="user-handler">

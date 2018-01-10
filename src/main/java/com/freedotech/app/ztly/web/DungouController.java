@@ -23,7 +23,7 @@ public class DungouController {
 	@Autowired
 	private ShigongService shigongService;
 	/**
-	 * 跳转到项目概况页面
+	 * 跳转到	项目概况页面
 	 * @return
 	 */
 	@RequestMapping(value="toGaikuang")
@@ -32,12 +32,21 @@ public class DungouController {
 
 	}
 	/**
-	 * 跳转到盾构监控页面
+	 * 跳转到	盾构监控页面
 	 * @return
 	 */
 	@RequestMapping(value="toJiankong")
 	public String toJiankongPage() {
 		return "dungou/jiankong";
+		
+	}
+	/**
+	 * 跳转到	盾构监控页面>盾构检测页面
+	 * @return
+	 */
+	@RequestMapping(value="toDaopanjiance")
+	public String toDungoujiancePage() {
+		return "dungou/daopanjiance";
 		
 	}
 	/**
