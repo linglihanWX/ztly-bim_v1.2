@@ -18,7 +18,7 @@
 }
 
 #earth p,
-#earth1 p{
+#earth1>p{
     position: absolute;
     top: 0;
     left: 0;
@@ -257,4 +257,8 @@
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
+}
+
+.compassDiv{
+	top:20px!important;
 }

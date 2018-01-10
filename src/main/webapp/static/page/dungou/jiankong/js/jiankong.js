@@ -16,7 +16,7 @@ $(function () {
        /* $(".content-middle").stop().animate({
             "height":400
         },"fast");*/
-        $(".content-middle").css({"height":400});
+        $(".content-middle").css({"height":50+"%"});
         $(".content-bottom").show();
 
     });
@@ -242,6 +242,4 @@ $(function () {
         renderTbmDeviation();
         resetHeight();
     });
-//    showPMXT();
-//    showSSJK();
 });

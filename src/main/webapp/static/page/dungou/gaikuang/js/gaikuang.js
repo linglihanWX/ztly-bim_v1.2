@@ -5,11 +5,13 @@ $(function () {
     getPoints(FreedoApp.viewers["earth1"])
     var array = initEntities(FreedoApp.viewers["earth1"])
     $(".bqp").on("click",function () {
-    if($("#earth1").hasClass("full-screen")){    	
+    if($("#earth1").hasClass("full-screen")){ 
+    	$(".compassDiv").hide();
     	for (var i = 0; i < array.length; i++) {
     		array[i].show = false;
     	}
     }else{
+    	$(".compassDiv").show();
 		for (var i = 0; i < array.length; i++) {
 			array[i].show = true;
 		}
@@ -22,10 +24,12 @@ $(function () {
     });
     $(".qp").on("click",function () {
         if($("#earth1").hasClass("full-screen")){    	
+        	$(".compassDiv").hide();
         	for (var i = 0; i < array.length; i++) {
         		array[i].show = false;
         	}
         }else{
+        	$(".compassDiv").show();
     		for (var i = 0; i < array.length; i++) {
     			array[i].show = true;
     		}

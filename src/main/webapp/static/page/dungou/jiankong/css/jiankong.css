@@ -8,14 +8,14 @@
 .content-middle{
     position: relative;
     width: 100%;
-    height: 400px;
+    /*height: 400px;*/
+    height: 50%;
     background-color: #e8e8e8;
 }
 #earth{
     position: relative;
     width: 100%;
     height: 100%;
-    z-index:1;
 }
 #earth>p{
     position: absolute;
@@ -91,7 +91,6 @@
 
 .changeContent  li:hover{
     width: 120px;
-
 }
 
 .changeContent li i{
@@ -105,9 +104,10 @@
 
 .content-bottom{
     width: 100%;
-    height:calc(100% - 400px);
+    /*height:calc(100% - 400px);*/
+    height: 50%;
     font-size: 0;
- 
+    z-index: 2;
 }
 
 .content-bottom>div{
@@ -117,12 +117,14 @@
 }
 .content-bottom .info-left{
     width: 30%;
-    height: 100%;
+    height: calc(100% - 10px);
     background-color: #fff;
     text-align: center;
     overflow: hidden;
     padding: 10px;
-    -webkit-box-sizing: border-box;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+    border-radius: 5px;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
@@ -130,10 +132,11 @@
 .info-right>p{
     position: relative;
     width: 100%;
-    height: 30px;
+    height: 20px;
     text-align: left;
-    line-height: 30px;
-    font-size: 18px;
+    line-height: 20px;
+    font-size: 14px;
+    font-weight: bold;
     color: #000;
 }
 .info-left>p::after,
@@ -213,11 +216,14 @@
 .content-bottom .info-right{
     position: relative;
     width: 30%;
-    height: 100%;
+    height: calc(100% - 10px);
     padding: 10px;
+    margin-top: 5px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 .info-right ul{
     width: 100%;
@@ -345,7 +351,6 @@
     line-height: 20px;
     cursor: pointer;
 }
-
 .page-info{
     display: none;
     width: auto;
@@ -356,7 +361,7 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-.page-info--top{
+.page-info-top{
     height: 120px;
     width: 100%;
     border: 1px solid #ccc;
@@ -364,9 +369,8 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-.page-info--top>div{
+.page-info-top>div{
     float: left;
-
 }
 .top-one,.top-three{
     width: 30%;
@@ -377,8 +381,6 @@
     width: 40%;
     height: 100%;
 }
-
-
 .top-one>span{
     position: relative;
     display: inline-block;
@@ -397,6 +399,11 @@
     border-radius: 5px;
     outline:none;
     cursor: pointer;
+}
+.returnPage:hover{
+    background-color: #3168ba;
+    border-color: #3168ba;
+    color: #fff;
 }
 
 .top-one>span>span{
@@ -491,6 +498,7 @@
     display: inline-block;
     width:calc((100% - 50px) /6);
     height: 100%;
+    font-size: 12px;
 }
 
 
@@ -548,7 +556,7 @@
     display: inline-block;
     width: calc(50% - 5px);
     height: 100%;
-    font-size: 14px;
+    font-size: 12px;
     padding-top: 30px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -608,17 +616,17 @@
 .left-page-two>div>p>span{
     display: block;
 }
-.left-page-one>div>p>span:first-of-type,
+/*.left-page-one>div>p>span:first-of-type,
 .left-page-two>div>p>span:first-of-type{
     font-weight: bold;
-}
+}*/
 .left-page-one>div>p:nth-of-type(1){
     left: 50%;
-    top: 10%;
+    top: 101%;
 }
 .left-page-one>div>p:nth-of-type(2){
     left: 50%;
-    top: 23%;
+    top: 24%;
 }
 .left-page-one>div>p:nth-of-type(3){
     left: 50%;
@@ -626,7 +634,7 @@
 }
 .left-page-one>div>p:nth-of-type(4){
     left: 50%;
-    top: 90%;
+    top: 88%;
 }
 .left-page-one>div>p:nth-of-type(5){
     left: 7%;
@@ -642,19 +650,19 @@
 }
 .left-page-two>div>p:nth-of-type(1){
     left: 20%;
-    top: 8%;
+    top: 9%;
 }
 .left-page-two>div>p:nth-of-type(2){
     left: 20%;
-    top: 15%;
+    top: 16%;
 }
 .left-page-two>div>p:nth-of-type(3){
     left: 20%;
-    top: 25%;
+    top: 26%;
 }
 .left-page-two>div>p:nth-of-type(4){
     left: 20%;
-    top: 34%;
+    top: 35%;
 }
 .left-page-two ul{
     position: absolute;
@@ -725,9 +733,10 @@
 }
 .daopan-info>ul:first-of-type li>span:first-of-type,
 .daopan-info>ul:nth-of-type(2) li>span:first-of-type{
-    font-size: 16px;
+
     color: #000;
     font-weight: bold;
+    font-size: 13px;
 }
 
 .daopan-info>ul:nth-of-type(2){
@@ -756,13 +765,14 @@
     overflow: auto;
     border-top: 1px solid #ccc;
     border-left: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 .daopan-info>ul:nth-of-type(3) li{
     width: 100%;
-    height:40px;
+    /*height:40px;*/
     border-bottom: 1px solid #ccc;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -772,7 +782,7 @@
     display: inline-block;
     vertical-align: top;
     width: 25%;
-    height:100%;
+    /*height:100%;*/
     text-align: center;
     border-right: 1px solid #ccc;
     -webkit-box-sizing: border-box;
@@ -781,7 +791,7 @@
 }
 
 .daopan-info>ul:nth-of-type(3) li:not(:first-of-type)>span{
-    line-height: 40px;
+    /*line-height: 40px;*/
 }
 
 .right-page-one{
@@ -864,14 +874,14 @@
 .right-page-four>div>p{
     position: relative;
     width: 200px;
-    height: 30px;
-    line-height: 30px;
+    height: 25px;
+    line-height: 25px;
     text-indent: 2rem;
-    z-index:2;
+    z-index: 2;
 }
 .right-page-four>div>p>span:first-of-type{
-    font-weight: bold;
-    font-size: 16px;
+
+    font-size: 13px;
     color: #000;
     margin-right: 10px;
 }
@@ -892,7 +902,7 @@
     position: absolute;
     right: 20px;
     bottom: 20px;
-    width: 60%;
+    width: 80%;
     height:auto;
 }
 .right-page-five ul li{
@@ -902,13 +912,14 @@
 .right-page-five ul li span{
     display: inline-block;
     width: 25%;
-    height: 30px;
-    line-height: 30px;
+    height: 25px;
+    line-height: 25px;
     text-align: center;
+    font-size: 13px;
 }
-.right-page-five ul li span:nth-of-type(odd){
-    font-weight: bold;
-}
+/*.right-page-five ul li span:nth-of-type(odd){*/
+    /*font-weight: bold;*/
+/*}*/
 .right-page-five{
     width:calc(35% - 10px);
     height: calc(40% - 5px);
@@ -924,6 +935,12 @@
     position: relative;
     left: 30%;
 }
+
+.icon-out{
+    cursor: pointer;
+}
+
+
 
 .tipbox{
     position: absolute;
