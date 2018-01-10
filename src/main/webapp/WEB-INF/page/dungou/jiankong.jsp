@@ -36,6 +36,7 @@
 </header>
 <div id="contentBox">
     <div class="nav">
+
     </div>
     <div class="content">
         <div class="content-middle">
@@ -51,7 +52,7 @@
                     <li class="three-page"><i class="iconfont icon-swzs"></i>&nbsp;&nbsp;&nbsp;三维页面</li>
                     <li class="two-page"><i class="iconfont icon-yemian"></i>&nbsp;&nbsp;&nbsp;二维页面</li>
                 </ul>
-                <div class="tipbox" id="tipbox1">
+                                <div class="tipbox" id="tipbox1">
 					<p>提示</p>
 					<ul>
 						<li>当前风险覆盖范围<span>60</span>m</li>
@@ -85,7 +86,6 @@
 				</div>
             </div>
         </div>
-
         <div class="content-bottom">
             <div class="info-left">
                 <p>主监控 <i class="iconfont icon-out"></i></p>
@@ -105,7 +105,7 @@
         </div>
     </div>
     <div class="page-info">
-        <div class="page-info--top">
+        <div class="page-info-top">
             <div class="top-one">
                 <span>
                     <span>环&nbsp;&nbsp;号</span>
@@ -180,7 +180,7 @@
                             </ul>
                             <p></p>
                             <ul>
-                                <li><span></span><span>行程<br>(mm)</span><span>速度<br>(mm/Min)</span><span>油压<br>(Mpa)</span></li>
+                                <li><span>&nbsp;<br>&nbsp;</span><span>行程<br>(mm)</span><span>速度<br>(mm/Min)</span><span>油压<br>(Mpa)</span></li>
                                 <li><span>上部</span><span>410</span><span>0</span><span>1.00</span></li>
                                 <li><span>右部</span><span>405</span><span>0</span><span>1.00</span></li>
                                 <li><span>下部</span><span>404</span><span>0</span><span>1.00</span></li>
@@ -203,7 +203,7 @@
                         <img src="${ctx }/static/page/dungou/jiankong/img/dgqt/zjg.png" alt="">
                        <div>
                            <ul>
-                               <li><span>注浆</span><span>压力A<br>Mpa</span><span>压力B<br>Mpa</span><span>流量A<br>L/Min</span><span>流量B<br>L/Min</span></li>
+                               <li><span>注浆<br>&nbsp;</span><span>压力A<br>Mpa</span><span>压力B<br>Mpa</span><span>流量A<br>L/Min</span><span>流量B<br>L/Min</span></li>
                                <li><span>1#</span><span>0.51</span><span>0.00</span><span>0</span><span>0</span></li>
                                <li><span>2#</span><span>0.06</span><span>0.00</span><span>0</span><span>0</span></li>
                                <li><span>3#</span><span>0.06</span><span>0.00</span><span>0</span><span>0</span></li>
@@ -230,7 +230,6 @@
                             <li><span>左下行程:</span><span>32mm</span><span>右下行程:</span><span>50mm</span></li>
                             <li><span>左右差:</span><span>28mm</span><span>上下差:</span><span>50mm</span></li>
                         </ul>
-
                     </div>
                 </div>
                 <div class="right-page-six">
