@@ -122,7 +122,7 @@
             <div class="top-two">
                 <p><span>行程:</span><span>实际行程</span><span class="number-info">428km</span><span>管理行程</span><span class="number-info">428km</span><span>行程差</span><span>428km</span></p>
                 <p><span>里程:</span><span>切口里程</span><span class="number-info">M</span><span>目标行程</span><span class="number-info">M</span><span>剩余里程</span><span>M</span></p>
-                <p><span>掘进:</span><span>掘金开始时间</span><span class="number-info">20:21:12</span><span>掘进结束时间</span><span class="number-info">23:45:56</span><span>掘进总耗时</span><span>3h23min</span></p>
+                <p><span>掘进:</span><span>开始时间</span><span class="number-info">20:21:12</span><span>结束时间</span><span class="number-info">23:45:56</span><span>总耗时</span><span>3h23min</span></p>
             </div>
             <div class="top-three">
                 <input type="button" value="发生警报">
