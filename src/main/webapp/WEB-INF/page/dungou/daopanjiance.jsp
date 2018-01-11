@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="${ctx }/static/page/dungou/jiankong/font/iconfont.css">
     <link rel="stylesheet" href="${ctx }/static/page/dungou/daopanjiance/css/daopanjiance.css">
     <script src="${ctx }/static/page/common/js/jquery-3.2.1.min.js"></script>
+    <%@ include file="/WEB-INF/page/common/common_FD.jsp"%>
 </head>
 <body>
 <header id="header">
@@ -120,5 +121,6 @@
 <script src="${ctx }/static/page/dungou/common/js/appendHeader.js"></script>
 <script src="${ctx }/static/page/common/js/nav.js"></script>
 <script src="${ctx }/static/page/dungou/daopanjiance/js/daopanjiance.js"></script>
+<script src="${ctx }/static/page/dungou/daopanjiance/js/daopanjiance3d.js"></script>
 </body>
 </html>
