@@ -1,51 +1,72 @@
 $(function () {
-    // Viewer.init("earth");
     //初始化地球
     FreedoApp.init("earth1");
     getPoints(FreedoApp.viewers["earth1"])
     var array = initEntities(FreedoApp.viewers["earth1"])
-    $(".bqp").on("click",function () {
-    if($("#earth1").hasClass("full-screen")){ 
-    	$(".compassDiv").hide();
-    	for (var i = 0; i < array.length; i++) {
-    		array[i].show = false;
-    	}
-    }else{
-    	$(".compassDiv").show();
-		for (var i = 0; i < array.length; i++) {
-			array[i].show = true;
-		}
-    }
-        $(".qp").toggleClass("icon-bqp icon-qp");
-        $(this).toggleClass("icon-bqp icon-qp");
-        $(this).parent().parent().toggleClass("full-screen not-full-screen");
-        $(this).parent().parent().siblings("div").toggleClass("full-screen not-full-screen");
+    $(".compassDiv").hide();
 
-    });
-    $(".qp").on("click",function () {
-        if($("#earth1").hasClass("full-screen")){    	
-        	$(".compassDiv").hide();
-        	for (var i = 0; i < array.length; i++) {
-        		array[i].show = false;
-        	}
+    $(".icon-bqp").on("click",function () {
+        if($("#earth1").hasClass("full-screen")){
+            $(".compassDiv").hide();
+            for (var i = 0; i < array.length; i++) {
+                array[i].show = false;
+            }
         }else{
-        	$(".compassDiv").show();
-    		for (var i = 0; i < array.length; i++) {
-    			array[i].show = true;
-    		}
+            $(".compassDiv").show();
+            for (var i = 0; i < array.length; i++) {
+                array[i].show = true;
+            }
         }
-        $(".bqp").toggleClass("icon-bqp icon-qp");
-        $(this).toggleClass("icon-bqp icon-qp");
-        $(this).parent().parent().toggleClass("full-screen not-full-screen");
-        $(this).parent().parent().siblings("div").toggleClass("full-screen not-full-screen");
+    });
+    $(".icon-qp").on("click",function () {
+        if($("#earth1").hasClass("full-screen")){
+            $(".compassDiv").hide();
+            for (var i = 0; i < array.length; i++) {
+                array[i].show = false;
+            }
+        }else{
+            $(".compassDiv").show();
+            for (var i = 0; i < array.length; i++) {
+                array[i].show = true;
+            }
+        }
+    });
 
+
+    $(".size").on("click",function () {
+        $("#earth .size,#earth1 .size").toggleClass("icon-bqp icon-qp");
+        $("#earth,#earth1").toggleClass("full-screen not-full-screen");
+        if($("#earth").hasClass("full-screen")){
+            $("#earth1 .icon-zxh,#earth1 .icon-zdh").show();
+            $("#earth .icon-zxh,#earth .icon-zdh").hide();
+        }else{
+            $("#earth1 .icon-zxh,#earth1 .icon-zdh").hide();
+            $("#earth .icon-zxh,#earth .icon-zdh").show();
+        }
+    });
+    $(".icon-zxh,.icon-zdh").on("click",function () {
+        $(this).toggleClass("icon-zxh icon-zdh");
+        $(this).parent().parent().toggleClass("smallHeight");
+    });
+    // 三维窗口的大小改变
+    $(".main-page").on("click",function () {
+        console.log(1);
+        $(".content-middle").css({"height":40+"%"});
+        $(".content-bottom").show();
+    });
+    $(".three-page").on("click",function () {
+        $(".content-middle").css({"height":100+"%"});
+        $(".content-bottom").hide();
     });
 
     var chartOne = echarts.init(document.getElementById('chartOne'));
     var option1 = {
         title: {
             text: '检测信息',
-            left: 'left'
+            left: 'left',
+            textStyle:{
+                fontSize:14
+            }
         },
         tooltip: {
             trigger: 'item',
@@ -53,7 +74,8 @@ $(function () {
         },
         legend: {
             left: 'right',
-            data: ['实际投资', '计划投资']
+            orient:"vertical",
+            data: ['实际投资', '计划投资'],
         },
         xAxis: {
             type: 'category',
@@ -93,7 +115,10 @@ $(function () {
     var option2 = {
         title: {
             text: '进度情况',
-            left: 'left'
+            left: 'left',
+            textStyle:{
+                fontSize:14
+            }
         },
         tooltip: {
             trigger: 'item',
@@ -102,6 +127,7 @@ $(function () {
         },
         legend: {
             left: 'right',
+            orient:"vertical",
             data: ['按时', '按期']
         },
         xAxis: {
@@ -125,14 +151,13 @@ $(function () {
                 name: '按时',
                 type: 'bar',
                 data: [10],
-                barWidth: 60
-
+                barWidth: 30
             },
             {
                 name: '按期',
                 type: 'bar',
                 data: [5],
-                barWidth: 60
+                barWidth: 30
             },
         ]
     };
@@ -142,7 +167,10 @@ $(function () {
     var option3 = {
         title: {
             text: '检测信息',
-            left: 'left'
+            left: 'left',
+            textStyle:{
+                fontSize:14
+            }
         },
         tooltip : {
             trigger: 'axis',
@@ -152,6 +180,7 @@ $(function () {
         },
         legend: {
             data:['质量','安全'],
+            orient:"vertical",
             left:"right"
         },
         grid: {
@@ -192,7 +221,10 @@ $(function () {
     var option4 = {
         title : {
             text: '进度情况',
-            x:'center'
+            x:'center',
+            textStyle:{
+                fontSize:14
+            }
         },
         tooltip : {
             trigger: 'item',
@@ -201,7 +233,6 @@ $(function () {
         legend: {
             x : 'center',
             y : 'bottom',
-            // data:['rose1','rose2','rose3','rose4','rose5',]
             data:['业主','PPP','总包','分包']
         },
         toolbox: {
@@ -230,14 +261,13 @@ $(function () {
                     {value:10, name:'业主'},
                     {value:5, name:'PPP'},
                     {value:15, name:'总包'},
-                    {value:25, name:'分包'},
-                    // {value:20, name:'rose5'},
+                    {value:25, name:'分包'}
                 ]
             }
         ]
     };
     chartFour.setOption(option4);
-    
+
 
     FreedoApp.viewers["earth1"].camera.setView({
 //    	 destination :  new FreeDo.Cartesian3.fromDegrees(121.61949402684546,38.94285250833841,1000),
@@ -267,10 +297,10 @@ function getPoints(viewer){
 function initEntities(viewer){
 	var entityarray = []
 	//线
-	var suidao = viewer.entities.add({  
-	    name : '隧道',  
-	    polyline : {  
-	        positions : new Freedo.Cartesian3.fromDegreesArray(  
+	var suidao = viewer.entities.add({
+	    name : '隧道',
+	    polyline : {
+	        positions : new Freedo.Cartesian3.fromDegreesArray(
 	            [121.61974798399038, 38.96007026243973,
 	            121.6169733685259, 38.95966656608986,
 	            121.61382483293477, 38.958980777336876,
@@ -283,38 +313,38 @@ function initEntities(viewer){
 	            121.62116506064486, 38.92892853570932,
 	            121.62186300364372, 38.926483139280485,
 	            121.62340769083177, 38.924764989650456,
-	            121.62539781330662, 38.922285712328474]),  
-	        width : 5,  
-	        material : FreeDo.Color.RED  
-	    }  
+	            121.62539781330662, 38.922285712328474]),
+	        width : 5,
+	        material : FreeDo.Color.RED
+	    }
 	});
-	var hangdaoletf = viewer.entities.add({  
-	    name : '航道左',  
-	    polyline : {  
-	        positions : new Freedo.Cartesian3.fromDegreesArray(  
+	var hangdaoletf = viewer.entities.add({
+	    name : '航道左',
+	    polyline : {
+	        positions : new Freedo.Cartesian3.fromDegreesArray(
 	            [121.61913775986976, 38.93819291323306,
 	            	121.62049902027843, 38.94087844623272,
-	            	121.6397957460026, 38.949188385501316]),  
-	        width : 2,  
-	        material : FreeDo.Color.WHITE  
-	    }  
+	            	121.6397957460026, 38.949188385501316]),
+	        width : 2,
+	        material : FreeDo.Color.WHITE
+	    }
 	});
-	var hangdaoright = viewer.entities.add({  
-	    name : '航道右',  
-	    polyline : {  
-	        positions : new Freedo.Cartesian3.fromDegreesArray(  
+	var hangdaoright = viewer.entities.add({
+	    name : '航道右',
+	    polyline : {
+	        positions : new Freedo.Cartesian3.fromDegreesArray(
 	            [121.61611584935584, 38.94278135499672,
 	            	121.61929223758972, 38.942504460137705,
-	            	121.63850361880273, 38.95117967187629]),  
-	        width : 2,  
-	        material : FreeDo.Color.WHITE  
-	    }  
+	            	121.63850361880273, 38.95117967187629]),
+	        width : 2,
+	        material : FreeDo.Color.WHITE
+	    }
 	});
 	//字
 	var label1 = viewer.entities.add({
 		name : "香炉礁航道",
-		show : true,
-		position : FreeDo.Cartesian3.fromDegrees(121.62224889978843, 38.94270512602886,1),
+        show : false,
+        position : FreeDo.Cartesian3.fromDegrees(121.62224889978843, 38.94270512602886,1),
 		point : { // 点
 			pixelSize : 5,
 			color : FreeDo.Color.RED,
@@ -332,7 +362,7 @@ function initEntities(viewer){
 	});
 	var label2 = viewer.entities.add({
 		name : "军港码头",
-		show : true,
+        show:false,
 		position : FreeDo.Cartesian3.fromDegrees(121.62016539515689, 38.931439734276786,1),
 		point : { // 点
 			pixelSize : 5,
@@ -351,7 +381,7 @@ function initEntities(viewer){
 	});
 	var label3 = viewer.entities.add({
 		name : "航母制造区",
-		show : true,
+		show : false,
 		position : FreeDo.Cartesian3.fromDegrees(121.61391282811357, 38.934625366453034,1),
 		point : { // 点
 			pixelSize : 5,
@@ -370,7 +400,7 @@ function initEntities(viewer){
 	});
 	var label4 = viewer.entities.add({
 		name : "梭渔湾南站",
-		show : true,
+		show : false,
 		position : FreeDo.Cartesian3.fromDegrees(121.61347352273391, 38.953072774869725,1),
 		point : { // 点
 			pixelSize : 5,
@@ -388,49 +418,49 @@ function initEntities(viewer){
 			pixelOffset : new FreeDo.Cartesian2(0, -9)// 偏移量
 		}
 	});
-	var posinf1 = viewer.entities.add( {  
-	    name : '位置信息',  
-	    position : new FreeDo.Cartesian3.fromDegrees(121.61732581093031, 38.93832015839612,3),  
-        show : true,
-	    label : { //文字标签  
-	        text : '位置信息\n——————\n北京十六号线\n二期(某河区)',  
-	        font : '13px sans-serif', 
-	        style : FreeDo.LabelStyle.FILL,  
+	var posinf1 = viewer.entities.add( {
+	    name : '位置信息',
+        show:false,
+	    position : new FreeDo.Cartesian3.fromDegrees(121.61732581093031, 38.93832015839612,3),
+	    label : { //文字标签
+	        text : '位置信息\n——————\n北京十六号线\n二期(某河区)',
+	        font : '13px sans-serif',
+	        style : FreeDo.LabelStyle.FILL,
 	        fillColor:FreeDo.Color.WHITE,
-	        verticalOrigin : FreeDo.VerticalOrigin.BOTTOM, //垂直方向以底部来计算标签的位置  
-	        pixelOffset : new FreeDo.Cartesian2( 0, -9 ) ,  //偏移量 
+	        verticalOrigin : FreeDo.VerticalOrigin.BOTTOM, //垂直方向以底部来计算标签的位置
+	        pixelOffset : new FreeDo.Cartesian2( 0, -9 ) ,  //偏移量
 			backgroundColor:FreeDo.Color.BLACK.withAlpha(0.5),
 			showBackground:true
 	    },
-	 
+
 	} );
-	var posinf2 = viewer.entities.add( {  
-	    name : '掘进实时位置',  
-	    position : new FreeDo.Cartesian3.fromDegrees(121.61714484625392, 38.943851238986866,3),  
-        show : true,
-	    label : { //文字标签  
-	        text : '掘进实时位置\n———————————————————\n经度：121.615833   纬度：38.9416654\n高度：240m         相对地面高度：120m',  
-	        font : '13px sans-serif', 
-	        style : FreeDo.LabelStyle.FILL,  
+	var posinf2 = viewer.entities.add( {
+	    name : '掘进实时位置',
+        show:false,
+	    position : new FreeDo.Cartesian3.fromDegrees(121.61714484625392, 38.943851238986866,3),
+	    label : { //文字标签
+	        text : '掘进实时位置\n———————————————————\n经度：121.615833   纬度：38.9416654\n高度：240m         相对地面高度：120m',
+	        font : '13px sans-serif',
+	        style : FreeDo.LabelStyle.FILL,
 	        fillColor:FreeDo.Color.WHITE,
-	        verticalOrigin : FreeDo.VerticalOrigin.BOTTOM, //垂直方向以底部来计算标签的位置  
-	        pixelOffset : new FreeDo.Cartesian2( 0, -9 ) ,  //偏移量 
+	        verticalOrigin : FreeDo.VerticalOrigin.BOTTOM, //垂直方向以底部来计算标签的位置
+	        pixelOffset : new FreeDo.Cartesian2( 0, -9 ) ,  //偏移量
 			backgroundColor:FreeDo.Color.BLACK.withAlpha(0.5),
 			showBackground:true
 	    },
-	 
+
 	} );
-	var tuding = viewer.entities.add( {  
-	    name : '位置信息',  
-	    position : new FreeDo.Cartesian3.fromDegrees(121.61875369174274, 38.94000730931085,3),  
-        show : true,
+	var tuding = viewer.entities.add( {
+	    name : '位置信息',
+        show:false,
+	    position : new FreeDo.Cartesian3.fromDegrees(121.61875369174274, 38.94000730931085,3),
         billboard:{
         	image:"../../static/page/dungou/gaikuang/img/tuding.png",
         	height:50,
         	width:50,
         	pixelOffset:new FreeDo.Cartesian2( 0, -15 )
         }
-	 
+
 	});
 	entityarray.push(label1);
 	entityarray.push(label2);

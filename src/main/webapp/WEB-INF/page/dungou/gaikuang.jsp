@@ -35,19 +35,22 @@
     </div>
 </header>
 <div id="contentBox">
-    <div class="nav">
-    </div>
+    <div class="nav"></div>
     <div class="content">
         <div class="content-middle">
-            <div id="earth" class="not-full-screen">
+            <div id="earth" class="full-screen">
                 <p>剖面视图
-                    <i class="iconfont icon-qp qp"></i>
+                    <i class="iconfont icon-bqp size"></i><i class="iconfont icon-zxh"></i>
                 </p>
                 <img alt="" src="${ctx }/static/page/dungou/gaikuang/img/poumian.png" style="width:100%;height:100%">
             </div>
-            <div id="earth1" class="full-screen">
-                <p><span>俯视视图</span><span></span><span>按时掘进</span><span></span><span>掘进延时</span> <i class="iconfont icon-bqp bqp"></i></p>
+            <div id="earth1" class="not-full-screen">
+                <p><span>俯视视图</span><span></span><span>按时掘进</span><span></span><span>掘进延时</span> <i class="iconfont icon-qp size"></i><i class="iconfont icon-zxh"></i></p>
             </div>
+            <ul class="changeContent">
+                <li class="main-page"><i class="iconfont icon-main-page"></i>&nbsp;&nbsp;&nbsp;主页面</li>
+                <li class="three-page"><i class="iconfont icon-swzs"></i>&nbsp;&nbsp;&nbsp;三维页面</li>
+            </ul>
         </div>
         <div class="content-bottom">
             <div class="info-left">
@@ -80,11 +83,11 @@
             </div>
             <div class="info-right">
                 <div id="chartFour"></div>
-
             </div>
         </div>
     </div>
 </div>
+
 <script src="${ctx }/static/page/dungou/common/js/appendHeader.js"></script>
 <script src="${ctx }/static/page/common/js/echarts.min.js"></script>
 <script src="${ctx }/static/page/common/js/nav.js"></script>
