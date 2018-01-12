@@ -9,9 +9,9 @@ $(function () {
 
 
     $(".page-nav ul>li").each(function () {
-       $(this).click(function () {
-           $(this).children("a").addClass("active").end().siblings().children("a").removeClass("active");
-       })
+        $(this).click(function () {
+            $(this).children("a").addClass("active").end().siblings().children("a").removeClass("active");
+        })
     });
 
 
@@ -34,9 +34,6 @@ $(function () {
     $(".cwd-info>p:nth-of-type(2)>span:nth-of-type(2)>span").html(dataInfo[0].realVal);
     $(".cwd-info>p:nth-of-type(3)>span:nth-of-type(2)>span").html(dataInfo[0].setVal);
 
-    $(".top-two>div").append("<div class='span-click'>13</div>")
-
-
     // 渲染刀盘喷水的数据
     for (let i = 0; i < dataInfo[1].length; i++) {
         $(".top-three>div>p>span:nth-of-type("+(i+1)+") span:first-of-type").html(dataInfo[1][i]);
@@ -47,7 +44,7 @@ $(function () {
         $(this).click(function () {
             let index = $(this).index();
             $(this).addClass("spanActive").siblings().removeClass("spanActive");
-            index == 2?$(".bg").stop().animate({left:50},200):$(".bg").stop().animate({left:2},200);
+            index == 2?$(".bg").stop().animate({left:40},200):$(".bg").stop().animate({left:2},200);
         });
     });
 
@@ -59,15 +56,18 @@ $(function () {
             if(index == 1){
                 $(".bgBtn").stop().animate({left:2},200);
                 $("#threeModel").hide();
-                $(".content-box").css({
-                    width:100+"%"
-                });
+                $(".content-box").css({width:100+"%"});
+                $.each($(".top-three>div>p"),function (i,dom) {
+                    $(dom).removeClass("p"+i+"Pos");
+                })
             }else if(index == 2){
                 $(".bgBtn").stop().animate({left:70},200);
                 $("#threeModel").show();
-                $(".content-box").css({
-                    width:70+"%"
-                });
+                $(".content-box").css({width:70+"%"});
+
+                $.each($(".top-three>div>p"),function (i,dom) {
+                    $(dom).addClass("p"+i+"Pos");
+                })
             }
             setSize(".top-one>div",".top-one>div img");
             setSize(".top-two>div",".top-two>div img");
@@ -178,4 +178,83 @@ $(function () {
             "margin-top": -size / 2
         });
     }
+
+
+    let spanStr = "";
+    for (let i = 0; i < 4; i++) {
+        spanStr += `<div class='span-click'><div class='span-box'><span></span><span></span><span></span><span></span></div></div>`;
+        spanStr += `<div class="double-span-click">
+                    <div class="double-span-box">
+                        <span class="left-span"></span>
+                        <span class="left-span"></span>
+                        <span class="left-span"></span>
+                        <span class="left-span"></span>
+                        <span class="right-span"></span>
+                        <span class="right-span1"></span>
+                        <span class="right-span2"></span>
+                        <span class="right-span3"></span>
+                        <span class="middle-span1"></span>
+                        <span class="middle-span2"></span>
+                        <span class="middle-span3"></span>
+                        <span class="middle-span4"></span>
+                        <span class="middle-span5"></span>
+                        <span class="middle-span6"></span>
+                        <span class="middle-span7"></span>
+                    </div>
+                 </div>`;
+    }
+
+    spanStr += `<span class="center-span"></span>`;
+
+    $(".top-two>div").append(spanStr);
+    $.each($('.span-click'),function (i,dom) {
+        $(dom).css({
+            "transform":"rotate("+(i * 90)+"deg)"
+        })
+    });
+    $.each($('.double-span-click'),function (i,dom) {
+        $(dom).css({
+            "transform":"rotate("+(i * 90 + 45)+"deg)"
+        })
+    });
+
+    $(".top-two>div span").each(function () {
+        $(this).click(function () {
+            let parentIndex = $(this).parent().parent().index();
+            let mathRandom = parseInt(Math.random()*200);
+console.log(parentIndex)
+            if($(this).children("div").css("display") == undefined){
+                $(this).append(`<div>${mathRandom}</div>`);
+            }else{
+                if($(this).children("div").css("display") == "none"){
+                    $(this).children("div").show();
+                }else{
+                    $(this).children("div").hide();
+                }
+            }
+            $(this).children("div").css({
+                "transform":"rotate("+ -(parentIndex- 2)*45 +"deg)",
+            })
+
+        });
+    });
+
+
+
+
+    let divH = $(".top-two>div").height() + 20;
+    let imgH = $(".top-two>div img").height();
+    $(".span-click").css({
+        "top":(divH - imgH) /2,
+        "width":imgH * 0.26,
+        "height":imgH * 0.25,
+        "margin-left":-imgH * 0.26 / 2
+    });
+
+    $(".double-span-click").css({
+        "top":(divH - imgH) /2,
+        "width":imgH * 0.2,
+        "height":imgH * 0.5,
+        "margin-left":-imgH * 0.2 / 2
+    });
 });

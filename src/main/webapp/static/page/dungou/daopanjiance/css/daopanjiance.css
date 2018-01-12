@@ -10,7 +10,7 @@
     width: auto;
     height: 100%;
     overflow: hidden;
-    padding: 10px 10px 5px 10px;
+    padding: 5px 5px 5px 5px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -19,8 +19,8 @@
 .page-nav{
     position: relative;
     width: 100%;
-    height: 40px;
-    padding-bottom: 10px;
+    height: 35px;
+    padding-bottom: 5px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -96,9 +96,9 @@ span.spanActive{
 #threeModel{
     display: none;
     float: right;
-    width:calc( 30% - 10px);
-    height: calc(100% - 40px);
-    margin-left: 10px;
+    width:calc( 30% - 5px);
+    height: calc(100% - 35px);
+    margin-left: 5px;
     border-radius: 5px;
     border: 1px solid #ccc;
     -webkit-box-sizing: border-box;
@@ -127,9 +127,9 @@ span.spanActive{
     font-size: 0;
 }
 .top-two{
-    width: calc(40% - 20px);
+    width: calc(40% - 10px);
     height: 100%;
-    margin:0 10px;
+    margin: 0 5px;
 }
 
 .page-info-top>div,
@@ -144,15 +144,15 @@ span.spanActive{
 #threeModel>p{
     position: relative;
     width: 100%;
-    height: 30px;
-    font-size: 18px;
+    height: 25px;
+    font-size: 14px;
     padding-left: 2%;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     color: #000;
     font-weight: bold;
-    line-height: 30px;
+    line-height: 25px;
 }
 .page-info-top>div>p::after,
 .page-info-bottom>div:not(:first-of-type)>p::after,
@@ -167,7 +167,7 @@ span.spanActive{
 }
 .page-info-top>div>div,
 .page-info-bottom>div>div{
-   
+
     padding: 10px;
     width: 100%;
     height:calc(100% - 30px);
@@ -229,8 +229,9 @@ span.spanActive{
 
 .top-three>div>p{
     position: absolute;
-    left: 35%;
+    left: 38%;
     font-size: 12px;
+    text-align: left;
 }
 .top-three>div>p>span:nth-of-type(2){
     border-bottom: 1px solid #ccc;
@@ -259,24 +260,53 @@ span.spanActive{
     top:27%;
 }
 
+
+/* 三维模型显示后刀盘喷水的数据的定位 */
+.p0Pos{
+    left: 32%!important;
+    top: 8%!important;
+}
+.p1Pos{
+    left: 32%!important;
+    top: 27%!important;
+}
+.p2Pos{
+    left: 32%!important;
+    top: 47%!important;
+}
+.p3Pos{
+    left: 32%!important;
+    top: 67%!important;
+}
+.p4Pos{
+    left: 32%!important;
+    top: 87%!important;
+}
+.p5Pos{
+    left: 60%!important;
+    top: 27%!important;
+}
+/* 三维模型显示后刀盘喷水的数据的定位 */
+
 .btnList{
     position: absolute;
     right:2%;
     top: 50%;
-    width: 150px;
+    width: 100px;
     height: 110px;
     font-size: 15px;
     text-align: center;
 }
 .btnList>button{
-    width: 100px;
-    height: 30px;
+    width: 65px;
+    height: 25px;
     border-radius: 4px;
     background-color: #fff;
     color: #ccc;
-    outline:none;
-    border:1px solid #ccc;
-    margin-top: 10px;
+    outline: none;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
     cursor: pointer;
 }
 .btnList>button.btnActive{
@@ -287,22 +317,23 @@ span.spanActive{
 }
 .btnList>div{
     position: relative;
-    width: 100px;
-    height: 30px;
-    margin:0 auto;
+    width: 80px;
+    height: 24px;
+    margin: 0 auto;
     background-color: #e8e8e8;
-    border-radius: 15px;
+    border-radius: 12px;
 }
 .btnList>div>span{
     position: relative;
     display: inline-block;
     width: 50%;
-    height: 30px;
-    line-height: 30px;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
+    height: 24px;
+    line-height: 24px;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
     background-color: transparent;
-    z-index:2;
+    z-index: 2;
+    font-size: 12px;
     cursor: pointer;
     color: #5E5E5E;
 }
@@ -310,23 +341,23 @@ span.spanActive{
     position: absolute;
     left: 2px;
     top: 2px;
-    width: 48px;
-    height: 26px;
+    width: 38px;
+    height: 20px;
     background-color: #EE2C2C;
-    border-radius: 15px;
-    z-index:1;
+    border-radius: 12px;
+    z-index: 1;
 }
 
 
 .page-info-bottom{
-    height: calc(50% - 10px);
+    height: 50%;
     width: 100%;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 .page-bottom-one{
-    width: calc(70% - 10px);
+    width: calc(70% - 5px);
     height: 100%;
-    margin-right: 10px;
+    margin-right: 5px;
 }
 .page-bottom-one .parameter{
     height:calc(100% - 30px);
@@ -473,5 +504,148 @@ span.spanActive{
 span.arcActive{
     background-color: #3168ba;
     color: #fff;
+}
+
+.span-click{
+    position: absolute;
+    left: 50%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    transform-origin: 50% 200%;
+}
+.double-span-click{
+    position: absolute;
+    left: 50%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    transform-origin: 50% 99%;
+    transform: rotate(45deg);
+}
+.span-box,.double-span-box{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index:1;
+}
+.span-box span{
+    position: absolute;
+    width: 29.17%;
+    height: 13.64%;
+}
+.double-span-box span{
+    position: absolute;
+    top: 6%;
+    right:0;
+    width: 28%;
+    height: 6%;
+    z-index:2;
+}
+.center-span{
+    position: absolute;
+    top: 47%;
+    right: 48%;
+    width: 4%;
+    height: 5%;
+}
+.left-span{
+    left: 0;
+}
+span.right-span1{
+    top: 23%;
+}
+span.right-span2{
+    top: 40%;
+}
+span.right-span3{
+    top: 56%;
+}
+span.middle-span1{
+    left: 34%;
+    top: 0;
+}
+span.middle-span2{
+    left: 34%;
+    top: 13%;
+}
+span.middle-span3{
+    left: 34%;
+    top: 27%;
+}
+span.middle-span4{
+    left: 34%;
+    top: 40%;
+}
+span.middle-span5{
+    left: 34%;
+    top: 54%;
+}
+span.middle-span6{
+    left: 34%;
+    top: 68%;
+}
+span.middle-span7{
+    left: 34%;
+    top: 81%;
+}
+
+.left-span:nth-of-type(1){
+    top: 23%;
+}
+.left-span:nth-of-type(2){
+    top: 40%;
+}
+.left-span:nth-of-type(3){
+    top: 56%;
+}
+
+.span-box span:nth-of-type(1){
+    top:21%;
+    left:16%;
+}
+.span-box span:nth-of-type(2){
+    top:21%;
+    right:16%;
+}
+.span-box span:nth-of-type(3){
+    top:63%;
+    right:35%;
+}
+.span-box span:nth-of-type(4){
+    top:87%;
+    right:35%;
+}
+
+.double-span-box>span>div,
+.span-box>span>div,
+.center-span>div{
+    position: relative;
+    top: -26px;
+    left: 0;
+    width: 22px;
+    height: 32px;
+    z-index: 3;
+    line-height: 20px;
+    font-size: 12px;
+    color: #fff;
+    background: url(../img/dwmd.png) no-repeat;
+    background-size: cover;
+    transform-origin: 50% 100%;
+    user-select: none;
+}
+@media screen and (max-width: 1366px) {
+    .double-span-box>span>div,
+    .span-box>span>div,
+    .center-span>div{
+        top: -29px;
+        left: -5px;
+        width: 22px;
+        height: 32px;
+        line-height: 20px;
+
+        background-size: cover;
+        transform-origin: 50% 100%;
+    }
 }
 

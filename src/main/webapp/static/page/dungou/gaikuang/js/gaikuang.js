@@ -1,12 +1,12 @@
 $(function () {
     //初始化地球
-    FreedoApp.init("earth1");
-    getPoints(FreedoApp.viewers["earth1"])
-    var array = initEntities(FreedoApp.viewers["earth1"])
+    FreedoApp.init("earth");
+    getPoints(FreedoApp.viewers["earth"])
+    var array = initEntities(FreedoApp.viewers["earth"])
     $(".compassDiv").hide();
 
     $(".icon-bqp").on("click",function () {
-        if($("#earth1").hasClass("full-screen")){
+        if($("#earth").hasClass("full-screen")){
             $(".compassDiv").hide();
             for (var i = 0; i < array.length; i++) {
                 array[i].show = false;
@@ -19,7 +19,7 @@ $(function () {
         }
     });
     $(".icon-qp").on("click",function () {
-        if($("#earth1").hasClass("full-screen")){
+        if($("#earth").hasClass("full-screen")){
             $(".compassDiv").hide();
             for (var i = 0; i < array.length; i++) {
                 array[i].show = false;
@@ -269,7 +269,7 @@ $(function () {
     chartFour.setOption(option4);
 
 
-    FreedoApp.viewers["earth1"].camera.setView({
+    FreedoApp.viewers["earth"].camera.setView({
 //    	 destination :  new FreeDo.Cartesian3.fromDegrees(121.61949402684546,38.94285250833841,1000),
     	destination :  new FreeDo.Cartesian3(-2605890.815905916,4232496.60280833,3990154.6100900965),
     	 orientation :  new FreeDo.HeadingPitchRoll(4.764935388409626,-1.5157381432489783,6.223528948721581)
@@ -343,7 +343,7 @@ function initEntities(viewer){
 	//字
 	var label1 = viewer.entities.add({
 		name : "香炉礁航道",
-        show : false,
+        show : true,
         position : FreeDo.Cartesian3.fromDegrees(121.62224889978843, 38.94270512602886,1),
 		point : { // 点
 			pixelSize : 5,
@@ -362,7 +362,7 @@ function initEntities(viewer){
 	});
 	var label2 = viewer.entities.add({
 		name : "军港码头",
-        show:false,
+        show:true,
 		position : FreeDo.Cartesian3.fromDegrees(121.62016539515689, 38.931439734276786,1),
 		point : { // 点
 			pixelSize : 5,
@@ -381,7 +381,7 @@ function initEntities(viewer){
 	});
 	var label3 = viewer.entities.add({
 		name : "航母制造区",
-		show : false,
+		show : true,
 		position : FreeDo.Cartesian3.fromDegrees(121.61391282811357, 38.934625366453034,1),
 		point : { // 点
 			pixelSize : 5,
@@ -400,7 +400,7 @@ function initEntities(viewer){
 	});
 	var label4 = viewer.entities.add({
 		name : "梭渔湾南站",
-		show : false,
+		show : true,
 		position : FreeDo.Cartesian3.fromDegrees(121.61347352273391, 38.953072774869725,1),
 		point : { // 点
 			pixelSize : 5,
@@ -420,7 +420,7 @@ function initEntities(viewer){
 	});
 	var posinf1 = viewer.entities.add( {
 	    name : '位置信息',
-        show:false,
+        show:true,
 	    position : new FreeDo.Cartesian3.fromDegrees(121.61732581093031, 38.93832015839612,3),
 	    label : { //文字标签
 	        text : '位置信息\n——————\n北京十六号线\n二期(某河区)',
@@ -436,7 +436,7 @@ function initEntities(viewer){
 	} );
 	var posinf2 = viewer.entities.add( {
 	    name : '掘进实时位置',
-        show:false,
+        show:true,
 	    position : new FreeDo.Cartesian3.fromDegrees(121.61714484625392, 38.943851238986866,3),
 	    label : { //文字标签
 	        text : '掘进实时位置\n———————————————————\n经度：121.615833   纬度：38.9416654\n高度：240m         相对地面高度：120m',
@@ -452,7 +452,7 @@ function initEntities(viewer){
 	} );
 	var tuding = viewer.entities.add( {
 	    name : '位置信息',
-        show:false,
+        show:true,
 	    position : new FreeDo.Cartesian3.fromDegrees(121.61875369174274, 38.94000730931085,3),
         billboard:{
         	image:"../../static/page/dungou/gaikuang/img/tuding.png",

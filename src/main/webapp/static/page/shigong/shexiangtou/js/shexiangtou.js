@@ -111,15 +111,23 @@ $(function () {
         		var holeData=eval(model[key].hole);
         		//图层数据
         		var imgarray=eval(model[key].imagelayer);
-        		var path = window.location.pathname;
-        		var patharray = path.split("/");
-        		for (var i = 0; i < imgarray.length; i++) {
-        			var str ="";
-        			for (var j = 0; j < patharray.length-3; j++) {
-        				 str = str+"../"
-					}
-        			imgarray[i] = str+imgarray[i] ;
-				}
+                //挖坑
+                if(holeData!=null&&imgarray!=null){
+                    //获取地址栏地址
+                    var path = window.location.pathname;
+                    //截取字符串
+                    var patharray = path.split("/");
+                    //拼接文件地址
+                    for (var i = 0; i < imgarray.length; i++) {
+                        var str ="";
+                        for (var j = 0; j < patharray.length-3; j++) {
+                            str = str+"../"
+                        }
+                        imgarray[i] = str+imgarray[i] ;
+                    }
+                    //调用挖坑方法
+                    FreeDoUtil.dig(FreedoApp.viewers["init"],holeData,imgarray);
+                }
         		console.log( model[key].url);
         		 //向场景中添加模型
         		var modelTile=FreedoApp.viewers["earth"].scene.primitives.add(new FreeDo.FreedoPModelset({
@@ -127,14 +135,11 @@ $(function () {
             	}));
         		if(model[key].x!=0||model[key].y!=0||model[key].z!=0||model[key].heading!=0||model[key].pitch!=0||model[key].roll!=0||model[key].scalex!=1||model[key].scaley!=1||model[key].scalez!=1){
         			//调整模型位置
-        			modelTile.readyPromise.then(function() {
-        				moveModel(modelTile,model[key].x,model[key].y,model[key].z,model[key].heading,model[key].pitch,model[key].roll,model[key].scalex,model[key].scaley,model[key].scalez);
+        			modelTile.readyPromise.then(function(modeltile) {
+        				moveModel(modeltile,model[key].x,model[key].y,model[key].z,model[key].heading,model[key].pitch,model[key].roll,model[key].scalex,model[key].scaley,model[key].scalez);
         			});
         		}
-        		if(holeData!=null&&imgarray!=null){
-        			//挖坑
-        			FreeDoUtil.dig(FreedoApp.viewers["earth"],holeData,imgarray);
-        		}
+
         		if(model[key].cameralon!=null||model[key].cameralat!=null||model[key].cameraheight!=null||model[key].cameraheading!=null||model[key].camerapitch!=null||model[key].cameraroll!=null){        			
 
         			//镜头定位

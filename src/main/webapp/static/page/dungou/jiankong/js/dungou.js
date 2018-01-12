@@ -29,21 +29,27 @@ $(function () {
             		url: model[key].url
             	}));
         		//移动模型到坑里
-        		modelTile.readyPromise.then(function() {
-            		moveModel(modelTile,model[key].x,model[key].y,model[key].z,model[key].heading,model[key].pitch,model[key].roll,model[key].scalex,model[key].scaley,model[key].scalez);
+        		modelTile.readyPromise.then(function(modeltile) {
+            		moveModel(modeltile,model[key].x,model[key].y,model[key].z,model[key].heading,model[key].pitch,model[key].roll,model[key].scalex,model[key].scaley,model[key].scalez);
             	});
-        		
-        		var path = window.location.pathname;
-        		var patharray = path.split("/");
-        		for (var i = 0; i < imgarray.length; i++) {
-        			var str ="";
-        			for (var j = 0; j < patharray.length-3; j++) {
-        				 str = str+"../"
-					}
-        			imgarray[i] = str+imgarray[i] ;
-				}
-        		//挖坑
-            	FreeDoUtil.dig(FreedoApp.viewers["earth"],holeData,imgarray);
+
+                //挖坑
+                if(holeData!=null&&imgarray!=null){
+                    //获取地址栏地址
+                    var path = window.location.pathname;
+                    //截取字符串
+                    var patharray = path.split("/");
+                    //拼接文件地址
+                    for (var i = 0; i < imgarray.length; i++) {
+                        var str ="";
+                        for (var j = 0; j < patharray.length-3; j++) {
+                            str = str+"../"
+                        }
+                        imgarray[i] = str+imgarray[i] ;
+                    }
+                    //调用挖坑方法
+                    FreeDoUtil.dig(FreedoApp.viewers["earth"],holeData,imgarray);
+                }
             	//镜头定位
             	FreedoApp.viewers["earth"].camera.setView({
                  	destination :new FreeDo.Cartesian3.fromDegrees(model[key].cameralon,model[key].cameralat, model[key].cameraheight),

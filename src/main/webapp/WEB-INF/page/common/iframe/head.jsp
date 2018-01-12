@@ -29,7 +29,7 @@
 						</li>
 						<!-- start: Notifications Dropdown -->
 						<li class="dropdown hidden-phone">
-							<a class="btn dropdown-toggle" href="${ctx }/toLogin">
+							<a class="btn dropdown-toggle" href="${ctx }/main">
 								<i class="icon-home" style="font-size: 20px"></i>
 							</a>
 						</li>

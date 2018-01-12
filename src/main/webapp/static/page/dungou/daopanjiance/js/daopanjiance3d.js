@@ -9,7 +9,7 @@ $(function () {
     //隐藏地球
     viewer.scene.globe.show=false;
     //加载盾构模型
-    for (var i = 1; i < 9; i++) {
+    for (var i = 1; i < 10; i++) {
     dungouModels[i]= viewer.scene.primitives.add(FreeDo.Model.fromGltf({
             id : "盾构机"+i,
             url : "http://182.92.7.32:9000/ztly/glb/"+i+"/"+i+".glb",
@@ -38,10 +38,10 @@ $(function () {
         })
     //模型动画
     var readynum = 0;
-    for (var i = 1; i < 9; i++) {
+    for (var i = 1; i < 10; i++) {
         FreeDo.when(dungouModels[i].readyPromise).then(function(model) {
             readynum=readynum+1;
-            if(readynum==8){
+            if(readynum==9){
                 for (var j = 1; j < dungouModels.length; j++) {
                     var obj = dungouModels[j];
                     obj.activeAnimations.addAll({
@@ -55,18 +55,18 @@ $(function () {
         });
     }
     //模型高亮测试
-    modelHighlight(3);
+    modelHighlight(0);
     //getcamera();
 })
 
 //模型变色
 function modelHighlight(id){
     if(id==0){
-        for (var i = 1; i < 10; i++) {
+        for (var i = 1; i < 11; i++) {
             dungouModels[i].color = new FreeDo.Color(1,1,1,1);
         }
     }else {
-    for (var i = 1; i < 10; i++) {
+    for (var i = 1; i < 11; i++) {
         if(i==id){
         dungouModels[id].color = FreeDo.Color.RED
         }else{
