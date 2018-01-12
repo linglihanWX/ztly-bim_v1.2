@@ -122,7 +122,7 @@
     background-color: #fff;
     text-align: center;
     overflow: hidden;
-    padding: 10px;
+    padding: 5px;
     border: 1px solid #ccc;
     margin-top: 5px;
     border-radius: 5px;
@@ -191,7 +191,7 @@
 }
 .info-middle>div p>span input{
     vertical-align: middle;
- }
+}
 
 .info-middle>div ul{
     clear: both;
@@ -217,7 +217,7 @@
     position: relative;
     width: 30%;
     height: calc(100% - 10px);
-    padding: 10px;
+    padding: 5px;
     margin-top: 5px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -322,18 +322,19 @@
     width: auto;
     height: 100%;
     overflow: hidden;
-    padding: 10px 10px 5px 10px;
+    padding: 5px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 .page-info-top{
-    height: 120px;
+    height: 100px;
     width: 100%;
     border: 1px solid #ccc;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    border-radius: 5px;
 }
 .page-info-top>div{
     float: left;
@@ -352,7 +353,7 @@
     display: inline-block;
     width: 70%;
     height: 100%;
-    font-size: 30px;
+    font-size: 25px;
 }
 .returnPage{
     position: absolute;
@@ -375,7 +376,7 @@
 .top-one>span>span{
     display: inline-block;
     width: 100%;
-    height:35%;
+    height:30%;
     text-align: left;
     padding-left: 20%;
     -webkit-box-sizing: border-box;
@@ -388,13 +389,13 @@
 .state{
     position: absolute;
     right: 0;
-    top: 5px;
-    height: 30px!important;
+    top: 3px;
+    height: 25px!important;
     width: 60px !important;
-    font-size: 18px;
-    line-height: 30px;
+    font-size: 14px;
+    line-height: 25px;
     padding: 0!important;
-
+    text-align: right!important;
 }
 .top-one>ul{
     display: inline-block;
@@ -416,11 +417,11 @@
 }
 .top-one>ul li{
     width: 60px;
-    height: 30px;
-    line-height: 30px;
+    height: 25px;
+    line-height: 25px;
     text-align: center;
     font-size: 14px;
-    margin: 5px 0 10px 0;
+    margin: 5px;
 }
 .top-one>ul li:last-of-type{
     margin-bottom: 0;
@@ -445,8 +446,8 @@
 }
 .top-two>p{
     width: 100%;
-    height: 40px;
-    line-height: 30px;
+    height: 30px;
+    line-height: 20px;
     padding: 5px 0 5px 10px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -456,7 +457,7 @@
 .top-two>p>span:first-of-type{
     display: inline-block;
     width: 50px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
     color: #000;
 }
@@ -483,7 +484,7 @@
 .top-three{
     text-align: center;
     font-size: 14px;
-    padding: 20px 0;
+    padding: 15px 0;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -495,7 +496,6 @@
     background-color: #c33a30;
     border-radius: 5px;
     outline:none;
-    /*cursor: pointer;*/
     font-size: 24px;
     color: #fff;
 }
@@ -508,14 +508,19 @@
 
 .page-info-bottom{
     width: 100%;
-    height:calc(100% - 125px);
+    height:calc(100% - 105px);
     font-size: 0;
     margin-top: 5px;
 }
+
 .page-info-bottom-left{
     float: left;
     width: 30%;
     height: 100%;
+}
+.page-info-bottom-left>div,
+.page-info-bottom-right>div{
+    border-radius: 5px;
 }
 .left-page-one,.left-page-two{
     position: relative;
@@ -537,31 +542,32 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 30px;
-    font-size: 18px;
-    padding-left: 5%;
+    height: 25px;
+    font-size: 14px;
+    padding-left: 3%;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     color: #000;
-    line-height: 30px;
+    line-height: 24px;
 }
 .page-info-bottom-left>div>p::after,
 .page-info-bottom-right>div>p::after{
     position: absolute;
-    right: 5%;
+    right: 3%;
     bottom: 0;
     content: "";
-    width: 90%;
+    width: 94%;
     height: 0;
     border-bottom: 1px solid #ccc;
 }
 .left-page-one>div,
 .left-page-two>div,
 .page-info-bottom-right>div>div{
+    position: relative;
     width: 100%;
     height:100%;
-    padding: 10px;
+    padding: 5px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -570,45 +576,40 @@
 .left-page-two>div>img{
     width: 100%;
     height:100%;
-
 }
 .left-page-one>div>p,
 .left-page-two>div>p{
     position: absolute;
-    width: 120px;
+    width: 90px;
     height:auto;
 }
 .left-page-one>div>p>span,
 .left-page-two>div>p>span{
     display: block;
 }
-/*.left-page-one>div>p>span:first-of-type,
-.left-page-two>div>p>span:first-of-type{
-    font-weight: bold;
-}*/
 .left-page-one>div>p:nth-of-type(1){
     left: 50%;
-    top: 9%;
+    top: 5%;
 }
 .left-page-one>div>p:nth-of-type(2){
     left: 50%;
-    top: 24%;
+    top: 19%;
 }
 .left-page-one>div>p:nth-of-type(3){
     left: 50%;
-    top: 76%;
+    top: 77%;
 }
 .left-page-one>div>p:nth-of-type(4){
     left: 50%;
-    top: 88%;
+    top: 91%;
 }
 .left-page-one>div>p:nth-of-type(5){
     left: 7%;
-    top: 72%;
+    top: 75%;
 }
 .left-page-one>div>p:nth-of-type(6){
     left: 50%;
-    top: 40%;
+    top: 37%;
 }
 .left-page-one>div>p:nth-of-type(7){
     left: 50%;
@@ -616,19 +617,19 @@
 }
 .left-page-two>div>p:nth-of-type(1){
     left: 20%;
-    top: 9%;
+    top: 4%;
 }
 .left-page-two>div>p:nth-of-type(2){
     left: 20%;
-    top: 16%;
+    top: 12%;
 }
 .left-page-two>div>p:nth-of-type(3){
     left: 20%;
-    top: 26%;
+    top: 21%;
 }
 .left-page-two>div>p:nth-of-type(4){
     left: 20%;
-    top: 35%;
+    top: 31%;
 }
 .left-page-two ul{
     position: absolute;
@@ -648,17 +649,15 @@
     width: 25%;
     text-align: center;
 }
-
 .page-info-bottom-right{
     width: auto;
     height: 100%;
     overflow: hidden;
 }
-
 .page-info-bottom-right>div{
     position: relative;
     float: left;
-    font-size: 14px;
+    font-size: 12px;
     border: 1px solid #ccc;
     padding-top: 30px;
     -webkit-box-sizing: border-box;
@@ -678,8 +677,6 @@
     height: 100%;
     overflow: hidden;
 }
-
-
 .daopan-info>ul:first-of-type{
     width: 100%;
     height:auto;
@@ -689,8 +686,8 @@
 .daopan-info>ul:nth-of-type(2) li{
     float: left;
     width: 50%;
-    height: 30px;
-    line-height: 30px;
+    height: 20px;
+    line-height: 20px;
     text-align: left;
 }
 .daopan-info>ul:first-of-type li>span,
@@ -716,7 +713,7 @@
 .daopan-info>p{
     position: relative;
     width: 100%;
-    height: 41px;
+    height: 15px;
 }
 .daopan-info>p::after{
     position: absolute;
@@ -729,11 +726,10 @@
 }
 .daopan-info>ul:nth-of-type(3){
     width: 100%;
-    height: calc(100% - 171px);
+    max-height: calc(100% - 107px);
     overflow: hidden;
+    margin-top: 10px;
     border-top: 1px solid #ccc;
-    /*border-left: 1px solid #ccc;*/
-    border-bottom: 1px solid #ccc;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -743,8 +739,7 @@
 }
 .daopan-info>ul:nth-of-type(3) li{
     width: 100%;
-    min-width:230px;
-    /*height:40px;*/
+    min-width: 230px;
     border-bottom: 1px solid #ccc;
     border-left: 1px solid #ccc;
     -webkit-box-sizing: border-box;
@@ -755,7 +750,6 @@
     display: inline-block;
     vertical-align: top;
     width: 25%;
-    /*height:100%;*/
     text-align: center;
     border-right: 1px solid #ccc;
     -webkit-box-sizing: border-box;
@@ -763,9 +757,6 @@
     box-sizing: border-box;
 }
 
-.daopan-info>ul:nth-of-type(3) li:not(:first-of-type)>span{
-    /*line-height: 40px;*/
-}
 
 .right-page-one{
     width:calc(57.14% - 5px);
@@ -773,20 +764,18 @@
     margin-right: 5px;
 }
 .right-page-one>div>img{
-
-    width: 50%!important;
+    width: 45%!important;
     height:auto!important;
 }
 .right-page-two{
     width:42.86%;
-    height: calc(35% - 5px);
+    height: calc(25% - 5px);
     padding-left:5%;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     margin-bottom: 5px;
 }
-
 .right-page-two>div{
     position: relative;
 }
@@ -796,7 +785,7 @@
     width: 200px;
     height: 30px;
     line-height: 30px;
-    text-align: center;
+    text-align: right;
 }
 .right-page-two>div>p:first-of-type{
     top: 20px;
@@ -804,23 +793,20 @@
 .right-page-two>div>p:last-of-type{
     bottom: 20px;
 }
-
 .right-page-three{
     width:42.86%;
-    height: 25%;
+    height: 35%;
 }
 .right-page-three>div>div{
     overflow: hidden;
     width:auto;
     height: 100%;
 }
-
 .right-page-three>div>div>ul{
     width: 100%;
     height: 100%;
     overflow: hidden;
     border-top: 1px solid #ccc;
-    border-left: 1px solid #ccc;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -828,20 +814,16 @@
 .right-page-three>div>div>ul:hover{
     overflow: auto;
 }
-
-
-
-
-
-
 .right-page-three>div>div ul li{
-	min-width:160px;
     width: 100%;
     border-bottom: 1px solid #ccc;
+    border-left: 1px solid #ccc;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    min-width: 160px;
 }
+
 .right-page-three>div>div ul  li>span{
     display: inline-block;
     vertical-align: top;
@@ -855,7 +837,7 @@
 
 .page-info-bottom-right .right-page-four img{
     position: absolute;
-    bottom: 10px;
+    bottom: 0;
     left: 5%;
     width: 90%;
     height:auto;
@@ -863,14 +845,13 @@
 .right-page-four>div>p{
     position: relative;
     width: 200px;
-    height: 25px;
-    line-height: 25px;
-    text-indent: 2rem;
+    height: 20px;
+    line-height: 20px;
+    left: 2%;
     z-index: 2;
 }
 .right-page-four>div>p>span:first-of-type{
-
-    font-size: 13px;
+    font-size: 12px;
     color: #000;
     margin-right: 10px;
 }
@@ -882,16 +863,16 @@
 
 .page-info-bottom-right .right-page-five img{
     position: absolute;
-    top: 15%;
+    top: 0;
     left: 5%;
     width: 90%;
     height:auto;
 }
 .right-page-five ul{
     position: absolute;
-    right: 20px;
-    bottom: 20px;
-    width: 90%;
+    right: 5px;
+    bottom: 2%;
+
     height:auto;
 }
 .right-page-five ul li{
@@ -900,15 +881,15 @@
 }
 .right-page-five ul li span{
     display: inline-block;
-    width: 25%;
-    height: 25px;
-    line-height: 25px;
+    height: 20px;
+    line-height: 20px;
     text-align: center;
-    font-size: 13px;
+    font-size: 12px;
 }
-/*.right-page-five ul li span:nth-of-type(odd){*/
-    /*font-weight: bold;*/
-/*}*/
+.right-page-five ul li span:nth-of-type(2){
+    margin-right: 5px;
+}
+
 .right-page-five{
     width:calc(35% - 10px);
     height: calc(40% - 5px);
@@ -918,20 +899,128 @@
     width:30%;
     height: calc(40% - 5px);
     margin-top: 5px;
-
 }
 .right-page-six>div img{
     position: relative;
     left: 30%;
 }
-
 .icon-out{
     cursor: pointer;
 }
-
+@media screen and (max-width: 1366px) {
+    .left-page-one>div>p:nth-of-type(1){
+        left: 50%;
+        top: 5%;
+    }
+    .left-page-one>div>p:nth-of-type(2){
+        left: 50%;
+        top: 19%;
+    }
+    .left-page-one>div>p:nth-of-type(3){
+        left: 50%;
+        top: 74%;
+    }
+    .left-page-one>div>p:nth-of-type(4){
+        left: 50%;
+        top: 88%;
+    }
+    .left-page-one>div>p:nth-of-type(5){
+        left: 7%;
+        top: 70%;
+    }
+    .left-page-one>div>p:nth-of-type(6){
+        left: 50%;
+        top: 37%;
+    }
+    .left-page-one>div>p:nth-of-type(7){
+        left: 50%;
+        top: 60%;
+    }
+    .left-page-two>div>p:nth-of-type(1){
+        left: 20%;
+        top: 3%;
+    }
+    .left-page-two>div>p:nth-of-type(2){
+        left: 20%;
+        top: 10%;
+    }
+    .left-page-two>div>p:nth-of-type(3){
+        left: 20%;
+        top: 20%;
+    }
+    .left-page-two>div>p:nth-of-type(4){
+        left: 20%;
+        top: 31%;
+    }
+    .left-page-two ul{
+        position: absolute;
+        left: 20%;
+        top: 50%;
+        width: 80%;
+        height:auto;
+    }
+    .right-page-two>div>p:last-of-type {
+        bottom: 0;
+    }
+    .right-page-two>div>p:first-of-type {
+        top: 0;
+    }
+}
+@media screen and (min-width: 1367px){
+    .daopan-info>p{
+        height: 41px;
+    }
+    .daopan-info>ul:nth-of-type(3) li:not(:first-of-type)>span{
+        line-height: 30px;
+    }
+    .right-page-three ul li:not(:first-of-type)>span{
+        line-height: 25px;
+    }
+    .right-page-two{
+        height: calc(35% - 5px);
+    }
+    .right-page-two>div>p{
+        text-align: center;
+    }
+    .right-page-three{
+        height: 25%;
+    }
+    .page-info-bottom-right>div,
+    .top-two>p>span:not(:first-of-type),
+    .left-page-one,
+    .left-page-two,
+    .right-page-five ul li span {
+        font-size: 14px;
+    }
+    .left-page-one>div>p, .left-page-two>div>p {
+        width: 110px;
+    }
+    .page-info-bottom-left>div>p, .page-info-bottom-right>div>p {
+        font-size: 16px;
+    }
+    .right-page-five ul{
+        width: 80%;
+        bottom: 10%;
+    }
+    .right-page-five ul li{
+        width: 100%;
+        font-size: 0;
+    }
+    .right-page-five ul li span{
+        width: 25%;
+        height: 25px;
+        line-height: 25px;
+    }
+    .right-page-five ul li span:nth-of-type(2) {
+        margin-right: 0;
+    }
+    .right-page-four>div>p>span:first-of-type{
+        font-size: 14px;
+    }
+}
 .tipbox{
     position: absolute;
-	display:none;
+    display:none;
     width: auto;
     height:auto;
     min-width: 200px;
@@ -956,21 +1045,21 @@
     line-height: 25px;
 }
 #tipbox1{
-	left: 30%;
+    left: 30%;
     top: 30%;
 }
 #tipbox2{
-	    left: 50%;
+    left: 50%;
     top: 30%;
 }
 #tipbox3{
-	    left: 30%;
+    left: 30%;
     top: 50%;
 }
 #tipbox4{
-	    left: 50%;
+    left: 50%;
     top: 50%;
 }
 .compassDiv{
-	top:30px!important;
+    top:30px!important;
 }

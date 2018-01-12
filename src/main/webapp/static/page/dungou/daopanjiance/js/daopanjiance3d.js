@@ -55,12 +55,12 @@ $(function () {
         });
     }
     //模型高亮测试
-    highlight(0);
+    modelHighlight(3);
     //getcamera();
 })
 
 //模型变色
-function highlight(id){
+function modelHighlight(id){
     if(id==0){
         for (var i = 1; i < 10; i++) {
             dungouModels[i].color = new FreeDo.Color(1,1,1,1);
