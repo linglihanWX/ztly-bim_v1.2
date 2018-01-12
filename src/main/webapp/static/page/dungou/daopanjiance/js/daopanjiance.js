@@ -232,9 +232,16 @@ console.log(parentIndex)
                     $(this).children("div").hide();
                 }
             }
-            $(this).children("div").css({
-                "transform":"rotate("+ -(parentIndex- 2)*45 +"deg)",
-            })
+            if(parentIndex == 1){
+                $(this).children("div").css({
+                    "transform":"rotate(0deg)",
+                })
+            }else{
+                $(this).children("div").css({
+                    "transform":"rotate("+ -(parentIndex- 2)*45 +"deg)",
+                })
+            }
+
 
         });
     });
