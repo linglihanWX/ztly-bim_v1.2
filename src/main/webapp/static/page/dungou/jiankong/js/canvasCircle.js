@@ -1,10 +1,17 @@
+var scrWidth = window.screen.width;
 function TbmDeviation(canvas) {
     this.canvas = canvas;
     this.width = canvas.width;
     this.height = canvas.height;
     this.length = this.width < this.height ? this.width / 2 - 10 : this.height / 2 - 10; //代表正方形边的一半长度
     this.context = canvas.getContext('2d');
-    this.tagNum = 10; //代表正方形边上的标签的个数（左一半）
+
+    if (scrWidth<=1366)
+        this.tagNum = 5;
+    else{
+        this.tagNum = 10;
+    }
+    //this.tagNum = 5; //代表正方形边上的标签的个数（左一半）
     canvas.width = this.width;
     canvas.height = this.height;
     this.context.translate(this.width / 2, this.height / 2);
@@ -96,9 +103,17 @@ TbmDeviation.prototype.drawTag = function() {
     context.strokeStyle = "green";
 
     context.strokeText(0, 0, 0);
-
-    for (var i = 1; i < 10; i++) {
-        var text = i * 10;
+    var len;
+    var num;
+    if (scrWidth <= 1366){
+        len = 5;
+        num = 20;
+    }else{
+        len = 10;
+        num = 10;
+    }
+    for (var i = 1; i < len; i++) {
+        var text = i * num;
         context.strokeText(text, i * tagLength, 0); //右侧数字
 
         context.save();

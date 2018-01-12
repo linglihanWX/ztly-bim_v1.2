@@ -184,7 +184,7 @@ $(function () {
     for (let i = 0; i < 4; i++) {
         spanStr += `<div class='span-click'><div class='span-box'><span></span><span></span><span></span><span></span></div></div>`;
         spanStr += `<div class="double-span-click">
-                    <div class="double-span-box">
+                    <div class="double-span-box" id="part`+i+`">
                         <span class="left-span"></span>
                         <span class="left-span"></span>
                         <span class="left-span"></span>
@@ -222,7 +222,7 @@ $(function () {
         $(this).click(function () {
             let parentIndex = $(this).parent().parent().index();
             let mathRandom = parseInt(Math.random()*200);
-console.log(parentIndex)
+            //console.log(parentIndex)
             if($(this).children("div").css("display") == undefined){
                 $(this).append(`<div>${mathRandom}</div>`);
             }else{

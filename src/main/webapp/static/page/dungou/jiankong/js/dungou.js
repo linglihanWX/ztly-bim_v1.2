@@ -1,3 +1,4 @@
+
 $(function () {
     var h = $("#content").height();
     var h2 = $(".breadcrumb").height();
@@ -7,7 +8,7 @@ $(function () {
     DungouViewer.initLeftDbClick(FreedoApp.viewers["earth"])
     DungouViewer.initLeftDown(FreedoApp.viewers["earth"],hidetips)
    // var surveymanager = new SurveyManager(FreedoApp.viewers["earth"],function(){});
-    cameraControl(FreedoApp.viewers["earth"]);
+   // cameraControl(FreedoApp.viewers["earth"]);
     
     //	初始化地球
 	 //	添加模型
@@ -82,19 +83,22 @@ $(function () {
             			if (pitch > 360)
             				pitch = 0;
             			pitch = pitch + 1;
-            			primitive.modelMatrix = FreeDoTool.getModelMatrix(113.6609628070344, 22.791190110267943, -502, 50, pitch, 0, 1.8, 1.8, 1.8);
+                        dungouprimitive.modelMatrix = FreeDoTool.getModelMatrix(113.65645654272778, 22.787376282848608, -637.5, 50, pitch, 0, 1.6, 1.6, 1.6);
 
             		});
-            		var primitive = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf({
+            		//原位置113.6609628070344, 22.791190110267943
+            		//113.65622654272778, 22.787366222848608
+            		var dungouprimitive = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf({
             			id : "盾构机",
             			url : "../../static/page/shigong/dungou/gltf/dun_gou_dao_tou.gltf",
             			show : true, // default
-            			modelMatrix : FreeDoTool.getModelMatrix(113.6609628070344, 22.791190110267943, -502, 287, 0, 0, 1.8, 1.8, 1.8),
+            			modelMatrix : FreeDoTool.getModelMatrix(113.65645654272778, 22.787376282848608, -637.5, 287, 0, 0, 1.6, 1.6, 1.6),
             			allowPicking : true, // not pickable
             			debugShowBoundingVolume : false, // default
             			debugWireframe : false
             		}));
-            		
+                    showhidelabels(dungouprimitive);
+
 //            		//2号坑
 //            		var hole2Data = [
 //					            		[
@@ -238,8 +242,6 @@ $(function () {
             		
             	}
         	}
-        	
-
         }
 	});
     
@@ -600,4 +602,34 @@ function showtips(picked,screenposition){
 }
 function hidetips(){
 	$("#tipbox1,#tipbox2,#tipbox3,#tipbox4").hide();
+}
+function showhidelabels(dungouprimitive) {
+    $("#sanwei4").change(function(){
+        var str = "<p>泡沫系统</p><ul>"+$(".info-middle #4 ul").html()+"</ul>";
+        if ($(this).prop('checked')){
+
+
+            $("#tipbox5").append(str).css({
+                left : "20%",
+                top : "20%"
+            }).show();
+        }else{
+            $("#tipbox5").children().remove().hide();
+        }
+    })
+
+    $("#sanwei5").change(function(){
+        var str = "<p>掘进实时位置监控</p><ul>"+$(".info-middle #5 ul").html()+"</ul>";
+        if ($(this).prop('checked')){
+            dungouprimitive.show=true;
+            $("#tipbox6").append(str).css({
+                left : "60%",
+                top  : "20%"
+            }).show();
+        }else{
+            dungouprimitive.show=false;
+            $("#tipbox6").children().remove().hide();
+        }
+    })
+
 }

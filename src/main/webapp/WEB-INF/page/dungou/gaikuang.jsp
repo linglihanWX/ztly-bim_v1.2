@@ -87,7 +87,10 @@
         </div>
     </div>
 </div>
-
+<div class="list-box" id="listBox">
+    <span class="close">×</span>
+    <ul class="list"></ul>
+</div>
 <script src="${ctx }/static/page/dungou/common/js/appendHeader.js"></script>
 <script src="${ctx }/static/page/common/js/echarts.min.js"></script>
 <script src="${ctx }/static/page/common/js/nav.js"></script>

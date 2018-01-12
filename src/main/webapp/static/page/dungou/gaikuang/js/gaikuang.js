@@ -43,10 +43,18 @@ $(function () {
             $("#earth1 .icon-zxh,#earth1 .icon-zdh").hide();
             $("#earth .icon-zxh,#earth .icon-zdh").show();
         }
+        if($("#earth").hasClass("full-screen")){
+            $("#earth").removeClass("smallHeight")
+        }
+        if($("#earth1").hasClass("full-screen")){
+            $("#earth1").removeClass("smallHeight")
+        }
+
     });
     $(".icon-zxh,.icon-zdh").on("click",function () {
         $(this).toggleClass("icon-zxh icon-zdh");
         $(this).parent().parent().toggleClass("smallHeight");
+
     });
     // 三维窗口的大小改变
     $(".main-page").on("click",function () {
@@ -239,7 +247,7 @@ $(function () {
             show : true,
             feature : {
                 mark : {show: true},
-                dataView : {show: true, readOnly: false},
+                dataView : {show: false, readOnly: false},
                 magicType : {
                     show: true,
                     type: ['pie', 'funnel']
@@ -273,6 +281,27 @@ $(function () {
 //    	 destination :  new FreeDo.Cartesian3.fromDegrees(121.61949402684546,38.94285250833841,1000),
     	destination :  new FreeDo.Cartesian3(-2605890.815905916,4232496.60280833,3990154.6100900965),
     	 orientation :  new FreeDo.HeadingPitchRoll(4.764935388409626,-1.5157381432489783,6.223528948721581)
+    })
+    //图层部分
+    var checkstr = ""
+    for (var i = 1; i < 12; i++) {
+        checkstr+=`<li><input type="checkbox" checked name="">`+i+`你你你你你你</li>`;
+    }
+    $(".list").append(checkstr)
+    $(".showCheckList").on("click",function () {
+        $(".list-box").stop().slideDown();
+    });
+    $(".close").on("click",function () {
+        $(".list-box").stop().slideUp();
+    });
+    $(".list li input").each(function () {
+        $(this).change(function () {
+            if( $(this).prop("checked")){
+                console.log($(this).parent().text()+"选中了")
+            }else{
+                console.log($(this).parent().text()+"未选中了")
+            }
+        })
     })
 });
 function getPoints(viewer){

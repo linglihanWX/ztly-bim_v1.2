@@ -42,6 +42,7 @@
 }
 .line{
     color: #fff;
+    margin:0 10px;
 }
 .line:nth-of-type(4){
     margin-left: 20px;
@@ -964,6 +965,12 @@
     }
     .right-page-two>div>p:first-of-type {
         top: 0;
+    }
+    .yaw {
+        left: 56%;
+        top: 50%;
+        width: 30%;
+        height: auto;
     }
 }
 @media screen and (min-width: 1367px){

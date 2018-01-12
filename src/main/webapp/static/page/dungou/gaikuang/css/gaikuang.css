@@ -311,6 +311,30 @@
     border-radius: 5px;
 }
 
+.list-box{
+    display: none;
+    position: absolute;
+    left: 30%;
+    top: 30%;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow:5px 5px 5px rgba(0, 0, 0, 0.3);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: #fff;
+    z-index:2;
+}
+.close{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    cursor: pointer;
+}
 
 .compassDiv{
 	top:20px!important;

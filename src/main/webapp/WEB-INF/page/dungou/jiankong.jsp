@@ -43,9 +43,9 @@
             <div id="earth" style="overflow:hidden">
                 <p>
                     <span class="dghh">环号:506</span>
-                    <span class="line">左线</span>当前环<span class="line">110</span>状态停止
-                    <span class="line">右线</span>当前环<span class="line">110</span>状态停止
-                    <img src="${ctx }/static/page/dungou/jiankong/img/danger.png" alt="">
+                    <span class="line">左线</span>当前环:<span class="line">110</span>状态停止
+                    <span class="line">右线</span>当前环:<span class="line">110</span>状态停止
+                    <img id="resetview"src="${ctx }/static/page/dungou/jiankong/img/danger.png" alt="">
                 </p>
                 <ul class="changeContent">
                     <li class="main-page"><i class="iconfont icon-main-page"></i>&nbsp;&nbsp;&nbsp;主页面</li>

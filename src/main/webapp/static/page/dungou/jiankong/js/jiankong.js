@@ -1,6 +1,6 @@
 $(function () {
 	   $(".three-menu li:nth-of-type(2) a").addClass("second-active").parent().siblings().children("a").removeClass("second-active")
-       
+
     var timer = null ;
 
     // canvas画图
@@ -72,23 +72,7 @@ $(function () {
                     }
                     str += `</ul></div>`;
                     $(".info-middle").append(str);
-                    if(i==5){
-                	    $("#sanwei5").change(function(){
-                	    	var str = "<p>泡沫系统</p>"+$(".info-middle #5 ul").html();
-                	    	if ($(this).prop('checked')){
-                				FreedoApp.viewers["earth"].camera.setView({
-                					destination : new FreeDo.Cartesian3.fromDegrees(113.6609116922713,22.790849054668495, -520),
-                							orientation : new FreeDo.HeadingPitchRoll(0.24403164042572545,0.47931146843386174,0.0006638315736546829)
-                				});
-                	            $("#tipbox5").append(str).css({
-                	            	left : "20%",
-                	            	top : "20%"
-                	            }).show();
-                	    	}else{
-                	    		$("#tipbox5").children().remove().hide();
-                	    	}
-                	    })
-                  }
+
                 }
             }
         }
@@ -141,23 +125,7 @@ $(function () {
                               $(".info-middle").append(str);
                             
                           }
-                          if(i==6){
-                        	    $("#sanwei6").change(function(){
-                        	    	var str = "<p>掘进位置实时监控</p>"+$(".info-middle #6 ul").html();
-                        	    	if ($(this).prop('checked')){
-                        				FreedoApp.viewers["earth"].camera.setView({
-                        					destination : new FreeDo.Cartesian3.fromDegrees(113.6609116922713,22.790849054668495, -520),
-                        							orientation : new FreeDo.HeadingPitchRoll(0.24403164042572545,0.47931146843386174,0.0006638315736546829)
-                        				});
-                        	            $("#tipbox6").append(str).css({
-                        	            	left : "70%",
-                        	            	top : "20%"
-                        	            }).show();
-                        	    	}else{
-                        	    		$("#tipbox6").children().remove().hide();
-                        	    	}
-                        	    })
-                          }
+
                       }
                   }
               }else{
@@ -242,4 +210,10 @@ $(function () {
         renderTbmDeviation();
         resetHeight();
     });
+    $("#resetview").click(function () {
+        FreedoApp.viewers["earth"].camera.setView({
+            destination : new FreeDo.Cartesian3.fromDegrees(113.66039473378382, 22.782948633936098,-550),
+            orientation : new FreeDo.HeadingPitchRoll(5.437420397295509,-0.11731154719345604,6.281381851419862)
+        });
+    })
 });
