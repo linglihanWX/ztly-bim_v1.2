@@ -1,0 +1,15 @@
+[
+  {"name":"？","layers":"shenmao:ASSIST_dwg_Polyline_Project"},
+  {"name":"地貌图纸Polygon","layers":"shenmao:CK31CK49dimaotuzhi_dwg_Polygon_Pro"},
+  {"name":"地貌图纸Polyline","layers":"shenmao:CK31CK49dimaotuzhi_dwg_Polyline_Pr"},
+  {"name":"管线设施","layers":"shenmao:CK31CK49guanxiansheshi_dwg_Polyline_Pr"},
+  {"name":"居民地Polyline","layers":"shenmao:CK31CK49jumindi_dwg_Polyline_Pro"},
+  {"name":"植被","layers":"shenmao:CK31CK49zhibei_dwg_Polygon_Proje"},
+  {"name":"交通设施","layers":"shenmao:CK49CK63jiaotongsheshi_dwg_Polyline_Pr"},
+  {"name":"居民地Polygon","layers":"shenmao:CK49CK63jumindi_dwg_Polygon_Proj"},
+  {"name":"水系设施","layers":"shenmao:CK49CK63shuixisheshi_dwg_Polyline_Pr"},
+  {"name":"保护区规划边界","layers":"shenmao:baohuquguihuabianjie_dwg_Polyline_Project"},
+  {"name":"？","layers":"shenmao:c4haoxiannanyan_dwg_Polyline_Project"},
+  {"name":"道路","layers":"shenmao:daolupianzhixian_dwg_Polyline_Project"},
+  {"name":"构造物","layers":"shenmao:gouzaowu_dwg_Polyline_Project"}
+]

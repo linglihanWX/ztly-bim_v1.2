@@ -283,9 +283,30 @@ $(function () {
     	 orientation :  new FreeDo.HeadingPitchRoll(4.764935388409626,-1.5157381432489783,6.223528948721581)
     })
     //图层部分
+    var layersarr = [];
+    var layersname=[];
+    var imageryLayers=FreedoApp.viewers["earth"].imageryLayers;
+    $.ajax({
+        url:"../../static/page/dungou/gaikuang/json/layers.json",
+        type:"get",
+        async:false,
+        dataType:'json',
+        success:function (data) {
+
+            for (var i = 0; i < data.length; i++) {
+                layersname[i]=data[i].name;
+                layersarr[i] = imageryLayers.addImageryProvider(new Freedo.WebMapServiceImageryProvider({
+                    url : 'http://182.92.7.32:9510/geoserver/shenmao/wms',
+                    layers : data[i].layers,
+                    parameters : {version : '1.1.1' , transparent : true, format : 'image/png', tiled : true, gridSet : 'EPSG=3395' }
+                }));
+            }
+
+        }
+    })
     var checkstr = ""
-    for (var i = 1; i < 12; i++) {
-        checkstr+=`<li><input type="checkbox" checked name="">`+i+`你你你你你你</li>`;
+    for (var i = 0; i < 13; i++) {
+        checkstr+=`<li><input type="checkbox" checked name="">`+layersname[i]+`</li>`;
     }
     $(".list").append(checkstr)
     $(".showCheckList").on("click",function () {
@@ -297,9 +318,11 @@ $(function () {
     $(".list li input").each(function () {
         $(this).change(function () {
             if( $(this).prop("checked")){
-                console.log($(this).parent().text()+"选中了")
+                var index = $(".list li input").index(this);
+                layersarr[index].show = true;
             }else{
-                console.log($(this).parent().text()+"未选中了")
+                var index = $(".list li input").index(this);
+                layersarr[index].show = false;
             }
         })
     })
@@ -499,4 +522,18 @@ function initEntities(viewer){
 	entityarray.push(posinf2);
 	entityarray.push(tuding);
 	return entityarray;
+}
+function pinjie(data){
+    var str = ""
+    for (var i = 0; i < data.length; i++) {
+        if(data[i]!=""){
+            if(i!=data.length-1){
+            str = str+data[i]+",";
+            }else {
+                str = str+data[i];
+            }
+        }
+
+    }
+    return str
 }
