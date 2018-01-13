@@ -8,7 +8,7 @@ $(function () {
     DungouViewer.initLeftDbClick(FreedoApp.viewers["earth"])
     DungouViewer.initLeftDown(FreedoApp.viewers["earth"],hidetips)
    // var surveymanager = new SurveyManager(FreedoApp.viewers["earth"],function(){});
-   // cameraControl(FreedoApp.viewers["earth"]);
+    cameraControl(FreedoApp.viewers["earth"]);
     
     //	初始化地球
 	 //	添加模型
@@ -601,18 +601,24 @@ function showtips(picked,screenposition){
 			}
 }
 function hidetips(){
-	$("#tipbox1,#tipbox2,#tipbox3,#tipbox4").hide();
+	$(".tipbox").hide();
+    $("#tipbox5").children().remove()
+    $("#tipbox6").children().remove()
+	$("#sanwei4").prop("checked",false);
+	$("#sanwei5").prop("checked",false);
 }
 function showhidelabels(dungouprimitive) {
     $("#sanwei4").change(function(){
         var str = "<p>泡沫系统</p><ul>"+$(".info-middle #4 ul").html()+"</ul>";
         if ($(this).prop('checked')){
-
-
             $("#tipbox5").append(str).css({
                 left : "20%",
                 top : "20%"
             }).show();
+            FreedoApp.viewers["earth"].camera.setView({
+                destination : new FreeDo.Cartesian3.fromDegrees(113.65726697957768, 22.78663303799991,-620),
+                orientation : new FreeDo.HeadingPitchRoll(5.437420397295509,-0.11731154719345604,6.281381851419862)
+            });
         }else{
             $("#tipbox5").children().remove().hide();
         }
@@ -626,6 +632,10 @@ function showhidelabels(dungouprimitive) {
                 left : "60%",
                 top  : "20%"
             }).show();
+            FreedoApp.viewers["earth"].camera.setView({
+                destination : new FreeDo.Cartesian3.fromDegrees(113.65726697957768, 22.78663303799991,-620),
+                orientation : new FreeDo.HeadingPitchRoll(5.437420397295509,-0.11731154719345604,6.281381851419862)
+            });
         }else{
             dungouprimitive.show=false;
             $("#tipbox6").children().remove().hide();
