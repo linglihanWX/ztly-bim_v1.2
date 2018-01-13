@@ -91,7 +91,7 @@ function getcamera() {
 
 function click2DChange3D() {
 
-    for (var i = 0; i < 4; i++) {
+    for (let i = 0; i < 4; i++) {
         $("#part" + i + " .right-span").click(function () {
             modelHighlight(i + 3)
         })
@@ -99,15 +99,15 @@ function click2DChange3D() {
             modelHighlight(i + 3)
         })
     }
-    for (var i = 0; i < 4; i++) {
-        for (var j = 1; j < 4; j++) {
+    for (let i = 0; i < 4; i++) {
+        for (let j = 1; j < 4; j++) {
             $("#part" + i + " .right-span" + j).click(function () {
                 modelHighlight(i + 3)
             })
         }
     }
-    for (var i = 0; i < 4; i++) {
-        for (var j = 1; j < 7; j++) {
+    for (let i = 0; i < 4; i++) {
+        for (let j = 1; j < 7; j++) {
         if(i==0||i==2){
             $("#part" + i + " .middle-span" + j).click(function () {
                 modelHighlight(1)
