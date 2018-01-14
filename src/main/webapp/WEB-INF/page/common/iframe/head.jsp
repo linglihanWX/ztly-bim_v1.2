@@ -44,7 +44,7 @@
                             <li class="dropdown-menu-title">
                                 <span>账户设置</span>
                             </li>
-                            <li><a href="#"><i class="halflings-icon user"></i> 文件</a></li>
+                            <li><a href="${ctx }/PModel/insertTreeData"><i class="halflings-icon user"></i> 文件</a></li>
                             <li><a href="${ctx }/logout"><i class="halflings-icon off"></i>退出登录</a></li>
                         </ul>
                     </li>

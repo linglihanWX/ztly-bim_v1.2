@@ -31,7 +31,7 @@ $(function () {
                         imgarray[i] = str+imgarray[i] ;
                     }
                     //调用挖坑方法
-                    FreeDoUtil.dig(FreedoApp.viewers["init"],holeData,imgarray);
+                    FreeDoUtil.dig(FreedoApp.viewers["earth"],holeData,imgarray);
                 }
         		console.log( model[key].url);
         		 //向场景中添加模型
@@ -73,9 +73,22 @@ $(function () {
         type: "get",
         dataType:"json",
         success: function (data) {
-        	if(null==data){
+            var treedata = []
+        	if(data.length==0){
         		window.confirm(data);
         	}else{
+                treedata.push({
+                    uid:"-1",
+                    pid:"-2",
+                    name:"模型构件树"
+                })
+                for (var i = 0; i < data.length; i++) {
+                    for (var j = 0; j < data[i].length; j++) {
+                        treedata.push(data[i][j])
+
+                    }
+                }
+        	}
             var zTreeObj;
             var setting = {
                 data: {
@@ -83,7 +96,7 @@ $(function () {
                         enable: true,
                         idKey: "uid",
                         pIdKey: "pid",
-                        rootPId: "-1"
+                        rootPId: "-2"
                     }
                 },
                 callback : {
@@ -96,8 +109,7 @@ $(function () {
                     "top":event.pageY
                 });
             }
-            zTreeObj = $.fn.zTree.init( $("#tree"), setting, data);
-        	}
+            zTreeObj = $.fn.zTree.init( $("#tree"), setting, treedata);
         }
     });
 

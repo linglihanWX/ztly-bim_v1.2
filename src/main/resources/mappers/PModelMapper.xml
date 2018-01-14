@@ -35,6 +35,6 @@
 		${tableName};
 	</select>
 	<insert id="insertTreeData" parameterType="com.freedotech.app.ztly.model.Node4ZTree">
-		insert into t_unit2(uid,pid,name,boundsmin,boundsmax) value(#{uid},#{pid},#{name},#{boundsmin},#{boundsmax});
+		insert into t_unit3(uid,pid,name,boundsmin,boundsmax) value(#{uid},#{pid},#{name},#{boundsmin},#{boundsmax});
 	</insert>
 </mapper>     

@@ -11,7 +11,7 @@ public interface PModelDao {
     //获取pmodel
 	List<PModel> getModelUrlByProjectId(String projectid);
 	//获取项目模型的部件表名
-	String  getUnitTableName(String id);
+	List<String>  getUnitTableName(String id);
 	//  获取树节点列表
 	List<Node4ZTree>  getNodesTreeData(@Param(value="tableName")String unitName);
 	//插入从XML中解析出来的模型树的数据

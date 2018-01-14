@@ -32,7 +32,7 @@ public class PModelController {
 		HttpSession session = request.getSession();
 		String projectid= session.getAttribute("projectid")+"";
 		//取到模型树形列表
-		List<Node4ZTree> treeData = pmodelService.getProjectModelTreeData(projectid);
+		List treeData = pmodelService.getProjectModelTreeData(projectid);
 		return treeData;
 	}
 	//获取模型
