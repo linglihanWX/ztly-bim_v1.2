@@ -18,55 +18,6 @@ var imageEntity2 = {};
 var imageEntity3 = {};
 var downuppoints = [];
 window.obj = {};
-MainBuildingViewer.EbsObj = function (nodeId, fatherId, type, name, startDatePlan, endDatePlan, startDate, endDate, modelId, leaf) {
-    this.nodeId = nodeId;
-    this.fatherId = fatherId;
-    this.type = type;
-    this.name = name;
-    this.startDatePlan = startDatePlan;
-    this.endDatePlan = endDatePlan;
-    this.startDate = startDate;
-    this.endDate = endDate;
-    this.modelId = modelId;
-    this.leaf = leaf;
-    this.children = [];
-}
-
-MainBuildingViewer.ModelObj = function (id, parentId, name, type, url, lon, lat, height, course, alpha, roll, scaleX, scaleY, scaleZ) {
-    this.id = id;
-    this.parentId = parentId;
-    this.name = name;
-    this.url = url;
-    this.type = type;
-    this.lon = lon;
-    this.lat = lat;
-    this.height = height;
-    this.course = course;
-    this.alpha = alpha;
-    this.roll = roll;
-    this.scaleX = scaleX;
-    this.scaleY = scaleY;
-    this.scaleZ = scaleZ;
-    var modelMatrix = FreeDoTool.getModelMatrix(lon, lat, height, course, alpha, roll, scaleX, scaleY, scaleZ);
-    this.primitive = MainBuildingViewer.viewer.scene.primitives.add(FreeDo.Model.fromGltf(
-        {
-            id: id,
-            url: url,
-            show: true,                     // default
-            modelMatrix: modelMatrix,
-            allowPicking: false,            // not pickable
-            debugShowBoundingVolume: false, // default
-            debugWireframe: false
-        }));
-}
-
-MainBuildingViewer.GroupObj = function (id, parentId, name, type) {
-    this.id = id;
-    this.parentId = parentId;
-    this.name = name;
-    this.type = type;
-    this.children = [];
-}
 
 MainBuildingViewer.init = function (earthId,baseImageryProvider) {
 	if(!ceshistate){

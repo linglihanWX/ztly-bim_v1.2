@@ -8,10 +8,10 @@
 		SELECT
 		tp.unitname
 		FROM
-		t_project_pmodel tpp
-		LEFT JOIN t_pmodel tp ON
-		tp.id = tpp.t_mod_id
-		LEFT JOIN t_project tpr ON tpr.id = tpp.t_pro_id
+		t_project tpr
+		LEFT JOIN t_project_pmodel tpp ON 
+		tpr.id = tpp.t_mod_id
+		LEFT JOIN t_pmodel tp ON tp.id = tpp.t_pro_id
 		WHERE
 		tpr.id = #{id}
 	</select>
@@ -35,6 +35,6 @@
 		${tableName};
 	</select>
 	<insert id="insertTreeData" parameterType="com.freedotech.app.ztly.model.Node4ZTree">
-		insert into t_unit3(uid,pid,name,boundsmin,boundsmax) value(#{uid},#{pid},#{name},#{boundsmin},#{boundsmax});
+		insert into t_unit13(uid,pid,name,boundsmin,boundsmax) value(#{uid},#{pid},#{name},#{boundsmin},#{boundsmax});
 	</insert>
 </mapper>     

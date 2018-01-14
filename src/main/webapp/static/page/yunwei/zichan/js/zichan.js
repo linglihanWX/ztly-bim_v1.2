@@ -82,12 +82,22 @@ $(function () {
                     pid:"-2",
                     name:"模型构件树"
                 })
-                for (var i = 0; i < data.length; i++) {
-                    for (var j = 0; j < data[i].length; j++) {
-                        treedata.push(data[i][j])
+                if(data.length==1){
+                    for (var i = 0; i < data.length; i++) {
+                        for (var j = 0; j < data[i].length; j++) {
+                            treedata.push(data[i][j])
 
-                    }
+                        }
+                    }	
+                }else{
+                	for (var i = 0; i < data.length; i++) {
+                        for (var j = 0; j < data[i].length; j++) {
+                            treedata.push(data[i][j])
+
+                        }
+                    }	
                 }
+
         	}
             var zTreeObj;
             var setting = {

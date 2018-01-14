@@ -63,31 +63,60 @@ $(function() {
 			}
 		}
 	};*/
-    $.ajax({
-        url: "../PModel/getProjectModelTreeData",
-        type: "get",
-        dataType:"json",
-        success: function (data) {
-        	if(null==data){
-        		window.confirm(data);
-        	}else{
-            var zTreeObj;
-            var setting = {
-                data: {
-                    simpleData: {
-                        enable: true,
-                        idKey: "uid",
-                        pIdKey: "pid",
-                        rootPId: "-1"
-                    }
-                }
+	 $.ajax({
+	        url: "../PModel/getProjectModelTreeData",
+	        type: "get",
+	        dataType:"json",
+	        success: function (data) {
+	            var treedata = []
+	        	if(data.length==0){
+	        		window.confirm(data);
+	        	}else{
+	                treedata.push({
+	                    uid:"-1",
+	                    pid:"-2",
+	                    name:"模型构件树"
+	                })
+	                if(data.length==1){
+	                    for (var i = 0; i < data.length; i++) {
+	                        for (var j = 0; j < data[i].length; j++) {
+	                            treedata.push(data[i][j])
 
-            };
+	                        }
+	                    }	
+	                }else{
+	                	for (var i = 0; i < data.length; i++) {
+	                        for (var j = 0; j < data[i].length; j++) {
+	                            treedata.push(data[i][j])
 
-            zTreeObj = $.fn.zTree.init( $("#tree"), setting, data);
-        	}
-        }
-    });
+	                        }
+	                    }	
+	                }
+
+	        	}
+	            var zTreeObj;
+	            var setting = {
+	                data: {
+	                    simpleData: {
+	                        enable: true,
+	                        idKey: "uid",
+	                        pIdKey: "pid",
+	                        rootPId: "-2"
+	                    }
+	                },
+	                callback : {
+	                    onRightClick : OnRightClick
+	                }
+	            };
+	            function OnRightClick(event, treeId, treeNode) {
+	                $("#rMenu").show().css({
+	                    "left" :event.pageX,
+	                    "top":event.pageY
+	                });
+	            }
+	            zTreeObj = $.fn.zTree.init( $("#tree"), setting, treedata);
+	        }
+	    });
 	// 二三维切换
 	$("#div1").click(function() {
 		if ($("#div1").hasClass("open1")) {

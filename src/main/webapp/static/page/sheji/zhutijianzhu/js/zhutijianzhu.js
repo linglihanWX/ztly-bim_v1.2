@@ -13,6 +13,32 @@ $(function () {
         type: "get",
         dataType:"json",
         success: function (data) {
+        	var treedata = []
+        	if(data.length==0){
+        		window.confirm(data);
+        	}else{
+                treedata.push({
+                    uid:"-1",
+                    pid:"-2",
+                    name:"模型构件树"
+                })
+                if(data.length==1){
+                    for (var i = 0; i < data.length; i++) {
+                        for (var j = 0; j < data[i].length; j++) {
+                            treedata.push(data[i][j])
+
+                        }
+                    }	
+                }else{
+                	for (var i = 0; i < data.length; i++) {
+                        for (var j = 0; j < data[i].length; j++) {
+                            treedata.push(data[i][j])
+
+                        }
+                    }	
+                }
+
+        	}
             var zTreeObj;
             var setting = {
             	check:{
@@ -109,7 +135,7 @@ $(function () {
                 }
                 }
             };
-            zTreeObj = $.fn.zTree.init( $("#tree"), setting, data);
+            zTreeObj = $.fn.zTree.init( $("#tree"), setting, treedata);
             treeObj = $.fn.zTree.getZTreeObj("tree");
             treeObj.checkAllNodes(true);
         }
@@ -118,42 +144,7 @@ $(function () {
 	MainBuildingViewer.init("earth");
 	MainBuildingViewer.initLeftClick(myviewer);
 	MainBuildingViewer.initRightClick(myviewer);
-	//挖坑
-	var userdata2 =[
-		[				
-			{lon:117.65370327140586,lat: 39.029343874668385,height:0},
-			{lon:117.6566555867564,lat: 39.02867680988919,height:0},
-			{lon:117.65629167680271,lat: 39.027734051441556,height:0},
-			{lon:117.65337309822137,lat: 39.028390137191195,height:0}
-		],
-
-		[
-			{lon:117.65370327140586,lat: 39.029343874668385,height:-15},
-			{lon:117.6566555867564,lat: 39.02867680988919,height:-13},
-			{lon:117.65629167680271,lat: 39.027734051441556,height:-20},
-			{lon:117.65337309822137,lat: 39.028390137191195,height:-15}
-		],
-
-		[
-			{lon:117.65370327140586,lat: 39.029343874668385,height:-27},
-			{lon:117.6566555867564,lat: 39.02867680988919,height:-33},
-			{lon:117.65629167680271,lat: 39.027734051441556,height:-26},
-			{lon:117.65337309822137,lat: 39.028390137191195,height:-22}
-		],
-		[
-			{lon:117.65370327140586,lat: 39.029343874668385,height:-50},
-			{lon:117.6566555867564,lat: 39.02867680988919,height:-50},
-			{lon:117.65629167680271,lat: 39.027734051441556,height:-50},
-			{lon:117.65337309822137,lat: 39.028390137191195,height:-50}
-		]
-]
-	var imgarray = [
-		"../static/page/shigong/dungou/img/Land001.jpg",
-		"../static/page/shigong/dungou/img/Land002.jpg",
-		"../static/page/shigong/dungou/img/Land004.jpg"
-	];
-	FreeDoUtil.dig(myviewer,userdata2,imgarray);
-
+	
     // 2D/3D切换
     $("#div1").click(function () {
         if ($("#div1").hasClass("open1")) {

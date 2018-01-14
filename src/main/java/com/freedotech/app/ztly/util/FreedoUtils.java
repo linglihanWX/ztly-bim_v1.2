@@ -16,7 +16,7 @@ public abstract class FreedoUtils {
 	
 	@SuppressWarnings("unchecked")
 	public static List<Node4ZTree> getDatadFromModelPropertyXml() throws IOException, DocumentException {
-		ClassPathResource xmlResource = new ClassPathResource("com/freedotech/app/ztly/util/TFGC_dimian.xml");
+		ClassPathResource xmlResource = new ClassPathResource("com/freedotech/app/ztly/util/TFGC_suidao_pouqieB.xml");
 		Document doc = new SAXReader().read(xmlResource.getFile());
 		Element pNode = (Element) doc.selectSingleNode("//*[@name='场景根']");
 		
