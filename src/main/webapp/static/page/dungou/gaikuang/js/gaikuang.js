@@ -557,11 +557,11 @@ function initEntities(viewer){
         }
 	});
 	var label7 = viewer.entities.add({
-		name : "火车站",
+		name : "火车站站",
 		show : true,
 		position : FreeDo.Cartesian3.fromDegrees(121.62378599839502, 38.922779514349656,1),
 		label : { // 文字标签
-			text : "火车站",
+			text : "火车站站",
 			font : '16pt monospace',
 			style : FreeDo.LabelStyle.FILL_AND_OUTLINE,
 			fillColor : FreeDo.Color.RED,
