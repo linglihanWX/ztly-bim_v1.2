@@ -58,7 +58,7 @@ $(function () {
     // 三维窗口的大小改变
     $(".main-page").on("click",function () {
         console.log(1);
-        $(".content-middle").css({"height":40+"%"});
+        $(".content-middle").css({"height":66+"%"});
         $(".content-bottom").show();
     });
     $(".three-page").on("click",function () {
