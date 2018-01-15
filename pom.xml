@@ -280,26 +280,26 @@
 				</configuration>
 			</plugin>
 
-			<plugin>
+			<!-- <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
 				<configuration>
 					<archive>
 						<addMavenDescriptor>false</addMavenDescriptor>
 					</archive>
-					<!-- 部署在百度云 bae 上，一定要叫 ROOT.war -->
-					<!-- 虽然 IDEA 工具报提示警告，但是可以不理会，不影响使用 -->
+					部署在百度云 bae 上，一定要叫 ROOT.war
+					虽然 IDEA 工具报提示警告，但是可以不理会，不影响使用
 					<warName>Shiro-project</warName>
 					<webResources>
 						<resource>
 							<directory>src/main/resources/config/${package.environment}</directory>
-							<!-- target 节点不能以 / 结尾 -->
+							target 节点不能以 / 结尾
 							<targetPath>WEB-INF/classes</targetPath>
 							<filtering>true</filtering>
 						</resource>
 					</webResources>
 				</configuration>
-			</plugin>
+			</plugin> -->
 
 		</plugins>
 	</build>
