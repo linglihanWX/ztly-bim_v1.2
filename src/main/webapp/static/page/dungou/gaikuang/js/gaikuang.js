@@ -4,35 +4,7 @@ $(function () {
     getPoints(FreedoApp.viewers["earth"])
     var array = initEntities(FreedoApp.viewers["earth"])
     $(".compassDiv").hide();
-
-    $(".icon-bqp").on("click",function () {
-        if($("#earth").hasClass("full-screen")){
-            $(".compassDiv").hide();
-            for (var i = 0; i < array.length; i++) {
-                array[i].show = false;
-            }
-        }else{
-            $(".compassDiv").show();
-            for (var i = 0; i < array.length; i++) {
-                array[i].show = true;
-            }
-        }
-    });
-    $(".icon-qp").on("click",function () {
-        if($("#earth").hasClass("full-screen")){
-            $(".compassDiv").hide();
-            for (var i = 0; i < array.length; i++) {
-                array[i].show = false;
-            }
-        }else{
-            $(".compassDiv").show();
-            for (var i = 0; i < array.length; i++) {
-                array[i].show = true;
-            }
-        }
-    });
-
-
+    var scrWidth = window.screen.width;
     $(".size").on("click",function () {
         $("#earth .size,#earth1 .size").toggleClass("icon-bqp icon-qp");
         $("#earth,#earth1").toggleClass("full-screen not-full-screen");
@@ -43,18 +15,10 @@ $(function () {
             $("#earth1 .icon-zxh,#earth1 .icon-zdh").hide();
             $("#earth .icon-zxh,#earth .icon-zdh").show();
         }
-        if($("#earth").hasClass("full-screen")){
-            $("#earth").removeClass("smallHeight")
-        }
-        if($("#earth1").hasClass("full-screen")){
-            $("#earth1").removeClass("smallHeight")
-        }
-
     });
     $(".icon-zxh,.icon-zdh").on("click",function () {
         $(this).toggleClass("icon-zxh icon-zdh");
         $(this).parent().parent().toggleClass("smallHeight");
-
     });
     // 三维窗口的大小改变
     $(".main-page").on("click",function () {
@@ -66,6 +30,21 @@ $(function () {
         $(".content-middle").css({"height":100+"%"});
         $(".content-bottom").hide();
     });
+    if (scrWidth <= 1366)
+        new Swiper ('.swiper-container', {
+            direction: 'vertical',
+            //loop: true,
+            //autoplay:3000,
+            pagination: '.swiper-pagination',
+            slidesPerView: 1,
+            paginationClickable: true,
+            spaceBetween: 30,
+            //mousewheelControl: true
+        });
+    else{
+
+    }
+
 
     var chartOne = echarts.init(document.getElementById('chartOne'));
     var option1 = {
@@ -169,7 +148,7 @@ $(function () {
             },
         ]
     };
-    chartTwo.setOption(option2); chartTwo.setOption(option2);
+    chartTwo.setOption(option2);
 
     var chartThree = echarts.init(document.getElementById('chartThree'));
     var option3 = {
@@ -224,7 +203,12 @@ $(function () {
     };
     chartThree.setOption(option3);
 
-
+    var arr = [];
+    if (scrWidth>1366)
+        arr = [30,110];
+    else{
+        arr = [10,60];
+    }
     var chartFour = echarts.init(document.getElementById('chartFour'));
     var option4 = {
         title : {
@@ -262,7 +246,7 @@ $(function () {
             {
                 name:'面积模式',
                 type:'pie',
-                radius : [30, 110],
+                radius : arr,
                 center : ['50%', '50%'],
                 roseType : 'area',
                 data:[

@@ -1,4 +1,3 @@
-
 $(function () {
     var h = $("#content").height();
     var h2 = $(".breadcrumb").height();
@@ -612,13 +611,13 @@ function showhidelabels(dungouprimitive) {
         var str = "<p>泡沫系统</p><ul>"+$(".info-middle #4 ul").html()+"</ul>";
         if ($(this).prop('checked')){
             $("#tipbox5").append(str).css({
-                left : "20%",
+                left : "35%",
                 top : "20%"
             }).show();
-            FreedoApp.viewers["earth"].camera.setView({
+/*            FreedoApp.viewers["earth"].camera.setView({
                 destination : new FreeDo.Cartesian3.fromDegrees(113.65726697957768, 22.78663303799991,-620),
                 orientation : new FreeDo.HeadingPitchRoll(5.437420397295509,-0.11731154719345604,6.281381851419862)
-            });
+            });*/
         }else{
             $("#tipbox5").children().remove().hide();
         }
@@ -627,17 +626,15 @@ function showhidelabels(dungouprimitive) {
     $("#sanwei5").change(function(){
         var str = "<p>掘进实时位置监控</p><ul>"+$(".info-middle #5 ul").html()+"</ul>";
         if ($(this).prop('checked')){
-            dungouprimitive.show=true;
             $("#tipbox6").append(str).css({
-                left : "60%",
+                left : "70%",
                 top  : "20%"
             }).show();
-            FreedoApp.viewers["earth"].camera.setView({
+/*            FreedoApp.viewers["earth"].camera.setView({
                 destination : new FreeDo.Cartesian3.fromDegrees(113.65726697957768, 22.78663303799991,-620),
                 orientation : new FreeDo.HeadingPitchRoll(5.437420397295509,-0.11731154719345604,6.281381851419862)
-            });
+            });*/
         }else{
-            dungouprimitive.show=false;
             $("#tipbox6").children().remove().hide();
         }
     })

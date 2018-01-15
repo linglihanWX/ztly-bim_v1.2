@@ -11,8 +11,7 @@
 .content-middle{
     position: relative;
     width: 100%;
-    height: 40%;
-    /*height: 400px;*/
+    height: 66%;
     background-color: #e8e8e8;
 }
 .changeContent{
@@ -131,34 +130,35 @@
 #earth1>p>span:nth-of-type(4){
     background-color: #FC733D;
 }
-.content-bottom{
+.swiper-container{
+    position: relative;
     width: 100%;
-    /*height:calc(100% - 400px);*/
-    height: 60%;
+    height: 34%;
     font-size: 0;
+    padding: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: hidden;
 }
-.content-bottom>div{
-    display: inline-block;
-    vertical-align: top;
-}
-
-.content-bottom .info-left{
-    width: 30%;
+.info-left,.info-right{
+    width: 100%;
     height: 100%;
-    padding-top: 5px;
-    padding-bottom: 5px;
 }
-.info-left>div{
+.info-left>div,
+.info-right>div{
+    width: 33%;
+    height: 100%;
+    float: left;
     border-radius: 5px;
 }
 .info-left>div:nth-of-type(1){
-    width: 100%;
-    height: calc(50% - 5px);
     border: 1px solid #ccc;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+
 .info-left>div>p:first-of-type{
     position: relative;
     width: 100%;
@@ -182,11 +182,19 @@
     height: 0;
     border-bottom: 1px solid #ccc;
 }
-.info-left>div>div:last-of-type,
+.info-left>div:first-of-type>div{
+    overflow: hidden;
+    padding: 2%;
+    line-height: 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 14px;
+}
 .info-left>div>ul{
     width: 100%;
     height:calc(100% - 25px);
-    font-size: 13px;
+    font-size: 14px;
     overflow: hidden;
     padding: 2%;
     line-height: 20px;
@@ -198,11 +206,10 @@
 .info-left>div>ul:hover{
     overflow: auto;
 }
-
 .info-left>div:nth-of-type(2){
-    width: 100%;
-    height: calc(50% - 10px);
-    margin-top: 5px;
+    width: calc(34% - 10px);
+    height: 100%;
+    margin:0 5px;
     border: 1px solid #ccc;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -210,13 +217,13 @@
 }
 .info-left>div:nth-of-type(2) ul li{
     width: 100%;
-    height: 30px;
+    height: 25px;
 }
 .info-left>div:nth-of-type(2) ul li>span:nth-of-type(1){
     display: inline-block;
-    height: 30px;
-    line-height: 30px;
-    width: 65%;
+    height: 25px;
+    line-height: 25px;
+    width: 70%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -226,25 +233,9 @@
     vertical-align: top;
     height: 25px;
     line-height: 25px;
-    width: 30%;
+    width: 25%;
     min-width: 100px;
     text-align: right;
-}
-
-.content-bottom .info-middle{
-    width: 40%;
-    height: 100%;
-    padding: 5px 5px 0 5px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    font-size: 0;
-}
-.info-middle >div{
-    float: left;
-    height:  calc(50% - 5px);
-    border-radius: 5px;
-
 }
 #chartOne,#chartTwo,#chartThree,#chartFour{
     border: 1px solid #ccc;
@@ -253,36 +244,23 @@
     box-sizing: border-box;
 }
 #chartOne{
-    width: calc(50% - 5px);
-
+    width:30%;
+    height: 100%;
 }
 #chartTwo{
-    width: calc(50% - 5px);
-    margin-left: 10px;
-
+    width: calc(40% - 10px);
+    margin:0 5px;
+    height: 100%;
 }
 #chartThree{
-    width: 100%;
-    margin-top: 5px;
-}
-.content-bottom .info-right{
-    position: relative;
     width: 30%;
-    height: calc(100% - 5px);
-    padding: 5px 0 0 0;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+    height: 100%;
 }
 #chartFour{
-    width: 100%;
+    width: 33%;
     height: 100%;
     border-radius: 5px;
 }
-
-
-
-
 
 /* 信息展示的滚动条 */
 .info-left ::-webkit-scrollbar-track-piece {
@@ -311,6 +289,50 @@
     border-radius: 5px;
 }
 
+@media screen and (min-width: 1367px) {
+    .swiper-container{
+        width: 100%;
+
+        display: inline-block;
+        vertical-align: top;
+    }
+    .info-left,.info-right{
+        width: 50%;
+        height: 100%;
+    }
+    .info-left>div:nth-of-type(1){
+        width: 60%;
+        height: calc(50% - 5px);
+        margin-bottom:5px;
+    }
+    .info-left>div:nth-of-type(2){
+        width: 60%;
+        height: 50%;
+        margin-left: 0;
+    }
+    #chartFour{
+        position: absolute;
+        right: 5px;
+        top: 0;
+        width: calc(40% - 10px);
+        margin-left: 5px;
+    }
+    #chartTwo{
+        margin: 0;
+    }
+    #chartOne,#chartTwo{
+        width: 50%;
+        height: calc(50% - 5px);
+        margin-bottom: 5px;
+    }
+
+    #chartThree{
+        width: 100%;
+        height: 50%;
+        margin: 0;
+    }
+}
+
 .list-box{
     display: none;
     position: absolute;
@@ -337,5 +359,5 @@
 }
 
 .compassDiv{
-	top:20px!important;
+    top:20px!important;
 }
