@@ -182,24 +182,24 @@ $(function () {
 
     let spanStr = "";
     for (let i = 0; i < 4; i++) {
-        spanStr += `<div class='span-click'><div class='span-box'><span></span><span></span><span></span><span></span></div></div>`;
+        spanStr += `<div class='span-click'><div class='span-box'><span data-mao="false"></span><span data-mao="false"></span data-mao="false"><span data-mao="false"></span data-mao="false"><span data-mao="false"></span></div></div>`;
         spanStr += `<div class="double-span-click">
                     <div class="double-span-box" id="part`+i+`">
-                        <span class="left-span"></span>
-                        <span class="left-span"></span>
-                        <span class="left-span"></span>
-                        <span class="left-span"></span>
-                        <span class="right-span"></span>
-                        <span class="right-span1"></span>
-                        <span class="right-span2"></span>
-                        <span class="right-span3"></span>
-                        <span class="middle-span1"></span>
-                        <span class="middle-span2"></span>
-                        <span class="middle-span3"></span>
-                        <span class="middle-span4"></span>
-                        <span class="middle-span5"></span>
-                        <span class="middle-span6"></span>
-                        <span class="middle-span7"></span>
+                        <span class="left-span" data-mao="false"></span>
+                        <span class="left-span" data-mao="false"></span>
+                        <span class="left-span" data-mao="false"></span>
+                        <span class="left-span" data-mao="false"></span>
+                        <span class="right-span" data-mao="false"></span>
+                        <span class="right-span1" data-mao="false"></span>
+                        <span class="right-span2" data-mao="false"></span>
+                        <span class="right-span3" data-mao="false"></span>
+                        <span class="middle-span1" data-mao="false"></span>
+                        <span class="middle-span2" data-mao="false"></span>
+                        <span class="middle-span3" data-mao="false"></span>
+                        <span class="middle-span4" data-mao="false"></span>
+                        <span class="middle-span5" data-mao="false"></span>
+                        <span class="middle-span6" data-mao="false"></span>
+                        <span class="middle-span7" data-mao="false"></span>
                     </div>
                  </div>`;
     }

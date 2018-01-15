@@ -385,7 +385,8 @@ function initEntities(viewer){
                    121.62404269310349, 38.92168051864768,
                 ]),
 	        width : 5,
-	        material : FreeDo.Color.RED
+	        material : FreeDo.Color.RED,
+            distanceDisplayCondition:new FreeDo.DistanceDisplayCondition(0.0, 10000)
 	    }
 	});
 	var hangdaoletf = viewer.entities.add({
@@ -396,7 +397,8 @@ function initEntities(viewer){
 	            	121.62049902027843, 38.94087844623272,
 	            	121.6397957460026, 38.949188385501316]),
 	        width : 2,
-	        material : FreeDo.Color.WHITE
+	        material : FreeDo.Color.WHITE,
+            distanceDisplayCondition:new FreeDo.DistanceDisplayCondition(0.0, 10000)
 	    }
 	});
 	var hangdaoright = viewer.entities.add({
@@ -407,7 +409,8 @@ function initEntities(viewer){
 	            	121.61929223758972, 38.942504460137705,
 	            	121.63850361880273, 38.95117967187629]),
 	        width : 2,
-	        material : FreeDo.Color.WHITE
+	        material : FreeDo.Color.WHITE,
+            distanceDisplayCondition:new FreeDo.DistanceDisplayCondition(0.0, 10000)
 	    }
 	});
 	//字
@@ -419,34 +422,44 @@ function initEntities(viewer){
 			pixelSize : 5,
 			color : FreeDo.Color.RED,
 			outlineColor : FreeDo.Color.WHITE,
-			outlineWidth : 2
+			outlineWidth : 2,
+            distanceDisplayCondition:new FreeDo.DistanceDisplayCondition(0.0, 10000)
 		},
 		label : { // 文字标签
 			text : "香炉礁航道",
 			font : '20pt monospace',
 			style : FreeDo.LabelStyle.FILL_AND_OUTLINE,
 			outlineWidth : 2,
+            backgroundColor:FreeDo.Color.MEDIUMBLUE,
+            showBackground:true,
+            fillColor:FreeDo.Color.YELLOW,
 			verticalOrigin : FreeDo.VerticalOrigin.BOTTOM, // 垂直方向以底部来计算标签的位置
-			pixelOffset : new FreeDo.Cartesian2(0, -9)// 偏移量
+			pixelOffset : new FreeDo.Cartesian2(0, -9),// 偏移量
+            distanceDisplayCondition:new FreeDo.DistanceDisplayCondition(0.0, 10000)
 		}
 	});
 	var label2 = viewer.entities.add({
 		name : "军港码头",
         show:true,
-		position : FreeDo.Cartesian3.fromDegrees(121.62141197222627, 38.930938297203014,1),
+		position : FreeDo.Cartesian3.fromDegrees(121.61997619924065, 38.933427729468725,1),
 		point : { // 点
 			pixelSize : 5,
 			color : FreeDo.Color.RED,
 			outlineColor : FreeDo.Color.WHITE,
-			outlineWidth : 2
+			outlineWidth : 2,
+            distanceDisplayCondition:new FreeDo.DistanceDisplayCondition(0.0, 10000)
 		},
 		label : { // 文字标签
 			text : "军港码头",
 			font : '20pt monospace',
 			style : FreeDo.LabelStyle.FILL_AND_OUTLINE,
 			outlineWidth : 2,
+            backgroundColor:FreeDo.Color.MEDIUMBLUE,
+            showBackground:true,
+            fillColor:FreeDo.Color.YELLOW,
 			verticalOrigin : FreeDo.VerticalOrigin.BOTTOM, // 垂直方向以底部来计算标签的位置
-			pixelOffset : new FreeDo.Cartesian2(0, -9)// 偏移量
+			pixelOffset : new FreeDo.Cartesian2(0, -9),// 偏移量,
+            distanceDisplayCondition:new FreeDo.DistanceDisplayCondition(0.0, 10000)
 		}
 	});
 	var label3 = viewer.entities.add({
@@ -457,56 +470,113 @@ function initEntities(viewer){
 			pixelSize : 5,
 			color : FreeDo.Color.RED,
 			outlineColor : FreeDo.Color.WHITE,
-			outlineWidth : 2
+			outlineWidth : 2,
+            distanceDisplayCondition:new FreeDo.DistanceDisplayCondition(0.0, 10000)
 		},
 		label : { // 文字标签
 			text : "航母制造区",
 			font : '20pt monospace',
 			style : FreeDo.LabelStyle.FILL_AND_OUTLINE,
 			outlineWidth : 2,
+            backgroundColor:FreeDo.Color.MEDIUMBLUE,
+            showBackground:true,
+            fillColor:FreeDo.Color.YELLOW,
 			verticalOrigin : FreeDo.VerticalOrigin.BOTTOM, // 垂直方向以底部来计算标签的位置
-			pixelOffset : new FreeDo.Cartesian2(0, -9)// 偏移量
+			pixelOffset : new FreeDo.Cartesian2(0, -9),// 偏移量,
+            distanceDisplayCondition:new FreeDo.DistanceDisplayCondition(0.0, 10000)
 		}
 	});
 	var label4 = viewer.entities.add({
+		name : "疏港货运铁路",
+		show : true,
+		position : FreeDo.Cartesian3.fromDegrees(121.61497425831845, 38.92570034025223,1),
+		point : { // 点
+			pixelSize : 5,
+			color : FreeDo.Color.RED,
+			outlineColor : FreeDo.Color.WHITE,
+			outlineWidth : 2,
+            distanceDisplayCondition:new FreeDo.DistanceDisplayCondition(0.0, 10000)
+		},
+		label : { // 文字标签
+			text : "疏港货运铁路",
+			font : '20pt monospace',
+			style : FreeDo.LabelStyle.FILL_AND_OUTLINE,
+			outlineWidth : 2,
+            backgroundColor:FreeDo.Color.MEDIUMBLUE,
+            showBackground:true,
+            fillColor:FreeDo.Color.YELLOW,
+			verticalOrigin : FreeDo.VerticalOrigin.BOTTOM, // 垂直方向以底部来计算标签的位置
+			pixelOffset : new FreeDo.Cartesian2(0, -9),// 偏移量,
+            distanceDisplayCondition:new FreeDo.DistanceDisplayCondition(0.0, 10000)
+		}
+	});
+    var label5 = viewer.entities.add({
+        name : "中间风井（接收）",
+        show : true,
+        position : FreeDo.Cartesian3.fromDegrees(121.6207361838563, 38.92834465015816,1),
+        point : { // 点
+            pixelSize : 5,
+            color : FreeDo.Color.RED,
+            outlineColor : FreeDo.Color.WHITE,
+            outlineWidth : 2,
+            distanceDisplayCondition:new FreeDo.DistanceDisplayCondition(0.0, 10000)
+        },
+        label : { // 文字标签
+            text : "中间风井（接收）",
+            font : '20pt monospace',
+            style : FreeDo.LabelStyle.FILL_AND_OUTLINE,
+            outlineWidth : 2,
+            backgroundColor:FreeDo.Color.MEDIUMBLUE,
+            showBackground:true,
+            fillColor:FreeDo.Color.YELLOW,
+            verticalOrigin : FreeDo.VerticalOrigin.BOTTOM, // 垂直方向以底部来计算标签的位置
+            pixelOffset : new FreeDo.Cartesian2(0, -9),// 偏移量,
+            distanceDisplayCondition:new FreeDo.DistanceDisplayCondition(0.0, 10000)
+        }
+    });
+	var label6 = viewer.entities.add({
 		name : "梭渔湾南站",
 		show : true,
 		position : FreeDo.Cartesian3.fromDegrees(121.61392275532712, 38.95323841740604,1),
-		point : { // 点
-			pixelSize : 5,
-			color : FreeDo.Color.RED,
-			outlineColor : FreeDo.Color.WHITE,
-			outlineWidth : 2
-		},
 		label : { // 文字标签
 			text : "梭渔湾南站",
-			font : '14pt monospace',
+			font : '16pt monospace',
 			style : FreeDo.LabelStyle.FILL_AND_OUTLINE,
 			fillColor : FreeDo.Color.RED,
+            outlineColor:FreeDo.Color.WHITE,
 			outlineWidth : 2,
 			verticalOrigin : FreeDo.VerticalOrigin.BOTTOM, // 垂直方向以底部来计算标签的位置
-			pixelOffset : new FreeDo.Cartesian2(0, -9)// 偏移量
-		}
+			pixelOffset : new FreeDo.Cartesian2(0, -9),// 偏移量,
+            distanceDisplayCondition:new FreeDo.DistanceDisplayCondition(0.0, 10000)
+		},
+		billboard:{
+		    image:"../../static/page/dungou/gaikuang/img/star.png",
+            width:25,
+            height:25,
+            distanceDisplayCondition:new FreeDo.DistanceDisplayCondition(0.0, 10000)
+        }
 	});
-	var label5 = viewer.entities.add({
+	var label7 = viewer.entities.add({
 		name : "火车站",
 		show : true,
 		position : FreeDo.Cartesian3.fromDegrees(121.62378599839502, 38.922779514349656,1),
-		point : { // 点
-			pixelSize : 5,
-			color : FreeDo.Color.RED,
-			outlineColor : FreeDo.Color.WHITE,
-			outlineWidth : 2
-		},
 		label : { // 文字标签
 			text : "火车站",
-			font : '14pt monospace',
+			font : '16pt monospace',
 			style : FreeDo.LabelStyle.FILL_AND_OUTLINE,
 			fillColor : FreeDo.Color.RED,
+            outlineColor:FreeDo.Color.WHITE,
 			outlineWidth : 2,
 			verticalOrigin : FreeDo.VerticalOrigin.BOTTOM, // 垂直方向以底部来计算标签的位置
-			pixelOffset : new FreeDo.Cartesian2(0, -9)// 偏移量
-		}
+			pixelOffset : new FreeDo.Cartesian2(0, -9),// 偏移量,
+            distanceDisplayCondition:new FreeDo.DistanceDisplayCondition(0.0, 10000)
+		},
+        billboard:{
+            image:"../../static/page/dungou/gaikuang/img/star.png",
+            width:25,
+            height:25,
+            distanceDisplayCondition:new FreeDo.DistanceDisplayCondition(0.0, 10000)
+        }
 	});
 	var posinf1 = viewer.entities.add( {
 	    name : '位置信息',
@@ -520,7 +590,8 @@ function initEntities(viewer){
 	        verticalOrigin : FreeDo.VerticalOrigin.BOTTOM, //垂直方向以底部来计算标签的位置
 	        pixelOffset : new FreeDo.Cartesian2( 0, -9 ) ,  //偏移量
 			backgroundColor:FreeDo.Color.BLACK.withAlpha(0.5),
-			showBackground:true
+			showBackground:true,
+            distanceDisplayCondition:new FreeDo.DistanceDisplayCondition(0.0, 10000)
 	    },
 
 	} );
@@ -536,19 +607,21 @@ function initEntities(viewer){
 	        verticalOrigin : FreeDo.VerticalOrigin.BOTTOM, //垂直方向以底部来计算标签的位置
 	        pixelOffset : new FreeDo.Cartesian2( 0, -9 ) ,  //偏移量
 			backgroundColor:FreeDo.Color.BLACK.withAlpha(0.5),
-			showBackground:true
+			showBackground:true,
+            distanceDisplayCondition:new FreeDo.DistanceDisplayCondition(0.0, 10000)
 	    },
 
 	} );
 	var tuding = viewer.entities.add( {
 	    name : '位置信息',
         show:true,
-	    position : new FreeDo.Cartesian3.fromDegrees(121.61875369174274, 38.94000730931085,3),
+	    position : new FreeDo.Cartesian3.fromDegrees(121.617802483274261,38.93972348307097,3),
         billboard:{
         	image:"../../static/page/dungou/gaikuang/img/tuding.png",
         	height:50,
         	width:50,
-        	pixelOffset:new FreeDo.Cartesian2( 0, -15 )
+        	pixelOffset:new FreeDo.Cartesian2( 0, -15 ),
+            distanceDisplayCondition:new FreeDo.DistanceDisplayCondition(0.0, 10000)
         }
 
 	});
@@ -557,6 +630,8 @@ function initEntities(viewer){
 	entityarray.push(label3);
 	entityarray.push(label4);
 	entityarray.push(label5);
+	entityarray.push(label6);
+	entityarray.push(label7);
 	entityarray.push(posinf1);
 	entityarray.push(posinf2);
 	entityarray.push(tuding);
