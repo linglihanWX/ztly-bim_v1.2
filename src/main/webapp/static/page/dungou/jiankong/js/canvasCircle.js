@@ -1,16 +1,23 @@
 var scrWidth = window.screen.width;
 function TbmDeviation(canvas) {
     this.canvas = canvas;
-    this.width = canvas.width;
-    this.height = canvas.height;
-    this.length = this.width < this.height ? this.width / 2 - 10 : this.height / 2 - 10; //代表正方形边的一半长度
+    this.width = canvas.width>canvas.height?canvas.height:canvas.width;
+    this.height = canvas.width>canvas.height?canvas.height:canvas.width;
+    if (scrWidth > 1366) {
+        this.length = this.width < this.height ? this.width / 2 - 20 : this.height / 2 - 20;
+        this.tagNum = 5;
+    }else{
+        this.tagNum = 4;
+        this.length = this.width < this.height ? this.width / 2 - 15 : this.height / 2 - 15;
+    }
+    //代表正方形边的一半长度
     this.context = canvas.getContext('2d');
 
-    if (scrWidth<=1366)
-        this.tagNum = 5;
-    else{
-        this.tagNum = 10;
-    }
+
+
+
+        // this.tagNum = 10;
+
     //this.tagNum = 5; //代表正方形边上的标签的个数（左一半）
     canvas.width = this.width;
     canvas.height = this.height;
@@ -105,27 +112,27 @@ TbmDeviation.prototype.drawTag = function() {
     context.strokeText(0, 0, 0);
     var len;
     var num;
-    if (scrWidth <= 1366){
+    if (scrWidth > 1366) {
         len = 5;
-        num = 20;
+        num = 2;
     }else{
-        len = 10;
-        num = 10;
+        len = 2;
+        num = 2.5;
     }
-    for (var i = 1; i < len; i++) {
-        var text = i * num;
-        context.strokeText(text, i * tagLength, 0); //右侧数字
+    for (var i = 1; i <= len; i+=2) {
+        var text = (i + 1) * num;
+        context.strokeText(text, (i + 1) * tagLength, 0); //右侧数字
 
         context.save();
         context.textAlign = 'right'; //左侧数字
-        context.strokeText(-text, -i * tagLength, 0);
+        context.strokeText(-text, -(i + 1) * tagLength, 0);
         context.restore();
 
-        context.strokeText(-text, 0, i * tagLength); //下部
+        context.strokeText(-text, 0, (i + 1) * tagLength ); //下部
 
         context.save() //上部
         context.textBaseline = "bottom";
-        context.strokeText(text, 0, -i * tagLength);
+        context.strokeText(text, 0, -(i + 1) * tagLength);
         context.restore();
     }
     context.restore();

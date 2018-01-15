@@ -4,7 +4,7 @@ $(function () {
     getPoints(FreedoApp.viewers["earth"])
     var array = initEntities(FreedoApp.viewers["earth"])
     $(".compassDiv").hide();
-    var scrWidth = window.screen.width;
+    let scrWidth = window.screen.width;
     $(".icon-bqp").on("click",function () {
         if($("#earth").hasClass("full-screen")){
             $(".compassDiv").hide();
@@ -35,11 +35,20 @@ $(function () {
         $("#earth .size,#earth1 .size").toggleClass("icon-bqp icon-qp");
         $("#earth,#earth1").toggleClass("full-screen not-full-screen");
         if($("#earth").hasClass("full-screen")){
+            $("#earth").removeClass("smallHeight");
             $("#earth1 .icon-zxh,#earth1 .icon-zdh").show();
             $("#earth .icon-zxh,#earth .icon-zdh").hide();
-        }else{
+        }else if($("#earth").hasClass("not-full-screen")){
             $("#earth1 .icon-zxh,#earth1 .icon-zdh").hide();
             $("#earth .icon-zxh,#earth .icon-zdh").show();
+        }
+        if($("#earth1").hasClass("full-screen")){
+            $("#earth1").removeClass("smallHeight");
+            $("#earth .icon-zxh,#earth .icon-zdh").show();
+            $("#earth1 .icon-zxh,#earth1 .icon-zdh").hide();
+        }else if($("#earth1").hasClass("not-full-screen")){
+            $("#earth1 .icon-zxh,#earth1 .icon-zdh").show();
+            $("#earth .icon-zxh,#earth .icon-zdh").hide();
         }
     });
     $(".icon-zxh,.icon-zdh").on("click",function () {
@@ -56,7 +65,7 @@ $(function () {
         $(".content-middle").css({"height":100+"%"});
         $(".content-bottom").hide();
     });
-    if (scrWidth <= 1366)
+    if (scrWidth <= 1366) {
         new Swiper ('.swiper-container', {
             direction: 'vertical',
             //loop: true,
@@ -67,13 +76,11 @@ $(function () {
             spaceBetween: 30,
             //mousewheelControl: true
         });
-    else{
-
     }
 
 
-    var chartOne = echarts.init(document.getElementById('chartOne'));
-    var option1 = {
+    let chartOne = echarts.init(document.getElementById('chartOne'));
+    let option1 = {
         title: {
             text: '检测信息',
             left: 'left',
@@ -124,8 +131,8 @@ $(function () {
     };
     chartOne.setOption(option1);
 
-    var chartTwo = echarts.init(document.getElementById('chartTwo'));
-    var option2 = {
+    let chartTwo = echarts.init(document.getElementById('chartTwo'));
+    let option2 = {
         title: {
             text: '进度情况',
             left: 'left',
@@ -176,8 +183,8 @@ $(function () {
     };
     chartTwo.setOption(option2);
 
-    var chartThree = echarts.init(document.getElementById('chartThree'));
-    var option3 = {
+    let chartThree = echarts.init(document.getElementById('chartThree'));
+    let option3 = {
         title: {
             text: '检测信息',
             left: 'left',
@@ -229,14 +236,14 @@ $(function () {
     };
     chartThree.setOption(option3);
 
-    var arr = [];
+    let arr = [];
     if (scrWidth>1366)
         arr = [30,110];
     else{
         arr = [10,60];
     }
-    var chartFour = echarts.init(document.getElementById('chartFour'));
-    var option4 = {
+    let chartFour = echarts.init(document.getElementById('chartFour'));
+    let option4 = {
         title : {
             text: '进度情况',
             x:'center',

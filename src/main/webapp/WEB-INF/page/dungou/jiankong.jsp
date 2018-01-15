@@ -97,7 +97,7 @@
             <div class="info-right">
                 <p>盾构机偏移 <i class="iconfont icon-out"></i></p>
                 <ul>
-                    <li><span>刀盘偏移量X(mm):10</span><span>刀盘偏移量X(mm):10</span></li>
+                    <li>刀盘偏移量(mm):&nbsp;X:10&nbsp;&nbsp;Y:10</li>
                 </ul>
                 <canvas id="circleCanvas"></canvas>
                 <img src="${ctx }/static/page/dungou/jiankong/img/yaw.png" alt="" class="yaw">

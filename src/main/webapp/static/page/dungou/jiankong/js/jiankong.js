@@ -1,7 +1,9 @@
 $(function () {
-	   $(".three-menu li:nth-of-type(2) a").addClass("second-active").parent().siblings().children("a").removeClass("second-active")
 
+    $(".three-menu li:nth-of-type(2) a").addClass("second-active").parent().siblings().children("a").removeClass("second-active");
     var timer = null ;
+
+
 
     // canvas画图
     renderDrilling();
@@ -12,13 +14,8 @@ $(function () {
 
     // 三维窗口的大小改变
     $(".main-page").on("click",function () {
-
-       /* $(".content-middle").stop().animate({
-            "height":400
-        },"fast");*/
         $(".content-middle").css({"height":50+"%"});
         $(".content-bottom").show();
-
     });
 
     $(".three-page").on("click",function () {
@@ -28,6 +25,11 @@ $(function () {
     $(".two-page").on("click",function () {
         $(".content").hide();
         $(".page-info").show();
+    });
+    $(".nav-show-hide").on("click",function () {
+
+        $(".nav").toggle();
+
     });
     $(".returnPage").on("click",function () {
         $(".content").show();
@@ -72,7 +74,6 @@ $(function () {
                     }
                     str += `</ul></div>`;
                     $(".info-middle").append(str);
-
                 }
             }
         }
@@ -85,7 +86,7 @@ $(function () {
         if(i < 6){
             str1 += `<li><input type="checkbox" checked name="" data-id="${infoData[i].id}">${infoData[i].name}</li>`;
         }else{
-            str1 += `<li><input type="checkbox" data-id="${infoData[i].id}">${infoData[i].name}</li>`;
+            str1 += `<li><input type="checkbox" name="" data-id="${infoData[i].id}">${infoData[i].name}</li>`;
         }
     }
     $(".list").append(str1);
@@ -93,7 +94,7 @@ $(function () {
 
     // 隐藏按钮的点击
     $(".showCheckList").on("click",function () {
-       $(".list-box").stop().slideDown();
+        $(".list-box").stop().slideDown();
     });
     $(".close").on("click",function () {
         $(".list-box").stop().slideUp();
@@ -123,7 +124,7 @@ $(function () {
                               }
                               str += `</ul></div>`;
                               $(".info-middle").append(str);
-                            
+
                           }
 
                       }
@@ -163,7 +164,7 @@ $(function () {
         var heightC = $(".info-right").height() - $(".info-right ul").height() - 30;
         $("#circleCanvas").attr("height",heightC);
         $("#circleCanvas").attr("width",widthC);
-        var a=document.getElementById("circleCanvas");
+        var a = document.getElementById("circleCanvas");
         new TbmDeviation(a);
     }
 
@@ -173,8 +174,7 @@ $(function () {
     function renderDrilling() {
         clearInterval(timer);
         var widthT = $(".info-left").width();
-
-        var heightT = $(".info-left").height() - 30;
+        var heightT = $(".info-left").height() - $(".info-left>p").height();
         var i = 0;
         timer = setInterval(function () {
             i++;
@@ -203,6 +203,7 @@ $(function () {
             canvas.drilling.init(options);
         }, 1000);
     }
+
 
     // 窗口改变时，自动变化
     $(window).resize(function(){

@@ -1,6 +1,6 @@
 var canvas = {};
-
-canvas.drilling = {}
+var scrWidth = window.screen.width;
+canvas.drilling = {};
 canvas.drilling.init = function  (options) {
     //数据
     var id = options.id;
@@ -42,7 +42,12 @@ canvas.drilling.init = function  (options) {
     var width = options.width;
     var height = options.height;
 
-    var cvsRate = width / 500;
+    if (scrWidth <= 1366){
+        var cvsRate = width / 600;
+    }else{
+        var cvsRate = width / 550;
+    }
+
 
 
     reSize()
@@ -179,32 +184,29 @@ canvas.drilling.init = function  (options) {
             ctx.restore()
         }
         // //环绕四边文字信息
+        var arr = ["上","右","下","左"]
         for (var i = 0; i< 4; i++){
-            // if (i%2 == 0) {
-            // 	fillTxt(ctx,'行程'+'_______'+'mm','#000',i*180,90+80);
-            // 	fillTxt(ctx,'推力'+'_______'+'KN','#000',i*180,114+80);
-            // }else{
-            // 	if (i==1) {
-            // 		fillTxt(ctx,'行程'+'_______'+'mm','#000',180,i*20);
-            // 		fillTxt(ctx,'推力'+'_______'+'KN','#000',180,(i*20)+24);
-            // 	}else{
-            // 		fillTxt(ctx,'行程'+'_______'+'mm','#000',180,i*106);
-            // 		fillTxt(ctx,'推力'+'_______'+'KN','#000',180,(i*106)+24);
-            // 	}
-            // }
-            ctx.save()
-            ctx.translate(cvs.width/2,cvs.height/2);
-            ctx.rotate(i*90*Math.PI/180)
-            if (i == 0 || i == 2) {
-                ctx.translate(0,-150);
-            }else{
-                ctx.translate(0,-180);
-            }
 
-            ctx.rotate(-(i*90*Math.PI/180))
-            fillTxt(ctx,'行程'+'_______'+'mm','#000',0,10,'center');
+            ctx.save();
+            if (scrWidth <= 1366){
+                if(i < 2){
+                    ctx.translate(-50 ,cvs.height/3 * ( i + 1));
+                }else{
+                    ctx.translate(cvs.width + 50 ,cvs.height/3 * ( i - 1));
+                }
+
+            }else{
+                if(i < 2){
+                    ctx.translate(cvs.width/10 ,cvs.height/3 * (i +1));
+                }else{
+                    ctx.translate(cvs.width/10 * 9 ,cvs.height/3 * ( i - 1));
+                }
+
+             }
+
+            fillTxt(ctx,arr[i]+'行程'+'______'+'mm','#000',0,10,'center');
             fillTxt(ctx,mm[i],'blue',0,10,'center');
-            fillTxt(ctx,'推力'+'_______'+'KN','#000',0,-10,'center');
+            fillTxt(ctx,arr[i]+'推力'+'______'+'KN','#000',0,-10,'center');
             fillTxt(ctx,KN[i],'blue',0,-10,'center');
             ctx.restore()
 
@@ -233,6 +235,7 @@ canvas.drilling.init = function  (options) {
     }
     function centerText(){
         ctx.save()
+
         ctx.translate(cvs.width/2, cvs.height/2)
         fillTxt(ctx,'推进速度：'+'________ '+' mm/min','#000',0,-60,'center')
         fillTxt(ctx,pushSpeed,'blue',0,-60)
@@ -240,15 +243,15 @@ canvas.drilling.init = function  (options) {
         fillTxt(ctx,knifeDishSpeed,'blue',6,-40)
         fillTxt(ctx,'贯入度：'+'________ '+' mm/rpm','#000',0,-20,'center')
         fillTxt(ctx,penetration,'blue',-10,-20)
-        fillTxt(ctx,'刀盘扭矩：'+'________ '+' KN·m','#000',0,0,'center')
+        fillTxt(ctx,'刀盘扭矩：'+'_______'+' KN·m','#000',0,0,'center')
         fillTxt(ctx,knifeDishTorque,'blue',0,0)
-        fillTxt(ctx,'总推力：'+'________ '+' KN','#000',0,20,'center')
+        fillTxt(ctx,'总推力：'+'_______'+' KN','#000',0,20,'center')
         fillTxt(ctx,sumPush,'blue',10,20,'center')
-        fillTxt(ctx,'推力油压：'+'________ '+' bar','#000',0,40,'center')
+        fillTxt(ctx,'推力油压：'+'_______'+' bar','#000',0,40,'center')
         fillTxt(ctx,thrustHydraulic,'blue',16,40,'center')
-        fillTxt(ctx,'旋转方向：'+'________ ','#000',0,60,'center')
+        fillTxt(ctx,'旋转方向：'+'_______','#000',0,60,'center')
         fillTxt(ctx,knifeDirection,'blue',30,60,'center')
-        fillTxt(ctx,'旋转次数：'+'________ ','#000',0,80,'center')
+        fillTxt(ctx,'旋转次数：'+'_______','#000',0,80,'center')
         fillTxt(ctx,knifeRotateTime,'blue',30,80,'center')
         ctx.restore()
     }
@@ -375,7 +378,6 @@ canvas.drilling.init = function  (options) {
         curveDB(cxtBackground,10,10,40,10)
         return canvasBackground
     }
-
 }
 canvas.drilling.clear = function  (options) {
     var ctx = options.ctx;
