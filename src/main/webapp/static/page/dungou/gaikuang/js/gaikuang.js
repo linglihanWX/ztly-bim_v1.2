@@ -5,6 +5,32 @@ $(function () {
     var array = initEntities(FreedoApp.viewers["earth"])
     $(".compassDiv").hide();
     var scrWidth = window.screen.width;
+    $(".icon-bqp").on("click",function () {
+        if($("#earth").hasClass("full-screen")){
+            $(".compassDiv").hide();
+            for (var i = 0; i < array.length; i++) {
+                array[i].show = false;
+            }
+        }else{
+            $(".compassDiv").show();
+            for (var i = 0; i < array.length; i++) {
+                array[i].show = true;
+            }
+        }
+    });
+    $(".icon-qp").on("click",function () {
+        if($("#earth").hasClass("full-screen")){
+            $(".compassDiv").hide();
+            for (var i = 0; i < array.length; i++) {
+                array[i].show = false;
+            }
+        }else{
+            $(".compassDiv").show();
+            for (var i = 0; i < array.length; i++) {
+                array[i].show = true;
+            }
+        }
+    });
     $(".size").on("click",function () {
         $("#earth .size,#earth1 .size").toggleClass("icon-bqp icon-qp");
         $("#earth,#earth1").toggleClass("full-screen not-full-screen");
@@ -263,8 +289,8 @@ $(function () {
 
     FreedoApp.viewers["earth"].camera.setView({
 //    	 destination :  new FreeDo.Cartesian3.fromDegrees(121.61949402684546,38.94285250833841,1000),
-    	destination :  new FreeDo.Cartesian3(-2605890.815905916,4232496.60280833,3990154.6100900965),
-    	 orientation :  new FreeDo.HeadingPitchRoll(4.764935388409626,-1.5157381432489783,6.223528948721581)
+    	destination :  new FreeDo.Cartesian3(-2606029.8300439236,4232695.952801313,3989852.346352031),
+    	 orientation :  new FreeDo.HeadingPitchRoll(4.76493381044884,-1.515738147823087,6.223530529077095)
     })
     //图层部分
     var layersarr = [];
@@ -324,10 +350,10 @@ function getPoints(viewer){
 		var cartographic = viewer.scene.globe.ellipsoid.cartesianToCartographic(cartesian);
 		var point=[ cartographic.longitude / Math.PI * 180, cartographic.latitude / Math.PI * 180];
 		console.log(point);
-//		var camera = viewer.camera;
-//		var cpos = camera.position;
-//		console.log(cpos.x+","+cpos.y+","+cpos.z);
-//		console.log(camera.heading+","+camera.pitch+","+camera.roll)
+		var camera = viewer.camera;
+		var cpos = camera.position;
+		console.log(cpos.x+","+cpos.y+","+cpos.z);
+		console.log(camera.heading+","+camera.pitch+","+camera.roll)
 	}, FreeDo.ScreenSpaceEventType.LEFT_CLICK);
 }
 function initEntities(viewer){
@@ -337,19 +363,27 @@ function initEntities(viewer){
 	    name : '隧道',
 	    polyline : {
 	        positions : new Freedo.Cartesian3.fromDegreesArray(
-	            [121.61974798399038, 38.96007026243973,
-	            121.6169733685259, 38.95966656608986,
-	            121.61382483293477, 38.958980777336876,
-	            121.61243342605752, 38.957479607066205,
-	            121.6115335400403, 38.9556454271757,
-	            121.6131925520136, 38.95336864839285,
-	            121.6146725350369, 38.952087457140124,
-	            121.61601688421773, 38.950860081314396,
-	            121.62115072655634, 38.93051301111516,
-	            121.62116506064486, 38.92892853570932,
-	            121.62186300364372, 38.926483139280485,
-	            121.62340769083177, 38.924764989650456,
-	            121.62539781330662, 38.922285712328474]),
+	            [
+                    121.6174590015098, 38.95874455713569,
+                    121.61620866389461, 38.95850677314042,
+                   121.61540662903757, 38.958213704595344,
+                    121.61434819575115, 38.95757077980332,
+                    121.6135457552831, 38.95697455120128,
+                    121.61290596157349, 38.956174751834915,
+                    121.61286001141309, 38.955303559050506,
+                    121.61311573725642, 38.95458901085754,
+                    121.61419971201384, 38.952850605114364,
+                    121.61488866358799, 38.95166932433065,
+                    121.61504611872272, 38.95062460623984,
+                    121.62024154952725, 38.93020774283203,
+                    121.62079840051048, 38.92833355870257,
+                    121.6211754421881, 38.927660591537894,
+                    121.62203768455467, 38.92672914057143,
+                   121.62259337661449, 38.92564313453812,
+                   121.62330218345369, 38.92434019585824,
+                   121.62374838697704, 38.92305321084292,
+                   121.62404269310349, 38.92168051864768,
+                ]),
 	        width : 5,
 	        material : FreeDo.Color.RED
 	    }
@@ -399,7 +433,7 @@ function initEntities(viewer){
 	var label2 = viewer.entities.add({
 		name : "军港码头",
         show:true,
-		position : FreeDo.Cartesian3.fromDegrees(121.62016539515689, 38.931439734276786,1),
+		position : FreeDo.Cartesian3.fromDegrees(121.62141197222627, 38.930938297203014,1),
 		point : { // 点
 			pixelSize : 5,
 			color : FreeDo.Color.RED,
@@ -437,7 +471,7 @@ function initEntities(viewer){
 	var label4 = viewer.entities.add({
 		name : "梭渔湾南站",
 		show : true,
-		position : FreeDo.Cartesian3.fromDegrees(121.61347352273391, 38.953072774869725,1),
+		position : FreeDo.Cartesian3.fromDegrees(121.61392275532712, 38.95323841740604,1),
 		point : { // 点
 			pixelSize : 5,
 			color : FreeDo.Color.RED,
@@ -446,6 +480,26 @@ function initEntities(viewer){
 		},
 		label : { // 文字标签
 			text : "梭渔湾南站",
+			font : '14pt monospace',
+			style : FreeDo.LabelStyle.FILL_AND_OUTLINE,
+			fillColor : FreeDo.Color.RED,
+			outlineWidth : 2,
+			verticalOrigin : FreeDo.VerticalOrigin.BOTTOM, // 垂直方向以底部来计算标签的位置
+			pixelOffset : new FreeDo.Cartesian2(0, -9)// 偏移量
+		}
+	});
+	var label5 = viewer.entities.add({
+		name : "火车站",
+		show : true,
+		position : FreeDo.Cartesian3.fromDegrees(121.62378599839502, 38.922779514349656,1),
+		point : { // 点
+			pixelSize : 5,
+			color : FreeDo.Color.RED,
+			outlineColor : FreeDo.Color.WHITE,
+			outlineWidth : 2
+		},
+		label : { // 文字标签
+			text : "火车站",
 			font : '14pt monospace',
 			style : FreeDo.LabelStyle.FILL_AND_OUTLINE,
 			fillColor : FreeDo.Color.RED,
@@ -502,6 +556,7 @@ function initEntities(viewer){
 	entityarray.push(label2);
 	entityarray.push(label3);
 	entityarray.push(label4);
+	entityarray.push(label5);
 	entityarray.push(posinf1);
 	entityarray.push(posinf2);
 	entityarray.push(tuding);
