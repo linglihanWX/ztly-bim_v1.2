@@ -62,11 +62,11 @@ $(function () {
             readynum = readynum + 1;
             if (readynum == 9) {
 
-/*                var center = new FreeDo.Cartesian3.fromDegrees(113.6609628070344, 22.791190110267943, 10)
+                var center = new FreeDo.Cartesian3.fromDegrees(113.6609628070344, 22.791190110267943, 10)
                 var bs=new FreeDo.BoundingSphere(center, 10)
                 console.log(viewer.camera.screenSpaceCameraController);
                 viewer.scene.screenSpaceCameraController.bimTrackByBoundingSphere(bs)
-                console.log(model.boundingSphere)*/
+                console.log(model.boundingSphere)
                 for (var j = 1; j < dungouModels.length; j++) {
                     var obj = dungouModels[j];
                     obj.activeAnimations.addAll({
