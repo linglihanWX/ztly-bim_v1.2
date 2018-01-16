@@ -41,6 +41,15 @@ public class DungouController {
 		
 	}
 	/**
+	 * 跳转到 盾构安全风险页面-zzw
+	 * 
+	 */
+	@RequestMapping(value="toFengxian")
+	public String tofengxianPage() {
+		return "dungou/fengxian";
+		
+	}
+	/**
 	 * 跳转到	盾构监控页面>盾构检测页面
 	 * @return
 	 */

@@ -18,7 +18,7 @@ $(function () {
                         <ul class="three-menu">
                             <li> <a href="../../ProSystem/dungou/toGaikuang" class="second-active"><span>项目概况</span></a></li>
                             <li> <a href="../../ProSystem/dungou/toJiankong" ><span>盾构监控</span></a></li>
-                            <li> <a href="javascript:;"><span>安全风险</span></a></li>
+                            <li> <a href="../../ProSystem/dungou/toFengxian"><span>安全风险</span></a></li>
                             <li> <a href="javascript:;"><span>预警处理</span></a></li>
                             <li> <a href="javascript:;"><span>进度管理</span></a></li>
                             <li> <a href="javascript:;"><span>文档管理</span></a></li>
