@@ -14,7 +14,15 @@
     <link rel="stylesheet" type="text/css" href="${ctx }/static/page/dungou/jiankong/font/iconfont.css">
     <link rel="stylesheet" href="${ctx }/static/page/dungou/daopanjiance/css/daopanjiance.css">
     <script src="${ctx }/static/page/common/js/jquery-3.2.1.min.js"></script>
-    <%@ include file="/WEB-INF/page/common/common_FD.jsp"%>
+    <link href="http://res.gbim360.com/lib/freedo/rel/1.5.3.1/Freedo/Widgets/widgets.css" rel="stylesheet">
+    <script src="http://res.gbim360.com/lib/freedo/rel/1.5.3.1/Freedo/Freedo.js"></script>
+    <script src="http://res.gbim360.com/shared/1710_lodash/lodash.min.js"></script>
+    <script src="${ctx }/static/page/common/js/FreedoApp.js"></script>
+    <!-- 指北针 -->
+    <link rel="stylesheet" href="${ctx }/static/webgl/compass/css/compass.css">
+    <script src="${ctx }/static/webgl/compass/js/Compass.js"></script>
+    <script src="${ctx }/static/page/common/js/FreeDoTool.js"></script>S
+    <%--<script src="../API/FreedoX.js"></script>--%>
 </head>
 <body>
 <header id="header">

@@ -12,6 +12,17 @@ $(function () {
     //初始化地球
     FreedoApp.init("earth");
     var viewer = FreedoApp.viewers["earth"];
+    viewer.scene.skyBox = new Freedo.SkyBox({
+        sources : {
+            positiveX : '../../static/page/dungou/daopanjiance/img/skybox.png',
+            negativeX : '../../static/page/dungou/daopanjiance/img/skybox.png',
+            positiveY : '../../static/page/dungou/daopanjiance/img/skybox.png',
+            negativeY : '../../static/page/dungou/daopanjiance/img/skybox.png',
+            positiveZ : '../../static/page/dungou/daopanjiance/img/skybox.png',
+            negativeZ : '../../static/page/dungou/daopanjiance/img/skybox.png'
+        }
+    });
+
     //隐藏指北针
     $(".compassDiv").hide();
     //隐藏地球
@@ -41,8 +52,8 @@ $(function () {
     console.log(dungouModels)
     //相机定位
     viewer.camera.setView({
-        destination: new FreeDo.Cartesian3(-2361058.6072171926, 5388551.638713744, 2455422.8777892664),
-        orientation: new FreeDo.HeadingPitchRoll(4.696915930562629, -0.1831326491911487, 6.28059904781921)
+        destination: new FreeDo.Cartesian3(-2361061.773916838,5388540.165346061,2455448.1596130435),
+        orientation: new FreeDo.HeadingPitchRoll(3.9860794109915956,-0.2521178744248991,6.281444640249074)
     })
     //模型动画
     var readynum = 0;
@@ -50,6 +61,12 @@ $(function () {
         FreeDo.when(dungouModels[i].readyPromise).then(function (model) {
             readynum = readynum + 1;
             if (readynum == 9) {
+
+/*                var center = new FreeDo.Cartesian3.fromDegrees(113.6609628070344, 22.791190110267943, 10)
+                var bs=new FreeDo.BoundingSphere(center, 10)
+                console.log(viewer.camera.screenSpaceCameraController);
+                viewer.scene.screenSpaceCameraController.bimTrackByBoundingSphere(bs)
+                console.log(model.boundingSphere)*/
                 for (var j = 1; j < dungouModels.length; j++) {
                     var obj = dungouModels[j];
                     obj.activeAnimations.addAll({
@@ -62,12 +79,8 @@ $(function () {
             }
         });
     }
-    //模型高亮测试
-    //modelHighlight(2);
-
-    //getcamera();
-
     click2DChange3D()
+    getcamera()
 })
 
 //模型高亮
@@ -129,7 +142,6 @@ function getcamera() {
 }
 
 function click2DChange3D() {
-
     for (let i = 0; i < 4; i++) {
         $("#part" + i + " .right-span").click(function () {
             if($(this).attr("data-mao")=="false"){
@@ -139,7 +151,6 @@ function click2DChange3D() {
                 restoreColor(i + 3);
                 $(this).attr("data-mao","false");
             }
-
         })
         $("#part" + i + " .left-span").click(function () {
             if($(this).attr("data-mao")=="false"){
@@ -199,5 +210,4 @@ function click2DChange3D() {
             $(this).attr("data-mao","false");
         }
     })
-
 }

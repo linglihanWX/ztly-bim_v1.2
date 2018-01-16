@@ -77,11 +77,11 @@ $(function () {
         	if(data.length==0){
         		window.confirm(data);
         	}else{
-                treedata.push({
-                    uid:"-1",
-                    pid:"-2",
-                    name:"模型构件树"
-                })
+                // treedata.push({
+                //     uid:"-1",
+                //     pid:"-2",
+                //     name:"模型构件树"
+                // })
                 if(data.length==1){
                     for (var i = 0; i < data.length; i++) {
                         for (var j = 0; j < data[i].length; j++) {
