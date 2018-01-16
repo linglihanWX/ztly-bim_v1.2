@@ -38,7 +38,7 @@ $(function () {
                         imgarray[i] = str+imgarray[i] ;
                     }
                     //调用挖坑方法
-                    FreeDoUtil.dig(FreedoApp.viewers["init"],holeData,imgarray);
+                    FreeDoUtil.dig(FreedoApp.viewers["earth"],holeData,imgarray);
                 }
         		console.log( model[key].url);
         		 //向场景中添加模型
