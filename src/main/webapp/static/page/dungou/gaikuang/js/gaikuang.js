@@ -3,7 +3,6 @@ $(function () {
     FreedoApp.init("earth");
     getPoints(FreedoApp.viewers["earth"])
     var array = initEntities(FreedoApp.viewers["earth"])
-    $(".compassDiv").hide();
     let scrWidth = window.screen.width;
     $(".icon-bqp").on("click",function () {
         if($("#earth").hasClass("full-screen")){
