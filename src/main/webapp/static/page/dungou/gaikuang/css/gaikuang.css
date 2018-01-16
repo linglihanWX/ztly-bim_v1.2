@@ -60,6 +60,19 @@
     font-size: 14px;
     text-align: center;
 }
+#earth{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+#earth1 {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 30%;
+    height:50%;
+    z-index:3;
+}
 #earth p,
 #earth1 p{
     position: absolute;
@@ -82,7 +95,6 @@
 }
 #earth p i,#earth1 p i{
     float: right;
-    display: inline-block;
     width: 20px;
     height: 20px;
     line-height: 20px;
@@ -90,22 +102,27 @@
     color: #fff;
     cursor: pointer;
 }
-#earth.full-screen,
-#earth1.full-screen{
-    position: relative;
-    width: 100%;
-    height: 100%;
+.full-screen{
+    position: relative!important;
+    width: 100%!important;
+    height: 100%!important;
+    z-index:2!important;
 }
-#earth.not-full-screen,
-#earth1.not-full-screen{
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 30%;
-    height:50%;
-    z-index:3;
+.not-full-screen{
+    position: absolute!important;
+    right: 0!important;
+    bottom: 0!important;
+    width: 30%!important;
+    height:50%!important;
+    z-index:3!important;
 }
 .smallHeight{
+    position: absolute!important;
+    right: 0!important;
+    bottom: 0!important;
+    width: 30%!important;
+    height: 20px!important;
+    z-index: 3!important;
     height: 20px!important;
 }
 
@@ -121,7 +138,6 @@
     width: 20px;
     height: 15px;
     vertical-align: top;
-    background-color: red;
     margin: 3px 5px 0 10px;
 }
 #earth1>p>span:nth-of-type(2){

@@ -30,29 +30,93 @@ $(function () {
             }
         }
     });
-    $(".size").on("click",function () {
+    let state = "full-screen";
+    let state1 = "not-full-screen";
+    let smallStr = false;
+    let smallStr1 = false;
+
+    $(".size").on("click", function () {
         $("#earth .size,#earth1 .size").toggleClass("icon-bqp icon-qp");
-        $("#earth,#earth1").toggleClass("full-screen not-full-screen");
-        if($("#earth").hasClass("full-screen")){
-            $("#earth").removeClass("smallHeight");
-            $("#earth1 .icon-zxh,#earth1 .icon-zdh").show();
-            $("#earth .icon-zxh,#earth .icon-zdh").hide();
-        }else if($("#earth").hasClass("not-full-screen")){
-            $("#earth1 .icon-zxh,#earth1 .icon-zdh").hide();
-            $("#earth .icon-zxh,#earth .icon-zdh").show();
+        /*  if (state == "full-screen") {
+            if (smallStr) {
+                $("#earth").toggleClass("full-screen smallHeight");
+                $("#earth .icon-zdh").show();
+                $("#earth .icon-zxh").hide();
+            } else {
+                $("#earth").toggleClass("full-screen not-full-screen");
+                $("#earth .icon-zxh").show();
+                $("#earth .icon-zdh").hide();
+            }
+        } else if (state == "not-full-screen") {
+            $("#earth").toggleClass("not-full-screen full-screen");
+            $("#earth .icon-zdh").hide();
+            $("#earth .icon-zxh").hide();
+        } else if (state == "smallHeight") {
+            $("#earth").toggleClass("smallHeight full-screen");
+            $("#earth .icon-zdh").hide();
+            $("#earth .icon-zxh").hide();
         }
-        if($("#earth1").hasClass("full-screen")){
-            $("#earth1").removeClass("smallHeight");
-            $("#earth .icon-zxh,#earth .icon-zdh").show();
-            $("#earth1 .icon-zxh,#earth1 .icon-zdh").hide();
-        }else if($("#earth1").hasClass("not-full-screen")){
-            $("#earth1 .icon-zxh,#earth1 .icon-zdh").show();
-            $("#earth .icon-zxh,#earth .icon-zdh").hide();
-        }
+
+        if (state1 == "full-screen") {
+            if (smallStr1) {
+                $("#earth1").toggleClass("full-screen smallHeight");
+                $("#earth1 .icon-zdh").show();
+                $("#earth1 .icon-zxh").hide();
+            } else {
+                $("#earth1").toggleClass("full-screen not-full-screen");
+                $("#earth1 .icon-zxh").show();
+                $("#earth1 .icon-zdh").hide();
+            }
+        } else if (state1 == "not-full-screen") {
+            $("#earth1").toggleClass("not-full-screen full-screen");
+            $("#earth1 .icon-zdh").hide();
+            $("#earth1 .icon-zxh").hide();
+        } else if (state1 == "smallHeight") {
+            $("#earth1").toggleClass("smallHeight full-screen");
+            $("#earth1 .icon-zdh").hide();
+            $("#earth1 .icon-zxh").hide();
+        } */
+        changeIcon(state, smallStr, "earth");
+        changeIcon(state1, smallStr1, "earth1");
+        state = $("#earth").attr("class");
+        state1 = $("#earth1").attr("class");
     });
-    $(".icon-zxh,.icon-zdh").on("click",function () {
+
+    /**
+     * 改变图标
+     * @param {*} state     当前的类名
+     * @param {*} smallStr  前一次是否是最小高度
+     * @param {*} el        元素
+     */
+    function changeIcon(state, smallStr, el) {
+        if (state == "full-screen") {
+            if (smallStr) {
+                $("#" + el).toggleClass("full-screen smallHeight");
+                $("#" + el + " .icon-zdh").show();
+                $("#" + el + " .icon-zxh").hide();
+            } else {
+                $("#" + el).toggleClass("full-screen not-full-screen");
+                $("#" + el + " .icon-zxh").show();
+                $("#" + el + " .icon-zdh").hide();
+            }
+        } else if (state == "not-full-screen") {
+            $("#" + el).toggleClass("not-full-screen full-screen");
+            $("#" + el + " .icon-zdh,#" + el + " .icon-zxh").hide();
+        } else if (state == "smallHeight") {
+            $("#" + el).toggleClass("smallHeight full-screen");
+            $("#" + el + " .icon-zdh,#" + el + " .icon-zxh").hide();
+        }
+    }
+    $(".icon-zxh,.icon-zdh").on("click", function () {
         $(this).toggleClass("icon-zxh icon-zdh");
-        $(this).parent().parent().toggleClass("smallHeight");
+        $(this).parent().parent().toggleClass("smallHeight not-full-screen");
+        state = $("#earth").attr("class");
+        state1 = $("#earth1").attr("class");
+        if ($(this).parent().parent().attr("id") == "earth") {
+            smallStr = (state == "smallHeight") ? true : false;
+        } else {
+            smallStr1 = (state1 == "smallHeight") ? true : false;
+        }
     });
     // 三维窗口的大小改变
     $(".main-page").on("click",function () {
