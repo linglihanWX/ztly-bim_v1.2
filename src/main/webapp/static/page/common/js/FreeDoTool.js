@@ -642,3 +642,41 @@ FreeDoTool.dig = function (viewer, floorArray,imgarray) {
   //   }
   // }
 }
+FreeDoTool.getSphereFromBoundsMinMax = function(boundsMin, boundsMax, modelTile) {
+    var index1 = boundsMax.indexOf(",", 0);
+    var index2 = boundsMax.indexOf(",", index1 + 1);
+    var xMax = parseFloat(boundsMax.substr(0, index1));
+    var yMax = parseFloat(boundsMax.substr(index1 + 1, index2 - index1 - 1));
+    var zMax = parseFloat(boundsMax.substr(index2 + 1, boundsMax.length - index2 - 1));
+    var maxcorner = new FreeDo.Cartesian3(xMax, yMax, zMax);
+
+    index1 = boundsMin.indexOf(",", 0);
+    index2 = boundsMin.indexOf(",", index1 + 1);
+    var xMin = parseFloat(boundsMin.substr(0, index1));
+    var yMin = parseFloat(boundsMin.substr(index1 + 1, index2 - index1 - 1));
+    var zMin = parseFloat(boundsMin.substr(index2 + 1, boundsMin.length - index2 - 1));
+    var mincorner = new Freedo.Cartesian3(xMin, yMin, zMin);
+
+    //局部坐标转全局坐标
+    //var local2world = FreeDo.Transforms.eastNorthUpToFixedFrame(position);
+
+    var t = mincorner.y;
+    mincorner.y = -mincorner.z;
+    mincorner.z = t;
+
+    t = maxcorner.y;
+    maxcorner.y = -maxcorner.z;
+    maxcorner.z = t;
+    //Freedo.Matrix4.multiplyByPoint(local2world, mincorner, mincorner);
+    //Freedo.Matrix4.multiplyByPoint(local2world, maxcorner, maxcorner);
+
+    mincorner.y = -mincorner.y;
+    mincorner.z = -mincorner.z;
+    maxcorner.y = -maxcorner.y;
+    maxcorner.z = -maxcorner.z;
+    Freedo.Matrix4.multiplyByPoint(modelTile._root.computedTransform, mincorner, mincorner);
+    Freedo.Matrix4.multiplyByPoint(modelTile._root.computedTransform, maxcorner, maxcorner);
+
+    var sphere = FreeDo.BoundingSphere.fromCornerPoints(mincorner, maxcorner);
+    return sphere;
+}
