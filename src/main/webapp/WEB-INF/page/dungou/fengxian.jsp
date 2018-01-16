@@ -49,12 +49,12 @@
                     <span class="line">右线</span>当前环:<span class="line">110</span>状态停止
                <img id="resetview"src="${ctx }/static/page/dungou/jiankong/img/danger.png" alt="">
                 </p>
-                <ul class="changeContent">
+               <!--  <ul class="changeContent">
                     <li class="main-page"><i class="iconfont icon-main-page"></i>&nbsp;&nbsp;&nbsp;主页面</li>
                     <li class="three-page"><i class="iconfont icon-swzs"></i>&nbsp;&nbsp;&nbsp;三维页面</li>
                     <li class="nav-show-hide"><i class="iconfont icon-yemian"></i>&nbsp;&nbsp;&nbsp;显隐导航</li>
                 </ul>
-      
+       -->
             </div>
             <div id="chartOne"></div>
         </div>
