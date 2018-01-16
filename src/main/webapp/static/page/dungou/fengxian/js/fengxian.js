@@ -12,7 +12,7 @@ $(function () {
     }
     // 三维窗口的大小改变
     $(".main-page").on("click",function () {
-        $(".content-top").css({"height":50+"%"});
+        $(".content-top").css({"height":66+"%"});
         $(".content-bottom").show();
     });
 
