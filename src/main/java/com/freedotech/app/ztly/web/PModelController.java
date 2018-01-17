@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.freedotech.app.ztly.model.Node4ZTree;
@@ -27,12 +28,12 @@ public class PModelController {
 	//从数据库中查询树
 	@RequestMapping(value="/getProjectModelTreeData",method=RequestMethod.GET,produces="application/json")
 	@ResponseBody
-	public List<Node4ZTree> getProjectModelTreeData(HttpServletRequest request) {
+	public List<Node4ZTree> getProjectModelTreeData(HttpServletRequest request,String uid,@RequestParam(value = "tablename", required = false) String tablename) {
 		//取得session中项目的id
 		HttpSession session = request.getSession();
 		String projectid= session.getAttribute("projectid")+"";
 		//取到模型树形列表
-		List treeData = pmodelService.getProjectModelTreeData(projectid);
+		List treeData = pmodelService.getProjectModelTreeData(projectid,uid,tablename);
 		return treeData;
 	}
 	//获取模型

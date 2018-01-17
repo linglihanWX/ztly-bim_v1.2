@@ -7,7 +7,7 @@ import com.freedotech.app.ztly.model.PModel;
 
 public interface PModelService {
 //	 获取树
- List getProjectModelTreeData(String projectId);
+ List getProjectModelTreeData(String projectId,String uid,String tablename);
 // 模型
  List<PModel> getModelUrlByProjectId(String projectid);
  

@@ -246,6 +246,78 @@ $(function () {
 
         }
 	});
+    //	查询树列表
+
+    var treedata = []
+    treedata.push({
+        uid: "-1",
+        pid: "-2",
+        name: "模型构件树",
+        isParent:true
+    })
+
+    var zTreeObj;
+    var setting = {
+        async: {
+            enable: true,
+            type: "get",
+            url: getUrl
+        },
+        data: {
+            simpleData: {
+                enable: true,
+                idKey: "uid",
+                pIdKey: "pid",
+                rootPId: "-2"
+            }
+        },
+        callback: {
+            onRightClick: OnRightClick,
+            onAsyncSuccess:function (event, treeId, treeNode, msg) {
+                // alert('success')
+            },
+            onAsyncError:function (event, treeId, treeNode, XMLHttpRequest, textStatus, errorThrown) {
+                //alert('failed')
+            },
+            onClick:function (event, treeId, treeNode) {
+                var boundsmax = treeNode.boundsmax;
+                var boundsmin = treeNode.boundsmin;
+                console.log(treeNode.getParentNode())
+                // treeNode.getPath().getIndex();
+                /* FreeDoTool.getSphereFromBoundsMinMax(boundsmax,boundsmin,)*/
+
+            }
+        }
+    };
+
+    /**
+     *得到异步请求的路径
+     * @param treeId
+     * @param treeNode
+     */
+    function getUrl(treeId, treeNode) {
+        var uid = treeNode.uid;
+        if(treeNode.tablename==undefined){
+            return "../PModel/getProjectModelTreeData?uid="+uid;
+        }else{
+            return "../PModel/getProjectModelTreeData?uid="+uid+"&tablename="+treeNode.tablename;
+        }
+    }
+
+    /**
+     * 树节点右键点击事件
+     * @param event
+     * @param treeId
+     * @param treeNode
+     * @constructor
+     */
+    function OnRightClick(event, treeId, treeNode) {
+        $("#rMenu").show().css({
+            "left": event.pageX,
+            "top": event.pageY
+        });
+    }
+    zTreeObj = $.fn.zTree.init($("#tree"), setting, treedata);
     
     
     

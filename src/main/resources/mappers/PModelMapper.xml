@@ -27,12 +27,13 @@
 		tpr.id =
 		#{projectid}
 	</select>
-		<!-- 查询树节点数据 -->
-	<select id="getNodesTreeData" resultType="com.freedotech.app.ztly.model.Node4ZTree" parameterType="String" statementType="STATEMENT">
-		SELECT
-		*
-		FROM
-		${tableName};
+	<!-- 查询树节点数据 -->
+	<select id="getChildrenByUid" resultType="com.freedotech.app.ztly.model.Node4ZTree" parameterType="String">
+		SELECT uid,pid,name,boundsmax,boundsmin FROM ${tableName} WHERE pid=#{uid};
+	</select>
+	<!-- 判断是否是父节点 -->
+	<select id="isParent" resultType="com.freedotech.app.ztly.model.Node4ZTree" parameterType="String">
+		SELECT * FROM ${tableName} WHERE pid=#{uid} limit 1;
 	</select>
 	<insert id="insertTreeData" parameterType="com.freedotech.app.ztly.model.Node4ZTree">
 		insert into t_unit13(uid,pid,name,boundsmin,boundsmax) value(#{uid},#{pid},#{name},#{boundsmin},#{boundsmax});

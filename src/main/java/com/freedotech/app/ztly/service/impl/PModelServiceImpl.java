@@ -17,16 +17,45 @@ public class PModelServiceImpl implements PModelService {
 	private PModelDao pmodelDao;
 	//查询树节点数据
 	@Override 
-	public List getProjectModelTreeData(String projectId) {
+	public List getProjectModelTreeData(String projectId,String uid,String tablename) {
+		//得到项目相关的所有模型的部件表名
 		List<String> unitNameList = pmodelDao.getUnitTableName(projectId);
 		List list = new ArrayList();
-		if(unitNameList.size()!=0) {
-			for (String s : unitNameList) {
-				List<Node4ZTree> treeList = pmodelDao.getNodesTreeData(s);
-				list.add(treeList);
+		//根节点时查询所有部件表下的根节点
+		if(tablename==null){
+			if(unitNameList.size()!=0) {
+				for (String s : unitNameList) {
+					//得到表下面的根节点
+					List<Node4ZTree> treeList = pmodelDao.getChildrenByUid(s,uid);
+					//设置节点所在的表
+					for (Node4ZTree node: treeList) {
+						Node4ZTree n4t = pmodelDao.isParent(s,node.getUid());
+						if(n4t!=null){
+							node.setIsParent("true");
+						}else {
+							node.setIsParent("false");
+						}
+						node.setTablename(s);
+						list.add(node);
+					}
+
+				}
+				return list;
 			}
-		return list;
+		}else{
+			List<Node4ZTree> treeList = pmodelDao.getChildrenByUid(tablename,uid);
+			for (Node4ZTree node: treeList) {
+				Node4ZTree n4t = pmodelDao.isParent(tablename,node.getUid());
+				if(n4t!=null){
+					node.setIsParent("true");
+				}else {
+					node.setIsParent("false");
+				}
+				node.setTablename(tablename);
+			}
+			return treeList;
 		}
+
 		return null;
 	}
 	@Override

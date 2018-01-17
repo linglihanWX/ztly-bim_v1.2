@@ -670,10 +670,10 @@ FreeDoTool.getSphereFromBoundsMinMax = function(boundsMin, boundsMax, modelTile)
     //Freedo.Matrix4.multiplyByPoint(local2world, mincorner, mincorner);
     //Freedo.Matrix4.multiplyByPoint(local2world, maxcorner, maxcorner);
 
-    mincorner.y = -mincorner.y;
-    mincorner.z = -mincorner.z;
-    maxcorner.y = -maxcorner.y;
-    maxcorner.z = -maxcorner.z;
+    // mincorner.y = -mincorner.y;
+    // mincorner.z = -mincorner.z;
+    // maxcorner.y = -maxcorner.y;
+    // maxcorner.z = -maxcorner.z;
     Freedo.Matrix4.multiplyByPoint(modelTile._root.computedTransform, mincorner, mincorner);
     Freedo.Matrix4.multiplyByPoint(modelTile._root.computedTransform, maxcorner, maxcorner);
 
