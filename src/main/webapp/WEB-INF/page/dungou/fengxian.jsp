@@ -57,6 +57,7 @@
        -->
             </div>
             <div id="chartOne"></div>
+            <i	class="iconfont icon-pos"></i>
         </div>
         <div class="swiper-container">
             <div class="swiper-wrapper">
@@ -91,6 +92,8 @@
 <script src="${ctx }/static/webgl/caozuoqi/cameraControlRightAdjust.js"></script>
 <script src="${ctx }/static/page/dungou/fengxian/js/fengxian.js"></script>
 <script src="${ctx }/static/page/dungou/fengxian/js/fengxianinit.js"></script>
+<%-- <script src="${ctx }/static/page/common/IconFont/iconfont.js"></script> --%>
+
 
 </body>
 </html>

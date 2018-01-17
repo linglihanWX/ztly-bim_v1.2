@@ -42,6 +42,9 @@ $(function () {
                     //拼接文件地址
                     for (var i = 0; i < imgarray.length; i++) {
                         var str ="";
+                        /**
+                         * patharray当前url地址截取后数组
+                         */
                         for (var j = 0; j < patharray.length-3; j++) {
                             str = str+"../"
                         }
@@ -65,6 +68,7 @@ $(function () {
             	//定位到2号坑盾构机的位置
                 	FreedoApp.viewers["earth"].camera.setView({
                      	destination : new FreeDo.Cartesian3.fromDegrees(113.66039473378382, 22.782948633936098,-550),
+                     	//姿态
              			orientation : new FreeDo.HeadingPitchRoll(5.437420397295509,-0.11731154719345604,6.281381851419862)
                 	});
             		//海底隧道对应的盾构机
@@ -72,7 +76,7 @@ $(function () {
     					color : {
     						conditions : [
     								[ "${component} === \'盾构轮廓-1 盾构轮廓-1 [333451]@2\'","color('white',0.5)" ],
-    								[ "${component} === \'内衬轮廓-1 内衬轮廓-1 [341109]@4\'","color('white',0.5)" ],
+    							[ "${component} === \'内衬轮廓-1 内衬轮廓-1 [341109]@4\'","color('white',0.5)" ],
     								[ "true", "color('white')" ] ]
     					}
     				});
@@ -93,7 +97,9 @@ $(function () {
             			show : true, // default
             			modelMatrix : FreeDoTool.getModelMatrix(113.65645654272778, 22.787376282848608, -637.5, 287, 0, 0, 1.6, 1.6, 1.6),
             			allowPicking : true, // not pickable
+            			// 仅用于调试。显示模型绘制时的边界球。
             			debugShowBoundingVolume : false, // default
+            			// 仅用于调试，显示魔仙绘制时的线框
             			debugWireframe : false
             		}));
                     showhidelabels(dungouprimitive);
