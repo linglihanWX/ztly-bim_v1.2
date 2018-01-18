@@ -1,7 +1,6 @@
 $(function () {
-
     $(".three-menu li:nth-of-type(2) a").addClass("second-active").parent().siblings().children("a").removeClass("second-active");
-    var timer = null ;
+    var timer = null;
 
 
 
@@ -13,45 +12,50 @@ $(function () {
 
 
     // 三维窗口的大小改变
-    $(".main-page").on("click",function () {
-        $(".content-middle").css({"height":66+"%"});
+    $(".main-page").on("click", function () {
+        $(".content-middle").css({
+            "height": 66 + "%"
+        });
         $(".content-bottom").show();
     });
 
-    $(".three-page").on("click",function () {
-        $(".content-middle").css({"height":100+"%"});
+    $(".three-page").on("click", function () {
+        $(".content-middle").css({
+            "height": 100 + "%"
+        });
         $(".content-bottom").hide();
     });
-    $(".two-page").on("click",function () {
+    $(".two-page").on("click", function () {
         $(".content").hide();
         $(".page-info").show();
     });
-    $(".nav-show-hide").on("click",function () {
+    $(".nav-show-hide").on("click", function () {
 
         $(".nav").toggle();
 
     });
-    $(".returnPage").on("click",function () {
+    $(".returnPage").on("click", function () {
         $(".content").show();
         $(".page-info").hide();
     });
 
-    $(".info-left .icon-out").on("click",function () {
+    $(".info-left .icon-out").on("click", function () {
         console.log(1);
         window.location.href = '../../ProSystem/dungou/toDaopanjiance';
     });
 
     var infoData = [];
-    var dataArr = [0,1,2,3,4,5];
+    var dataArr = [0, 1, 2, 3, 4, 5];
     // 请求信息数据
     $.ajax({
-        url:"../../static/page/dungou/jiankong/json/data.json",
-        type:"get",
-        async:false,
-        dataType:'json',
-        success:function (data) {
+        url: "../../static/page/dungou/jiankong/json/data.json",
+        type: "get",
+        async: false,
+        dataType: 'json',
+        success: function (data) {
             infoData = data;
-        },error:function (err) {
+        },
+        error: function (err) {
             console.log(err);
         }
     });
@@ -60,19 +64,19 @@ $(function () {
     renderCheckData();
     // 渲染数据
     function renderCheckData() {
-        for (var  n = 0; n < dataArr.length; n++) {
-            for(var i = 0; i < infoData.length; i++){
-                if(dataArr[n] == infoData[i].id){
+        for (var n = 0; n < dataArr.length; n++) {
+            for (var i = 0; i < infoData.length; i++) {
+                if (dataArr[n] == infoData[i].id) {
                     var str = '';
-                    if(infoData[i].type == 1){
-                        str = `<div id="${infoData[i].id}"><p>${infoData[i].name}<i class="iconfont icon-out"></i></p><ul>`;
-                    }else if(infoData[i].type == 2){
-                        str = `<div id="${infoData[i].id}"><p>${infoData[i].name}<span><input id="sanwei`+i+`" type="checkbox">三维展示</span></p><ul>`;
+                    if (infoData[i].type == 1) {
+                        str = '<div id="'+infoData[i].id+'"><p>'+ infoData[i].name+'<i class="iconfont icon-out"></i></p><ul>';
+                    } else if (infoData[i].type == 2) {
+                        str = '<div id="'+infoData[i].id+'"><p>'+infoData[i].name+'<span><input id="sanwei'+i+'" type="checkbox">三维展示</span></p><ul>';
                     }
-                    for (var  j = 0; j < infoData[i].son.length; j++) {
-                        str += `<li><span>${infoData[i].son[j].name}:</span><span>${infoData[i].son[j].value}</span></li>`;
+                    for (var j = 0; j < infoData[i].son.length; j++) {
+                        str += '<li><span>'+infoData[i].son[j].name+':</span><span>'+infoData[i].son[j].value+'</span></li>';
                     }
-                    str += `</ul></div>`;
+                    str += '</ul></div>';
                     $(".info-middle").append(str);
                 }
             }
@@ -82,76 +86,77 @@ $(function () {
 
     // 添加勾选的信息栏
     var str1 = "";
-    for(var i = 0; i < infoData.length; i++){
-        if(i < 6){
-            str1 += `<li><input type="checkbox" checked name="" data-id="${infoData[i].id}">${infoData[i].name}</li>`;
-        }else{
-            str1 += `<li><input type="checkbox" name="" data-id="${infoData[i].id}">${infoData[i].name}</li>`;
+    for (var i = 0; i < infoData.length; i++) {
+        if (i < 6) {
+            str1 += '<li><input type="checkbox" checked name="" data-id="'+infoData[i].id+'">'+infoData[i].name+'</li>';
+        } else {
+            str1 += '<li><input type="checkbox" name="" data-id="'+infoData[i].id+'">'+infoData[i].name+'</li>';
         }
     }
     $(".list").append(str1);
 
 
     // 隐藏按钮的点击
-    $(".showCheckList").on("click",function () {
+    $(".showCheckList").on("click", function () {
         $(".list-box").stop().slideDown();
     });
-    $(".close").on("click",function () {
+    $(".close").on("click", function () {
         $(".list-box").stop().slideUp();
     });
     drag("listBox");
 
     // 勾选改变事件
     $(".list li input").each(function () {
-       $(this).change(function () {
-           var id = $(this).attr("data-id");
-          if( $(this).prop("checked")){
-              if(dataArr.length < 6){
-                  dataArr.push(id);
-                  if($("#" + id).css("display") == "none"){
-                      $("#"+id).show();
-                  }else{
-                      for(var i = 0; i < infoData.length; i++){
-                          if(id == infoData[i].id){
-                              var str = '';
-                              if(infoData[i].type == 1){
-                                  str = `<div id="${infoData[i].id}"><p>${infoData[i].name}<i class="iconfont icon-out"></i></p><ul>`;
-                              }else if(infoData[i].type == 2){
-                                  str = `<div id="${infoData[i].id}"><p>${infoData[i].name}<span><input id="sanwei`+i+`" type="checkbox">三维展示</span></p><ul>`;
-                              }
-                              for (var  j = 0; j < infoData[i].son.length; j++) {
-                                  str += `<li><span>${infoData[i].son[j].name}:</span><span>${infoData[i].son[j].value}</span></li>`;
-                              }
-                              str += `</ul></div>`;
-                              $(".info-middle").append(str);
+        $(this).change(function () {
+            var id = $(this).attr("data-id");
+            if ($(this).prop("checked")) {
+                if (dataArr.length < 6) {
+                    dataArr.push(id);
+                    if ($("#" + id).css("display") == "none") {
+                        $("#" + id).show();
+                    } else {
+                        for (var i = 0; i < infoData.length; i++) {
+                            if (id == infoData[i].id) {
+                                var str = '';
 
-                          }
-
-                      }
-                  }
-              }else{
-                  alert("最多选6种数据展示!");
-                  $(this).prop("checked",false);
-                  return false;
-              }
-          }else{
-              for(var i = 0; i < dataArr.length; i++){
-                  if(id == dataArr[i]){
-                      dataArr.splice(i,1);
-                      $("#"+id).hide();
-                  }
-              }
-          }
-       })
+                                if (infoData[i].type == 1) {
+                                    str = '<div id="' + infoData[i].id + '"><p>' + infoData[i].name + '<i class="iconfont icon-out"></i></p><ul>';
+                                } else if (infoData[i].type == 2) {
+                                    str = '<div id="' + infoData[i].id + '"><p>' + infoData[i].name + '<span><input id="sanwei'+i+'" type="checkbox">三维展示</span></p><ul>';
+                                }
+                                for (var j = 0; j < infoData[i].son.length; j++) {
+                                    str += '<li><span>' + infoData[i].son[j].name + ':</span><span>' + infoData[i].son[j].value + '</span></li>';
+                                }
+                                str += '</ul></div>';
+                                $(".info-middle").append(str);
+                            }
+                        }
+                    }
+                } else {
+                    alert("最多选6种数据展示!");
+                    $(this).prop("checked", false);
+                    return false;
+                }
+            } else {
+                for (var i = 0; i < dataArr.length; i++) {
+                    if (id == dataArr[i]) {
+                        dataArr.splice(i, 1);
+                        $("#" + id).hide();
+                    }
+                }
+            }
+        })
     });
 
     /**
      * 重置高度
      */
     function resetHeight() {
-        if($(".content-bottom").css("display") == "none"){
+        if ($(".content-bottom").css("display") == "none") {
             var height = $(".content").height() - 40;
-            $(".content-middle").css({"height":height});
+            $(".content-middle").css({
+                "height": height
+            });
         }
     }
 
@@ -162,8 +167,8 @@ $(function () {
     function renderTbmDeviation() {
         var widthC = $(".info-right").width();
         var heightC = $(".info-right").height() - $(".info-right ul").height() - 30;
-        $("#circleCanvas").attr("height",heightC);
-        $("#circleCanvas").attr("width",widthC);
+        $("#circleCanvas").attr("height", heightC);
+        $("#circleCanvas").attr("width", widthC);
         var a = document.getElementById("circleCanvas");
         new TbmDeviation(a);
     }
@@ -181,7 +186,7 @@ $(function () {
             var options = {
                 id: 1,
                 width: widthT,
-                height:heightT,
+                height: heightT,
                 sumGrouting: '数量100',
                 pushSpeed: 100,
                 knifeDishSpeed: 10,
@@ -206,7 +211,7 @@ $(function () {
 
 
     // 窗口改变时，自动变化
-    $(window).resize(function(){
+    $(window).resize(function () {
         renderDrilling();
         renderTbmDeviation();
         resetHeight();

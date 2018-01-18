@@ -1,6 +1,8 @@
 $(function () {
     let scrWidth = window.screen.width;
     $(".three-menu li:nth-of-type(3) a").addClass("second-active").parent().siblings().children("a").removeClass("second-active");
+
+
     if (scrWidth <= 1366) {
         new Swiper ('.swiper-container', {
             direction: 'vertical',
@@ -10,22 +12,8 @@ $(function () {
             spaceBetween: 30,
         });
     }
-   /* // 三维窗口的大小改变
-    $(".main-page").on("click",function () {
-        $(".content-top").css({"height":66+"%"});
-        $(".content-bottom").show();
-    });
-
-    $(".three-page").on("click",function () {
-        $(".content-top").css({"height":100+"%"});
-        $(".content-bottom").hide();
-    });
-    $(".nav-show-hide").on("click",function () {
-        $(".nav").toggle();
-    });*/
-
     let infoData = [];
-    let dataArr = [0,1,2,3,4,5,6,7,8,9,10,11];
+    let dataArr = [0,1,2,3,4,5];
     // 请求信息数据
     $.ajax({
         url:"../../static/page/dungou/fengxian/json/data.json",
@@ -34,8 +22,6 @@ $(function () {
         dataType:'json',
         success:function (data) {
             infoData = data;
-            console.log(data)
-            
         },error:function (err) {
             console.log(err);
         }
@@ -49,33 +35,54 @@ $(function () {
             for(let i = 0; i < infoData.length; i++){
                 if(dataArr[n] == infoData[i].id){
                     let str = '';
-                    if(infoData[i].type == 1){
-                        str = `<div id="${infoData[i].id}"><p>${infoData[i].name}<i class="iconfont icon-out"></i></p><ul>`;
-                    }else if(infoData[i].type == 2){
-                        str = `<div id="${infoData[i].id}"><p>${infoData[i].name}<span><input type="checkbox">三维展示</span></p><ul>`;
+                    /*    if(infoData[i].type == 1){
+                           str = `<div id="${infoData[i].id}"><p>${infoData[i].name}<i class="iconfont icon-out"></i></p><ul>`;
+                       }else if(infoData[i].type == 2){
+                           str = `<div id="${infoData[i].id}"><p>${infoData[i].name}<span><input type="checkbox">三维展示</span></p><ul>`;
+                       }
+                       for (let  j = 0; j < infoData[i].son.length; j++) {
+                           str += `<li><span>${infoData[i].son[j].name}:</span><span>${infoData[i].son[j].value}</span></li>`;
+                       }
+                       str += `</ul></div>`;
+                       $(".info-left").append(str); */
+
+                    if (infoData[i].type == 1) {
+                        str = '<div id="' + infoData[i].id + '"><p>' + infoData[i].name + '<i class="iconfont icon-out"></i></p><ul>';
+                    } else if (infoData[i].type == 2) {
+                        str = '<div id="' + infoData[i].id + '"><p>' + infoData[i].name + '<span><input type="checkbox">三维展示</span></p><ul>';
                     }
-                    for (let  j = 0; j < infoData[i].son.length; j++) {
-                        str += `<li><span>${infoData[i].son[j].name}:</span><span>${infoData[i].son[j].value}</span></li>`;
+                    for (var j = 0; j < infoData[i].son.length; j++) {
+                        str += '<li><span>' + infoData[i].son[j].name + ':</span><span>' + infoData[i].son[j].value + '</span></li>';
                     }
-                    str += `</ul></div>`;
+                    str += '</ul></div>';
                     $(".info-left").append(str);
                 }
             }
         }
     }
-    for (let  n = 4; n < 10; n++) {
+    for (let  n = 0; n < 6; n++) {
         for(let i = 0; i < infoData.length; i++){
             if(dataArr[n] == infoData[i].id){
                 let str = '';
-                if(infoData[i].type == 1){
-                    str = `<div id="${infoData[i].id}"><p>${infoData[i].name}<i class="iconfont icon-out"></i></p><ul>`;
-                }else if(infoData[i].type == 2){
-                    str = `<div id="${infoData[i].id}"><p>${infoData[i].name}<span><input type="checkbox">三维展示</span></p><ul>`;
+                /*  if(infoData[i].type == 1){
+                     str = `<div id="${infoData[i].id}"><p>${infoData[i].name}<i class="iconfont icon-out"></i></p><ul>`;
+                 }else if(infoData[i].type == 2){
+                     str = `<div id="${infoData[i].id}"><p>${infoData[i].name}<span><input type="checkbox">三维展示</span></p><ul>`;
+                 }
+                 for (let  j = 0; j < infoData[i].son.length; j++) {
+                     str += `<li><span>${infoData[i].son[j].name}:</span><span>${infoData[i].son[j].value}</span></li>`;
+                 }
+                 str += `</ul></div>`; */
+                if (infoData[i].type == 1) {
+                    str = '<div id="' + infoData[i].id + '"><p>' + infoData[i].name + '<i class="iconfont icon-out"></i></p><ul>';
+                } else if (infoData[i].type == 2) {
+                    str = '<div id="' + infoData[i].id + '"><p>' + infoData[i].name + '<span><input type="checkbox">三维展示</span></p><ul>';
                 }
-                for (let  j = 0; j < infoData[i].son.length; j++) {
-                    str += `<li><span>${infoData[i].son[j].name}:</span><span>${infoData[i].son[j].value}</span></li>`;
+                for (var j = 0; j < infoData[i].son.length; j++) {
+                    str += '<li><span>' + infoData[i].son[j].name + ':</span><span>' + infoData[i].son[j].value + '</span></li>';
                 }
-                str += `</ul></div>`;
+                str += '</ul></div>';
+                // $(".info-left").append(str);
                 $(".text-info").append(str);
             }
         }
@@ -99,7 +106,7 @@ $(function () {
             }
         },
         legend: {
-             x : 'right',
+            x : 'right',
             // y : 'bottom',
             data:['黄褐色分土层','砂岩','基岩','淀积层','母质层'],
             itemGap:0,
@@ -188,7 +195,7 @@ $(function () {
             }
         },
         grid:{
-          left:'10%',
+            left:'10%',
             top:'5%',
             bottom:'15%'
         },
@@ -310,8 +317,4 @@ $(function () {
         ]
     };
     chartTwo.setOption(option2);
-//    *****************************************zzw
-    
- 
-    //*****************************************zzw
 });

@@ -21,11 +21,11 @@ $(function () {
         type:"get",
         async:false,
         dataType:"json",
-        success(data){
+        success:function(data){
             dataInfo = data;
             console.log(data);
         },
-        error(err){
+        error: function(err){
             console.log(err);
         }
     });
@@ -88,13 +88,7 @@ $(function () {
     //渲染电机参数
     let str = "";
     for (let i = 0; i < dataInfo[2].length; i++) {
-        str += `<li>
-                    <span>${dataInfo[2][i][0]}</span>
-                    <span><span>${dataInfo[2][i][1]}</span><span>Hz</span></span>
-                    <span><span>${dataInfo[2][i][2]}</span><span>Kw</span></span>
-                    <span><span>${dataInfo[2][i][3]}</span><span>A</span></span>
-                    <span><span>${dataInfo[2][i][4]}</span><span>KN.m</span></span>
-                </li>`
+        str += '<li><span>'+dataInfo[2][i][0]+'</span><span><span>'+dataInfo[2][i][1]+'</span><span>Hz</span></span><span><span>'+dataInfo[2][i][2]+'</span><span>Kw</span></span><span><span>'+dataInfo[2][i][3]+'</span><span>A</span></span><span><span>'+dataInfo[2][i][4]+'</span><span>KN.m</span></span></li>'
     }
     $(".data-list-info").append(str);
 
@@ -121,7 +115,7 @@ $(function () {
 
     // 旋转
     for (let i = 1; i <= 7; i++) {
-        $(".out-box").append(`<div class="small-arc"><span>${i}</span></div>`);
+        $(".out-box").append('<div class="small-arc"><span>' + i +'</span></div>');
         $(".out-box>div").eq(i).css({
             transform:"rotate("+(360 / 7) * ( i - 1) +"deg)"
         })
@@ -182,29 +176,14 @@ $(function () {
 
     let spanStr = "";
     for (let i = 0; i < 4; i++) {
-        spanStr += `<div class='span-click'><div class='span-box'><span data-mao="false"></span><span data-mao="false"></span data-mao="false"><span data-mao="false"></span data-mao="false"><span data-mao="false"></span></div></div>`;
-        spanStr += `<div class="double-span-click">
-                    <div class="double-span-box" id="part`+i+`">
-                        <span class="left-span" data-mao="false"></span>
-                        <span class="left-span" data-mao="false"></span>
-                        <span class="left-span" data-mao="false"></span>
-                        <span class="left-span" data-mao="false"></span>
-                        <span class="right-span" data-mao="false"></span>
-                        <span class="right-span1" data-mao="false"></span>
-                        <span class="right-span2" data-mao="false"></span>
-                        <span class="right-span3" data-mao="false"></span>
-                        <span class="middle-span1" data-mao="false"></span>
-                        <span class="middle-span2" data-mao="false"></span>
-                        <span class="middle-span3" data-mao="false"></span>
-                        <span class="middle-span4" data-mao="false"></span>
-                        <span class="middle-span5" data-mao="false"></span>
-                        <span class="middle-span6" data-mao="false"></span>
-                        <span class="middle-span7" data-mao="false"></span>
-                    </div>
-                 </div>`;
+        spanStr += '<div class="span-click"><div class="span-box"><span data-mao="false"></span><span data-mao="false"></span data-mao="false"><span data-mao="false"></span data-mao="false"><span data-mao="false"></span></div></div>';
+        spanStr += '<div class="double-span-click"><div class="double-span-box" id="part'+i+'"><span class="left-span" data-mao="false"></span><span class="left-span" data-mao="false"></span><span class="left-span" data-mao="false"></span><span class="left-span" data-mao="false"></span><span class="right-span" data-mao="false"></span><span class="right-span1" data-mao="false"></span><span class="right-span2" data-mao="false"></span><span class="right-span3" data-mao="false"></span><span class="middle-span1" data-mao="false"></span><span class="middle-span2" data-mao="false"></span><span class="middle-span3" data-mao="false"></span><span class="middle-span4" data-mao="false"></span><span class="middle-span5" data-mao="false"></span><span class="middle-span6" data-mao="false"></span><span class="middle-span7" data-mao="false"></span></div></div>';
+        /*spanStr += '<div class="span-click"><div class="span-box"><span></span><span></span><span></span><span></span></div></div>';
+        spanStr += '<div class="double-span-click"><div class="double-span-box"><span class="left-span"></span><span class="left-span"></span><span class="left-span"></span><span class="left-span"></span><span class="right-span"></span><span class="right-span1"></span><span class="right-span2"></span><span class="right-span3"></span><span class="middle-span1"></span><span class="middle-span2"></span><span class="middle-span3"></span><span class="middle-span4"></span><span class="middle-span5"></span><span class="middle-span6"></span><span class="middle-span7"></span></div></div>';
+*/
     }
 
-    spanStr += `<span class="center-span"></span>`;
+    spanStr += '<span class="center-span"></span>';
 
     $(".top-two>div").append(spanStr);
     $.each($('.span-click'),function (i,dom) {
@@ -221,10 +200,11 @@ $(function () {
     $(".top-two>div span").each(function () {
         $(this).click(function () {
             let parentIndex = $(this).parent().parent().index();
+            console.log(parentIndex);
             let mathRandom = parseInt(Math.random()*200);
-            //console.log(parentIndex)
+
             if($(this).children("div").css("display") == undefined){
-                $(this).append(`<div>${mathRandom}</div>`);
+                $(this).append('<div>'+mathRandom+'</div>');
             }else{
                 if($(this).children("div").css("display") == "none"){
                     $(this).children("div").show();
@@ -232,16 +212,25 @@ $(function () {
                     $(this).children("div").hide();
                 }
             }
+
             if(parentIndex == 1){
                 $(this).children("div").css({
-                    "transform":"rotate(0deg)",
+                    // "transform":"rotate("+ -(parentIndex- 1)*45 +"deg)",
+
+                    "transform":"rotate("+ -(parentIndex- 1)*45 +"deg)"
                 })
             }else{
                 $(this).children("div").css({
-                    "transform":"rotate("+ -(parentIndex- 2)*45 +"deg)",
+                    // "transform":"rotate("+ -(parentIndex- 1)*45 +"deg)",
+
+                    "transform":"rotate("+ -(parentIndex- 2)*45 +"deg)"
                 })
             }
+           /* $(this).children("div").css({
+                // "transform":"rotate("+ -(parentIndex- 1)*45 +"deg)",
 
+                "transform":"rotate("+ -(parentIndex- 2)*45 +"deg)"
+            })*/
 
         });
     });

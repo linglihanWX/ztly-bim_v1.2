@@ -4,6 +4,10 @@ $(function () {
     getPoints(FreedoApp.viewers["earth"])
     var array = initEntities(FreedoApp.viewers["earth"])
     let scrWidth = window.screen.width;
+    let state = "full-screen";
+    let state1 = "not-full-screen";
+    let smallStr = false;
+    let smallStr1 = false;
     $(".icon-bqp").on("click", function () {
         if ($("#earth").hasClass("full-screen")) {
             $(".compassDiv").hide();
@@ -30,52 +34,10 @@ $(function () {
             }
         }
     });
-    let state = "full-screen";
-    let state1 = "not-full-screen";
-    let smallStr = false;
-    let smallStr1 = false;
 
     $(".size").on("click", function () {
         $("#earth .size,#earth1 .size").toggleClass("icon-bqp icon-qp");
-        /*  if (state == "full-screen") {
-            if (smallStr) {
-                $("#earth").toggleClass("full-screen smallHeight");
-                $("#earth .icon-zdh").show();
-                $("#earth .icon-zxh").hide();
-            } else {
-                $("#earth").toggleClass("full-screen not-full-screen");
-                $("#earth .icon-zxh").show();
-                $("#earth .icon-zdh").hide();
-            }
-        } else if (state == "not-full-screen") {
-            $("#earth").toggleClass("not-full-screen full-screen");
-            $("#earth .icon-zdh").hide();
-            $("#earth .icon-zxh").hide();
-        } else if (state == "smallHeight") {
-            $("#earth").toggleClass("smallHeight full-screen");
-            $("#earth .icon-zdh").hide();
-            $("#earth .icon-zxh").hide();
-        }
 
-        if (state1 == "full-screen") {
-            if (smallStr1) {
-                $("#earth1").toggleClass("full-screen smallHeight");
-                $("#earth1 .icon-zdh").show();
-                $("#earth1 .icon-zxh").hide();
-            } else {
-                $("#earth1").toggleClass("full-screen not-full-screen");
-                $("#earth1 .icon-zxh").show();
-                $("#earth1 .icon-zdh").hide();
-            }
-        } else if (state1 == "not-full-screen") {
-            $("#earth1").toggleClass("not-full-screen full-screen");
-            $("#earth1 .icon-zdh").hide();
-            $("#earth1 .icon-zxh").hide();
-        } else if (state1 == "smallHeight") {
-            $("#earth1").toggleClass("smallHeight full-screen");
-            $("#earth1 .icon-zdh").hide();
-            $("#earth1 .icon-zxh").hide();
-        } */
         changeIcon(state, smallStr, "earth");
         changeIcon(state1, smallStr1, "earth1");
         state = $("#earth").attr("class");
@@ -107,7 +69,6 @@ $(function () {
             $("#" + el + " .icon-zdh,#" + el + " .icon-zxh").hide();
         }
     }
-
     $(".icon-zxh,.icon-zdh").on("click", function () {
         $(this).toggleClass("icon-zxh icon-zdh");
         $(this).parent().parent().toggleClass("smallHeight not-full-screen");
@@ -121,19 +82,22 @@ $(function () {
     });
     // 三维窗口的大小改变
     $(".main-page").on("click", function () {
-        console.log(1);
-        $(".content-middle").css({"height": 66 + "%"});
+        $(".content-middle").css({
+            "height": 66 + "%"
+        });
         $(".content-bottom").show();
     });
     $(".three-page").on("click", function () {
-        $(".content-middle").css({"height": 100 + "%"});
+        $(".content-middle").css({
+            "height": 100 + "%"
+        });
         $(".content-bottom").hide();
     });
-    if (scrWidth <= 1366) {
+    if  (scrWidth <= 1366) {
         new Swiper('.swiper-container', {
             direction: 'vertical',
             //loop: true,
-            //autoplay:3000,
+            autoplay: 5000,
             pagination: '.swiper-pagination',
             slidesPerView: 1,
             paginationClickable: true,
@@ -163,8 +127,10 @@ $(function () {
         },
         xAxis: {
             type: 'category',
-            name: 'x',
-            splitLine: {show: false},
+            name: '',
+            splitLine: {
+                show: false
+            },
             data: ['2017/09', '2017/10', '2017/11', '2017/12', '2018/01']
         },
         grid: {
@@ -176,15 +142,14 @@ $(function () {
         },
         yAxis: {
             type: 'value',
-            name: 'y'
+            name: ''
         },
-        series: [
-            {
-                name: '实际投资',
-                type: 'line',
-                smooth: true,
-                data: [1, 3, 5, 7, 4, 2]
-            },
+        series: [{
+            name: '实际投资',
+            type: 'line',
+            smooth: true,
+            data: [1, 3, 5, 7, 4, 2]
+        },
             {
                 name: '计划投资',
                 type: 'line',
@@ -216,8 +181,10 @@ $(function () {
         },
         xAxis: {
             type: 'category',
-            name: 'x',
-            splitLine: {show: false},
+            name: '',
+            splitLine: {
+                show: false
+            },
             data: ['本月']
         },
         grid: {
@@ -228,15 +195,14 @@ $(function () {
         },
         yAxis: {
             type: 'value',
-            name: 'y'
+            name: ''
         },
-        series: [
-            {
-                name: '按时',
-                type: 'bar',
-                data: [10],
-                barWidth: 30
-            },
+        series: [{
+            name: '按时',
+            type: 'bar',
+            data: [10],
+            barWidth: 30
+        },
             {
                 name: '按期',
                 type: 'bar',
@@ -258,8 +224,8 @@ $(function () {
         },
         tooltip: {
             trigger: 'axis',
-            axisPointer: {            // 坐标轴指示器，坐标轴触发有效
-                type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
             }
         },
         legend: {
@@ -273,24 +239,19 @@ $(function () {
             bottom: '3%',
             containLabel: true
         },
-        xAxis: [
-            {
-                type: 'category',
-                data: ['2017/01', '2017/02', '2017/03', '2017/04', '2017/05', '2017/06', '2017/07', '2017/08', '2017/09', '2017/10', '2017/11', '2017/12']
-            }
-        ],
-        yAxis: [
-            {
-                name: 'y',
-                type: 'value'
-            }
-        ],
-        series: [
-            {
-                name: '质量',
-                type: 'bar',
-                data: [10, 8, 6, 5, 6, 8, 10, 8, 6, 5, 6, 8]
-            },
+        xAxis: [{
+            type: 'category',
+            data: ['2017/01', '2017/02', '2017/03', '2017/04', '2017/05', '2017/06', '2017/07', '2017/08', '2017/09', '2017/10', '2017/11', '2017/12']
+        }],
+        yAxis: [{
+            name: '',
+            type: 'value'
+        }],
+        series: [{
+            name: '质量',
+            type: 'bar',
+            data: [10, 8, 6, 5, 6, 8, 10, 8, 6, 5, 6, 8]
+        },
             {
                 name: '安全',
                 type: 'bar',
@@ -301,7 +262,7 @@ $(function () {
     chartThree.setOption(option3);
 
     let arr = [];
-    if (scrWidth > 1366)
+    if  (scrWidth > 1366)
         arr = [30, 110];
     else {
         arr = [10, 60];
@@ -327,14 +288,23 @@ $(function () {
         toolbox: {
             show: true,
             feature: {
-                mark: {show: true},
-                dataView: {show: false, readOnly: false},
+                mark: {
+                    show: true
+                },
+                dataView: {
+                    show: false,
+                    readOnly: false
+                },
                 magicType: {
                     show: true,
                     type: ['pie', 'funnel']
                 },
-                restore: {show: true},
-                saveAsImage: {show: true}
+                restore: {
+                    show: true
+                },
+                saveAsImage: {
+                    show: true
+                }
             }
         },
         calculable: true,
@@ -346,11 +316,22 @@ $(function () {
                 radius: arr,
                 center: ['50%', '50%'],
                 roseType: 'area',
-                data: [
-                    {value: 10, name: '业主'},
-                    {value: 5, name: 'PPP'},
-                    {value: 15, name: '总包'},
-                    {value: 25, name: '分包'}
+                data: [{
+                    value: 10,
+                    name: '业主'
+                },
+                    {
+                        value: 5,
+                        name: 'PPP'
+                    },
+                    {
+                        value: 15,
+                        name: '总包'
+                    },
+                    {
+                        value: 25,
+                        name: '分包'
+                    }
                 ]
             }
         ]
@@ -408,7 +389,7 @@ $(function () {
     })
     var checkstr = ""
     for (var i = 0; i < 13; i++) {
-        checkstr += `<li><input type="checkbox" checked name="">` + layersname[i] + `</li>`;
+        checkstr += '<li><input type="checkbox" checked name="">' + layersname[i] + '</li>';
     }
     $(".list").append(checkstr)
     $(".showCheckList").on("click", function () {

@@ -197,7 +197,7 @@ span.spanActive{
 .cwd-info>p{
     height: 25%;
     width: 100%;
-    line-height: 250%;
+    /* line-height: 250%; */
 }
 .cwd-info>p:nth-of-type(1){
     text-align: center;
@@ -298,7 +298,7 @@ span.spanActive{
     text-align: center;
 }
 .btnList>button{
-    width: 65px;
+    width: 70px;
     height: 25px;
     border-radius: 4px;
     background-color: #fff;
@@ -643,7 +643,6 @@ span.middle-span7{
         width: 22px;
         height: 32px;
         line-height: 20px;
-
         background-size: cover;
         transform-origin: 50% 100%;
     }
