@@ -4,6 +4,8 @@ $(function () {
     $("#content .row-fluid").height(h - h2);
     //	初始化地球
     FreedoApp.init("earth");
+    //存放PMODEL的数组，PMODEL对应的构件表名为索引。
+    var pmodels = [];
     $.ajax({
         url: "../PModel/getPmodel",
         type: "get",
@@ -38,6 +40,8 @@ $(function () {
                 var modelTile = FreedoApp.viewers["earth"].scene.primitives.add(new FreeDo.FreedoPModelset({
                     url: model[key].url
                 }));
+                var index = model[key].unitname;
+                pmodels[index] = modelTile;
                 if (model[key].x != 0 || model[key].y != 0 || model[key].z != 0 || model[key].heading != 0 || model[key].pitch != 0 || model[key].roll != 0 || model[key].scalex != 1 || model[key].scaley != 1 || model[key].scalez != 1) {
                     //调整模型位置
                     modelTile.readyPromise.then(function (modeltile) {
@@ -71,11 +75,14 @@ $(function () {
         uid: "-1",
         pid: "-2",
         name: "模型构件树",
-        isParent:true
+        isParent: true
     })
 
     var zTreeObj;
     var setting = {
+        /*check: {
+            enable: true
+        },*/
         async: {
             enable: true,
             type: "get",
@@ -90,21 +97,72 @@ $(function () {
             }
         },
         callback: {
-            onRightClick: OnRightClick,
             onAsyncSuccess:function (event, treeId, treeNode, msg) {
-               // alert('success')
+                //console.log(msg);
             },
-            onAsyncError:function (event, treeId, treeNode, XMLHttpRequest, textStatus, errorThrown) {
-                //alert('failed')
-            },
-            onClick:function (event, treeId, treeNode) {
-               var boundsmax = treeNode.boundsmax;
+            onRightClick: OnRightClick,
+            onClick: function (event, treeId, treeNode) {
+                var boundsmax = treeNode.boundsmax;
                 var boundsmin = treeNode.boundsmin;
-                console.log(treeNode.getParentNode())
-               // treeNode.getPath().getIndex();
-                /* FreeDoTool.getSphereFromBoundsMinMax(boundsmax,boundsmin,)*/
-
-            }
+                if (treeNode.tablename != undefined) {
+                    //得到结点所存的表名，作为pmodels数组的索引找到对应的pmodel对象
+                    var unitname = treeNode.tablename;
+                    //根据最大最小包围盒定位
+                    var boundingSphere = FreeDoTool.getSphereFromBoundsMinMax(boundsmax, boundsmin, pmodels[unitname])
+                    FreedoApp.viewers["earth"].camera.flyToBoundingSphere(boundingSphere)
+                }
+                //模型高亮style
+                var highlightmodelstyle = new FreeDo.FreedoPModelStyle({
+                    color: {
+                        conditions: [
+                            ["${component} === \'" + treeNode.uid + "\'", 'color("red")'],
+                            ['true', 'color("white")']
+                        ]
+                    }
+                });
+                //原色
+                var originmodelstyle = new FreeDo.FreedoPModelStyle();
+                for (var index in pmodels) {
+                    if(index==treeNode.tablename){
+                        pmodels[index].style = highlightmodelstyle;
+                    }else{
+                        pmodels[index].style = originmodelstyle;
+                    }
+                }
+            },
+            /*onCheck: function (event, treeId, treeNode) {
+                //得到所有未勾选的结点
+                var nodes = zTreeObj.getCheckedNodes(false);
+                //用于存放style的数组，第一个PMODEL模型对象一个style
+                var models =[];
+                //用unitname作为models数据的索引，不同结点根据所属PMODEL模型对象，放入相应的style中
+                for(i in nodes){
+                    var index = nodes[i].unitname;
+                    var uid = ["${component} === \'" + nodes[i].uid + "\'", 'false'];
+                    if(models[index]==null){
+                    models[index]=[];
+                    }
+                    models[index].push(uid)
+                }
+                //最后给没有勾选的结点设置成显示
+                for(var index in models){
+                    models[index].push(['true', 'true'])
+                }
+                //遍历未勾选的结点
+                for(i in nodes){
+                //遍历模型对象
+                for (var index in pmodels) {
+                    //根据结点的表名对应模型数组的索引找到相应的模型对象，并设置对象的隐藏style
+                    if(index==nodes[i].tablename){
+                        pmodels[index].style = new FreeDo.FreedoPModelStyle({
+                            show: {
+                                conditions:models[index]
+                            }
+                        });
+                    }
+                }
+                }
+            }*/
         }
     };
 
@@ -115,10 +173,10 @@ $(function () {
      */
     function getUrl(treeId, treeNode) {
         var uid = treeNode.uid;
-        if(treeNode.tablename==undefined){
-            return "../PModel/getProjectModelTreeData?uid="+uid;
-        }else{
-            return "../PModel/getProjectModelTreeData?uid="+uid+"&tablename="+treeNode.tablename;
+        if (treeNode.tablename == undefined) {
+            return "../PModel/getProjectModelTreeData?uid=" + uid;
+        } else {
+            return "../PModel/getProjectModelTreeData?uid=" + uid + "&tablename=" + treeNode.tablename;
         }
     }
 
@@ -135,7 +193,12 @@ $(function () {
             "top": event.pageY
         });
     }
+
     zTreeObj = $.fn.zTree.init($("#tree"), setting, treedata);
+    var node = zTreeObj.getNodeByParam("uid", -1, null);
+    zTreeObj.expandNode(node, true, true, true)
+    zTreeObj.checkNode(node,true,true)
+
 
 
     //chart1

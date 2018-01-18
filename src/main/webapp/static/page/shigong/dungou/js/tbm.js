@@ -63,7 +63,7 @@ $(function() {
 			}
 		}
 	};*/
-	
+
 	// 二三维切换
 	$("#div1").click(function() {
 		if ($("#div1").hasClass("open1")) {

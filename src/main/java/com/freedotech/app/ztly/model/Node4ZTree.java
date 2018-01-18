@@ -9,6 +9,15 @@ public class Node4ZTree {
 	private String boundsmax;
 	private String tablename;
 	private String isParent;
+	private String checked;
+
+	public String getChecked() {
+		return checked;
+	}
+
+	public void setChecked(String checked) {
+		this.checked = checked;
+	}
 
 	public String getIsParent() {
 		return isParent;

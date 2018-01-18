@@ -363,13 +363,21 @@ $(function () {
         destination: new FreeDo.Cartesian3(-2606029.8300439236, 4232695.952801313, 3989852.346352031),
         orientation: new FreeDo.HeadingPitchRoll(4.76493381044884, -1.515738147823087, 6.223530529077095)
     })
-    FreedoApp.viewers["earth"].clock.onTick.addEventListener(function (clock) {
+/*    FreedoApp.viewers["earth"].clock.onTick.addEventListener(function (clock) {
         var camera = FreedoApp.viewers["earth"].camera;
-        var cameraHeight = ellipsoid.cartesianToCartographic(camera.position).height;
+        var scene = FreedoApp.viewers["earth"].scene;
+        var cameraHeight = scene.globe.ellipsoid.cartesianToCartographic(camera.position).height;
         if (cameraHeight < 0) {
-
+            var cartesian = camera.position;
+            var cartographic = scene.globe.ellipsoid.cartesianToCartographic(cartesian);
+            cartographic.height = 0;
+            var newcartesian =  scene.globe.ellipsoid.cartographicToCartesian (cartographic);
+            camera.setView({
+                destination:newcartesian
+            })
         }
-    });
+
+    });*/
     //图层部分
     var layersarr = [];
     var layersname = [];

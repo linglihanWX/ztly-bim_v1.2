@@ -29,6 +29,7 @@ public class PModelServiceImpl implements PModelService {
 					List<Node4ZTree> treeList = pmodelDao.getChildrenByUid(s,uid);
 					//设置节点所在的表
 					for (Node4ZTree node: treeList) {
+						node.setChecked("true");
 						Node4ZTree n4t = pmodelDao.isParent(s,node.getUid());
 						if(n4t!=null){
 							node.setIsParent("true");
@@ -45,6 +46,7 @@ public class PModelServiceImpl implements PModelService {
 		}else{
 			List<Node4ZTree> treeList = pmodelDao.getChildrenByUid(tablename,uid);
 			for (Node4ZTree node: treeList) {
+				node.setChecked("true");
 				Node4ZTree n4t = pmodelDao.isParent(tablename,node.getUid());
 				if(n4t!=null){
 					node.setIsParent("true");
