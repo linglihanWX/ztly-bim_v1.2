@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="${ctx }/static/page/common/css/reset.css">
     <link rel="stylesheet" href="${ctx }/static/page/dungou/common/css/header.css">
     <link rel="stylesheet" type="text/css" href="${ctx }/static/page/common/css/nav.css">
-  <link rel="stylesheet" type="text/css" href="${ctx }/static/page/dungou/jiankong/font/iconfont.css">
+  <link rel="stylesheet" type="text/css" href="${ctx }/static/page/dungou/common/font/iconfont.css">
     <link rel="stylesheet" href="${ctx }/static/page/common/css/swiper-3.4.2.min.css">
     <link rel="stylesheet" href="${ctx }/static/page/dungou/fengxian/css/fengxian.css">
        <script src="${ctx }/static/page/common/js/jquery-3.2.1.min.js"></script>

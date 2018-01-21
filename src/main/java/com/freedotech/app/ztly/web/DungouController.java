@@ -49,14 +49,50 @@ public class DungouController {
 		return "dungou/fengxian";
 		
 	}
+
 	/**
-	 * 跳转到	盾构监控页面>盾构检测页面
+	 * 跳转到 盾构监控页面>盾构检测页面
 	 * @return
 	 */
 	@RequestMapping(value="toDaopanjiance")
 	public String toDungoujiancePage() {
 		return "dungou/daopanjiance";
-		
+
+	}
+	/**
+	 * 跳转到 盾构监控页面>自动导向系统页面
+	 * @return
+	 */
+	@RequestMapping(value="toZidongdaoxiang")
+	public String toZiDongDaoXiang() {
+		return "dungou/zidongdaoxiang";
+
+	}
+	/**
+	 * 跳转到 盾构监控页面>动态风险页面
+	 * @return
+	 */
+	@RequestMapping(value="toDongtaifengxian")
+	public String toDongtaifengxian() {
+		return "dungou/dongtaifengxian";
+
+	}
+	/**
+	 * 跳转到 资料管理页面
+	 * @return
+	 */
+	@RequestMapping(value="toZiliao")
+	public String toZiliao() {
+		return "dungou/ziliao";
+
+	}
+	/**
+	 * 跳转到 报表管理页面
+	 * @return
+	 */
+	@RequestMapping(value="toBaobiao")
+	public String toBaobiaoPage() {
+		return "dungou/baobiao";
 	}
 	/**
 	 * 获取盾构的实时数据和30条历史数据

@@ -1,0 +1,240 @@
+@charset "UTF-8";
+.content {
+    width: auto;
+    height: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.content-left{
+    float: left;
+    width: 250px;
+    height: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0 10px 10px 10px;
+    box-sizing: border-box;
+}
+.btn-list,.btn-list li{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+.btn-list li span{
+    display: inline-block;
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+.btn-list li span:first-of-type{
+    border-top-left-radius:5px;
+    border-bottom-left-radius:5px;
+    border-right:none;
+}
+.btn-list li span:last-of-type{
+    border-top-right-radius:5px;
+    border-bottom-right-radius:5px;
+}
+
+#detailed{
+    width: 100%;
+    height: calc(100% - 80px);
+}
+#dataTwo,#dataOne{
+    overflow: auto;
+}
+#dataTwo{
+     display: none;
+ }
+
+.content-right{
+    width: auto;
+    height: 100%;
+    overflow: hidden;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.content-top {
+    height: 80px;
+    width: 100%;
+    padding: 0 10px 10px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.content-top>ul {
+    width: 100%;
+    height: auto;
+}
+
+.content-top>ul li {
+    float: left;
+    height: 40px;
+    padding: 5px 0;
+    margin-left: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 30px;
+    font-size: 0;
+}
+
+.content-top>ul li input{
+    width: 120px;
+    height: 25px;
+    font-size: 14px;
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-indent: 5px;
+}
+
+.content-top>ul li span {
+    display: inline-block;
+    text-align: center;
+    font-size: 14px;
+    margin:0 10px;
+}
+
+
+
+.content-top>ul li:last-of-type input,
+.content-bottom>p input{
+    background-color: #fff;
+    width: 70px;
+    height: 25px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    outline: none;
+    text-align: center;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 30px;
+}
+.content-bottom>p span{
+    position: absolute;
+    width: 15%;
+    height: 40px;
+    text-align: center;
+    right: 0;
+    top: 0;
+}
+.content-bottom>p input:first-of-type{
+    right: 110px;
+}
+.content-bottom>p input:last-of-type{
+    right: 20px;
+}
+.content-bottom>p input:hover,.content-top>ul li:last-of-type input.btn-active{
+    background-color: #3168ba;
+    color: #fff;
+    border-color: #3168ba;
+}
+
+span.btn-active{
+    background-color: #3168ba;
+    color: #fff;
+    border-color: #3168ba;
+}
+
+.content-bottom {
+    width: 100%;
+    height: calc(100% - 90px);
+    margin-top: 10px;
+    padding: 0 10px 10px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.content-left>p,
+.content-top>p,
+.content-bottom>p {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    text-align: left;
+    line-height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+}
+
+.content-left>p::after,
+.content-top>p::after,
+.content-bottom>p::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    content: "";
+    border-bottom: 1px solid #e5e5e5;
+}
+
+#dataBox {
+    width: 100%;
+    height: calc(100% - 50px);
+    margin-top: 10px;
+}
+
+.datagrid-view2 .datagrid-header .datagrid-header-inner,
+.datagrid-view2 .datagrid-header .datagrid-header-inner .datagrid-htable,
+.datagrid-view2 .datagrid-body .datagrid-btable{
+    width: 100%;
+}
+
+.tree-icon{
+    display: none;
+}
+/*::-webkit-scrollbar {*/
+    /*width: 5px;*/
+    /*height: 5px;*/
+/*}*/
+
+/*::-webkit-scrollbar-track-piece {*/
+    /*background-color: rgba(0, 0, 0, 0.2);*/
+    /*-webkit-border-radius: 6px;*/
+/*}*/
+/*
+
+#dataGrid ul{
+    border: 1px solid #cccccc70;
+    box-sizing: border-box;
+}
+#dataGrid ul li:nth-of-type(odd){
+    background-color: #e8e8e85c;
+}
+
+#dataGrid ul li span{
+    display: inline-block;
+    vertical-align: top;
+    width: calc(( 100% - 90px) / 6);
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-right: 1px solid #cccccc70;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+#dataGrid ul li span a{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    color: blue;
+    text-decoration: underline;
+}
+#dataGrid ul li span:first-of-type{
+     width: 60px;
+ }
+#dataGrid ul li span:nth-of-type(2){
+    width: 30px;
+}
+#dataGrid ul li span:last-of-type{
+    border-right:none;
+}*/

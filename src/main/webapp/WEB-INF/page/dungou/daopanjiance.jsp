@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="${ctx }/static/page/dungou/common/css/header.css">
     <link rel="stylesheet" href="${ctx }/static/page/common/css/reset.css">
     <link rel="stylesheet" type="text/css" href="${ctx }/static/page/common/css/nav.css">
-    <link rel="stylesheet" type="text/css" href="${ctx }/static/page/dungou/jiankong/font/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="${ctx }/static/page/dungou/common/font/iconfont.css">
     <link rel="stylesheet" href="${ctx }/static/page/dungou/daopanjiance/css/daopanjiance.css">
     <script src="${ctx }/static/page/common/js/jquery-3.2.1.min.js"></script>
     <link href="http://res.gbim360.com/lib/freedo/rel/1.5.3.1/Freedo/Widgets/widgets.css" rel="stylesheet">
@@ -50,7 +50,8 @@
         <div class="page-nav">
             <ul>
                 <li><a href="${ctx }/ProSystem/dungou/toDaopanjiance" class="active">刀盘检测</a></li>
-                <li><a href="#">自动导向系统</a></li>
+                <li><a href="${ctx }/ProSystem/dungou/toZidongdaoxiang">自动导向系统</a></li>
+                <li><a href="${ctx }/ProSystem/dungou/toDongtaifengxian">动态风险</a></li>
                 <li><a href="#">泡沫系统</a></li>
                 <li><a href="#">注浆系统</a></li>
                 <li><a href="#">辅助系统</a></li>
