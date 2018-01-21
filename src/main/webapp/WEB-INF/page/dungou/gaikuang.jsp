@@ -60,9 +60,10 @@
                     <span>俯视视图</span><span></span><span>按时掘进</span><span></span><span>掘进延时</span>
                     <i class="iconfont icon-qp size"></i><i
                         class="iconfont icon-zxh"></i></p>
-                <img alt=""
+                <iframe src="${ctx }/static/page/dungou/gaikuang/iframeOpenLayer.html" style="width:100%;height:100%"></iframe>
+               <%--  <img alt=""
                      src="${ctx }/static/page/dungou/gaikuang/img/poumian.png"
-                     style="width:100%;height:100%">
+                     style="width:100%;height:100%"> --%>
             </div>
             <ul class="changeContent">
                 <li class="main-page"><i class="iconfont icon-main-page"></i>&nbsp;&nbsp;&nbsp;主页面
