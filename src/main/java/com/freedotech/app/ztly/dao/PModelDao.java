@@ -8,14 +8,36 @@ import com.freedotech.app.ztly.model.PModel;
 
 
 public interface PModelDao {
-    //获取pmodel
+	/**
+	 * 获取pmodel
+	 * @param projectid
+	 * @return
+	 */
 	List<PModel> getModelUrlByProjectId(String projectid);
-	//获取项目模型的部件表名
+	/**
+	 * 获取项目模型的部件表名
+	 * @param id
+	 * @return
+	 */
 	List<String>  getUnitTableName(String id);
-	//  获取树节点列表
+
+	/**
+	 * 查询部件表中的数据
+	 * @param unitName
+	 * @return
+	 */
+	List<Node4ZTree> getTreeDataInUnit(@Param(value="tableName")String unitName);
+	/**
+	 * 获取该节点下的一级子节点
+	 * @param unitName
+	 * @param uid
+	 * @return
+	 */
 	List<Node4ZTree>  getChildrenByUid(@Param(value="tableName")String unitName,@Param(value="uid")String uid);
-	//插入从XML中解析出来的模型树的数据
-	void insertTreeData(Node4ZTree node4zTree);
-	//判断是否是父节点
-	Node4ZTree isParent(@Param(value="tableName")String unitName,@Param(value="uid")String uid);
+	/**
+	 * 插入树的一个节点
+	 * @param node4zTree
+	 */
+	void insertTreeData(@Param(value="node4zTree")Node4ZTree node4zTree,@Param(value="tablename")String tablename);
+
 }

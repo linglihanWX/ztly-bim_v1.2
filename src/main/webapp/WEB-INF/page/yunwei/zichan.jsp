@@ -30,10 +30,12 @@
 	<link rel="stylesheet" href="${ctx}/static/page/yunwei/zichan/css/zichan.css">	
 	<link rel="stylesheet" href="${ctx }/static/page/common/css/appendTools.css">	
     <link rel="stylesheet" href="${ctx }/static/page/common/css/media.css">
-    <link rel="stylesheet" href="${ctx}/static/page/common/js/zTreeStyle/zTreeStyle.css">
+    <%--<link rel="stylesheet" href="${ctx}/static/page/common/js/zTreeStyle/zTreeStyle.css">--%>
+	<link rel="stylesheet" href="${ctx }/static/page/common/css/easyui.css">
     <!-- end: CSS -->
 	<script src="${ctx}/static/page/common/js/FreeDoTool.js"></script>
-	<script src="${ctx}/static/page/common/js/zTreeStyle/ztree.js"></script>
+	<%--<script src="${ctx}/static/page/common/js/zTreeStyle/ztree.js"></script>--%>
+	<script src="${ctx}/static/page/common/js/jquery.easyui.min.js"></script>
     <script src="${ctx}/static/page/common/js/echarts.common.min.js"></script>
 	
 </head>
@@ -64,7 +66,7 @@
 				<div class="row-fluid sortable">
 					<div class="box span12 changWidth">
 						<div class="box-content">
-							<div id="tree" class="ztree" style="-moz-user-select:none:"></div>
+							<div id="tree" class="easyui-tree" style="-moz-user-select:none:"></div>
 						</div>
 					</div>
 					<div id="earth"></div>

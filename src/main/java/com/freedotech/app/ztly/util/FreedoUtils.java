@@ -3,7 +3,10 @@ package com.freedotech.app.ztly.util;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
@@ -15,10 +18,10 @@ import com.freedotech.app.ztly.model.Node4ZTree;
 public abstract class FreedoUtils {
 	
 	@SuppressWarnings("unchecked")
-	public static List<Node4ZTree> getDatadFromModelPropertyXml() throws IOException, DocumentException {
-		ClassPathResource xmlResource = new ClassPathResource("com/freedotech/app/ztly/util/TFGC_suidao_pouqieB.xml");
+	public static List<Node4ZTree> getDatadFromModelPropertyXml(String filepath,String rootname) throws IOException, DocumentException {
+		ClassPathResource xmlResource = new ClassPathResource(filepath);
 		Document doc = new SAXReader().read(xmlResource.getFile());
-		Element pNode = (Element) doc.selectSingleNode("//*[@name='场景根']");
+		Element pNode = (Element) doc.selectSingleNode("//*[@name='"+rootname+"']");
 		
 		List<Element> childrenNode = pNode.selectNodes(".//*");
 		int nodeSize = childrenNode.size();
@@ -29,9 +32,9 @@ public abstract class FreedoUtils {
 		String BoundsMax = pNode.attributeValue("BoundsMax");
 		
 		
-		nodes.add(new Node4ZTree(uId,"-1", pName,BoundsMin,BoundsMax));
+		nodes.add(new Node4ZTree(uId,"-1", pName,BoundsMin,BoundsMax,0));
 		if(nodeSize==0) {
-			System.out.println("GHP.xml读取失败");
+			System.out.println("XXX.xml读取失败");
 		}else {
 			/*for (int i = 0; i < childrenNode.size(); i++){
 				nodes.add(new Node4ZTree(String.valueOf(i+1),"",childrenNode.get(i).attributeValue("name"),childrenNode.get(i).attributeValue("BoundsMin"),childrenNode.get(i).attributeValue("BoundsMax")));
@@ -49,9 +52,41 @@ public abstract class FreedoUtils {
 				String pid = e.getParent().attributeValue("uid");
 				String boundsmin = e.attributeValue("BoundsMin");
 				String boundsmax = e.attributeValue("BoundsMax");
-				nodes.add(new Node4ZTree(id,pid,name,boundsmin,boundsmax));
+				Integer leaf = 0;
+				int size = e.selectNodes(".//*").size();
+				if(size>0) {
+					leaf = 0;
+				}else {
+					leaf = 1;
+				}
+					nodes.add(new Node4ZTree(id, pid, name, boundsmin, boundsmax,leaf));
 			}
 		}
 		return nodes;
+	}
+	public static JsonArray transfListToJSONstr(List<Node4ZTree> list){
+		JsonArray json = new JsonArray();
+		long starttime =  System.currentTimeMillis();
+		for (Node4ZTree node:list) {
+			JsonObject jobj = new JsonObject();
+			String id =node.getUid();
+			String text = node.getName();
+			String state = node.getLeaf()==1? "open":"closed";
+			String tablename = node.getTablename();
+			String boundsmax = node.getBoundsmax();
+			String boundsmin = node.getBoundsmin();
+			jobj.addProperty("id",id);
+			jobj.addProperty("text",text);
+			jobj.addProperty("state",state);
+			jobj.addProperty("tablename",tablename);
+			jobj.addProperty("boundsmax",boundsmax);
+			jobj.addProperty("boundsmin",boundsmin);
+			//jobj.addProperty("checked","true");
+			json.add(jobj);
+		}
+		long endtime =  System.currentTimeMillis();
+		long time = endtime-starttime;
+		System.out.println(time+"ms");
+		return json;
 	}
 }

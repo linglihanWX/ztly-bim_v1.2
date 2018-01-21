@@ -3,8 +3,8 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.freedotech.app.ztly.dao.PModelDao">
-	<!-- 根据用户 id 查询模型部件表名 -->
-	<select id="getUnitTableName" parameterType="String" resultType="String">
+    <!-- 根据用户 id 查询模型部件表名 -->
+    <select id="getUnitTableName" parameterType="String" resultType="String">
 		SELECT
 		tp.unitname
 		FROM
@@ -15,8 +15,8 @@
 		WHERE
 		tpr.id = #{id}
 	</select>
-	<!-- 根据用户 id 查询模型部件路径 -->
-	<select id="getModelUrlByProjectId" parameterType="String" resultType="com.freedotech.app.ztly.model.PModel">
+    <!-- 根据用户 id 查询模型部件路径 -->
+    <select id="getModelUrlByProjectId" parameterType="String" resultType="com.freedotech.app.ztly.model.PModel">
 		SELECT
 		tp.*
 		FROM
@@ -27,15 +27,15 @@
 		tpr.id =
 		#{projectid}
 	</select>
-	<!-- 查询树节点数据 -->
-	<select id="getChildrenByUid" resultType="com.freedotech.app.ztly.model.Node4ZTree" parameterType="String">
-		SELECT uid,pid,name,boundsmax,boundsmin FROM ${tableName} WHERE pid=#{uid};
+    <!-- 查询树节点数据 -->
+    <select id="getChildrenByUid" resultType="com.freedotech.app.ztly.model.Node4ZTree" parameterType="String">
+		SELECT uid,pid,name,boundsmax,boundsmin,leaf FROM ${tableName} WHERE pid=#{uid};
 	</select>
-	<!-- 判断是否是父节点 -->
-	<select id="isParent" resultType="com.freedotech.app.ztly.model.Node4ZTree" parameterType="String">
-		SELECT * FROM ${tableName} WHERE pid=#{uid} limit 1;
+    <!-- 判断是否是父节点 -->
+    <select id="getTreeDataInUnit" resultType="com.freedotech.app.ztly.model.Node4ZTree" parameterType="String">
+		SELECT uid,pid,name,boundsmax,boundsmin,leaf FROM ${tableName}
 	</select>
-	<insert id="insertTreeData" parameterType="com.freedotech.app.ztly.model.Node4ZTree">
-		insert into t_unit13(uid,pid,name,boundsmin,boundsmax) value(#{uid},#{pid},#{name},#{boundsmin},#{boundsmax});
+    <insert id="insertTreeData">
+		insert into ${tablename} (uid,pid,name,boundsmin,boundsmax,leaf) value(#{node4zTree.uid},#{node4zTree.pid},#{node4zTree.name},#{node4zTree.boundsmin},#{node4zTree.boundsmax},#{node4zTree.leaf});
 	</insert>
 </mapper>     

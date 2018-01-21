@@ -8,24 +8,7 @@ public class Node4ZTree {
 	private String boundsmin;
 	private String boundsmax;
 	private String tablename;
-	private String isParent;
-	private String checked;
-
-	public String getChecked() {
-		return checked;
-	}
-
-	public void setChecked(String checked) {
-		this.checked = checked;
-	}
-
-	public String getIsParent() {
-		return isParent;
-	}
-
-	public void setIsParent(String isParent) {
-		this.isParent = isParent;
-	}
+	private Integer leaf;
 
 	public String getUid() {
 		return uid;
@@ -75,12 +58,20 @@ public class Node4ZTree {
 		this.tablename = tablename;
 	}
 
-	public Node4ZTree(String uid, String pid, String name, String boundsmin, String boundsmax) {
+	public Integer getLeaf() {
+		return leaf;
+	}
+
+	public void setLeaf(Integer leaf) {
+		this.leaf = leaf;
+	}
+
+	public Node4ZTree(String uid, String pid, String name, String boundsmin, String boundsmax, Integer leaf) {
 		this.uid = uid;
 		this.pid = pid;
 		this.name = name;
 		this.boundsmin = boundsmin;
 		this.boundsmax = boundsmax;
+		this.leaf = leaf;
 	}
-
 }

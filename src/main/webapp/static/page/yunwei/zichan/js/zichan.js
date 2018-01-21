@@ -69,7 +69,7 @@ $(function () {
     });
 //	添加模型结束
 //	查询树列表
-
+/*
     var treedata = []
     treedata.push({
         uid: "-1",
@@ -80,9 +80,9 @@ $(function () {
 
     var zTreeObj;
     var setting = {
-        /*check: {
+        /!*check: {
             enable: true
-        },*/
+        },*!/
         async: {
             enable: true,
             type: "get",
@@ -130,7 +130,7 @@ $(function () {
                     }
                 }
             },
-            /*onCheck: function (event, treeId, treeNode) {
+            /!*onCheck: function (event, treeId, treeNode) {
                 //得到所有未勾选的结点
                 var nodes = zTreeObj.getCheckedNodes(false);
                 //用于存放style的数组，第一个PMODEL模型对象一个style
@@ -162,15 +162,15 @@ $(function () {
                     }
                 }
                 }
-            }*/
+            }*!/
         }
     };
 
-    /**
+    /!**
      *得到异步请求的路径
      * @param treeId
      * @param treeNode
-     */
+     *!/
     function getUrl(treeId, treeNode) {
         var uid = treeNode.uid;
         if (treeNode.tablename == undefined) {
@@ -180,13 +180,13 @@ $(function () {
         }
     }
 
-    /**
+    /!**
      * 树节点右键点击事件
      * @param event
      * @param treeId
      * @param treeNode
      * @constructor
-     */
+     *!/
     function OnRightClick(event, treeId, treeNode) {
         $("#rMenu").show().css({
             "left": event.pageX,
@@ -197,9 +197,91 @@ $(function () {
     zTreeObj = $.fn.zTree.init($("#tree"), setting, treedata);
     var node = zTreeObj.getNodeByParam("uid", -1, null);
     zTreeObj.expandNode(node, true, true, true)
-    zTreeObj.checkNode(node,true,true)
+    zTreeObj.checkNode(node,true,true)*/
 
+    $('#tree').tree({
+        method:"get",
+        //checkbox:true,
+        data:[{
+            id:"-1",
+            text:"模型构件树",
+            state:"closed",
+            //checked:true
+        }],
+        onBeforeExpand:function(node,param){
+            if(node.id=="-1"){
+                $('#tree').tree('options').url = "../PModel/getModelTreeAsyn?uid=-1";
+            }else{
+                $('#tree').tree('options').url = "../PModel/getModelTreeAsyn?uid=" + node.id+"&tablename="+node.tablename;
+            }
 
+        },
+        onClick:function (node) {
+            var boundsmax = node.boundsmax;
+            var boundsmin = node.boundsmin;
+            if (node.tablename != undefined) {
+                //得到结点所存的表名，作为pmodels数组的索引找到对应的pmodel对象
+                var unitname = node.tablename;
+                //根据最大最小包围盒定位
+                var boundingSphere = FreeDoTool.getSphereFromBoundsMinMax(boundsmax, boundsmin, pmodels[unitname])
+                FreedoApp.viewers["earth"].camera.flyToBoundingSphere(boundingSphere)
+            }
+            //模型高亮style
+            var highlightmodelstyle = new FreeDo.FreedoPModelStyle({
+                color: {
+                    conditions: [
+                        ["${component} === \'" + node.id + "\'", 'color("red")'],
+                        ['true', 'color("white")']
+                    ]
+                }
+            });
+            //原色
+            var originmodelstyle = new FreeDo.FreedoPModelStyle();
+            for (var index in pmodels) {
+                if(index==node.tablename){
+                    pmodels[index].style = highlightmodelstyle;
+                }else{
+                    pmodels[index].style = originmodelstyle;
+                }
+            }
+        },
+        onCheck:function (node,checked) {
+            //得到所有未勾选的结点
+            var nodes = $('#tree').tree('getChecked', 'unchecked');
+            //用于存放style的数组，第一个PMODEL模型对象一个style
+            var models =[];
+            //用unitname作为models数据的索引，不同结点根据所属PMODEL模型对象，放入相应的style中
+            for(i in nodes){
+                var index = nodes[i].tablename;
+                var uid = ["${component} === \'" + nodes[i].uid + "\'", 'false'];
+                if(models[index]==null){
+                    models[index]=[];
+                }
+                models[index].push(uid)
+            }
+            //最后给没有勾选的结点设置成显示
+            for(var index in models){
+                models[index].push(['true', 'true'])
+            }
+            //遍历未勾选的结点
+            for(i in nodes){
+                //遍历模型对象
+                for (var index in pmodels) {
+                    //根据结点的表名对应模型数组的索引找到相应的模型对象，并设置对象的隐藏style
+                    if(index==nodes[i].tablename){
+                        pmodels[index].style = new FreeDo.FreedoPModelStyle({
+                            show: {
+                                conditions:models[index]
+                            }
+                        });
+                    }
+                }
+            }
+        },
+        onLoadSuccess:function (node, data) {
+           // console.log(data);
+        }
+    });
 
     //chart1
     var myChart = echarts.init(document.getElementById('chartAttr'));
