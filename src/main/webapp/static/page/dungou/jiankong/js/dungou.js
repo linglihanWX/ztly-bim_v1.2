@@ -70,8 +70,6 @@ $(function () {
             }
         }
     });
-
-
     /*            	if(model[key].name == "railway"){
                         //地铁对应的盾构机
                     }else if(model[key].name == "tunnel"){
