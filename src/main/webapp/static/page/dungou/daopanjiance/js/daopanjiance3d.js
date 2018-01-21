@@ -12,21 +12,16 @@ $(function () {
     //初始化地球
     FreedoApp.init("earth");
     var viewer = FreedoApp.viewers["earth"];
-    viewer.scene.skyBox = new Freedo.SkyBox({
-        sources : {
-            positiveX : '../../static/page/dungou/daopanjiance/img/skybox.png',
-            negativeX : '../../static/page/dungou/daopanjiance/img/skybox.png',
-            positiveY : '../../static/page/dungou/daopanjiance/img/skybox.png',
-            negativeY : '../../static/page/dungou/daopanjiance/img/skybox.png',
-            positiveZ : '../../static/page/dungou/daopanjiance/img/skybox.png',
-            negativeZ : '../../static/page/dungou/daopanjiance/img/skybox.png'
-        }
-    });
+    viewer.imageryLayers.removeAll(false);
+    viewer.scene.globe.baseColor =  viewer.scene.backgroundColor = Freedo.Color.fromCssColorString('#E6E6FA');
+    viewer.scene.globe.show = false;
+    viewer.scene.skyBox.show = false;
+    viewer.scene.moon.show = false;
+    viewer.scene.sun.show = false;
+
 
     //隐藏指北针
     $(".compassDiv").hide();
-    //隐藏地球
-    viewer.scene.globe.show = false;
     //加载盾构模型
     for (var i = 1; i < 10; i++) {
         dungouModels[i] = viewer.scene.primitives.add(FreeDo.Model.fromGltf({
