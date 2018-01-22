@@ -7,7 +7,7 @@ $(function () {
     DungouViewer.initLeftDbClick(FreedoApp.viewers["earth"])
     DungouViewer.initLeftDown(FreedoApp.viewers["earth"], hidetips)
     // var surveymanager = new SurveyManager(FreedoApp.viewers["earth"],function(){});
-    cameraControl(FreedoApp.viewers["earth"]);
+    //cameraControl(FreedoApp.viewers["earth"]);
 
     //	初始化地球
     var pmodels = [];
@@ -66,7 +66,9 @@ $(function () {
                     });
                 } else {
                     modelTile.readyPromise.then(function () {
-                        FreedoApp.viewers["earth"].camera.flyToBoundingSphere(modelTile.boundingSphere);
+                        FreedoApp.viewers["earth"].camera.flyToBoundingSphere(modelTile.boundingSphere,{
+                            duration:0
+                        });
                     });
                 }
             }

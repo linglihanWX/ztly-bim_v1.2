@@ -3,6 +3,7 @@ $(function () {
     var h2 = $(".breadcrumb").height();
     $("#content .row-fluid").height(h - h2);
     FreedoApp.init("earth");
+    FreedoApp.viewers["earth"].scene.globe.depthTestAgainstTerrain =true;
     DungouViewer.initLeftClick(FreedoApp.viewers["earth"], showtips);
     DungouViewer.initLeftDbClick(FreedoApp.viewers["earth"])
     DungouViewer.initLeftDown(FreedoApp.viewers["earth"], hidetips)
@@ -64,7 +65,9 @@ $(function () {
                     });
                 } else {
                     modelTile.readyPromise.then(function () {
-                        FreedoApp.viewers["earth"].camera.flyToBoundingSphere(modelTile.boundingSphere);
+                        FreedoApp.viewers["earth"].camera.flyToBoundingSphere(modelTile.boundingSphere,{
+                            duration:0
+                        });
                     });
                 }
             }
@@ -119,8 +122,8 @@ $(function () {
         polyline: {
             positions: FreeDo.Cartesian3.fromDegreesArrayHeights(
                 [
-                    113.64614940531897, 22.778576538826982, -630,
-                    113.65482304242103, 22.78583487031061, -610
+                    121.60592745779262, 38.953991486827306, -250,
+                    121.61385178949371, 38.948083100516946, -280
                 ]
             ),
             width: 5,
@@ -139,8 +142,8 @@ $(function () {
         polyline: {
             positions: FreeDo.Cartesian3.fromDegreesArrayHeights(
                 [
-                    113.65482304242103, 22.78583487031061, -610,
-                    113.65713401517607, 22.787744674022917, -580
+                    121.61385178949371, 38.948083100516946, -280,
+                    121.61758807016263, 38.943420806881576, -350
                 ]
             ),
             width: 5,
@@ -159,8 +162,8 @@ $(function () {
         polyline: {
             positions: FreeDo.Cartesian3.fromDegreesArrayHeights(
                 [
-                    113.65713401517607, 22.787744674022917, -580,
-                    113.66004961353387, 22.790307562206543, -490
+                    121.61758807016263, 38.943420806881576, -350,
+                    121.62004836953294, 38.9385202916514, -400
                 ]
             ),
             width: 5,
@@ -179,8 +182,8 @@ $(function () {
         polyline: {
             positions: FreeDo.Cartesian3.fromDegreesArrayHeights(
                 [
-                    113.66004961353387, 22.790307562206543, -490,
-                    113.66301755136372, 22.792709921496122, -380
+                    121.62004836953294, 38.9385202916514, -400,
+                    121.62410255554124, 38.930786875534515, -500
                 ]
             ),
             width: 5,
@@ -198,8 +201,8 @@ $(function () {
         polyline: {
             positions: FreeDo.Cartesian3.fromDegreesArrayHeights(
                 [
-                    113.65713401517607, 22.787744674022917, -580,
-                    113.65713401517607, 22.787744674022917, -800
+                    121.62004836953294, 38.9385202916514, -400,
+                    121.62004836953294, 38.9385202916514, -800
                 ]
             ),
             width: 5,
@@ -210,6 +213,7 @@ $(function () {
             })
         }
     });
+    showhidelabels()
 });
 
     
@@ -283,7 +287,7 @@ function hidetips(){
 	$("#sanwei4").prop("checked",false);
 	$("#sanwei5").prop("checked",false);
 }
-function showhidelabels(dungouprimitive) {
+function showhidelabels() {
     $("#sanwei4").change(function(){
         var str = "<p>泡沫系统</p><ul>"+$(".info-middle #4 ul").html()+"</ul>";
         if ($(this).prop('checked')){
