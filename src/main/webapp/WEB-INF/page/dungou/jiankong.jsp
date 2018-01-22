@@ -14,8 +14,8 @@
     <link rel="stylesheet" type="text/css" href="${ctx }/static/page/dungou/common/font/iconfont.css">
     <link rel="stylesheet" href="${ctx }/static/page/dungou/jiankong/css/jiankong.css">
     <script src="${ctx }/static/page/common/js/jquery-3.2.1.min.js"></script>
-    <link href="http://res.gbim360.com/lib/freedo/rel/1.5.2/Freedo/Widgets/widgets.css" rel="stylesheet">
-    <script src="http://res.gbim360.com/lib/freedo/rel/1.5.2/Freedo/Freedo.js"></script>
+    <link href="http://res.gbim360.com/lib/freedo/rel/1.5.3.1/Freedo/Widgets/widgets.css" rel="stylesheet">
+    <script src="http://res.gbim360.com/lib/freedo/rel/1.5.3.1/Freedo/Freedo.js"></script>
     <script src="http://res.gbim360.com/shared/1710_lodash/lodash.min.js"></script>
     <!-- 指北针 -->
     <link rel="stylesheet" href="${ctx }/static/webgl/compass/css/compass.css">

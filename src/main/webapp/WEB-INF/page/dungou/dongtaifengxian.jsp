@@ -80,7 +80,7 @@
                 <i class="iconfont icon-fxyj"></i>
                 <span>风险预警</span>
             </p>
-
+            <iframe src="${ctx}/static/page/dungou/dongtaifengxian/iframeOpenLayer.html" style="width: 100%;height: 100%"></iframe>
             <div id="chartBox">
 
                 <div id="chart"></div>
