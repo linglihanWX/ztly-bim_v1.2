@@ -1,8 +1,6 @@
 $(function () {
     let scrWidth = window.screen.width;
     $(".three-menu li:nth-of-type(3) a").addClass("second-active").parent().siblings().children("a").removeClass("second-active");
-
-
     if (scrWidth <= 1366) {
         new Swiper ('.swiper-container', {
             direction: 'vertical',
@@ -12,8 +10,22 @@ $(function () {
             spaceBetween: 30,
         });
     }
+   /* // 三维窗口的大小改变
+    $(".main-page").on("click",function () {
+        $(".content-top").css({"height":66+"%"});
+        $(".content-bottom").show();
+    });
+
+    $(".three-page").on("click",function () {
+        $(".content-top").css({"height":100+"%"});
+        $(".content-bottom").hide();
+    });
+    $(".nav-show-hide").on("click",function () {
+        $(".nav").toggle();
+    });*/
+
     let infoData = [];
-    let dataArr = [0,1,2,3,4,5];
+    let dataArr = [0,1,2,3,4,5,6,7,8,9,10,11];
     // 请求信息数据
     $.ajax({
         url:"../../static/page/dungou/fengxian/json/data.json",
@@ -22,6 +34,8 @@ $(function () {
         dataType:'json',
         success:function (data) {
             infoData = data;
+            console.log(data)
+            
         },error:function (err) {
             console.log(err);
         }
@@ -35,63 +49,42 @@ $(function () {
             for(let i = 0; i < infoData.length; i++){
                 if(dataArr[n] == infoData[i].id){
                     let str = '';
-                    /*    if(infoData[i].type == 1){
-                           str = `<div id="${infoData[i].id}"><p>${infoData[i].name}<i class="iconfont icon-out"></i></p><ul>`;
-                       }else if(infoData[i].type == 2){
-                           str = `<div id="${infoData[i].id}"><p>${infoData[i].name}<span><input type="checkbox">三维展示</span></p><ul>`;
-                       }
-                       for (let  j = 0; j < infoData[i].son.length; j++) {
-                           str += `<li><span>${infoData[i].son[j].name}:</span><span>${infoData[i].son[j].value}</span></li>`;
-                       }
-                       str += `</ul></div>`;
-                       $(".info-left").append(str); */
-
-                    if (infoData[i].type == 1) {
-                        str = '<div id="' + infoData[i].id + '"><p>' + infoData[i].name + '<i class="iconfont icon-out"></i></p><ul>';
-                    } else if (infoData[i].type == 2) {
-                        str = '<div id="' + infoData[i].id + '"><p>' + infoData[i].name + '<span><input type="checkbox">三维展示</span></p><ul>';
+                    if(infoData[i].type == 1){
+                        str = `<div id="${infoData[i].id}"><p>${infoData[i].name}<i class="iconfont icon-out"></i></p><ul>`;
+                    }else if(infoData[i].type == 2){
+                        str = `<div id="${infoData[i].id}"><p>${infoData[i].name}<span><input type="checkbox">三维展示</span></p><ul>`;
                     }
-                    for (var j = 0; j < infoData[i].son.length; j++) {
-                        str += '<li><span>' + infoData[i].son[j].name + ':</span><span>' + infoData[i].son[j].value + '</span></li>';
+                    for (let  j = 0; j < infoData[i].son.length; j++) {
+                        str += `<li><span>${infoData[i].son[j].name}:</span><span>${infoData[i].son[j].value}</span></li>`;
                     }
-                    str += '</ul></div>';
+                    str += `</ul></div>`;
                     $(".info-left").append(str);
                 }
             }
         }
     }
-    for (let  n = 0; n < 6; n++) {
+    for (let  n = 4; n < 10; n++) {
         for(let i = 0; i < infoData.length; i++){
             if(dataArr[n] == infoData[i].id){
                 let str = '';
-                /*  if(infoData[i].type == 1){
-                     str = `<div id="${infoData[i].id}"><p>${infoData[i].name}<i class="iconfont icon-out"></i></p><ul>`;
-                 }else if(infoData[i].type == 2){
-                     str = `<div id="${infoData[i].id}"><p>${infoData[i].name}<span><input type="checkbox">三维展示</span></p><ul>`;
-                 }
-                 for (let  j = 0; j < infoData[i].son.length; j++) {
-                     str += `<li><span>${infoData[i].son[j].name}:</span><span>${infoData[i].son[j].value}</span></li>`;
-                 }
-                 str += `</ul></div>`; */
-                if (infoData[i].type == 1) {
-                    str = '<div id="' + infoData[i].id + '"><p>' + infoData[i].name + '<i class="iconfont icon-out"></i></p><ul>';
-                } else if (infoData[i].type == 2) {
-                    str = '<div id="' + infoData[i].id + '"><p>' + infoData[i].name + '<span><input type="checkbox">三维展示</span></p><ul>';
+                if(infoData[i].type == 1){
+                    str = `<div id="${infoData[i].id}"><p>${infoData[i].name}<i class="iconfont icon-out"></i></p><ul>`;
+                }else if(infoData[i].type == 2){
+                    str = `<div id="${infoData[i].id}"><p>${infoData[i].name}<span><input type="checkbox">三维展示</span></p><ul>`;
                 }
-                for (var j = 0; j < infoData[i].son.length; j++) {
-                    str += '<li><span>' + infoData[i].son[j].name + ':</span><span>' + infoData[i].son[j].value + '</span></li>';
+                for (let  j = 0; j < infoData[i].son.length; j++) {
+                    str += `<li><span>${infoData[i].son[j].name}:</span><span>${infoData[i].son[j].value}</span></li>`;
                 }
-                str += '</ul></div>';
-                // $(".info-left").append(str);
+                str += `</ul></div>`;
                 $(".text-info").append(str);
             }
         }
     }
 
-    let chartOne = echarts.init(document.getElementById('chartOne'));
-    let option1 = {
+    let chartOne = echarts.init(document.getElementById('chartOne'));//获取id为charOne对象进行实例化
+    let option1 = {//表格样式框架对象
         title: {
-            text: '横刨面',
+            text: '横刨面',//// 图表标题，可以通过show:true/false控制显示与否
             textStyle:{
                 fontSize:14
             }
@@ -101,15 +94,15 @@ $(function () {
             axisPointer: {
                 type: 'cross',
                 label: {
-                    backgroundColor: '#6a7985'
+                    backgroundColor: '#6a7985'//这个是鼠标浮动时的工具条，显示鼠标所在区域的数据
                 }
             }
         },
         legend: {
-            x : 'right',
+             x : 'right',
             // y : 'bottom',
-            data:['黄褐色分土层','砂岩','基岩','淀积层','母质层'],
-            itemGap:0,
+            //data:[],
+            itemGap:0,//这个就是图例，也就是每条折线或者项对应的示例  
             textStyle:{
                 fontSize:12
             }
@@ -128,22 +121,79 @@ $(function () {
             {
                 type : 'category',
                 boundaryGap : false,
-                data : ['0km','0.5km','1km','1.5km','2km','2.5km','3km']
+            //    position:"top",
+                data : ['0km','0.5km','1km','1.5km','2km','2.5km','3km']//x轴的数据
+       
             }
         ],
         yAxis : [
             {
-                type : 'value',
+                type : 'value',//y轴的定义
                 name: 'm',
+               inverse:true
             }
         ],
-        series : [
-            {
+        series : []//存放的相关数据
+    };
+  //****************************************************************************************
+//加载数据
+	    $.ajax({
+		url : "../../Zhuankong/zhuanKongDate",
+		type : "get",
+		// async:false,
+		dateType : "json",
+		success : function(data) {// 获得后台查询数组数据
+			if (data) {
+				// var cengNum =[1,2,3,4,5,6,7,8,9];
+				for ( var i in data) {// 循环遍历数组中每个对象
+					data[i].dcxx = JSON.parse(data[i].dcxx);// 每个对象格式进行解析
+				}
+				var Cengs = [];// 存放图标数据
+				var desNames=[];//存放名字的数组
+				for ( var i in data[0].dcxx) {// 循环遍历第一钻井中地层信息数据
+					var cengData = [];// 定义存放每个钻井地层信息的数据
+					for ( var j in data) {
+						var dcbgs = data[j].dcxx[i].dcbg;// 定义土层标高数组
+						cengData.push(dcbgs);
+						var desName = data[0].dcxx[i].des;// 定义图层描述信息
+						desNames.push(desName);
+					}
+					var ceng = {
+						name : desName,
+						type : "line",
+						stack : "ceshi",
+						areaStyle : {
+							normal : {}
+						},
+						label : {
+							normal : {// 控制数字的显示
+								show : true,
+								position : 'top'
+							}
+						},
+						data : cengData
+					}
+					Cengs.push(ceng);
+				}
+			}
+			console.log(Cengs);
+			option1.series = Cengs;// 设置图表
+			//option1.legend.data=desNames;
+			chartOne.setOption(option1);// 重新加载图表
+		},
+		error : function() {
+			alert("数据加载失败！请检查数据链接是否正确");
+		}
+	});
+  
+// **********************************************************************************8
+/*            {
                 name:'黄褐色分土层',
                 type:'line',
                 stack: '总量',
                 areaStyle: {normal: {}},
-                data:[12, 13, 10, 13, 9, 23, 21]
+              data:[12, 13, 10, 13, 9, 23, 21]
+      
             },
             {
                 name:'砂岩',
@@ -178,10 +228,10 @@ $(function () {
                 },
                 areaStyle: {normal: {}},
                 data:[82, 93, 90, 93, 129, 133, 132]
-            }
-        ]
-    };
-    chartOne.setOption(option1);
+            }*/
+       /* ]*/
+  /*  };*/
+    
 
     let chartTwo = echarts.init(document.getElementById('chartTwo'));
     let option2 = {
@@ -195,7 +245,7 @@ $(function () {
             }
         },
         grid:{
-            left:'10%',
+          left:'10%',
             top:'5%',
             bottom:'15%'
         },
@@ -317,4 +367,5 @@ $(function () {
         ]
     };
     chartTwo.setOption(option2);
+
 });

@@ -20,16 +20,17 @@ FreedoApp.init = function(id) {
 				geocoder : false,
 				homeButton : false,
 				infoBox :false,
-				sceneModePicker : false,
-				selectionIndicator : false,
-				timeline : false,
-				navigationHelpButton : false,
+				sceneModePicker : false,//是否显示3d/2d选择器
+				selectionIndicator : false, //是否显示选取指示器组件
+				timeline : false,//是否显示时间轴
+				navigationHelpButton : false, //是否显示右上角的帮助按钮
 				navigationInstructionsInitiallyVisible : false,
 				selectedImageryProviderViewModel : false,
-				scene3DOnly : true,
+				scene3DOnly : true,//如果设置为true，则所有几何图形以3D模式绘制以节约GPU资源
 				clock : null,
 				showRenderLoopErrors : false,
 				automaticallyTrackDataSourceClocks:false,
+				//加载自定义地图瓦片需要指定一个自定义图片服务器//URL 为瓦片数据服务器地址
 				imageryProvider : new Freedo.WebMapTileServiceImageryProvider({
 					url : "http://{s}.tianditu.com/img_c/wmts?service=WMTS&request=GetTile&version=1.0.0&LAYER=img&tileMatrixSet={TileMatrixSet}&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style={style}&format=tiles",
 					style:"default",
