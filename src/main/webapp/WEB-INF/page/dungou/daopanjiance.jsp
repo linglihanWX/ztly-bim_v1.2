@@ -48,15 +48,6 @@
     </div>
     <div class="page-info">
         <div class="page-nav">
-            <ul>
-                <li><a href="${ctx }/ProSystem/dungou/toDaopanjiance" class="active">刀盘检测</a></li>
-                <li><a href="${ctx }/ProSystem/dungou/toZidongdaoxiang">自动导向系统</a></li>
-                <li><a href="${ctx }/ProSystem/dungou/toDongtaifengxian">动态风险</a></li>
-                <li><a href="#">泡沫系统</a></li>
-                <li><a href="#">注浆系统</a></li>
-                <li><a href="#">辅助系统</a></li>
-                <li><a href="#">参数设置</a></li>
-            </ul>
             <div class="btnChangePattern"><span class="bgBtn"></span><span class="spanActive">二维视图</span><span >三维视图</span></div>
         </div>
        <div class="content-box">
@@ -128,6 +119,7 @@
 </div>
 
 <script src="${ctx }/static/page/dungou/common/js/appendHeader.js"></script>
+<script src="${ctx }/static/page/dungou/common/js/danpanHeader.js"></script>
 <script src="${ctx }/static/page/common/js/nav.js"></script>
 <script src="${ctx }/static/page/dungou/daopanjiance/js/daopanjiance.js"></script>
 <script src="${ctx }/static/page/dungou/daopanjiance/js/daopanjiance3d.js"></script>

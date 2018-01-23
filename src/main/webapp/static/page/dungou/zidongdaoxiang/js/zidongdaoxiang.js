@@ -1,6 +1,6 @@
 $(function () {
     $(".three-menu li:nth-of-type(2) a").addClass("second-active").parent().siblings().children("a").removeClass("second-active");
-
+    $(".page-nav ul li:nth-of-type(2) a").addClass("active").parent().siblings().children("a").removeClass("active");
     $(".page-nav ul>li").each(function () {
         $(this).click(function () {
             $(this).children("a").addClass("active").end().siblings().children("a").removeClass("active");

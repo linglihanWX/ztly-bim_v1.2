@@ -46,15 +46,6 @@
     </div>
     <div class="content">
         <div class="page-nav">
-            <ul>
-                <li><a href="${ctx }/ProSystem/dungou/toDaopanjiance">刀盘检测</a></li>
-                <li><a href="${ctx }/ProSystem/dungou/toZidongdaoxiang">自动导向系统</a></li>
-                <li><a href="${ctx }/ProSystem/dungou/toDongtaifengxian" class="active">动态风险</a></li>
-                <li><a href="#">泡沫系统</a></li>
-                <li><a href="#">注浆系统</a></li>
-                <li><a href="#">辅助系统</a></li>
-                <li><a href="#">参数设置</a></li>
-            </ul>
             <div class="btnChangePattern">
                 <select name="" id="">
                     <option value="">动态风险</option>
@@ -103,6 +94,7 @@
 
 <script src="${ctx}/static/page/common/js/jquery-3.2.1.min.js"></script>
 <script src="${ctx}/static/page/dungou/common/js/appendHeader.js"></script>
+<script src="${ctx }/static/page/dungou/common/js/danpanHeader.js"></script>
 <script src="${ctx}/static/page/common/js/nav.js"></script>
 <script src="${ctx}/static/page/common/js/echarts.min.js"></script>
 <script src="${ctx}/static/page/dungou/dongtaifengxian/js/dongtaifengxian.js"></script>
