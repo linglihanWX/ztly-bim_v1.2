@@ -45,7 +45,6 @@
     </div>
     <div class="page-info">
         <div class="page-nav">
-            
         </div>
         <div class="content-box">
             <div class="page-info-top">
