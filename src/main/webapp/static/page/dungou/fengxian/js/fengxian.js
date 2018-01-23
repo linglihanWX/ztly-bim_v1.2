@@ -130,7 +130,7 @@ $(function () {
             {
                 type : 'value',//y轴的定义
                 name: 'm',
-               inverse:true
+             //  inverse:true
             }
         ],
         series : []//存放的相关数据
@@ -153,22 +153,22 @@ $(function () {
 				for ( var i in data[0].dcxx) {// 循环遍历第一钻井中地层信息数据
 					var cengData = [];// 定义存放每个钻井地层信息的数据
 					for ( var j in data) {
-						var dcbgs = data[j].dcxx[i].dcbg;// 定义土层标高数组
-						cengData.push(dcbgs);
+						var dcshendus = data[j].dcxx[i].dcshendu;// 定义土层深度数组
+						cengData.push(dcshendus);
 						var desName = data[0].dcxx[i].des;// 定义图层描述信息
 						desNames.push(desName);
 					}
 					var ceng = {
 						name : desName,
 						type : "line",
-						stack : "ceshi",
+						stack : "11",
 						areaStyle : {
 							normal : {}
 						},
 						label : {
 							normal : {// 控制数字的显示
 								show : true,
-								position : 'top'
+							//	position : 'top'
 							}
 						},
 						data : cengData
