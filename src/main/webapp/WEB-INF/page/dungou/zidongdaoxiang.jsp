@@ -45,7 +45,7 @@
     </div>
     <div class="page-info">
         <div class="page-nav">
-            <div class="btnChangePattern"></div>
+            
         </div>
         <div class="content-box">
             <div class="page-info-top">

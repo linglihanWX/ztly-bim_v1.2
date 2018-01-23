@@ -85,8 +85,10 @@ function modelHighlight(id) {
         for (var i = 1; i < 11; i++) {
             if (i == id) {
                 //该模型高亮
-                dungouModels[i].color = highlight;
-                highListModels += 1;
+                if(dungouModels[i].color !== highlight){
+                    dungouModels[i].color = highlight;
+                    highListModels += 1;
+                }
             } else {
                 //其它模型半透
                 dungouModels[i].color = membranes;
@@ -95,8 +97,11 @@ function modelHighlight(id) {
     } else {//有高亮模型的情况下，该模型高亮其他不变
         for (var i = 1; i < 11; i++) {
             if (i == id) {
-                dungouModels[i].color = highlight;
-                highListModels += 1;
+                if(dungouModels[i].color !== highlight){
+                    dungouModels[i].color = highlight;
+                    highListModels += 1;
+                }
+
             }
         }
     }
@@ -108,20 +113,25 @@ function restoreColor(id) {
         if (i == id) {
             //高亮的模型仅有一个的情况
             if(highListModels==1){
-            //该模型恢复原色
-            dungouModels[i].color = origin;
-                highListModels-=1;
-            //其它模型也恢复原色
-                for (var j = 1; j < 11; j++) {
-                    if(j!=i){
-                        dungouModels[j].color = origin;
+                if(id>0&&id<8){
+                    var flag = intersect(bujians[id])
+                    if(flag){
+                        highListModels-=1;
+                        //其它模型也恢复原色
+                        for (var j = 1; j < 11; j++) {
+                                dungouModels[j].color = origin;
+                        }
+                        break;
                     }
-                }
-                break;
+                    }
+
             }else{//高亮模型不唯一的情况
                 //仅使该模型半透
-                dungouModels[i].color = membranes;
-                highListModels-=1;
+                var flag = intersect(bujians[id])
+                if(flag){
+                    highListModels-=1;
+                    dungouModels[i].color = membranes;
+                }
             }
         }
     }
@@ -135,9 +145,18 @@ function getcamera() {
         console.log(FreedoApp.viewers["earth"].camera.heading + "," + FreedoApp.viewers["earth"].camera.pitch + "," + FreedoApp.viewers["earth"].camera.roll)
     }, FreeDo.ScreenSpaceEventType.LEFT_CLICK);
 }
-
+var bujians = [];
 function click2DChange3D() {
+    for (var i = 1; i < 8; i++) {
+        bujians[i]=[];
+    }
     for (let i = 0; i < 4; i++) {
+        bujians[i+3].push($("#part" + i + " .right-span"))
+        $(".span-box span").each(function () {
+            bujians[i+3].push($(this))
+        })
+
+
         $("#part" + i + " .right-span").click(function () {
             if($(this).attr("data-mao")=="false"){
                 modelHighlight(i + 3);
@@ -159,6 +178,7 @@ function click2DChange3D() {
     }
     for (let i = 0; i < 4; i++) {
         for (let j = 1; j < 4; j++) {
+            bujians[i+3].push($("#part" + i + " .right-span" + j))
             $("#part" + i + " .right-span" + j).click(function () {
                 if($(this).attr("data-mao")=="false"){
                     modelHighlight(i + 3);
@@ -173,6 +193,7 @@ function click2DChange3D() {
     for (let i = 0; i < 4; i++) {
         for (let j = 1; j < 7; j++) {
             if (i == 0 || i == 2) {
+                bujians[1].push($("#part" + i + " .middle-span" + j))
                 $("#part" + i + " .middle-span" + j).click(function () {
                     if($(this).attr("data-mao")=="false"){
                         modelHighlight(1);
@@ -183,6 +204,7 @@ function click2DChange3D() {
                     }
                 })
             } else {
+                bujians[2].push($("#part" + i + " .middle-span" + j))
                 $("#part" + i + " .middle-span" + j).click(function () {
                     if($(this).attr("data-mao")=="false"){
                         modelHighlight(2);
@@ -195,6 +217,9 @@ function click2DChange3D() {
             }
         }
     }
+    $(".span-box span").each(function () {
+        bujians[7].push($(this));
+    })
     $(".span-box span").click(function () {
         console.log($(this).attr("data-mao"))
         if($(this).attr("data-mao")=="false"){
@@ -205,4 +230,23 @@ function click2DChange3D() {
             $(this).attr("data-mao","false");
         }
     })
+    console.log(bujians);
+}
+
+/**
+ *
+ * @param JQueryObjArr
+ */
+function intersect(JQueryObjArr) {
+    var sum = 0
+    for (var i = 0; i < JQueryObjArr.length; i++) {
+        if(JQueryObjArr[i].attr("data-mao")=="true") {
+            sum+=1;
+        }
+    }
+    if(sum==1){
+        return true;
+    }else{
+        return false;
+    }
 }
