@@ -4,7 +4,6 @@
 	"children":[{
 		"id":11,
 		"text":"线路资料(16)",
-		"state":"closed",
 		"children":[{
 			"id":111,
 			"text":"第三方检测总体方案(4)"

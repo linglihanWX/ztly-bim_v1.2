@@ -75,9 +75,9 @@ public class PModelController {
     public void insertTreeData() {
         List<Map> maplist = new ArrayList();
         Map map1 = new HashMap();
-        map1.put("filepath","com/freedotech/app/ztly/util/tanggu_new.xml");
-        map1.put("rootname","场景根");
-        map1.put("tablename","t_unit1");
+        map1.put("filepath","com/freedotech/app/ztly/util/shenmaoguanpian.xml");
+        map1.put("rootname","0");
+        map1.put("tablename","t_unit15");
         maplist.add(map1);
 
         try {
