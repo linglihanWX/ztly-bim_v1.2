@@ -75,6 +75,9 @@ $(function () {
                             duration:0
                         });
                     });
+                    $("#resetview").click(function () {FreedoApp.viewers["earth"].camera.flyToBoundingSphere(modelTile.boundingSphere,{
+                        duration:0
+                    });});
                 }
             }
         }

@@ -296,3 +296,6 @@
         height: calc(100% - 20px);
     }
 }
+.compassDiv{
+    margin-top: 20px;
+}
