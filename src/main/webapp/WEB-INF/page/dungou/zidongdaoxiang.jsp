@@ -45,7 +45,6 @@
     </div>
     <div class="page-info">
         <div class="page-nav">
-            <div class="btnChangePattern"></div>
         </div>
         <div class="content-box">
             <div class="page-info-top">
@@ -54,9 +53,9 @@
                     <div>
                         <ul>
                             <li>推进油缸行程A(mm): &nbsp;&nbsp;&nbsp;1111</li>
-                            <li>推进油缸行程B(mm): &nbsp;&nbsp;&nbsp;1111</li>
-                            <li>推进油缸行程C(mm): &nbsp;&nbsp;&nbsp;1111</li>
-                            <li>推进油缸行程D(mm): &nbsp;&nbsp;&nbsp;1111</li>
+                            <li>推进油缸行程B(mm): &nbsp;&nbsp;&nbsp;1120</li>
+                            <li>推进油缸行程C(mm): &nbsp;&nbsp;&nbsp;1135</li>
+                            <li>推进油缸行程D(mm): &nbsp;&nbsp;&nbsp;1140</li>
                         </ul>
                     </div>
 
