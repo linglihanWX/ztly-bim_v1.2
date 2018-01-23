@@ -130,10 +130,12 @@ $(function () {
             {
                 type : 'value',//y轴的定义
                 name: 'm',
-             //  inverse:true
+          // type: 'category',
+            //	data: ['-80', '-50', '-20','-5','-3','-1','0','10'],
             }
         ],
-        series : []//存放的相关数据
+        series : [],//存放的相关数据
+        color:['#005AB5', '#844200', '#5B4B00', '#FF9797','#270000',  '#272727']
     };
   //****************************************************************************************
 //加载数据
@@ -150,10 +152,11 @@ $(function () {
 				}
 				var Cengs = [];// 存放图标数据
 				var desNames=[];//存放名字的数组
+				var dcshendus=[];
 				for ( var i in data[0].dcxx) {// 循环遍历第一钻井中地层信息数据
 					var cengData = [];// 定义存放每个钻井地层信息的数据
 					for ( var j in data) {
-						var dcshendus = data[j].dcxx[i].dcshendu;// 定义土层深度数组
+						 dcshendus = data[j].dcxx[i].dcshendu;// 定义土层深度数组
 						cengData.push(dcshendus);
 						var desName = data[0].dcxx[i].des;// 定义图层描述信息
 						desNames.push(desName);
@@ -185,6 +188,7 @@ $(function () {
 			alert("数据加载失败！请检查数据链接是否正确");
 		}
 	});
+	    console.log(option1);
   
 // **********************************************************************************8
 /*            {
