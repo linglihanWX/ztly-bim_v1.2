@@ -241,7 +241,7 @@
         // if this is just a coverage or a group of them, disable a few items,
         // and default to jpeg format
         var format = 'image/png';
-        var bounds = [13625.3563320521, 428666.74982500257,
+        var bounds = [13625.3563320521, 429100.74982500257,
             18121.75536845632, 429237.0328570856];
         if (pureCoverage) {
             document.getElementById('antialiasSelector').disabled = true;
@@ -321,6 +321,7 @@
             }
             document.getElementById('scale').innerHTML = "Scale = 1 : " + scale;
         });
+        console.log(map.getSize());
         map.getView().fit(bounds, map.getSize());
         map.on('singleclick', function(evt) {
             // document.getElementById('nodelist').innerHTML = "Loading... please wait...";
