@@ -13,11 +13,11 @@ DungouViewer.initLeftClick = function(viewer,callback) {
 		console.log(cartesian);*/
 		var picked = viewer.scene.pick(movement.position);
 		// console.log(picked);
-		var pick= new FreeDo.Cartesian2(movement.position.x,movement.position.y);
+/*		var pick= new FreeDo.Cartesian2(movement.position.x,movement.position.y);
 		var cartesian = viewer.scene.globe.pick(viewer.camera.getPickRay(pick), viewer.scene);
 		var cartographic = viewer.scene.globe.ellipsoid.cartesianToCartographic(cartesian);
 		var point=[ cartographic.longitude / Math.PI * 180, cartographic.latitude / Math.PI * 180];
-		console.log(point);
+		console.log(point);*/
         /*console.log(FreedoApp.viewers["earth"].camera)
         console.log(FreedoApp.viewers["earth"].camera.heading+","+FreedoApp.viewers["earth"].camera.pitch+","+FreedoApp.viewers["earth"].camera.roll)*/
         DungouViewer.changeColor(picked)

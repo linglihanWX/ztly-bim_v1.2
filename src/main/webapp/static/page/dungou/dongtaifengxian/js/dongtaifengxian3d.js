@@ -4,11 +4,6 @@ $(function () {
     getPoints(FreedoApp.viewers["earth"])
     var array = initEntities(FreedoApp.viewers["earth"])
 
-    FreedoApp.viewers["earth"].camera.setView({
-//    	 destination :  new FreeDo.Cartesian3.fromDegrees(121.61949402684546,38.94285250833841,1000),
-        destination: new FreeDo.Cartesian3(-2606029.8300439236, 4232695.952801313, 3989852.346352031),
-        orientation: new FreeDo.HeadingPitchRoll(4.76493381044884, -1.515738147823087, 6.223530529077095)
-    })
     /*    FreedoApp.viewers["earth"].clock.onTick.addEventListener(function (clock) {
             var camera = FreedoApp.viewers["earth"].camera;
             var scene = FreedoApp.viewers["earth"].scene;
@@ -24,6 +19,26 @@ $(function () {
             }
 
         });*/
+    $.ajax({
+        url: "../../PModel/getPmodel",
+        type: "get",
+        dataType: "json",
+        success: function (data) {
+            if(data[0].id==15){
+                FreedoApp.viewers["earth"].camera.setView({
+//    	 destination :  new FreeDo.Cartesian3.fromDegrees(121.61949402684546,38.94285250833841,1000),
+                    destination: new FreeDo.Cartesian3(-2390504.2868196983,5437784.25207524,2461194.1877298946),
+                    orientation: new FreeDo.HeadingPitchRoll(5.910423052387491,-1.2442322139759034,6.267673931457356)
+                })
+            }else{
+                FreedoApp.viewers["earth"].camera.setView({
+//    	 destination :  new FreeDo.Cartesian3.fromDegrees(121.61949402684546,38.94285250833841,1000),
+                    destination: new FreeDo.Cartesian3(-2606029.8300439236, 4232695.952801313, 3989852.346352031),
+                    orientation: new FreeDo.HeadingPitchRoll(4.76493381044884, -1.515738147823087, 6.223530529077095)
+                })
+            }
+        }
+    });
     //图层部分
     var layersarr = [];
     var layersname = [];
