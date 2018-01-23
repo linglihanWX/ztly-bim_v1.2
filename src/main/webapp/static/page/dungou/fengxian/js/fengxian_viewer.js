@@ -20,6 +20,7 @@ DungouViewer.initLeftClick = function(viewer,callback) {
 		// console.log(point);
 //		console.log(FreedoApp.viewers["earth"].camera)
 //		console.log(FreedoApp.viewers["earth"].camera.heading+","+FreedoApp.viewers["earth"].camera.pitch+","+FreedoApp.viewers["earth"].camera.roll)
+        DungouViewer.changeColor(picked);
 		if(picked==undefined){
 			callback(undefined,undefined);
 		}else{
@@ -56,4 +57,20 @@ DungouViewer.changeColor=function(pickedid){
 	 globalviewer.camera.viewBoundingSphere(attributes.boundingSphere, new Freedo.HeadingPitchRange(Freedo.Math.toRadians(23) , 0, 30))
 
 }
-
+DungouViewer.changeColor=function(picked){
+    if(picked instanceof FreeDo.FreedoPModelFeature) {	//如果picked为空则表示点击无模型处，使之前点变色的模型重置颜色并清空所选模型容器
+        if (pickedModels.length != 0) {	//使之前点变色的模型重置颜色并清空所选模型容器
+            for (var i = 0; i < pickedModels.length; i++) {
+                pickedModels[i].color = unClickedColor;
+                pickedModels = [];
+            }
+        }
+        pickedModels.push(picked);	//缓存点选模型
+        pickedModels[0].color = clickedColor; //变色
+    }else {
+        for (var i = 0; i < pickedModels.length; i++)
+            pickedModels[i].color = unClickedColor;
+        pickedModels = [];
+        return;
+    }
+}

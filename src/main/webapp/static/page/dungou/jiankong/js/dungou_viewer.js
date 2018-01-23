@@ -13,19 +13,17 @@ DungouViewer.initLeftClick = function(viewer,callback) {
 		console.log(cartesian);*/
 		var picked = viewer.scene.pick(movement.position);
 		// console.log(picked);
-		var pick= new FreeDo.Cartesian2(movement.position.x,movement.position.y);
+		/*var pick= new FreeDo.Cartesian2(movement.position.x,movement.position.y);
 		var cartesian = viewer.scene.globe.pick(viewer.camera.getPickRay(pick), viewer.scene);
 		var cartographic = viewer.scene.globe.ellipsoid.cartesianToCartographic(cartesian);
 		var point=[ cartographic.longitude / Math.PI * 180, cartographic.latitude / Math.PI * 180];
 		console.log(point);
 		console.log(FreedoApp.viewers["earth"].camera)
-		console.log(FreedoApp.viewers["earth"].camera.heading+","+FreedoApp.viewers["earth"].camera.pitch+","+FreedoApp.viewers["earth"].camera.roll)
+		console.log(FreedoApp.viewers["earth"].camera.heading+","+FreedoApp.viewers["earth"].camera.pitch+","+FreedoApp.viewers["earth"].camera.roll)*/
+        DungouViewer.changeColor(picked)
 		if(picked==undefined){
 			callback(undefined,undefined);
 		}else{
-			if(picked instanceof FreeDo.FreedoPModelFeature){
-                DungouViewer.changeColor(picked)
-			}
 			callback(picked,movement.position);
 		}
 	}, FreeDo.ScreenSpaceEventType.LEFT_CLICK);
@@ -46,19 +44,20 @@ DungouViewer.removeListener = function(){
 	screenSpaceEventHandler.removeInputAction(FreeDo.ScreenSpaceEventType.LEFT_CLICK);
 }
 DungouViewer.changeColor=function(picked){
-    if(picked==undefined){	//如果picked为空则表示点击无模型处，使之前点变色的模型重置颜色并清空所选模型容器
-        for(var i=0;i<pickedModels.length;i++)
-            pickedModels[i].primitive.color=unClickedColor;
-        pickedModels=[];
-        return ;
+    if(picked instanceof FreeDo.FreedoPModelFeature) {	//如果picked为空则表示点击无模型处，使之前点变色的模型重置颜色并清空所选模型容器
+        if (pickedModels.length != 0) {	//使之前点变色的模型重置颜色并清空所选模型容器
+            for (var i = 0; i < pickedModels.length; i++) {
+                pickedModels[i].color = unClickedColor;
+                pickedModels = [];
+            }
+        }
+            pickedModels.push(picked);	//缓存点选模型
+            pickedModels[0].color = clickedColor; //变色
+    }else {
+        for (var i = 0; i < pickedModels.length; i++)
+            pickedModels[i].color = unClickedColor;
+        pickedModels = [];
+        return;
     }
-
-    if(pickedModels.length!=0){	//使之前点变色的模型重置颜色并清空所选模型容器
-        for(var i=0;i<pickedModels.length;i++)
-            pickedModels[i].color=unClickedColor;
-        pickedModels=[];
-    }
-    pickedModels.push(picked);	//缓存点选模型
-    pickedModels[0].color=clickedColor; //变色
 }
 

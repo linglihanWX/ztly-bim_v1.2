@@ -1,49 +1,93 @@
 [{
 	"id":1,
-	"text":"My",
+	"text":"资料类型2(42份)",
 	"children":[{
 		"id":11,
-		"text":"Photos",
+		"text":"线路资料(16)",
 		"state":"closed",
 		"children":[{
 			"id":111,
-			"text":"Friend"
+			"text":"第三方检测总体方案(4)"
 		},{
 			"id":112,
-			"text":"Wife"
+			"text":"初步设计阶段安全风险评估(1)"
 		},{
 			"id":113,
-			"text":"Company"
+			"text":"第三方检测总结(1)"
+		},{
+			"id":114,
+			"text":"仪器清单(8)"
+		},{
+			"id":115,
+			"text":"施工阶段风险工程清单(2)"
 		}]
 	},{
 		"id":12,
-		"text":"Program Files",
+		"text":"工点资料(3)",
 		"children":[{
 			"id":121,
-			"text":"Intel"
+			"text":"勘察资料(1)"
 		},{
 			"id":122,
-			"text":"Java",
-			"attributes":{
-				"p1":"Custom Attribute1",
-				"p2":"Custom Attribute2"
-			}
+			"text":"环境调查资料(2)"
 		},{
 			"id":123,
-			"text":"Microsoft Office"
+			"text":"第三方检测工程总结(0)"
 		},{
 			"id":124,
-			"text":"Games",
-			"checked":true
+			"text":"专家巡视报告(0)"
+		},{
+			"id":125,
+			"text":"监理资料(0)"
 		}]
 	},{
 		"id":13,
-		"text":"index.html"
+		"text":"工程部位(22)",
+		"children":[
+			{
+				"id":131,
+				"text":"2号施工竖井及横通道(7)",
+				"children":[{
+					"id":1311,
+					"text":"设计资料(1)"
+				},{
+					"id":1312,
+					"text":"施工方案(2)"
+				},{
+					"id":1313,
+					"text":"第三方检测施工方案(2)"
+				},{
+					"id":1314,
+					"text":"四方会议记要(1)"
+				},{
+					"id":1315,
+					"text":"GIS底图(1)"
+				}]
+			},{
+				"id":132,
+				"text":"3号施工竖井及横通道(7)",
+				"children":[{
+					"id":1321,
+					"text":"设计资料(1)"
+				},{
+					"id":1322,
+					"text":"施工方案(2)"
+				},{
+					"id":1323,
+					"text":"第三方检测施工方案(2)"
+				},{
+					"id":1324,
+					"text":"四方会议记要(1)"
+				},{
+					"id":1325,
+					"text":"GIS底图(1)"
+				}]
+			}]
 	},{
 		"id":14,
-		"text":"about.html"
+		"text":"1号横通道(4)"
 	},{
 		"id":15,
-		"text":"welcome.html"
+		"text":"区间正线(5)"
 	}]
-}]
+},{"id":2,"text":"未分类资料(1)"}]

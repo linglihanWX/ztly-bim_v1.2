@@ -216,10 +216,5 @@ $(function () {
         renderTbmDeviation();
         resetHeight();
     });
-    $("#resetview").click(function () {
-        FreedoApp.viewers["earth"].camera.setView({
-            destination : new FreeDo.Cartesian3.fromDegrees(113.66039473378382, 22.782948633936098,-550),
-            orientation : new FreeDo.HeadingPitchRoll(5.437420397295509,-0.11731154719345604,6.281381851419862)
-        });
-    })
+
 });

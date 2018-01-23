@@ -7,7 +7,7 @@ $(function () {
     DungouViewer.initLeftDbClick(FreedoApp.viewers["earth"])
     DungouViewer.initLeftDown(FreedoApp.viewers["earth"], hidetips)
     // var surveymanager = new SurveyManager(FreedoApp.viewers["earth"],function(){});
-    //cameraControl(FreedoApp.viewers["earth"]);
+    cameraControl(FreedoApp.viewers["earth"]);
 
     //	初始化地球
     var pmodels = [];
@@ -64,6 +64,12 @@ $(function () {
                             roll: model[key].cameraroll
                         }
                     });
+                    $("#resetview").click(function () {
+                        FreedoApp.viewers["earth"].camera.setView({
+                            destination : new FreeDo.Cartesian3.fromDegrees(model[key].cameralon, model[key].cameralat, model[key].cameraheight),
+                            orientation : new FreeDo.HeadingPitchRoll(model[key].cameraheading,model[key].camerapitch,model[key].cameraroll)
+                        });
+                    })
                 } else {
                     modelTile.readyPromise.then(function () {
                         FreedoApp.viewers["earth"].camera.flyToBoundingSphere(modelTile.boundingSphere,{
@@ -287,3 +293,4 @@ function showhidelabels(dungouprimitive) {
     })
 
 }
+
