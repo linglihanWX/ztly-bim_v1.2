@@ -4,6 +4,7 @@ $(function () {
     $("#content .row-fluid").height(h - h2);
     FreedoApp.init("earth");
     FreedoApp.viewers["earth"].scene.globe.depthTestAgainstTerrain =true;
+    FreedoApp.viewers["earth"].scene._screenSpaceCameraController.enableCollisionDetection =false;
     DungouViewer.initLeftClick(FreedoApp.viewers["earth"], showtips);
     DungouViewer.initLeftDbClick(FreedoApp.viewers["earth"])
     DungouViewer.initLeftDown(FreedoApp.viewers["earth"], hidetips)
