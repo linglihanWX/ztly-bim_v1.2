@@ -679,7 +679,7 @@ function initEntities(viewer) {
         show: true,
         position: new FreeDo.Cartesian3.fromDegrees(121.61732581093031, 38.93832015839612, 3),
         label: { //文字标签
-            text: '位置信息\n——————\n北京十六号线\n二期(某河区)',
+            text: '位置信息\n——————\n地铁5号线\n海底隧道',
             font: '13px sans-serif',
             style: FreeDo.LabelStyle.FILL,
             fillColor: FreeDo.Color.WHITE,
