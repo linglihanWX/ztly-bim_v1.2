@@ -4,6 +4,7 @@
 function cameraControl(myviewer) {
 	var scene = myviewer.scene;
 	var canvas = myviewer.canvas;
+	scene._screenSpaceCameraController.enableCollisionDetection =false;
 	canvas.setAttribute('tabindex', '0'); // needed to put focus on the canvas
 	canvas.onclick = function() {
 		canvas.focus();
