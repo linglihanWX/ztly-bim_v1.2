@@ -98,7 +98,7 @@
         </div>
         <div class="content-bottom">
             <div class="info-left">
-                <p>主监控 <i class="iconfont icon-out"></i></p>
+                <p>刀盘监控 <i class="iconfont icon-out"></i></p>
                 <canvas id="cvs" width="500" height="500"></canvas>
             </div>
             <div class="info-middle">
