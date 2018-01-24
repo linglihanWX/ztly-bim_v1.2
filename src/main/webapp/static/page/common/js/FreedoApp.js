@@ -79,12 +79,19 @@ FreedoApp.init = function(id) {
 	//imageLayers.addImageryProvider(imageryProvider2);
 	imageLayers.addImageryProvider(imageryProvider1);
 	this.viewers[id] =  viewer;
-/*    var freedoTerrainProviderMeshes = new FreeDo.FreedoTerrainProvider({
-        url : 'http://assets.agi.com/stk-terrain/v1/tilesets/ArticDEM/tiles',
+    var freedoTerrainProviderMeshes = new FreeDo.FreedoTerrainProvider({
+        url : 'http://assets.agi.com/stk-terrain/v1/tilesets/world/tiles',
         requestWaterMask : true,
         requestVertexNormals : true
     });
-    viewer.terrainProvider = freedoTerrainProviderMeshes;*/
+    viewer.terrainProvider = freedoTerrainProviderMeshes;
+/*    var cesiumTerrainProviderMeshes = new Cesium.CesiumTerrainProvider({
+        url : 'https://assets.agi.com/stk-terrain/v1/tilesets/world/tiles
+
+        ',
+        requestWaterMask : true,
+        requestVertexNormals : true
+});*/
 	new Compass(viewer);
 }
 
