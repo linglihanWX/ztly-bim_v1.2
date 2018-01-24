@@ -1,0 +1,56 @@
+[
+    {
+        "id":1,
+        "name":"履带式起重机",
+        "guige":"QUY400T",
+        "number":"1",
+        "unit":"台",
+        "consume":"30%",
+        "mark":" 主力吊机"
+    },
+    {
+        "id":2,
+        "name":"汽车吊",
+        "guige":"100T",
+        "number":"1",
+        "unit":"台",
+        "consume":"10%",
+        "mark":" 辅助吊机"
+    },
+    {
+        "id":3,
+        "name":"无接头钢丝绳",
+        "guige":"46mm*12m",
+        "number":"2",
+        "unit":"条",
+        "consume":"40%",
+        "mark":" 刀盘"
+    },
+    {
+        "id":4,
+        "name":"无接头钢丝绳",
+        "guige":"46mm*12m",
+        "number":"4",
+        "unit":"条",
+        "consume":"20%",
+        "mark":" 前盾、中盾"
+    },
+    {
+        "id":5,
+        "name":"压接钢丝绳",
+        "guige":"22mm*8m(4m)",
+        "number":"各4",
+        "unit":"条",
+        "consume":"30%",
+        "mark":"盾尾、管片拼装机"
+    },
+    {
+        "id":6,
+        "name":"卡环",
+        "guige":"35T马蹄形",
+        "number":"4",
+        "unit":"个",
+        "consume":"30%",
+        "mark":"其他部件"
+    }
+]

@@ -1,0 +1,125 @@
+@charset "UTF-8";
+.content {
+    width: auto;
+    height: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.page-nav{
+    position: relative;
+    width: 100%;
+    height: 35px;
+    padding-bottom: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.page-nav ul li{
+    display: inline-block;
+    width: auto;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 20px;
+    text-align: center;
+}
+.page-nav ul li a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.page-nav ul li a.active,.page-nav ul li a:hover{
+    color: #147b97;
+    font-weight: bold;
+    border-bottom: 2px solid #147b97;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.content-left{
+    float: left;
+    width: 250px;
+    height: calc(100% - 35px);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0 10px 10px 10px;
+    box-sizing: border-box;
+}
+
+#detailed{
+    width: 100%;
+    height: calc(100% - 40px);
+}
+#dataOne{
+    overflow: auto;
+}
+
+.content-right{
+    width: auto;
+    height: calc(100% - 35px);
+    overflow: hidden;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.content-top {
+    height: 66%;
+    width: 100%;
+    padding: 0 5px 5px 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+#earth{
+    width: 100%;
+    height: calc(100% - 40px);
+}
+.content-bottom {
+    width: 100%;
+    height: calc(34% - 5px);
+    margin-top: 5px;
+    padding: 0 10px 10px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.content-left>p,
+.content-top>p,
+.content-bottom>p {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    text-align: left;
+    line-height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+}
+
+.content-left>p::after,
+.content-top>p::after,
+.content-bottom>p::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    content: "";
+    border-bottom: 1px solid #e5e5e5;
+}
+
+#dataBox {
+    width: 100%;
+    height: calc(100% - 50px);
+    margin-top: 10px;
+}
+
+.datagrid-view2 .datagrid-header .datagrid-header-inner,
+.datagrid-view2 .datagrid-header .datagrid-header-inner .datagrid-htable,
+.datagrid-view2 .datagrid-body .datagrid-btable{
+    width: 100%;
+}
+
+.tree-icon{
+    display: none;
+}

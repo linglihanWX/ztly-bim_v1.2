@@ -41,16 +41,6 @@ public class DungouController {
 		
 	}
 	/**
-	 * 跳转到 盾构安全风险页面-zzw
-	 * 
-	 */
-	@RequestMapping(value="toFengxian")
-	public String tofengxianPage() {
-		return "dungou/fengxian";
-		
-	}
-
-	/**
 	 * 跳转到 盾构监控页面>盾构检测页面
 	 * @return
 	 */
@@ -64,7 +54,7 @@ public class DungouController {
 	 * @return
 	 */
 	@RequestMapping(value="toZidongdaoxiang")
-	public String toZiDongDaoXiang() {
+	public String toZiDongDaoXiangPage() {
 		return "dungou/zidongdaoxiang";
 
 	}
@@ -77,6 +67,62 @@ public class DungouController {
 		return "dungou/dongtaifengxian";
 
 	}
+	/**
+	 * 跳转到 盾构监控页面>盾构预警页面
+	 * @return
+	 */
+	@RequestMapping(value="toDungouyujing")
+	public String toDungouyujingPage() {
+		return "dungou/dungouyujing";
+
+	}
+	/**
+	 * 跳转到 盾构监控页面>异常盾构环关键数据展示页面
+	 * @return
+	 */
+	@RequestMapping(value="toYichangdungouhuan")
+	public String toYichangdungouhuanPage() {
+		return "dungou/yichangdungouhuan";
+
+	}
+	/**
+	 * 跳转到 盾构监控页面>材料消耗页面
+	 * @return
+	 */
+	@RequestMapping(value="toCailiaoxiaohao")
+	public String toCailiaoxiaohaoPage() {
+		return "dungou/cailiaoxiaohao";
+
+	}
+	/**
+	 * 跳转到 盾构监控页面>辅助决策页面
+	 * @return
+	 */
+	@RequestMapping(value="toFuzhujuece")
+	public String toFuzhujuecePage() {
+		return "dungou/fuzhujuece";
+
+	}
+	/**
+	 * 跳转到 盾构监控页面>管片破损页面
+	 * @return
+	 */
+	@RequestMapping(value="toGuanpianposui")
+	public String toGuanpianposunPage() {
+		return "dungou/guanpianposui";
+
+	}
+	/**
+	 * 跳转到 盾构安全风险页面-zzw
+	 * 
+	 */
+	@RequestMapping(value="toFengxian")
+	public String tofengxianPage() {
+		return "dungou/fengxian";
+		
+	}
+
+
 	/**
 	 * 跳转到 资料管理页面
 	 * @return
