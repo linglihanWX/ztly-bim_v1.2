@@ -19,6 +19,11 @@ function cameraControl(myviewer) {
 	var handler = new Freedo.ScreenSpaceEventHandler(canvas);
 	
 	handler.setInputAction(function(movement) {
+		movement*=0.1;
+		myviewer.camera.zoomIn(movement)
+	}, Freedo.ScreenSpaceEventType.WHEEL);
+	
+	handler.setInputAction(function(movement) {
 		flags.looking = true;
 		mousePosition = startMousePosition = Freedo.Cartesian3.clone(movement.position);
 	}, Freedo.ScreenSpaceEventType.RIGHT_DOWN);
@@ -45,6 +50,9 @@ function cameraControl(myviewer) {
 		var camera = myviewer.camera;
 		var cameraHeight = ellipsoid.cartesianToCartographic(camera.position).height;
 		if(cameraHeight<0){
+			scene.screenSpaceCameraController.enableRotate = false;
+			scene.screenSpaceCameraController.enableTranslate = false;
+			scene.screenSpaceCameraController.enableZoom = false;
 			scene.screenSpaceCameraController.enableTilt = false;
 			scene.screenSpaceCameraController.enableLook = false;
 			var width = canvas.clientWidth;
@@ -69,6 +77,9 @@ function cameraControl(myviewer) {
 				camera.moveLeft(x * lookFactor);
 			}
 		}else{
+			scene.screenSpaceCameraController.enableRotate = true;
+			scene.screenSpaceCameraController.enableTranslate = true;
+			scene.screenSpaceCameraController.enableZoom = true;
 			scene.screenSpaceCameraController.enableTilt = true;
 			scene.screenSpaceCameraController.enableLook = true;
 		}
