@@ -94,4 +94,10 @@ public class PModelController {
             e.printStackTrace();
         }
     }
+    @RequestMapping(value = "/getGrandfatherUid", method = RequestMethod.GET)
+    @ResponseBody
+    public String getGrandfatherUid(String uid) {
+        String grandfatheruid = pmodelService.getGrandfatherUid(uid);
+        return grandfatheruid;
+    }
 }

@@ -40,4 +40,10 @@ public interface PModelDao {
 	 */
 	void insertTreeData(@Param(value="node4zTree")Node4ZTree node4zTree,@Param(value="tablename")String tablename);
 
+	/**
+	 * 根据点击uid查询爷爷的uid
+	 * @param uid
+	 * @return
+	 */
+    String getGrandfatherUid(@Param(value="uid")String uid);
 }

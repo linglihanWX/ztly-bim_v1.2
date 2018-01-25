@@ -75,7 +75,7 @@ public class PModelServiceImpl implements PModelService {
 			return list;
 	}
 
-		@Override
+	@Override
 	public List<PModel> getModelUrlByProjectId(String projectid) {
 		List<PModel> modelList = pmodelDao.getModelUrlByProjectId(projectid);
 		return modelList;
@@ -83,5 +83,10 @@ public class PModelServiceImpl implements PModelService {
 	@Override
 	public void insertTreeData(Node4ZTree node4zTree,String tablename) {
 		pmodelDao.insertTreeData(node4zTree ,tablename);
+	}
+
+	@Override
+	public String getGrandfatherUid(String uid) {
+		return pmodelDao.getGrandfatherUid(uid);
 	}
 }
