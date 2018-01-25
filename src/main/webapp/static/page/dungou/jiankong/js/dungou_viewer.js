@@ -14,10 +14,11 @@ DungouViewer.initLeftClick = function(viewer,callback) {
 		var picked = viewer.scene.pick(movement.position);
 		// console.log(picked);
 /*		var pick= new FreeDo.Cartesian2(movement.position.x,movement.position.y);
-		var cartesian = viewer.scene.globe.pick(viewer.camera.getPickRay(pick), viewer.scene);
+		var cartesian = viewer.scene.globe.pick(viewer.camera.getPickRay(pick), viewer.scene);*/
+/*        var cartesian = new FreeDo.Cartesian3(-2604248.177538355,4229798.269461045,3986719.5609140703)
 		var cartographic = viewer.scene.globe.ellipsoid.cartesianToCartographic(cartesian);
-		var point=[ cartographic.longitude / Math.PI * 180, cartographic.latitude / Math.PI * 180];
-		console.log(point);*/
+		var point=[ cartographic.longitude / Math.PI * 180, cartographic.latitude / Math.PI * 180];*/
+		/*console.log(point);*/
         /*console.log(FreedoApp.viewers["earth"].camera)
         console.log(FreedoApp.viewers["earth"].camera.heading+","+FreedoApp.viewers["earth"].camera.pitch+","+FreedoApp.viewers["earth"].camera.roll)*/
         DungouViewer.changeColor(picked)
@@ -79,7 +80,12 @@ DungouViewer.changeColor=function(picked){
                 pmodel.style = new FreeDo.FreedoPModelStyle({
                     color : {
                         conditions : allready
-                    }
+                    },
+                    show :{
+                        conditions : [
+                            ["${component} ~==  \'9668\'", 'false'],
+                            ['true','true']
+                        ]}
                 });
             }
         })
@@ -92,7 +98,12 @@ DungouViewer.changeColor=function(picked){
         pmodel.style = new FreeDo.FreedoPModelStyle({
             color : {
                 conditions : allready
-            }
+            },
+            show :{
+                conditions : [
+                    ["${component} ~==  \'9668\'", 'false'],
+                    ['true','true']
+                ]}
         });
 	}
 }

@@ -11,7 +11,7 @@ $(function () {
     DungouViewer.initLeftDbClick(FreedoApp.viewers["earth"])
     DungouViewer.initLeftDown(FreedoApp.viewers["earth"], hidetips)
     // var surveymanager = new SurveyManager(FreedoApp.viewers["earth"],function(){});
-     cameraControl(FreedoApp.viewers["earth"]);
+    // cameraControl(FreedoApp.viewers["earth"]);
     var pmodels = [];
     $.ajax({
         url: "../../PModel/getPmodel",
@@ -84,15 +84,55 @@ $(function () {
                 }
                 pmodel = modelTile;
                 if(model[key].name=="dalian2"){
+                    //初始化模型的颜色，用来显示已经盾构的环和没有盾构的环
                     for (var i = 2; i <=9668; i+=18) {
-                        allready.push(["${component} ~==  \'"+i+"\'", 'color("green")'])
+                        allready.push(["${component} ~==  \'"+i+"\'", 'color("aquamarine",0.5)'])
                     }
                     allready.push(['true', 'color("white")'])
                     pmodel.style = new FreeDo.FreedoPModelStyle({
                         color : {
                             conditions : allready
+                        },
+                        show :{
+                            conditions : [
+                                ["${component} ~==  \'9668\'", 'false'],
+                                ['true','true']
+                            ]
                         }
                     });
+
+                    //盾构机旋转
+/*                    var pitch = 0;
+                    FreedoApp.viewers["earth"].scene.preRender.addEventListener(function(){
+                        if(pitch>360)pitch=0;
+                        pitch = pitch+1;
+                        primitive.modelMatrix = FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979,-23,287,pitch,0,1.2,1.2,1.2);
+
+                    });*/
+                    //加盾构机和盾构机机身
+                    var daotou = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
+                        {
+                            id: "盾构机刀头",
+                            url: "http://182.92.7.32:9000/ztly/glb/dungoujidaotou/dun_gou_dao_tou.gltf",
+                            show: true,                     // default
+                            modelMatrix:FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979,-491.5,165,0,0,1.4,1.4,1.4),
+                            allowPicking: true,            // not pickable
+                            debugShowBoundingVolume: false, // default
+                            debugWireframe: false
+                    }));
+                    var cheshen = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
+                        {
+                            id: "盾构机车身",
+                            url: "http://182.92.7.32:9000/ztly/glb/cheshen.glb",
+                            show: true,                     // default
+                            modelMatrix:FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979,-491.5,249,6,0,1.2,1.2,1.2),
+                            allowPicking: true,            // not pickable
+                            debugShowBoundingVolume: false, // default
+                            debugWireframe: false
+                     }));
+/*                    modelTile.readyPromise.then(function(){
+                    console.log(FreeDoTool.getSphereFromBoundsMinMax("5480.149836637288900,-255.272293286915470,-4820.024217262735900","5486.746820721270500,-240.645764969164760,-4805.037810776616400",pmodel));
+                    })*/
                 }
             }
         }
@@ -146,7 +186,7 @@ $(function () {
         polyline: {
             positions: FreeDo.Cartesian3.fromDegreesArrayHeights(
                 [
-                    121.60592745779262, 38.953991486827306, -250,
+                    121.60592745779262, 38.953991486827306, -180,
                     121.61385178949371, 38.948083100516946, -280
                 ]
             ),
