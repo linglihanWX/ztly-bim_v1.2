@@ -55,13 +55,19 @@
 }
 .content-top>ul li {
     display: inline-block;
-    width: 33%;
+    width: auto;
     height: 40px;
     padding: 5px 0;
     box-sizing: border-box;
     line-height: 30px;
     font-size: 0;
     /* text-align: left; */
+}
+.content-top>ul li:not(:first-of-type){
+    margin-right: 10px;
+}
+.content-top>ul li:first-of-type{
+    width: 330px;
 }
 .content-top>ul li input {
     width: 110px;
@@ -88,6 +94,9 @@
 .content-top>ul li span:first-of-type {
     width: 80px;
     text-align: right;
+}
+.content-top>ul:nth-of-type(2) li:last-of-type{
+    display: block;
 }
 .content-top>ul:nth-of-type(2) li:last-of-type input,#add,#save,#cancel {
     background-color: #fff;
@@ -228,10 +237,17 @@
 }
 .must-write{
     display: inline-block;
-    vertical-align: middle;
-    color: red;
-    font-size: 20px;
-    margin-right: 5px;
+vertical-align: middle;
+color: red;
+font-size: 20px;
+margin-right: 5px;
+}
+
+@media screen and (max-width: 1366px) {
+    .content-top>ul li{
+        width: auto;
+        margin-right: 20px;
+    }
 }
 .panel-tool{
 	display:block;
@@ -239,7 +255,6 @@
 .window-shadow{
 	display:none!important;
 }
-
 .panel-tool>a:not(:last-of-type){
     display: none;
 }
