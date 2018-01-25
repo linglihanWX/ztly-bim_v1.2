@@ -38,4 +38,8 @@
     <insert id="insertTreeData">
 		insert into ${tablename} (uid,pid,name,boundsmin,boundsmax,leaf) value(#{node4zTree.uid},#{node4zTree.pid},#{node4zTree.name},#{node4zTree.boundsmin},#{node4zTree.boundsmax},#{node4zTree.leaf});
 	</insert>
+
+	<select id="getGrandfatherUid" resultType="java.lang.String" parameterType="String">
+		SELECT pid FROM t_unit14 WHERE uid=(SELECT pid FROM t_unit14 WHERE uid = #{uid})
+	</select>
 </mapper>     

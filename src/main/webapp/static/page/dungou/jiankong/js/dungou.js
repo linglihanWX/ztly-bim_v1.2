@@ -1,3 +1,5 @@
+var pmodel = {}
+var allready = [];
 $(function () {
     var h = $("#content").height();
     var h2 = $(".breadcrumb").height();
@@ -79,6 +81,18 @@ $(function () {
                     $("#resetview").click(function () {FreedoApp.viewers["earth"].camera.flyToBoundingSphere(modelTile.boundingSphere,{
                         duration:0
                     });});
+                }
+                pmodel = modelTile;
+                if(model[key].name=="dalian2"){
+                    for (var i = 2; i <=9668; i+=18) {
+                        allready.push(["${component} ~==  \'"+i+"\'", 'color("green")'])
+                    }
+                    allready.push(['true', 'color("white")'])
+                    pmodel.style = new FreeDo.FreedoPModelStyle({
+                        color : {
+                            conditions : allready
+                        }
+                    });
                 }
             }
         }
