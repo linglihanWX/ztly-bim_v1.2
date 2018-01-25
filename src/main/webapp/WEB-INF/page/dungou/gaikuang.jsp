@@ -61,10 +61,10 @@
                     <i class="iconfont icon-qp size"></i><i
                             class="iconfont icon-zxh"></i>
                 </p>
-                <iframe src="${ctx }/static/page/dungou/gaikuang/iframeOpenLayer.html" style="width:100%;height:100%"></iframe>
-               <%--  <img alt=""
+                <%-- <iframe src="${ctx }/static/page/dungou/gaikuang/iframeOpenLayer.html" style="width:100%;height:100%"></iframe> --%>
+                <img alt=""
                      src="${ctx }/static/page/dungou/gaikuang/img/poumian.png"
-                     style="width:100%;height:100%"> --%>
+                     style="width:100%;height:100%">
             </div>
             <ul class="changeContent">
                 <li class="main-page"><i class="iconfont icon-main-page"></i>&nbsp;&nbsp;&nbsp;主页面
