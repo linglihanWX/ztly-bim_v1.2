@@ -84,7 +84,7 @@ $(function () {
     let chartOne = echarts.init(document.getElementById('chartOne'));//获取id为charOne对象进行实例化
     let option1 = {//表格样式框架对象
         title: {
-            text: '横刨面',//// 图表标题，可以通过show:true/false控制显示与否
+            text: '横剖面',//// 图表标题，可以通过show:true/false控制显示与否
             textStyle:{
                 fontSize:14
             }

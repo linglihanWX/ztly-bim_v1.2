@@ -10,7 +10,7 @@ $(function () {
     let chartOne = echarts.init(document.getElementById('chart'));
     let option1 = {
         title: {
-            text: '横刨面',
+            text: '横剖面',
             textStyle:{
                 fontSize:14
             }
