@@ -233,6 +233,12 @@
     font-size: 20px;
     margin-right: 5px;
 }
+.panel-tool{
+	display:block;
+}
+.window-shadow{
+	display:none!important;
+}
 
 .panel-tool>a:not(:last-of-type){
     display: none;

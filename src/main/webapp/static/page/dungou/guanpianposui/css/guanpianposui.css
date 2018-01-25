@@ -193,7 +193,12 @@
 .tree-icon{
     display: none;
 }
-
+.panel-tool{
+	display:block;
+}
+.window-shadow{
+	display:none!important;
+}
 .panel-tool>a:not(:last-of-type){
     display: none;
 }
