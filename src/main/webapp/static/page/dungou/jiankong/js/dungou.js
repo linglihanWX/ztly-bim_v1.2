@@ -120,6 +120,7 @@ $(function () {
                             debugShowBoundingVolume: false, // default
                             debugWireframe: false
                     }));
+
                     var cheshen = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
                         {
                             id: "盾构机车身",
@@ -130,6 +131,7 @@ $(function () {
                             debugShowBoundingVolume: false, // default
                             debugWireframe: false
                      }));
+                    cheshen.color = FreeDo.Color.RED;
 /*                    modelTile.readyPromise.then(function(){
                     console.log(FreeDoTool.getSphereFromBoundsMinMax("5480.149836637288900,-255.272293286915470,-4820.024217262735900","5486.746820721270500,-240.645764969164760,-4805.037810776616400",pmodel));
                     })*/
