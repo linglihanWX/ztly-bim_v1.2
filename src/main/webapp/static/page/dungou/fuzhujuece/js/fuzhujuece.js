@@ -1,14 +1,12 @@
 $(function () {
-    $(".three-menu li:nth-of-type(6) a").addClass("second-active").parent().siblings().children("a").removeClass("second-active");
-    $(".page-nav ul li:nth-of-type(7) a").addClass("active").parent().siblings().children("a").removeClass("active");
+    $(".three-menu li:nth-of-type(2) a").addClass("second-active").parent().siblings().children("a").removeClass("second-active");
     $(".content-top>ul li:last-of-type input").each(function (index, element) {
         $(element).on("click", function () {
             $(this).addClass("btn-active").siblings().removeClass("btn-active");
         });
     });
     $('#dataGrid').datagrid({
-        url: "../../static/page/dungou/ziliao/json/doc.json",
-        method:"get",
+        url: "./json/doc.json",
         striped: true,
         singleSelect: true,
         idField: "id",
@@ -62,7 +60,14 @@ $(function () {
              text: '曲线分析',
          },*/
         tooltip: {
-            trigger: 'axis'
+            trigger: 'axis',
+           /* axisPointer: {
+                type: 'cross',
+                label: {
+                    backgroundColor: '#283b56'
+                }
+            }*/
+            //formatter: '{b0}/{b1}<br />{a0}: {c0}<br />{a1}: {c1}<br />{a2}: {c2}<br />{a3}: {c3}<br />{a4}: {c4}<br />{a5}: {c5}<br />{a6}: {c6}'
         },
         legend: {
             // data: ['刀盘扭矩(KN.M)','土压(bar)','刀盘转速(rpm)','转角(%)','坡度(%)','总推力(Tonne)', '推进速度(mm/min)' ]
@@ -122,15 +127,22 @@ $(function () {
                 }
             }
         },
-        xAxis: {
+        xAxis: [{
             type: 'category',
             boundaryGap: false,
             data: ['133环', '144环', '164环', '178环', '187环', '192环', '215环']
-        },
-        yAxis: [/* {
-
+        },{
+            type: 'category',
+            position:'bottom',
+            offset:30,
+            boundaryGap: false,
+            data: ['2017-12-12', '2017-12-14', '2017-12-16', '2017-12-18', '2017-12-20', '2017-12-22', '2017-12-24']
+        }],
+        yAxis: [
+            /* {
                 type: "value"
-            }, */ {
+            }, */
+            {
                 // position: "left",
                 name: "刀盘扭矩",
                 nameLocation: 'end',
@@ -141,27 +153,29 @@ $(function () {
                     lineStyle: {
                         color: '#c23531'
                     }
-                }
+                },
+                 axisLabel:{inside:true},
+                axisTick:{inside:true}
             },
             {
-
                 position: "left",
                 name: "土压",
                 nameLocation: 'start',
-                offset: 40,
+                offset: 35,
                 min: 0,
                 max: 3.0,
                 axisLine: {
                     lineStyle: {
                         color: '#2f4554'
                     }
-                }
+                },
+                axisLabel:{inside:true},
+                axisTick:{inside:true}
             },
             {
-
                 position: "left",
                 name: "刀盘转速",
-                offset: 80,
+                offset: 60,
                 min: 0,
                 max: 6.0,
                 nameLocation: 'end',
@@ -169,41 +183,40 @@ $(function () {
                     lineStyle: {
                         color: '#61a0a8'
                     }
-                }
-
+                },
+                axisLabel:{inside:true},
+                axisTick:{inside:true}
             },
             {
-
                 position: "left",
                 name: "坡度",
                 min: -150,
                 max: 150,
-                offset:120,
+                offset:100,
                 nameLocation: 'start',
                 axisLine: {
                     lineStyle: {
                         color: '#91c7ae'
                     }
-                }
-
+                },
+                axisLabel:{inside:true},
+                axisTick:{inside:true}
             },
             {
-
                 position: "right",
                 name: "转角",
                 min: 0,
-                max: 5,
+                max: 6,
                 nameLocation: 'end',
                 axisLine: {
                     lineStyle: {
                         color: '#d48265'
                     }
-                }
-
+                },
+                axisLabel:{inside:true},
+                axisTick:{inside:true}
             },
-
             {
-
                 position: "right",
                 name: "总推力",
                 offset: 80,
@@ -214,28 +227,31 @@ $(function () {
                     lineStyle: {
                         color: '#749f83'
                     }
-                }
+                },
+                axisLabel:{inside:true},
+                axisTick:{inside:true}
             },
             {
-
                 position: "right",
                 name: "推进速度",
                 offset: 40,
                 min: 0,
-                max: 150,
+                max: 180,
                 nameLocation: 'start',
                 axisLine: {
                     lineStyle: {
                         color: '#ca8622'
                     }
-                }
+                },
+                axisLabel:{inside:true},
+                axisTick:{inside:true}
             }
         ],
         series: [{
                 name: '刀盘扭矩(KN.M)',
                 type: 'line',
                 smooth: true,
-                data: [79, 166, 113, 186, 120, 90, 70]
+                data: [79, 166, 113, 186, 127, 90, 70]
             },
             {
                 name: '土压(bar)',
@@ -259,13 +275,13 @@ $(function () {
                 name: '坡度(%)',
                 type: 'line',
                 smooth: true,
-                data: [120, 112, 201, 234, 120, 90, 20]
+                data: [120, 112, 201, 234, 114, 90, 20]
             },
             {
                 name: '总推力(Tonne)',
                 type: 'line',
                 smooth: true,
-                data: [30, 182, 34, 91, 120, 30, 10]
+                data: [30, 182, 34, 91, 135, 30, 10]
             },
             {
                 name: '推进速度(mm/min)',
