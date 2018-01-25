@@ -25,6 +25,7 @@
     <link rel="stylesheet" type="text/css" href="${ctx }/static/page/common/css/nav.css">
     <link rel="stylesheet" type="text/css" href="${ctx }/static/page/dungou/common/font/iconfont.css">
     <link rel="stylesheet" href="${ctx}/static/page/dungou/guanpianposui/css/guanpianposui.css">
+    <%@ include file="/WEB-INF/page/common/common_FDNew.jsp" %>
 </head>
 
 <body>
@@ -79,6 +80,9 @@
 
         <div class="three-box">
             <p>三维模型</p>
+            <div id="earth" >
+          		  <p><span></span><span>一级破损</span><span></span><span>二级破损</span><span></span><span>三级破损</span></p>
+            </div>
         </div>
     </div>
 </div>
@@ -106,6 +110,7 @@
 <script src="${ctx }/static/page/dungou/common/js/danpanHeader.js"></script>
 <script src="${ctx}/static/page/common/js/nav.js"></script>
 <script src="${ctx }/static/page/dungou/guanpianposui/js/guanpianposui.js"></script>
+<script src="${ctx }/static/page/dungou/guanpianposui/js/guanpianposui3D.js"></script>
 </body>
 
 </html>
