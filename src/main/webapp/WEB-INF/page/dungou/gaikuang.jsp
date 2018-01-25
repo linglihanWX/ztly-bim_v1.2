@@ -50,16 +50,17 @@
     <div class="content">
         <div class="content-middle">
             <div id="earth" class="full-screen">
-                <p>剖面视图
-                    <i class="iconfont icon-bqp size"></i><i
-                            class="iconfont icon-zxh"></i>
-                </p>
-            </div>
-            <div id="earth1" class="not-full-screen">
                 <p>
                     <span>俯视视图</span><span></span><span>按时掘进</span><span></span><span>掘进延时</span>
-                    <i class="iconfont icon-qp size"></i><i
+                    <i class="iconfont icon-bqp size"></i><i
                         class="iconfont icon-zxh"></i></p>
+               
+            </div>
+            <div id="earth1" class="not-full-screen">
+             <p>剖面视图
+                    <i class="iconfont icon-qp size"></i><i
+                            class="iconfont icon-zxh"></i>
+                </p>
                 <iframe src="${ctx }/static/page/dungou/gaikuang/iframeOpenLayer.html" style="width:100%;height:100%"></iframe>
                <%--  <img alt=""
                      src="${ctx }/static/page/dungou/gaikuang/img/poumian.png"
