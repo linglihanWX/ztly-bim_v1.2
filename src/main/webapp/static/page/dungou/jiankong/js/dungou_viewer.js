@@ -21,7 +21,7 @@ DungouViewer.initLeftClick = function(viewer,callback) {
         /*console.log(FreedoApp.viewers["earth"].camera)
         console.log(FreedoApp.viewers["earth"].camera.heading+","+FreedoApp.viewers["earth"].camera.pitch+","+FreedoApp.viewers["earth"].camera.roll)*/
         DungouViewer.changeColor(picked)
-		if(picked==undefined){
+        if(picked==undefined){
 			callback(undefined,undefined);
 		}else{
 			callback(picked,movement.position);
@@ -43,8 +43,9 @@ DungouViewer.initLeftDbClick = function(viewer) {
 DungouViewer.removeListener = function(){
 	screenSpaceEventHandler.removeInputAction(FreeDo.ScreenSpaceEventType.LEFT_CLICK);
 }
+var flag = false
 DungouViewer.changeColor=function(picked){
-    if(picked instanceof FreeDo.FreedoPModelFeature) {	//如果picked为空则表示点击无模型处，使之前点变色的模型重置颜色并清空所选模型容器
+/*    if(picked instanceof FreeDo.FreedoPModelFeature) {	//如果picked为空则表示点击无模型处，使之前点变色的模型重置颜色并清空所选模型容器
         if (pickedModels.length != 0) {	//使之前点变色的模型重置颜色并清空所选模型容器
             for (var i = 0; i < pickedModels.length; i++) {
                 pickedModels[i].color = unClickedColor;
@@ -58,6 +59,41 @@ DungouViewer.changeColor=function(picked){
             pickedModels[i].color = unClickedColor;
         pickedModels = [];
         return;
-    }
+    }*/
+
+
+    if(picked instanceof FreeDo.FreedoPModelFeature){
+        var componentId = picked.getProperty("component");
+        console.log(componentId);
+        $.ajax({
+            url:"../../PModel/getGrandfatherUid/",
+            data:{"uid":componentId},
+            success:function(grandfatheruid){
+            	if(flag){
+                    allready.splice(allready.length-2, 1);
+                    allready.splice(allready.length-1, 0, ["${component} ~== \'"+grandfatheruid +"\'", 'color("red")']);
+				}else{
+                    allready.splice(allready.length-1, 0, ["${component} ~== \'"+grandfatheruid +"\'", 'color("red")']);
+				}
+				flag = true;
+                pmodel.style = new FreeDo.FreedoPModelStyle({
+                    color : {
+                        conditions : allready
+                    }
+                });
+            }
+        })
+
+	}else{
+        if(flag){
+            allready.splice(allready.length-2, 1);
+        }
+        flag = false;
+        pmodel.style = new FreeDo.FreedoPModelStyle({
+            color : {
+                conditions : allready
+            }
+        });
+	}
 }
 

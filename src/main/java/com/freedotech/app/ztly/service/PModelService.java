@@ -29,4 +29,11 @@ public interface PModelService {
   * @param node4zTree
   */
  void insertTreeData(Node4ZTree node4zTree,String tablename);
+
+ /**
+  * 根据点击uid查询爷爷的uid
+  * @param uid
+  * @return
+  */
+ String getGrandfatherUid(String uid);
 }
