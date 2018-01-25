@@ -122,7 +122,7 @@ $(function () {
                 type : 'category',
                 boundaryGap : false,
             //    position:"top",
-                data : ['0km','0.5km','1km','1.5km','2km','2.5km','3km']//x轴的数据
+                data : ['0km','0.2km']//x轴的数据
        
             }
         ],

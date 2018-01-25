@@ -27,7 +27,7 @@ $(function () {
                 if (holeData != null && imgarray != null) {
                     //获取地址栏地址
                     var path = window.location.pathname;
-                    //截取字符串
+                    //截取字符串,返回一个数组
                     var patharray = path.split("/");
                     //拼接文件地址
                     for (var i = 0; i < imgarray.length; i++) {
