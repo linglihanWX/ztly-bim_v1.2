@@ -92,21 +92,23 @@ $(function () {
         tooltip : {
             trigger: 'axis',
             axisPointer: {
-                type: 'cross',
+               type: 'cross',
                 label: {
                     backgroundColor: '#6a7985'//这个是鼠标浮动时的工具条，显示鼠标所在区域的数据
+              
                 }
             }
         },
-        legend: {
+/*        legend: {
              x : 'right',
             // y : 'bottom',
             //data:[],
-            itemGap:0,//这个就是图例，也就是每条折线或者项对应的示例  
+            itemGap:0,//这个就是图例，也就是每条折线或者项对应的示例 
+            selectedMode:false,
             textStyle:{
                 fontSize:12
             }
-        },
+        },*/
         // toolbox: {
         //     show : true,
         //     feature : {
@@ -121,7 +123,7 @@ $(function () {
             {
                 type : 'category',
                 boundaryGap : false,
-            //    position:"top",
+                position:"top",
                 data : ['0km','0.2km']//x轴的数据
        
             }
