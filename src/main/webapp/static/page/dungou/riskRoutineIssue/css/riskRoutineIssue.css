@@ -1,0 +1,299 @@
+@charset "UTF-8";
+.content {
+    width: auto;
+    height: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.page-nav{
+    position: relative;
+    width: 100%;
+    height: 35px;
+    padding-bottom: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.page-nav>ul>li{
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 20px;
+    text-align: center;
+}
+.page-nav>ul>li a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.page-nav>ul>li a.active,
+.page-nav>ul>li:hover>a{
+    color: #147b97;
+    font-weight: bold;
+    border-bottom: 2px solid #147b97;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.pull-down{
+    display: none;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index:2;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+.pull-down li{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    cursor: pointer;
+}
+.pull-down li:hover{
+    background-color: #e8e8e8;
+}
+.content-right{
+    width: auto;
+    height: calc(100% - 35px);
+    overflow: hidden;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.content-top {
+    height: 120px;
+    width: 100%;
+    padding: 0 5px 5px 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.content-top>ul {
+    width: 100%;
+    height: auto;
+}
+.content-top>ul li {
+    display: inline-block;
+    vertical-align: top;
+    /*width: 40%;*/
+    margin-right: 20px;
+    height: 40px;
+    padding: 5px 0;
+    box-sizing: border-box;
+    line-height: 30px;
+    font-size: 0;
+}
+.content-top>ul li input {
+    width: 150px;
+    height: 25px;
+    font-size: 14px;
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-indent: 5px;
+}
+.content-top>ul li select {
+    width: 110px;
+    height: 25px;
+    font-size: 14px;
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-indent: 5px;
+}
+.content-top>ul li span{
+    display: inline-block;
+    font-size: 14px;
+}
+.content-top>ul li span:first-of-type {
+    width: 80px;
+    text-align: right;
+}
+.content-top>ul li:last-of-type input{
+    background-color: #fff;
+    width: 70px;
+    height: 25px;
+    border-radius: 4px;
+    vertical-align: middle;
+    border: 1px solid #ccc;
+    outline: none;
+    text-align: center;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 30px;
+}
+.content-bottom>p>input,.save,.cancel{
+    background-color: #fff;
+    width: auto;
+    height: 25px;
+    border-radius: 4px;
+    vertical-align: middle;
+    border: 1px solid #ccc;
+    outline: none;
+    text-align: center;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0 10px;
+    margin-left: 10px;
+    font-weight:normal;
+}
+
+.content-top>ul li:last-of-type input.btn-active,
+.content-bottom>p>input:hover,
+.save:hover,.cancel:hover{
+    background-color: #3168ba;
+    color: #fff;
+    border-color: #3168ba;
+    text-indent: 0;
+}
+.content-bottom {
+    width: 100%;
+    height: calc(100% - 125px);
+    margin-top: 5px;
+    padding: 0 10px 10px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.content-left>p,
+.content-top>p,
+.content-bottom>p {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    text-align: left;
+    line-height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+}
+.content-bottom>p{
+    text-align: right;
+}
+.content-bottom>p span{
+    float: left;
+}
+
+.content-left>p::after,
+.content-top>p::after,
+.content-bottom>p::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    content: "";
+    z-index:1;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+#dataBox {
+    width: 100%;
+    height: calc(100% - 50px);
+    overflow: auto;
+    margin-top: 10px;
+}
+.add-dangers-info,.show-dangers-info{
+    width: 100%;
+    height:100%;
+}
+.add-dangers-info li{
+    position: relative;
+    height: auto;
+    width: 100%;
+    line-height: 30px;
+    margin-bottom: 5px;
+}
+
+.add-dangers-info li select{
+    width: 140px;
+    height: 25px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.add-dangers-info li textarea{
+    width: 320px;
+    height: 60px;
+    resize: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.describe{
+    display: inline-block;
+    vertical-align: top;
+    width: 105px;
+    height: 30px;
+    line-height: 30px;
+    text-align: right;
+    margin-right: 10px;
+    font-size: 14px;
+
+}
+.add-dangers-info li:last-of-type{
+     text-align: right;
+ }
+.inp{
+    width: 140px;
+    height: 25px;
+    border-radius: 3px;
+    outline: none;
+    border: 1px solid #ccc;
+    text-indent: .5rem;
+
+}
+.must-write{
+    display: inline-block;
+    vertical-align: middle;
+    color: red;
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+
+#reportBox .describe{
+    width: 140px;
+}
+#editBox .inp,#editBox textarea,#editBox select,
+#reportBox .inp,#reportBox textarea,#reportBox select {
+    width: 280px;
+}
+#reportBox ul>li:nth-of-type(16){
+    width: 100%;
+}
+#reportBox ul>li:nth-of-type(15) textarea{
+    width: calc(100% - 170px);
+}
+#reportBox ul>li:last-of-type{
+    text-align: right;
+}
+.total-days{
+    display: inline-block;
+    vertical-align: middle;
+    height: 24px;
+    min-width: 40px;
+    border: 1px solid #ccc;
+}
+
+.datagrid-view2 .datagrid-header .datagrid-header-inner,
+.datagrid-view2 .datagrid-header .datagrid-header-inner .datagrid-htable,
+.datagrid-view2 .datagrid-body .datagrid-btable{
+    width: 100%;
+}
+.panel-tool>a:not(:last-of-type){
+    display: none;
+}
+.tree-icon{
+    display: none;
+}

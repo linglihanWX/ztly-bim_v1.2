@@ -10,6 +10,9 @@ $(function () {
             spaceBetween: 30,
         });
     }
+    $(".dghh").on("click", function () {
+        window.location.href = "../../ProSystem/dungou/toBaseInformation"
+    });
    /* // 三维窗口的大小改变
     $(".main-page").on("click",function () {
         $(".content-top").css({"height":66+"%"});
