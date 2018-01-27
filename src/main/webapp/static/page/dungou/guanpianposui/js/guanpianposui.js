@@ -36,7 +36,7 @@ $(function(){
             $("#infoShow").window('open')
         },
         onCheckNode:function (row,checked) {
-        	var selRows = $('#dataGrid').treegrid('getChecked')
+        	var selRows = $('#datagrid').tree('getChecked')
             console.log(selRows);
             setEntity(row,checked);
         }

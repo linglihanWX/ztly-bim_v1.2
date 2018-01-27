@@ -25,6 +25,7 @@
     <link rel="stylesheet" type="text/css" href="${ctx }/static/page/common/css/nav.css">
     <link rel="stylesheet" type="text/css" href="${ctx }/static/page/dungou/common/font/iconfont.css">
     <link rel="stylesheet" href="${ctx }/static/page/dungou/yichangdungouhuan/css/yichangdungouhuan.css">
+    <%@ include file="/WEB-INF/page/common/common_FDNew.jsp" %>
 </head>
 
 <body>
@@ -91,6 +92,8 @@
 <script src="${ctx }/static/page/dungou/common/js/danpanHeader.js"></script>
 <script src="${ctx}/static/page/common/js/nav.js"></script>
 <script src="${ctx}/static/page/dungou/yichangdungouhuan/js/yichangdungouhuan.js"></script>
+<script src="${ctx}/static/page/dungou/yichangdungouhuan/js/yichangdungouhuan3d.js"></script>
+<script src="${ctx }/static/webgl/caozuoqi/cameraControlRightAdjust.js"></script>
 </body>
 
 </html>
