@@ -13,7 +13,7 @@ $(function(){
     });
 
     $('#dataGrid').treegrid({
-        url: "../../static/page/dungou/ziliao/json/doc.json",
+        url: "../../static/page/dungou/riskRoutineIssue/json/problemlist.json",
         method:"get",
         striped: true,
         singleSelect: true,
@@ -24,13 +24,17 @@ $(function(){
         // pageList: [10,20,30],
         // pagination:true,
         columns: [[
-            { title: '工程名称', field: 'name', align: 'left'},
-            { title: '填报日期', field: 'time', align: 'center'},
-            { title: '填报人', field: 'menName', align: 'center'},
-            { title: '工作内容', field: 'content', align: 'center'},
-            { title: '状况', field: 'progress', align: 'center'},
-            { title: '问题及解决方案', field: 'problem', align: 'center'},
-            { title: '备注', field: 'mark', align: 'center'}
+            { title: '序号', field: 'num', align: 'center'},
+            { title: '风险所属工程', field: 'project', align: 'center'},
+            { title: '风险发生点', field: 'place', align: 'center'},
+            { title: '问题描述', field: 'description', align: 'center'},
+            { title: '处置措施建议', field: 'advice', align: 'center'},
+            { title: '整改时限（h）', field: 'time', align: 'center'},
+            { title: '上报人', field: 'people', align: 'center'},
+            { title: '治理状态', field: 'state', align: 'center'},
+            { title: '上报时间', field: 'date', align: 'center'},
+            { title: '流程状态', field: 'processstate', align: 'center'},
+            { title: '操作', field: 'operation', align: 'center'}
         ]]
     });
 
