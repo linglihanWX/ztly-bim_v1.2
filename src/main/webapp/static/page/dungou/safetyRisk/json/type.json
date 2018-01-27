@@ -1,0 +1,26 @@
+[{
+    "id":11,
+    "text":"通用安全",
+  "state":"opened",
+    "children":[{
+      "id":111,
+      "text":"通用安全",
+      "state":"closed"
+    },{
+      "id":112,
+      "text":"工法安全",
+      "state":"closed"
+    },{
+      "id":113,
+      "text":"施工质量",
+      "state":"closed"
+    },{
+      "id":114,
+      "text":"其它专项",
+      "state":"closed"
+    },{
+      "id":115,
+      "text":"手动条目",
+      "state":"closed"
+    }]
+  }]
