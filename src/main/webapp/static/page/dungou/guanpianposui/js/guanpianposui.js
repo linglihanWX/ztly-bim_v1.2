@@ -8,7 +8,7 @@ $(function(){
     });
 
     $('#dataGrid').treegrid({
-        url: "../../static/page/dungou/ziliao/json/doc.json",
+        url: "../../static/page/dungou/guanpianposui/js/doc.json",
         method:"get",
         striped: true,
         singleSelect: true,
@@ -34,6 +34,11 @@ $(function(){
         ]],
         onDblClickRow:function (index,row) {
             $("#infoShow").window('open')
+        },
+        onCheckNode:function (row,checked) {
+        	var selRows = $('#dataGrid').treegrid('getChecked')
+            console.log(selRows);
+            setEntity(row,checked);
         }
     });
 });

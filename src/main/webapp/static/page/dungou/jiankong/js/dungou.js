@@ -11,7 +11,7 @@ $(function () {
     DungouViewer.initLeftDbClick(FreedoApp.viewers["earth"])
     DungouViewer.initLeftDown(FreedoApp.viewers["earth"], hidetips)
     // var surveymanager = new SurveyManager(FreedoApp.viewers["earth"],function(){});
-    // cameraControl(FreedoApp.viewers["earth"]);
+    cameraControl(FreedoApp.viewers["earth"]);
     var pmodels = [];
     $.ajax({
         url: "../../PModel/getPmodel",

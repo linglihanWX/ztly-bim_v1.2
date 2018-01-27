@@ -25,6 +25,7 @@
     <link rel="stylesheet" type="text/css" href="${ctx }/static/page/common/css/nav.css">
     <link rel="stylesheet" type="text/css" href="${ctx }/static/page/dungou/common/font/iconfont.css">
     <link rel="stylesheet" href="${ctx }/static/page/dungou/cailiaoxiaohao/css/cailiaoxiaohao.css">
+     <%@ include file="/WEB-INF/page/common/common_FDNew.jsp" %>
 </head>
 
 <body>
@@ -60,6 +61,7 @@
 
         <div class="three-box">
             <p>三维模型</p>
+             <div id="earth" >
         </div>
     </div>
 </div>
@@ -71,6 +73,8 @@
 <script src="${ctx }/static/page/dungou/common/js/danpanHeader.js"></script>
 <script src="${ctx}/static/page/common/js/nav.js"></script>
 <script src="${ctx}/static/page/dungou/cailiaoxiaohao/js/cailiaoxiaohao.js"></script>
+<script src="${ctx}/static/page/dungou/cailiaoxiaohao/js/cailiaoxiaohao3d.js"></script>
+<script src="${ctx }/static/webgl/caozuoqi/cameraControlRightAdjust.js"></script>
 </body>
 
 </html>

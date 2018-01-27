@@ -90,14 +90,14 @@
 <div id="infoShow" class="easyui-window" title="预警详情" data-options="modal:true,closed:true" style="width:550px;height:530px;padding:10px;">
     <ul class="show-dangers-info">
         <li><span class="describe1">1点方向:</span></li>
-        <li><span class="describe1">破损照片:</span><img src="${ctx }/static/page/dungou/common/img/avatar.jpg" alt=""></li>
+        <li><span class="describe1">破损照片:</span><img src="${ctx }/static/page/dungou/guanpianposui/img/posun1.png" alt=""></li>
         <li><span class="describe1">破损原因:</span><span>拼装质量不好造成管片错台，</span></li>
         <li><span class="describe1">处理及防范措施:</span><span>管片拼装应先上后下，左右交叉，最后封顶块的安装原则。发现问题及时对破损处打磨修补。</span></li>
     </ul>
 
     <ul class="show-dangers-info">
         <li><span class="describe1">2点方向:</span></li>
-        <li><span class="describe1">破损照片:</span><img src="${ctx }/static/page/dungou/common/img/avatar.jpg" alt=""></li>
+        <li><span class="describe1">破损照片:</span><img src="${ctx }/static/page/dungou/guanpianposui/img/posun2.png" alt=""></li>
         <li><span class="describe1">破损原因:</span><span>拼装质量不好造成管片错台，</span></li>
         <li><span class="describe1">处理及防范措施:</span><span>管片拼装应先上后下，左右交叉，最后封顶块的安装原则。发现问题及时对破损处打磨修补。</span></li>
     </ul>
@@ -111,6 +111,7 @@
 <script src="${ctx}/static/page/common/js/nav.js"></script>
 <script src="${ctx }/static/page/dungou/guanpianposui/js/guanpianposui.js"></script>
 <script src="${ctx }/static/page/dungou/guanpianposui/js/guanpianposui3D.js"></script>
+<script src="${ctx }/static/webgl/caozuoqi/cameraControlRightAdjust.js"></script>
 </body>
 
 </html>

@@ -1,3 +1,28 @@
+var allready = [];
+var pmodel = null;
+var isDalian = false;
+var imgpos=[
+	{
+		id:"B5@9588",
+		min:"5489.600200465208200,-247.221422102376720,-4806.149521772653300",
+		max:"5493.119604917327700,-241.899883593426610,-4804.005918418181900",
+	},
+	{
+		id:"B4@9514",
+		min:"5496.820116776661100,-243.865454521406290,-4806.073331008618000",
+		max:"5500.592065200245100,-238.815522258126440,-4801.205522666616200",
+	},
+	{
+		id:"B2@9456",
+		min:"5502.375534487294300,-240.975272496877270,-4804.996088229522700",
+		max:"5506.193287055019000,-236.563403604370110,-4800.923768722427700",
+	},
+	{
+		id:"L1@9682",
+		min:"5480.149836637288900,-246.277557177497750,-4812.623457265139200",
+		max:"5483.375929325748100,-240.702474560852210,-4807.598506441893700"
+	},
+]
 $(function(){
 	 //初始化地球
     FreedoApp.init("earth");
@@ -8,7 +33,7 @@ $(function(){
         type: "get",
         dataType: "json",
         success: function (data) {
-            //解析json
+            //解析json`
             var model = eval(data);
             for (var key in model) {
                 //挖坑数据
@@ -72,19 +97,109 @@ $(function(){
                         duration:0
                     });});
                 }
-                pmodel = modelTile;
+               
                 if(model[key].name=="dalian2"){
-                    for (var i = 2; i <=9668; i+=18) {
-                        allready.push(["${component} ~==  \'"+i+"\'", 'color("green")'])
-                    }
-                    allready.push(['true', 'color("white")'])
-                    pmodel.style = new FreeDo.FreedoPModelStyle({
-                        color : {
-                            conditions : allready
-                        }
-                    });
+                	pmodel = modelTile;
                 }
+                
+                var screenSpaceEventHandler = new FreeDo.ScreenSpaceEventHandler(FreedoApp.viewers["earth"].canvas);
+            	screenSpaceEventHandler.setInputAction(function(movement){
+            		var picked = FreedoApp.viewers["earth"].scene.pick(movement.position);
+            		var cartesianWordPos = FreedoApp.viewers["earth"].scene.pickPosition(movement.position);
+            		var cartographic = FreedoApp.viewers["earth"].scene.globe.ellipsoid.cartesianToCartographic(cartesianWordPos);
+            		if(picked){
+            			if(picked instanceof FreeDo.FreedoPModelFeature){
+            				var id = picked.getProperty('component');
+            				 if (FreeDo.defined(id)) {
+            					var style = new FreeDo.FreedoPModelStyle({
+            							show: {
+            						      conditions:[["${component} === '" + id + "'", 'false'],['true', 'true']]
+            						    }
+            							/*color: {
+            								conditions: [["${component} === \'" + id + "\'", "color('gold')"],["true", "color('white')"]]
+            							}*/
+            						});	
+            					pmodel.style = style;
+            					console.log("id:"+id+"  cameraposition"+FreedoApp.viewers["earth"].camera.position+FreedoApp.viewers["earth"].camera.heading+","+FreedoApp.viewers["earth"].camera.pitch+","+FreedoApp.viewers["earth"].camera.roll+","+"    pickedpos"+cartesianWordPos);
+            				 }
+            			}else{
+            				
+            			}
+            		}
+            	}, FreeDo.ScreenSpaceEventType.RIGHT_CLICK);
+            	
+                
             }
         }
     });
 });
+
+function setEntity (row ,checked){
+	 if(pmodel){
+     	pmodel.readyPromise.then(function () {
+	            for(i in imgpos){
+	            	 var nowPos =  getSphereFromBoundsMinMax(imgpos[i].min,imgpos[i].max,pmodel);
+	            	 var cartographic = Freedo.Cartographic.fromCartesian(nowPos.center);
+	            	 var citizensBankPark =  FreedoApp.viewers["earth"].entities.add( {  
+		                name : imgpos[i].id,  
+		                position :  Freedo.Cartesian3.fromRadians(cartographic.longitude,cartographic.latitude,cartographic.height+2),  
+		                billboard : { //图标  
+		                    image : '../../static/page/dungou/guanpianposui/img/lu_tanhao.png',  
+		                    width : 30,  
+		                    height : 47  
+		                },  
+		                verticalOrigin : Freedo.VerticalOrigin.BOTTOM, //垂直方向以底部来计算标签的位置  
+		                pixelOffset : new Freedo.Cartesian2( 0, 9 )   //偏移量  
+		            } );  
+	            }
+         });
+     	
+         for (i in imgpos) {
+             allready.push(["${component} ~==  \'"+imgpos[i].id+"\'", 'color("red")'])
+         }
+         allready.push(['true', 'color("white")'])
+         pmodel.style = new FreeDo.FreedoPModelStyle({
+             color : {
+                 conditions : allready
+             }
+         });
+     }
+}
+
+function restAllEntity() {
+	
+}
+
+function getSphereFromBoundsMinMax(boundsMin, boundsMax, modelTile) {
+    var index1 = boundsMax.indexOf(",", 0);
+    var index2 = boundsMax.indexOf(",", index1 + 1);
+    var xMax = parseFloat(boundsMax.substr(0, index1));
+    var yMax = parseFloat(boundsMax.substr(index1 + 1, index2 - index1 - 1));
+    var zMax = parseFloat(boundsMax.substr(index2 + 1, boundsMax.length - index2 - 1));
+    var maxcorner = new FreeDo.Cartesian3(xMax, yMax, zMax);
+
+    index1 = boundsMin.indexOf(",", 0);
+    index2 = boundsMin.indexOf(",", index1 + 1);
+    var xMin = parseFloat(boundsMin.substr(0, index1));
+    var yMin = parseFloat(boundsMin.substr(index1 + 1, index2 - index1 - 1));
+    var zMin = parseFloat(boundsMin.substr(index2 + 1, boundsMin.length - index2 - 1));
+    var mincorner = new Freedo.Cartesian3(xMin, yMin, zMin);
+
+    //局部坐标转全局坐标
+    //var local2world = FreeDo.Transforms.eastNorthUpToFixedFrame(position);
+
+    var t = mincorner.y;
+    mincorner.y = -mincorner.z;
+    mincorner.z = t;
+    t = maxcorner.y;
+    maxcorner.y = -maxcorner.z;
+    maxcorner.z = t;
+    //Freedo.Matrix4.multiplyByPoint(local2world, mincorner, mincorner);
+    //Freedo.Matrix4.multiplyByPoint(local2world, maxcorner, maxcorner);
+
+    Freedo.Matrix4.multiplyByPoint(modelTile._root.computedTransform, mincorner, mincorner);
+    Freedo.Matrix4.multiplyByPoint(modelTile._root.computedTransform, maxcorner, maxcorner);
+
+    var sphere = FreeDo.BoundingSphere.fromCornerPoints(mincorner, maxcorner);
+    return sphere;
+}

@@ -84,6 +84,12 @@
     box-sizing: border-box;
 }
 
+#earth {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 40px) ;
+}
+
 .panel-tool>a:not(:last-of-type){
     display: none;
 }
