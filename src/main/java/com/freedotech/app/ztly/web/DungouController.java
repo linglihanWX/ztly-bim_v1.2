@@ -113,16 +113,38 @@ public class DungouController {
 
 	}
 	/**
-	 * 跳转到 盾构安全风险页面-zzw
-	 * 
+	 * 跳转到 盾构安全风险页面>
+	 *
 	 */
 	@RequestMapping(value="toFengxian")
 	public String tofengxianPage() {
 		return "dungou/fengxian";
-		
 	}
 
-
+	/**
+	 * 跳转到 盾构安全风险页面>基础信息页面
+	 *
+	 */
+	@RequestMapping(value="toBaseInformation")
+	public String toBaseInformationPage() {
+		return "dungou/baseInformation";
+	}
+	/**
+	 * 跳转到 盾构安全风险页面>问题上报页面
+	 *
+	 */
+	@RequestMapping(value="toRiskRoutineIssue")
+	public String toRiskRoutineIssuePage() {
+		return "dungou/riskRoutineIssue";
+	}
+	/**
+	 * 跳转到 盾构安全风险页面>页面
+	 *
+	 */
+	@RequestMapping(value="toSafetyRisk")
+	public String toSafetyRiskPage() {
+		return "dungou/safetyRisk";
+	}
 	/**
 	 * 跳转到 资料管理页面
 	 * @return
