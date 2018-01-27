@@ -14,7 +14,7 @@ $(function(){
 
 
     $('#dataOne').tree({
-        url: "../../static/page/dungou/baobiao/json/tree1.json",
+        url: "../../static/page/dungou/baseInformation/json/gongchenginfo.json",
         method:"get",
         idField: "id",
         lines:true
@@ -23,24 +23,26 @@ $(function(){
 
 
     $('#dataGrid').treegrid({
-        url: "../../static/page/dungou/ziliao/json/doc.json",
+        url: "../../static/page/dungou/baseInformation/json/standardlist.json",
         method:"get",
         striped: true,
         singleSelect: true,
-        idField: "id",
+        idField: "num",
         checkbox:true,
-        treeField:'name',
+        treeField:'num',
         rownumbers:true,
         // pageList: [10,20,30],
         // pagination:true,
         columns: [[
-            { title: '工程名称', field: 'name', align: 'left'},
-            { title: '填报日期', field: 'time', align: 'center'},
-            { title: '填报人', field: 'menName', align: 'center'},
-            { title: '工作内容', field: 'content', align: 'center'},
-            { title: '状况', field: 'progress', align: 'center'},
-            { title: '问题及解决方案', field: 'problem', align: 'center'},
-            { title: '备注', field: 'mark', align: 'center'}
+            { title: '序号', field: 'num', align: 'left'},
+            { title: '编号', field: 'bnum', align: 'center'},
+            { title: '所属工程', field: 'project', align: 'center'},
+            { title: '检测类型', field: 'type', align: 'center'},
+            { title: '第三方检测', field: 'threetest', align: 'center'},
+            { title: '检测时间', field: 'testdate', align: 'center'},
+            { title: '创建时间', field: 'createdate', align: 'center'},
+            { title: '初始值', field: 'originnum', align: 'center'},
+            { title: '描述', field: 'description', align: 'center'}
         ]]
     });
 
