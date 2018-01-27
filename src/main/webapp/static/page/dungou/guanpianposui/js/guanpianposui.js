@@ -11,7 +11,7 @@ $(function(){
         url: "../../static/page/dungou/guanpianposui/js/doc.json",
         method:"get",
         striped: true,
-        singleSelect: true,
+        singleSelect: false,
         idField: "id",
         checkbox:true,
         treeField:'name',
@@ -36,9 +36,9 @@ $(function(){
             $("#infoShow").window('open')
         },
         onCheckNode:function (row,checked) {
-        	var selRows = $('#datagrid').tree('getChecked')
-            console.log(selRows);
-            setEntity(row,checked);
+        	var nodes = $('#dataGrid').treegrid('getCheckedNodes'); // get checked nodes
+        	restAllEntity();
+            setEntity(nodes);
         }
     });
 });

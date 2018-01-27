@@ -100,6 +100,54 @@ $(function(){
                
                 if(model[key].name=="dalian2"){
                 	pmodel = modelTile;
+                	 //初始化模型的颜色，用来显示已经盾构的环和没有盾构的环
+                    for (var i = 2; i <=9668; i+=18) {
+                        allready.push(["${component} ~==  \'"+i+"\'", 'color("aquamarine",0.5)'])
+                    }
+                    allready.push(['true', 'color("white")'])
+                    pmodel.style = new FreeDo.FreedoPModelStyle({
+                        color : {
+                            conditions : allready
+                        },
+                        show :{
+                            conditions : [
+                                ["${component} ~==  \'9668\'", 'false'],
+                                ['true','true']
+                            ]
+                        }
+                    });
+
+                    //盾构机旋转
+/*                    var pitch = 0;
+                    FreedoApp.viewers["earth"].scene.preRender.addEventListener(function(){
+                        if(pitch>360)pitch=0;
+                        pitch = pitch+1;
+                        primitive.modelMatrix = FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979,-23,287,pitch,0,1.2,1.2,1.2);
+
+                    });*/
+                    //加盾构机和盾构机机身
+                    var daotou = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
+                        {
+                            id: "盾构机刀头",
+                            url: "http://182.92.7.32:9000/ztly/glb/dungoujidaotou/dun_gou_dao_tou.gltf",
+                            show: true,                     // default
+                            modelMatrix:FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979,-491.5,165,0,0,1.4,1.4,1.4),
+                            allowPicking: true,            // not pickable
+                            debugShowBoundingVolume: false, // default
+                            debugWireframe: false
+                    }));
+
+                    var cheshen = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
+                        {
+                            id: "盾构机车身",
+                            url: "http://182.92.7.32:9000/ztly/glb/cheshen.glb",
+                            show: true,                     // default
+                            modelMatrix:FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979,-491.5,249,6,0,1.2,1.2,1.2),
+                            allowPicking: true,            // not pickable
+                            debugShowBoundingVolume: false, // default
+                            debugWireframe: false
+                     }));
+                    cheshen.color = FreeDo.Color.RED;
                 }
                 
                 var screenSpaceEventHandler = new FreeDo.ScreenSpaceEventHandler(FreedoApp.viewers["earth"].canvas);
@@ -134,15 +182,15 @@ $(function(){
     });
 });
 
-function setEntity (row ,checked){
+function setEntity (nodes){
 	 if(pmodel){
      	pmodel.readyPromise.then(function () {
-	            for(i in imgpos){
-	            	 var nowPos =  getSphereFromBoundsMinMax(imgpos[i].min,imgpos[i].max,pmodel);
+	            for(i in nodes){
+	            	 var nowPos =  getSphereFromBoundsMinMax(imgpos[nodes[i].id-1].min,imgpos[nodes[i].id-1].max,pmodel);
 	            	 var cartographic = Freedo.Cartographic.fromCartesian(nowPos.center);
 	            	 var citizensBankPark =  FreedoApp.viewers["earth"].entities.add( {  
-		                name : imgpos[i].id,  
-		                position :  Freedo.Cartesian3.fromRadians(cartographic.longitude,cartographic.latitude,cartographic.height+2),  
+		                name : imgpos[nodes[i].id-1].id,  
+		                position :  Freedo.Cartesian3.fromRadians(cartographic.longitude,cartographic.latitude,cartographic.height+3),  
 		                billboard : { //图标  
 		                    image : '../../static/page/dungou/guanpianposui/img/lu_tanhao.png',  
 		                    width : 30,  
@@ -153,9 +201,9 @@ function setEntity (row ,checked){
 		            } );  
 	            }
          });
-     	
-         for (i in imgpos) {
-             allready.push(["${component} ~==  \'"+imgpos[i].id+"\'", 'color("red")'])
+     	allready=[]
+         for (i in nodes) {
+             allready.push(["${component} ~==  \'"+imgpos[nodes[i].id-1].id+"\'", 'color("red")'])
          }
          allready.push(['true', 'color("white")'])
          pmodel.style = new FreeDo.FreedoPModelStyle({
@@ -167,7 +215,7 @@ function setEntity (row ,checked){
 }
 
 function restAllEntity() {
-	
+	FreedoApp.viewers["earth"].entities.removeAll();
 }
 
 function getSphereFromBoundsMinMax(boundsMin, boundsMax, modelTile) {
