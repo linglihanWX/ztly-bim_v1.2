@@ -13,7 +13,7 @@ $(function(){
     });
 
     $('#dataOne').tree({
-        url: "../../static/page/dungou/baobiao/json/tree1.json",
+        url: "../../static/page/dungou/safetyRisk/json/type.json",
         method:"get",
         idField: "id",
         lines:true
@@ -22,24 +22,26 @@ $(function(){
 
 
     $('#dataGrid').treegrid({
-        url: "../../static/page/dungou/ziliao/json/doc.json",
+        url: "../../static/page/dungou/safetyRisk/json/standardlist.json",
         method:"get",
         striped: true,
         singleSelect: true,
-        idField: "id",
+        idField: "num",
         checkbox:true,
-        treeField:'name',
+        treeField:'num',
         rownumbers:true,
         // pageList: [10,20,30],
         // pagination:true,
         columns: [[
-            { title: '工程名称', field: 'name', align: 'left'},
-            { title: '填报日期', field: 'time', align: 'center'},
-            { title: '填报人', field: 'menName', align: 'center'},
-            { title: '工作内容', field: 'content', align: 'center'},
-            { title: '状况', field: 'progress', align: 'center'},
-            { title: '问题及解决方案', field: 'problem', align: 'center'},
-            { title: '备注', field: 'mark', align: 'center'}
+            { title: '序号', field: 'num', align: 'center'},
+            { title: '一级分类', field: 'type1', align: 'center'},
+            { title: '名称', field: 'name', align: 'center'},
+            { title: '隐患级别', field: 'level', align: 'center'},
+            { title: '排查项目', field: 'project', align: 'center'},
+            { title: '排查内容', field: 'content', align: 'center'},
+            { title: '扣款金额', field: 'money', align: 'center'},
+            { title: '整改期限', field: 'date', align: 'center'},
+            { title: '扣分', field: 'score', align: 'center'}
         ]]
     });
 
