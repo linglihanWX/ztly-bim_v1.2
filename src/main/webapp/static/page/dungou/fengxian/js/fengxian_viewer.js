@@ -20,7 +20,7 @@ DungouViewer.initLeftClick = function(viewer,callback) {
 		// console.log(point);
 //		console.log(FreedoApp.viewers["earth"].camera)
 //		console.log(FreedoApp.viewers["earth"].camera.heading+","+FreedoApp.viewers["earth"].camera.pitch+","+FreedoApp.viewers["earth"].camera.roll)
-        DungouViewer.changeColor(picked);
+       // DungouViewer.changeColor(picked);
 		if(picked==undefined){
 			callback(undefined,undefined);
 		}else{

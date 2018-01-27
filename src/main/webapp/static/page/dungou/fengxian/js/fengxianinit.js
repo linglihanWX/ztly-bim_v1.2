@@ -1,3 +1,5 @@
+var pmodel = {}
+var allready = [];
 $(function () {
     var h = $("#content").height();
     var h2 = $(".breadcrumb").height();
@@ -8,8 +10,6 @@ $(function () {
     DungouViewer.initLeftDown(FreedoApp.viewers["earth"], hidetips)
     // var surveymanager = new SurveyManager(FreedoApp.viewers["earth"],function(){});
     cameraControl(FreedoApp.viewers["earth"]);
-
-    //	初始化地球
     var pmodels = [];
     $.ajax({
         url: "../../PModel/getPmodel",
@@ -27,7 +27,7 @@ $(function () {
                 if (holeData != null && imgarray != null) {
                     //获取地址栏地址
                     var path = window.location.pathname;
-                    //截取字符串,返回一个数组
+                    //截取字符串
                     var patharray = path.split("/");
                     //拼接文件地址
                     for (var i = 0; i < imgarray.length; i++) {
@@ -79,6 +79,60 @@ $(function () {
                     $("#resetview").click(function () {FreedoApp.viewers["earth"].camera.flyToBoundingSphere(modelTile.boundingSphere,{
                         duration:0
                     });});
+                }
+                pmodel = modelTile;
+                if(model[key].name=="dalian2"){
+                    //初始化模型的颜色，用来显示已经盾构的环和没有盾构的环
+                    for (var i = 2; i <=9668; i+=18) {
+                        allready.push(["${component} ~==  \'"+i+"\'", 'color("aquamarine",0.5)'])
+                    }
+                    allready.push(['true', 'color("white")'])
+                    pmodel.style = new FreeDo.FreedoPModelStyle({
+                        color : {
+                            conditions : allready
+                        },
+                        show :{
+                            conditions : [
+                                ["${component} ~==  \'9668\'", 'false'],
+                                ['true','true']
+                            ]
+                        }
+                    });
+
+                    //盾构机旋转
+                    /*                    var pitch = 0;
+                                        FreedoApp.viewers["earth"].scene.preRender.addEventListener(function(){
+                                            if(pitch>360)pitch=0;
+                                            pitch = pitch+1;
+                                            primitive.modelMatrix = FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979,-23,287,pitch,0,1.2,1.2,1.2);
+
+                                        });*/
+                    //加盾构机和盾构机机身
+                    var daotou = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
+                        {
+                            id: "盾构机刀头",
+                            url: "http://182.92.7.32:9000/ztly/glb/dungoujidaotou/dun_gou_dao_tou.gltf",
+                            show: true,                     // default
+                            modelMatrix:FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979,-491.5,165,0,0,1.4,1.4,1.4),
+                            allowPicking: true,            // not pickable
+                            debugShowBoundingVolume: false, // default
+                            debugWireframe: false
+                        }));
+
+                    var cheshen = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
+                        {
+                            id: "盾构机车身",
+                            url: "http://182.92.7.32:9000/ztly/glb/cheshen.glb",
+                            show: true,                     // default
+                            modelMatrix:FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979,-491.5,249,6,0,1.2,1.2,1.2),
+                            allowPicking: true,            // not pickable
+                            debugShowBoundingVolume: false, // default
+                            debugWireframe: false
+                        }));
+                    cheshen.color = FreeDo.Color.RED;
+                    /*                    modelTile.readyPromise.then(function(){
+                                        console.log(FreeDoTool.getSphereFromBoundsMinMax("5480.149836637288900,-255.272293286915470,-4820.024217262735900","5486.746820721270500,-240.645764969164760,-4805.037810776616400",pmodel));
+                                        })*/
                 }
             }
         }
@@ -134,8 +188,8 @@ $(function () {
         polyline: {
             positions: FreeDo.Cartesian3.fromDegreesArrayHeights(
                 [
-                    113.64614940531897, 22.778576538826982, -630,
-                    113.65482304242103, 22.78583487031061, -610
+                    121.60592745779262, 38.953991486827306, -180,
+                    121.61385178949371, 38.948083100516946, -280
                 ]
             ),
             width: 5,
@@ -154,8 +208,8 @@ $(function () {
         polyline: {
             positions: FreeDo.Cartesian3.fromDegreesArrayHeights(
                 [
-                    113.65482304242103, 22.78583487031061, -610,
-                    113.65713401517607, 22.787744674022917, -580
+                    121.61385178949371, 38.948083100516946, -280,
+                    121.61758807016263, 38.943420806881576, -350
                 ]
             ),
             width: 5,
@@ -174,8 +228,8 @@ $(function () {
         polyline: {
             positions: FreeDo.Cartesian3.fromDegreesArrayHeights(
                 [
-                    113.65713401517607, 22.787744674022917, -580,
-                    113.66004961353387, 22.790307562206543, -490
+                    121.61758807016263, 38.943420806881576, -350,
+                    121.62004836953294, 38.9385202916514, -400
                 ]
             ),
             width: 5,
@@ -194,8 +248,8 @@ $(function () {
         polyline: {
             positions: FreeDo.Cartesian3.fromDegreesArrayHeights(
                 [
-                    113.66004961353387, 22.790307562206543, -490,
-                    113.66301755136372, 22.792709921496122, -380
+                    121.62004836953294, 38.9385202916514, -400,
+                    121.62410255554124, 38.930786875534515, -500
                 ]
             ),
             width: 5,
@@ -213,8 +267,8 @@ $(function () {
         polyline: {
             positions: FreeDo.Cartesian3.fromDegreesArrayHeights(
                 [
-                    113.65713401517607, 22.787744674022917, -580,
-                    113.65713401517607, 22.787744674022917, -800
+                    121.62004836953294, 38.9385202916514, -400,
+                    121.62004836953294, 38.9385202916514, -800
                 ]
             ),
             width: 5,
