@@ -33,6 +33,10 @@ $(function(){
             { title: '土压力（Mpa）', field: 'progress', align: 'center'},
             { title: '海床沉降（mm）', field: 'problem', align: 'center'},
             { title: '姿态', field: 'mark', align: 'center'}
-        ]]
+        ]],
+        onClickRow:function (index,row) {
+        	console.log(index)
+        	DungouViewer.huoqushujuhuizhishiti(row.shuju);
+        },
     });
 });

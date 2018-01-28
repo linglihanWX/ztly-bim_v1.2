@@ -100,4 +100,10 @@ public class PModelController {
         String grandfatheruid = pmodelService.getGrandfatherUid(uid);
         return grandfatheruid;
     }
+    @RequestMapping(value = "/getAllAttrGrandfatherUid", method = RequestMethod.GET)
+    @ResponseBody
+    public Node4ZTree getAllAttrGrandfatherUid(String uid) {
+    	Node4ZTree grandfatheruid = pmodelService.getAllAttrGrandfatherUid(uid);
+        return grandfatheruid;
+    }
 }

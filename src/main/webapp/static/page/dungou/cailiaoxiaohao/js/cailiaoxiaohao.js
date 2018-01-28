@@ -27,7 +27,10 @@ $(function(){
             { title: '备注', field: 'mark', align: 'center'}
         ]],
         onCheckNode:function (row,checked) {
-            console.log(row);
+            var nodes = $('#dataGrid').treegrid('getCheckedNodes'); // get checked nodes
+            console.log(nodes);
+            restAllEntity();
+            setEntity(nodes);
         }
     });
 });

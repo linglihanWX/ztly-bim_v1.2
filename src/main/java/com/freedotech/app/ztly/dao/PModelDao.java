@@ -46,4 +46,11 @@ public interface PModelDao {
 	 * @return
 	 */
     String getGrandfatherUid(@Param(value="uid")String uid);
+    
+    /**
+	 * 根据点击uid查询爷爷的属性
+	 * @param uid
+	 * @return
+	 */
+    Node4ZTree getAllAttrGrandfatherUid(@Param(value="uid")String uid);
 }

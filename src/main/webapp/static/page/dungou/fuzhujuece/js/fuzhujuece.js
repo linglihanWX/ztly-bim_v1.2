@@ -6,7 +6,8 @@ $(function () {
         });
     });
     $('#dataGrid').datagrid({
-        url: "./json/doc.json",
+        url: "../../static/page/dungou/fuzhujuece/js/doc.json",
+        method:"get",
         striped: true,
         singleSelect: true,
         idField: "id",
@@ -16,38 +17,48 @@ $(function () {
         // pagination:true,
         columns: [
             [{
-                    title: '工程名称',
+                    title: '环号',
                     field: 'name',
                     align: 'left'
                 },
                 {
-                    title: '填报日期',
+                    title: '土压(Bar)',
                     field: 'time',
                     align: 'center'
                 },
                 {
-                    title: '填报人',
+                    title: '刀盘转速(RPM)',
                     field: 'menName',
                     align: 'center'
                 },
                 {
-                    title: '工作内容',
+                    title: '刀盘扭矩(KN/M)',
                     field: 'content',
                     align: 'center'
                 },
                 {
-                    title: '状况',
+                    title: '转角(%)',
                     field: 'progress',
                     align: 'center'
                 },
                 {
-                    title: '问题及解决方案',
+                    title: '坡度(%)',
                     field: 'problem',
                     align: 'center'
                 },
                 {
-                    title: '备注',
+                    title: '总推力(Tonne)',
                     field: 'mark',
+                    align: 'center'
+                },
+                {
+                    title: '推进速度(mm/min)',
+                    field: 'tuijinsudu',
+                    align: 'center'
+                },
+                {
+                    title: '日期',
+                    field: 'riqi',
                     align: 'center'
                 }
             ]

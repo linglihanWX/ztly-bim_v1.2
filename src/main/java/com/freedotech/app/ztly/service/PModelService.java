@@ -36,4 +36,11 @@ public interface PModelService {
   * @return
   */
  String getGrandfatherUid(String uid);
+ 
+ /**
+  * 根据点击uid查询爷爷的所有属性
+  * @param uid
+  * @return
+  */
+ Node4ZTree getAllAttrGrandfatherUid(String uid);
 }

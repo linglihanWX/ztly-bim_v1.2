@@ -93,6 +93,7 @@
 <script src="${ctx}/static/page/common/js/nav.js"></script>
 <script src="${ctx}/static/page/dungou/yichangdungouhuan/js/yichangdungouhuan.js"></script>
 <script src="${ctx}/static/page/dungou/yichangdungouhuan/js/yichangdungouhuan3d.js"></script>
+<script src="${ctx}/static/page/dungou/yichangdungouhuan/js/dungou_viewer.js"></script>
 <script src="${ctx }/static/webgl/caozuoqi/cameraControlRightAdjust.js"></script>
 </body>
 

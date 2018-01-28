@@ -1,5 +1,34 @@
 var pmodel = {}
 var allready = [];
+//存放盾构模型的数组
+var dungouModels = [];
+var shuju = [
+	{
+		id:"1",
+		des:"5489.600200465208200,-247.221422102376720,-4806.149521772653300",
+	},
+	{
+		id:"2",
+		des:"5496.820116776661100,-243.865454521406290,-4806.073331008618000",
+	},
+	{
+		id:"3",
+		des:"5502.375534487294300,-240.975272496877270,-4804.996088229522700",
+	},
+	{
+		id:"4",
+		des:"5480.149836637288900,-246.277557177497750,-4812.623457265139200",
+	},
+	{
+		id:"5",
+		des:"5502.375534487294300,-240.975272496877270,-4804.996088229522700",
+	},
+	{
+		id:"6",
+		des:"5480.149836637288900,-246.277557177497750,-4812.623457265139200",
+	},
+]
+
 $(function(){
 	 //初始化地球
     FreedoApp.init("earth");
@@ -101,7 +130,23 @@ $(function(){
                         primitive.modelMatrix = FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979,-23,287,pitch,0,1.2,1.2,1.2);
 
                     });*/
-                    //加盾构机和盾构机机身
+                    
+                    //加载盾构模型
+                    for (var i = 1; i < 10; i++) {
+                        dungouModels[i] = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf({
+                            id: i,
+                            url: "http://182.92.7.32:9000/ztly/glb/" + i + "/" + i + ".glb",
+                            show: true, // default
+                            modelMatrix: FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979,-491.5,255,0,0,1.4,1.4,1.4),
+                            allowPicking: true, // not pickable
+                            debugShowBoundingVolume: false, // default
+                            debugWireframe: false
+                        }))
+                    }
+                    
+                    
+                    
+                 /*   //加盾构机和盾构机机身
                     var daotou = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
                         {
                             id: "盾构机刀头",
@@ -111,7 +156,7 @@ $(function(){
                             allowPicking: true,            // not pickable
                             debugShowBoundingVolume: false, // default
                             debugWireframe: false
-                    }));
+                    }));*/
 
                     var cheshen = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
                         {
@@ -123,7 +168,7 @@ $(function(){
                             debugShowBoundingVolume: false, // default
                             debugWireframe: false
                      }));
-                    cheshen.color = FreeDo.Color.RED;
+                   // cheshen.color = FreeDo.Color.RED;
 /*                    modelTile.readyPromise.then(function(){
                     console.log(FreeDoTool.getSphereFromBoundsMinMax("5480.149836637288900,-255.272293286915470,-4820.024217262735900","5486.746820721270500,-240.645764969164760,-4805.037810776616400",pmodel));
                     })*/
@@ -132,3 +177,34 @@ $(function(){
         }
     });
 });
+
+function setEntity (nodes){
+	 if(dungouModels){
+		 var cartographic=null;
+        for(i in nodes){
+        	dungouModels[nodes[i].id].color = FreeDo.Color.RED;
+        	// var nowPos =  getSphereFromBoundsMinMax(shuju[nodes[i].id-1].min,shuju[nodes[i].id-1].max,pmodel);
+        	 var ccccc = new Freedo.Cartesian3(dungouModels[nodes[i].id].modelMatrix[12],dungouModels[nodes[i].id].modelMatrix[13],dungouModels[nodes[i].id].modelMatrix[14])
+        	cartographic = Freedo.Cartographic.fromCartesian(ccccc);
+        }
+        var citizensBankPark =  FreedoApp.viewers["earth"].entities.add( {  
+            name : 1,  
+            position :  Freedo.Cartesian3.fromRadians(cartographic.longitude,cartographic.latitude,cartographic.height+3),  
+            label : { //文字标签  
+                text : '消耗程度'+Math.round(Math.random()*100)+'%',  
+                font : '14pt monospace',  
+                style : Freedo.LabelStyle.FILL_AND_OUTLINE,  
+                outlineWidth : 2,  
+                verticalOrigin : Freedo.VerticalOrigin.BOTTOM, //垂直方向以底部来计算标签的位置  
+                pixelOffset : new Freedo.Cartesian2( 0, -9 )   //偏移量  
+            }   
+        } );  
+    }
+}
+
+function restAllEntity() {
+	FreedoApp.viewers["earth"].entities.removeAll();
+	for(i in dungouModels){
+		dungouModels[i].color = FreeDo.Color.WHITE
+	}
+}
