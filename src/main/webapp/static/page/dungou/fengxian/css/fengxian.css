@@ -28,11 +28,12 @@
 }
 .icon-pos{
     position: absolute;
-    top: 50%;
+    top: 33%;
     right: 15%;
     font-size: 25px;
     color: rgba(0,0,0,.5);
-    z-index:5;
+    z-index: 5;
+    transform: rotateZ(-50deg);
 }
 #earth{
     display: inline-block;
