@@ -4,21 +4,25 @@ var isDalian = false;
 var imgpos=[
 	{
 		id:"B5@9588",
+		img:"cheng_tanhao.png",
 		min:"5489.600200465208200,-247.221422102376720,-4806.149521772653300",
 		max:"5493.119604917327700,-241.899883593426610,-4804.005918418181900",
 	},
 	{
 		id:"B4@9514",
+		img:"hong_tanhao.png",
 		min:"5496.820116776661100,-243.865454521406290,-4806.073331008618000",
 		max:"5500.592065200245100,-238.815522258126440,-4801.205522666616200",
 	},
 	{
 		id:"B2@9456",
+		img:"huang_tanhao.png",
 		min:"5502.375534487294300,-240.975272496877270,-4804.996088229522700",
 		max:"5506.193287055019000,-236.563403604370110,-4800.923768722427700",
 	},
 	{
 		id:"L1@9682",
+		img:"lu_tanhao.png",
 		min:"5480.149836637288900,-246.277557177497750,-4812.623457265139200",
 		max:"5483.375929325748100,-240.702474560852210,-4807.598506441893700"
 	},
@@ -192,7 +196,7 @@ function setEntity (nodes){
 		                name : imgpos[nodes[i].id-1].id,  
 		                position :  Freedo.Cartesian3.fromRadians(cartographic.longitude,cartographic.latitude,cartographic.height+3),  
 		                billboard : { //图标  
-		                    image : '../../static/page/dungou/guanpianposui/img/lu_tanhao.png',  
+		                    image : '../../static/page/dungou/guanpianposui/img/'+imgpos[nodes[i].id-1].img,  
 		                    width : 30,  
 		                    height : 47  
 		                },  
