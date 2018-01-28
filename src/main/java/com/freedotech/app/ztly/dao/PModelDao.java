@@ -53,4 +53,6 @@ public interface PModelDao {
 	 * @return
 	 */
     Node4ZTree getAllAttrGrandfatherUid(@Param(value="uid")String uid);
+
+	Node4ZTree getNode4ZTreeByUid(@Param(value="uid")String uid);
 }

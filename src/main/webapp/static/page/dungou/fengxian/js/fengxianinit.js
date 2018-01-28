@@ -1,5 +1,6 @@
 var pmodel = {}
 var allready = [];
+var layers = []
 $(function () {
     var h = $("#content").height();
     var h2 = $(".breadcrumb").height();
@@ -66,35 +67,37 @@ $(function () {
                     });
                     $("#resetview").click(function () {
                         FreedoApp.viewers["earth"].camera.setView({
-                            destination : new FreeDo.Cartesian3.fromDegrees(model[key].cameralon, model[key].cameralat, model[key].cameraheight),
-                            orientation : new FreeDo.HeadingPitchRoll(model[key].cameraheading,model[key].camerapitch,model[key].cameraroll)
+                            destination: new FreeDo.Cartesian3.fromDegrees(model[key].cameralon, model[key].cameralat, model[key].cameraheight),
+                            orientation: new FreeDo.HeadingPitchRoll(model[key].cameraheading, model[key].camerapitch, model[key].cameraroll)
                         });
                     })
                 } else {
                     modelTile.readyPromise.then(function () {
-                        FreedoApp.viewers["earth"].camera.flyToBoundingSphere(modelTile.boundingSphere,{
-                            duration:0
+                        FreedoApp.viewers["earth"].camera.flyToBoundingSphere(modelTile.boundingSphere, {
+                            duration: 0
                         });
                     });
-                    $("#resetview").click(function () {FreedoApp.viewers["earth"].camera.flyToBoundingSphere(modelTile.boundingSphere,{
-                        duration:0
-                    });});
+                    $("#resetview").click(function () {
+                        FreedoApp.viewers["earth"].camera.flyToBoundingSphere(modelTile.boundingSphere, {
+                            duration: 0
+                        });
+                    });
                 }
                 pmodel = modelTile;
-                if(model[key].name=="dalian2"){
+                if (model[key].name == "dalian2") {
                     //初始化模型的颜色，用来显示已经盾构的环和没有盾构的环
-                    for (var i = 2; i <=9668; i+=18) {
-                        allready.push(["${component} ~==  \'"+i+"\'", 'color("aquamarine",0.5)'])
+                    for (var i = 2; i <= 9668; i += 18) {
+                        allready.push(["${component} ~==  \'" + i + "\'", 'color("aquamarine",0.5)'])
                     }
                     allready.push(['true', 'color("white")'])
                     pmodel.style = new FreeDo.FreedoPModelStyle({
-                        color : {
-                            conditions : allready
+                        color: {
+                            conditions: allready
                         },
-                        show :{
-                            conditions : [
+                        show: {
+                            conditions: [
                                 ["${component} ~==  \'9668\'", 'false'],
-                                ['true','true']
+                                ['true', 'true']
                             ]
                         }
                     });
@@ -113,7 +116,7 @@ $(function () {
                             id: "盾构机刀头",
                             url: "http://182.92.7.32:9000/ztly/glb/dungoujidaotou/dun_gou_dao_tou.gltf",
                             show: true,                     // default
-                            modelMatrix:FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979,-491.5,165,0,0,1.4,1.4,1.4),
+                            modelMatrix: FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979, -491.5, 165, 0, 0, 1.4, 1.4, 1.4),
                             allowPicking: true,            // not pickable
                             debugShowBoundingVolume: false, // default
                             debugWireframe: false
@@ -124,7 +127,7 @@ $(function () {
                             id: "盾构机车身",
                             url: "http://182.92.7.32:9000/ztly/glb/cheshen.glb",
                             show: true,                     // default
-                            modelMatrix:FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979,-491.5,249,6,0,1.2,1.2,1.2),
+                            modelMatrix: FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979, -491.5, 249, 6, 0, 1.2, 1.2, 1.2),
                             allowPicking: true,            // not pickable
                             debugShowBoundingVolume: false, // default
                             debugWireframe: false
@@ -280,74 +283,141 @@ $(function () {
         }
     });
 });
-function showtips(picked,screenposition){
-			if(picked!=undefined&&picked.id!=undefined&&picked.id.type!=undefined){				
-				if(picked.id.type=="line"){
-					$("#tipbox1").css({
-						left:screenposition.x-150,
-						top:screenposition.y-50
-					}).show()
-					$("#tipbox2").css({
-						left:screenposition.x+150,
-						top:screenposition.y-70
-					}).show()
-					$("#tipbox3").css({
-						left:screenposition.x-150,
-						top:screenposition.y+50
-					}).show()
-					$("#tipbox4").css({
-						left:screenposition.x+150,
-						top:screenposition.y+70
-					}).show()
-					$("#tipbox1 ul li span").text(picked.id.data[0]);
-					$("#tipbox3 ul li span").text(picked.id.data[1]);
-					$("#tipbox4 ul li span").text(picked.id.id);
-				}else{
-					hidetips();
-				}
-			}else{
-				hidetips();
-			}
+
+function showtips(picked, screenposition) {
+    if (picked != undefined && picked.id != undefined && picked.id.type != undefined) {
+        if (picked.id.type == "line") {
+            $("#tipbox1").css({
+                left: screenposition.x - 150,
+                top: screenposition.y - 50
+            }).show()
+            $("#tipbox2").css({
+                left: screenposition.x + 150,
+                top: screenposition.y - 70
+            }).show()
+            $("#tipbox3").css({
+                left: screenposition.x - 150,
+                top: screenposition.y + 50
+            }).show()
+            $("#tipbox4").css({
+                left: screenposition.x + 150,
+                top: screenposition.y + 70
+            }).show()
+            $("#tipbox1 ul li span").text(picked.id.data[0]);
+            $("#tipbox3 ul li span").text(picked.id.data[1]);
+            $("#tipbox4 ul li span").text(picked.id.id);
+        } else {
+            hidetips();
+        }
+    } else {
+        hidetips();
+    }
 }
-function hidetips(){
-	$(".tipbox").hide();
+
+function hidetips() {
+    $(".tipbox").hide();
     $("#tipbox5").children().remove()
     $("#tipbox6").children().remove()
-	$("#sanwei4").prop("checked",false);
-	$("#sanwei5").prop("checked",false);
+    $("#sanwei4").prop("checked", false);
+    $("#sanwei5").prop("checked", false);
 }
+
 function showhidelabels(dungouprimitive) {
-    $("#sanwei4").change(function(){
-        var str = "<p>泡沫系统</p><ul>"+$(".info-middle #4 ul").html()+"</ul>";
-        if ($(this).prop('checked')){
+    $("#sanwei4").change(function () {
+        var str = "<p>泡沫系统</p><ul>" + $(".info-middle #4 ul").html() + "</ul>";
+        if ($(this).prop('checked')) {
             $("#tipbox5").append(str).css({
-                left : "35%",
-                top : "20%"
+                left: "35%",
+                top: "20%"
             }).show();
-/*            FreedoApp.viewers["earth"].camera.setView({
-                destination : new FreeDo.Cartesian3.fromDegrees(113.65726697957768, 22.78663303799991,-620),
-                orientation : new FreeDo.HeadingPitchRoll(5.437420397295509,-0.11731154719345604,6.281381851419862)
-            });*/
-        }else{
+            /*            FreedoApp.viewers["earth"].camera.setView({
+                            destination : new FreeDo.Cartesian3.fromDegrees(113.65726697957768, 22.78663303799991,-620),
+                            orientation : new FreeDo.HeadingPitchRoll(5.437420397295509,-0.11731154719345604,6.281381851419862)
+                        });*/
+        } else {
             $("#tipbox5").children().remove().hide();
         }
     })
 
-    $("#sanwei5").change(function(){
-        var str = "<p>掘进实时位置监控</p><ul>"+$(".info-middle #5 ul").html()+"</ul>";
-        if ($(this).prop('checked')){
+    $("#sanwei5").change(function () {
+        var str = "<p>掘进实时位置监控</p><ul>" + $(".info-middle #5 ul").html() + "</ul>";
+        if ($(this).prop('checked')) {
             $("#tipbox6").append(str).css({
-                left : "70%",
-                top  : "20%"
+                left: "70%",
+                top: "20%"
             }).show();
-/*            FreedoApp.viewers["earth"].camera.setView({
-                destination : new FreeDo.Cartesian3.fromDegrees(113.65726697957768, 22.78663303799991,-620),
-                orientation : new FreeDo.HeadingPitchRoll(5.437420397295509,-0.11731154719345604,6.281381851419862)
-            });*/
-        }else{
+            /*            FreedoApp.viewers["earth"].camera.setView({
+                            destination : new FreeDo.Cartesian3.fromDegrees(113.65726697957768, 22.78663303799991,-620),
+                            orientation : new FreeDo.HeadingPitchRoll(5.437420397295509,-0.11731154719345604,6.281381851419862)
+                        });*/
+        } else {
             $("#tipbox6").children().remove().hide();
         }
     })
+
+}
+
+function showlayers(picked) {
+    if (picked instanceof FreeDo.FreedoPModelFeature) {
+        var componentId = picked.getProperty("component");
+        $.ajax({
+            url: "../../PModel/getAllAttrGrandfatherUid/",
+            data: {"uid": componentId},
+            success: function (grandfather) {
+                var boundsmax1 = grandfather.boundsmax;
+                var boundsmin1 = grandfather.boundsmin;
+                var boundingSphere1 = FreeDoTool.getSphereFromBoundsMinMax(boundsmin1, boundsmax1, pmodel)
+                var center1 = boundingSphere1.center;
+                var uid = parseInt(grandfather.uid) + 8 + "";
+                console.log(uid)
+                $.ajax({
+                    url: "../../PModel/getNode4ZTreeByUid/",
+                    data: {"uid": uid},
+                    success: function (node) {
+                        var boundsmax2 = node.boundsmax;
+                        var boundsmin2 = node.boundsmin;
+                        var boundingSphere2 = FreeDoTool.getSphereFromBoundsMinMax(boundsmin2, boundsmax2, pmodel)
+                        var center2 = boundingSphere2.center;
+                        if (center2 != null) {
+
+                            var twopoints = FreeDoTool.getDrillingPoint(FreedoApp.viewers["earth"], center1, center2, 20)
+                            var depth = [0, -300, -500, -700, -900]
+                            var pointsarr = []
+                            for (var i = 0; i < 5; i++) {
+                                pointsarr[i] = []
+                                pointsarr[i].push([twopoints[0][0], twopoints[0][1], depth[i]])
+                                pointsarr[i].push([twopoints[1][0], twopoints[1][1], depth[i]])
+                            }
+
+                            var layersimgarr = [
+                                "../../static/page/common/img/hole/water.jpg",
+                                "../../static/page/common/img/hole/Land002.jpg",
+                                "../../static/page/common/img/hole/Land003.jpg",
+                                "../../static/page/common/img/hole/Land004.jpg"
+                            ]
+                            if (layers.length != 0) {
+                                for (var i = 0; i < layers.length; i++) {
+                                    FreedoApp.viewers["earth"].scene.primitives.remove(layers[i])
+                                }
+                                layers = []
+                            }
+                            layers = FreeDoTool.drawLayers(FreedoApp.viewers["earth"], pointsarr, layersimgarr)
+                        }
+                    }
+                })
+
+
+                // FreeDoTool.getDrillingPoint(FreeDo.viewers["earth"])
+
+            }
+        })
+    }else{
+        for (var i = 0; i < layers.length; i++) {
+            FreedoApp.viewers["earth"].scene.primitives.remove(layers[i])
+        }
+        layers = []
+    }
+
 
 }
 

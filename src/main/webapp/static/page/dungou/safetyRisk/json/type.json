@@ -1,26 +1,21 @@
 [{
     "id":11,
-    "text":"通用安全",
+    "text":"隐患分类",
   "state":"opened",
     "children":[{
       "id":111,
-      "text":"通用安全",
-      "state":"closed"
+      "text":"通用安全"
     },{
       "id":112,
-      "text":"工法安全",
-      "state":"closed"
+      "text":"工法安全"
     },{
       "id":113,
-      "text":"施工质量",
-      "state":"closed"
+      "text":"施工质量"
     },{
       "id":114,
-      "text":"其它专项",
-      "state":"closed"
+      "text":"其它专项"
     },{
       "id":115,
-      "text":"手动条目",
-      "state":"closed"
+      "text":"手动条目"
     }]
   }]

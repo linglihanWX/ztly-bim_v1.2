@@ -45,4 +45,7 @@
 	<select id="getAllAttrGrandfatherUid" resultType="com.freedotech.app.ztly.model.Node4ZTree" parameterType="String">
 		SELECT uid,pid,name,boundsmax,boundsmin,leaf FROM t_unit14 WHERE uid=(SELECT pid FROM t_unit14 WHERE uid = #{uid})
 	</select>
+	<select id="getNode4ZTreeByUid" resultType="com.freedotech.app.ztly.model.Node4ZTree" parameterType="String">
+		SELECT uid,pid,name,boundsmax,boundsmin,leaf FROM t_unit14 WHERE uid=#{uid}
+	</select>
 </mapper>     

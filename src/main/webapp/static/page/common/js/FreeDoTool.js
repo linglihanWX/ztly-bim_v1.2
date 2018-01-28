@@ -680,3 +680,144 @@ FreeDoTool.getSphereFromBoundsMinMax = function(boundsMin, boundsMax, modelTile)
     var sphere = FreeDo.BoundingSphere.fromCornerPoints(mincorner, maxcorner);
     return sphere;
 }
+
+/*********************************************************************************************************************************************************/
+
+/**
+ * 得到当前环两边钻井的经纬坐标
+ * @param {*} center1 点击环的中心点
+ * @param {*} center2 点击环的下一个环的中心点
+ */
+FreeDoTool.getDrillingPoint =function (viewer,center1,center2,width){
+    //隧道向量
+    var tunnelvector = new FreeDo.Cartesian3();
+    //两个点相减得到隧道的方向向量
+    FreeDo.Cartesian3.subtract(center2,center1, tunnelvector);
+    //法向量
+    var normalvector1 = new FreeDo.Cartesian3();
+    var normalvector2 = new FreeDo.Cartesian3();
+    FreeDo.Cartesian3.cross(center1,tunnelvector,normalvector1);
+    FreeDo.Cartesian3.cross(tunnelvector,center1,normalvector2);
+    //单位法向量
+    var unitnormalvector1 = new FreeDo.Cartesian3();
+    var unitnormalvector2 = new FreeDo.Cartesian3();
+    FreeDo.Cartesian3.normalize(normalvector1, unitnormalvector1);
+    FreeDo.Cartesian3.normalize(normalvector2, unitnormalvector2);
+    //单位法向量乘以宽度
+    var normalvector11 = new FreeDo.Cartesian3();
+    var normalvector12 = new FreeDo.Cartesian3();
+    FreeDo.Cartesian3.multiplyByScalar(unitnormalvector1,width,normalvector11);
+    FreeDo.Cartesian3.multiplyByScalar(unitnormalvector2,width,normalvector12);
+    //得到钻井的世界坐标
+    var cartesian1 = new FreeDo.Cartesian3();
+    var cartesian2 = new FreeDo.Cartesian3();
+    FreeDo.Cartesian3.add(center1,normalvector11,cartesian1);
+    FreeDo.Cartesian3.add(center1,normalvector12,cartesian2);
+    //转换成经纬坐标
+    var point1 = FreeDoTool.transfCartesian3ToPoint(viewer,cartesian1);
+    var point2 = FreeDoTool.transfCartesian3ToPoint(viewer,cartesian2);
+
+    return [point1,point2];
+
+}
+/**
+ * 世界坐标转经纬度
+ * @param {*} viewer
+ * @param {*} cartesian 世界坐标
+ */
+FreeDoTool.transfCartesian3ToPoint=function (viewer,cartesian){
+    var cartographic = viewer.scene.globe.ellipsoid.cartesianToCartographic(cartesian);
+    var point = [ cartographic.longitude / Math.PI * 180, cartographic.latitude / Math.PI * 180];
+    return point;
+}
+/**
+ *
+ * @param {*} viewer
+ * @param {*} layerarr 用于绘制绘制地质
+ */
+FreeDoTool.drawLayers =function (viewer,layerarr,layerimgarr){
+    var layers = [];
+    for (let index = 0; index < layerarr.length; index++) {
+        if(index!=layerarr.length-1){
+            //构建顶点位置数组
+            var fourpoints = []
+            fourpoints.push(layerarr[index][0]);
+            fourpoints.push(layerarr[index][1]);
+            fourpoints.push(layerarr[index+1][0]);
+            fourpoints.push(layerarr[index+1][1]);
+
+            var o = {}
+            var p = []
+            for (let j = 0; j < 4; j++) {
+                fourpoints[j] = FreeDo.Cartesian3.fromDegrees(fourpoints[j][0],fourpoints[j][1],fourpoints[j][2]);
+                if(j==0){
+                    o=fourpoints[j]
+                }
+                var subtract = new FreeDo.Cartesian3();
+                FreeDo.Cartesian3.subtract(fourpoints[j],fourpoints[0],subtract);
+                p.push(subtract.x);
+                p.push(subtract.y);
+                p.push(subtract.z);
+            }
+            var posarray = new Float64Array(p);
+            //构建三角形顶点索引数组
+            var indexarray = new Uint16Array([0,1,3,3,2,0]);
+            //构建纹理贴图数组
+            var t = []
+            t.push(0.0,0.0);
+            t.push(0.0,1.0);
+            t.push(1.0,0.0);
+            t.push(1.0,1.0);
+            var texCoords = new Float32Array(t);
+
+            var geometry = new FreeDo.Geometry({
+                attributes: {
+                    position: new FreeDo.GeometryAttribute({
+                        componentDatatype: FreeDo.ComponentDatatype.DOUBLE,
+                        componentsPerAttribute: 3,
+                        values: posarray
+                    }),
+                    st: new FreeDo.GeometryAttribute({
+                        componentDatatype: FreeDo.ComponentDatatype.FLOAT,
+                        componentsPerAttribute: 2,
+                        values: texCoords
+                    })
+                },
+                indices: indexarray,
+                primitiveType: FreeDo.PrimitiveType.TRIANGLES,
+                boundingSphere: FreeDo.BoundingSphere.fromVertices(posarray)
+            })
+
+            var instance = new FreeDo.GeometryInstance({
+                geometry: geometry,
+                modelMatrix: new FreeDo.Matrix4(
+                    1, 0, 0, o.x,
+                    0, 1, 0, o.y,
+                    0, 0, 1, o.z,
+                    0, 0, 0, 1
+                ),
+                attributes: {
+                    color: FreeDo.ColorGeometryInstanceAttribute.fromColor(layerimgarr[index])
+                },
+                id: 'trangle'
+            })
+
+            var layer = viewer.scene.primitives.add(new FreeDo.Primitive({
+                geometryInstances: instance,
+                appearance: new FreeDo.MaterialAppearance({
+                    material: new FreeDo.Material({
+                        fabric: {
+                            type: 'Image',
+                            uniforms: {
+                                image: layerimgarr[index]
+                            }
+                        }
+                    })
+
+                })
+            }))
+            layers.push(layer)
+        }
+    }
+    return layers;
+}

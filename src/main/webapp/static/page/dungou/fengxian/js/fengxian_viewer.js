@@ -24,6 +24,7 @@ DungouViewer.initLeftClick = function(viewer,callback) {
 		if(picked==undefined){
 			callback(undefined,undefined);
 		}else{
+            showlayers(picked);
 			callback(picked,movement.position);
 		}
 	}, FreeDo.ScreenSpaceEventType.LEFT_CLICK);
@@ -43,34 +44,5 @@ DungouViewer.initLeftDbClick = function(viewer) {
 DungouViewer.removeListener = function(){
 	screenSpaceEventHandler.removeInputAction(FreeDo.ScreenSpaceEventType.LEFT_CLICK);
 }
-DungouViewer.changeColor=function(pickedid){
-	if(attributearray.length>0){
-		for (var i = 0; i < attributearray.length; i++) {
-			attributearray[i].color = FreeDo.ColorGeometryInstanceAttribute.toValue(FreeDo.Color.DARKGRAY);
-		}
-		attributearray = [];
-	}
-	 var attributes = guandao2.getGeometryInstanceAttributes(pickedid);//获取某个实例的属性集  
-	 //FreeDoTool.flyToModel(globalviewer.camera,attributes)
-	 attributes.color = FreeDo.ColorGeometryInstanceAttribute.toValue(FreeDo.Color.FIREBRICK);
-	 attributearray.push(attributes);
-	 globalviewer.camera.viewBoundingSphere(attributes.boundingSphere, new Freedo.HeadingPitchRange(Freedo.Math.toRadians(23) , 0, 30))
 
-}
-DungouViewer.changeColor=function(picked){
-    if(picked instanceof FreeDo.FreedoPModelFeature) {	//如果picked为空则表示点击无模型处，使之前点变色的模型重置颜色并清空所选模型容器
-        if (pickedModels.length != 0) {	//使之前点变色的模型重置颜色并清空所选模型容器
-            for (var i = 0; i < pickedModels.length; i++) {
-                pickedModels[i].color = unClickedColor;
-                pickedModels = [];
-            }
-        }
-        pickedModels.push(picked);	//缓存点选模型
-        pickedModels[0].color = clickedColor; //变色
-    }else {
-        for (var i = 0; i < pickedModels.length; i++)
-            pickedModels[i].color = unClickedColor;
-        pickedModels = [];
-        return;
-    }
-}
+

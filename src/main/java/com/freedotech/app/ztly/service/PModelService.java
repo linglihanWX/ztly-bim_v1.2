@@ -43,4 +43,6 @@ public interface PModelService {
   * @return
   */
  Node4ZTree getAllAttrGrandfatherUid(String uid);
+
+ Node4ZTree getNode4ZTreeByUid(String uid);
 }

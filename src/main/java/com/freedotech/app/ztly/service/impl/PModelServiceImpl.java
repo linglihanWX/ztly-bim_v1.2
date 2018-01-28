@@ -94,4 +94,9 @@ public class PModelServiceImpl implements PModelService {
 		// TODO Auto-generated method stub
 		return pmodelDao.getAllAttrGrandfatherUid(uid);
 	}
+
+	@Override
+	public Node4ZTree getNode4ZTreeByUid(String uid) {
+		return pmodelDao.getNode4ZTreeByUid(uid);
+	}
 }
