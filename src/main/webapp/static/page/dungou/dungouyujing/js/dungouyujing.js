@@ -28,13 +28,17 @@ $(function(){
                     return '<input type="checkbox" name="DataGridCheckbox">';
                 }
             },*/
-            { title: '工程名称', field: 'name', align: 'left'},
+            { title: '序号', field: 'id', align: 'left'},
+            { title: '风险所属工程', field: 'project', align: 'center'},
+            { title: '风险发生点', field: 'point', align: 'center'},
+            { title: '管片环号', field: 'num', align: 'center'},
+            { title: '偏差类型', field: 'deviationtype', align: 'center'},
+            { title: '偏差数据', field: 'deviationdata', align: 'center'},
+            { title: '预警等级', field: 'grade', align: 'center'},
+            { title: '治理状态', field: 'stake', align: 'center'},
             { title: '填报日期', field: 'time', align: 'center'},
             { title: '填报人', field: 'menName', align: 'center'},
-            { title: '工作内容', field: 'content', align: 'center'},
-            { title: '状况', field: 'progress', align: 'center'},
-            { title: '问题及解决方案', field: 'problem', align: 'center'},
-            { title: '备注', field: 'mark', align: 'center'}
+            { title: '预览', field: 'mark', align: 'center'}
         ]],
         onDblClickRow:function (index,row) {
             $("#infoShow").window('open')
