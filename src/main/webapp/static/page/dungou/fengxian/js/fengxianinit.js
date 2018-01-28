@@ -360,6 +360,7 @@ function showhidelabels(dungouprimitive) {
 function showlayers(picked) {
     if (picked instanceof FreeDo.FreedoPModelFeature) {
         var componentId = picked.getProperty("component");
+
         $.ajax({
             url: "../../PModel/getAllAttrGrandfatherUid/",
             data: {"uid": componentId},
@@ -368,7 +369,8 @@ function showlayers(picked) {
                 var boundsmin1 = grandfather.boundsmin;
                 var boundingSphere1 = FreeDoTool.getSphereFromBoundsMinMax(boundsmin1, boundsmax1, pmodel)
                 var center1 = boundingSphere1.center;
-                var uid = parseInt(grandfather.uid) + 8 + "";
+                console.log(grandfather.uid);
+                var uid = parseInt(grandfather.uid) + 18 + "";
                 console.log(uid)
                 $.ajax({
                     url: "../../PModel/getNode4ZTreeByUid/",
