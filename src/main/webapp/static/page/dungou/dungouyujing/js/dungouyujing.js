@@ -12,7 +12,7 @@ $(function(){
 
 
     $('#dataGrid').treegrid({
-        url: "../../static/page/dungou/ziliao/json/doc.json",
+        url: "../../static/page/dungou/dungouyujing/js/doc.json",
         method:"get",
         striped: true,
         singleSelect: true,
@@ -38,6 +38,11 @@ $(function(){
         ]],
         onDblClickRow:function (index,row) {
             $("#infoShow").window('open')
+        },
+        onCheckNode:function (row,checked) {
+        	var nodes = $('#dataGrid').treegrid('getCheckedNodes'); // get checked nodes
+        	restAllEntity();
+            setEntity(nodes);
         }
     });
 });

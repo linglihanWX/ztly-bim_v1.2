@@ -25,6 +25,8 @@
     <link rel="stylesheet" type="text/css" href="${ctx }/static/page/common/css/nav.css">
     <link rel="stylesheet" type="text/css" href="${ctx }/static/page/dungou/common/font/iconfont.css">
     <link rel="stylesheet" href="${ctx }/static/page/dungou/dungouyujing/css/dungouyujing.css">
+    <script src="http://res.gbim360.com/lib/freedo/rel/1.5.3.1/Freedo/Freedo.js"></script>
+        <%@ include file="/WEB-INF/page/common/common_FDNew.jsp" %>
 </head>
 
 <body>
@@ -87,9 +89,11 @@
                 </div>
             </div>
         </div>
-
         <div class="three-box">
             <p>三维模型</p>
+             <div id="earth" style="overflow:hidden" class="rightmodel">
+              <p><span></span><span>一级预警</span><span></span><span>二级预警</span><span></span><span>三级预警</span><span>已经</span></p>
+             </div>
         </div>
     </div>
 </div>
@@ -126,10 +130,13 @@
 <script src="${ctx}/static/page/common/js/jquery-3.2.1.min.js"></script>
 <script src="${ctx}/static/page/common/js/jquery-easyui-1.4.5/jquery.easyui.min.js"></script>
 <script src="${ctx}/static/page/common/js/jquery-easyui-1.4.5/locale/easyui-lang-zh_CN.js"></script>
+<script src="${ctx }/static/webgl/caozuoqi/cameraControlRightAdjust.js"></script>
 <script src="${ctx}/static/page/dungou/common/js/appendHeader.js"></script>
 <script src="${ctx }/static/page/dungou/common/js/danpanHeader.js"></script>
 <script src="${ctx}/static/page/common/js/nav.js"></script>
 <script src="${ctx}/static/page/dungou/dungouyujing/js/dungouyujing.js"></script>
+<script src="${ctx}/static/page/dungou/dungouyujing/js/dungouyujing_viewer.js"></script>
+<script src="${ctx}/static/page/dungou/dungouyujing/js/dungouyujinginit.js"></script>
 </body>
 
 </html>
