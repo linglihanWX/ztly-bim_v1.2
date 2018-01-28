@@ -18,16 +18,16 @@ $(function(){
         singleSelect: true,
         idField: "id",
         checkbox:true,
-        treeField:'name',
+        treeField:'project',
         rownumbers:true,
         // pageList: [10,20,30],
         // pagination:true,
         columns: [[
-            {
+      /*      {
                 title: ' ', field: 'ck', align: 'center', width: 30, formatter: function (value, row, index) {
                     return '<input type="checkbox" name="DataGridCheckbox">';
                 }
-            },
+            },*/
             { title: '风险所属工程', field: 'project', align: 'left'},
             { title: '风险发生点', field: 'point', align: 'center'},
             { title: '管片环号', field: 'num', align: 'center'},
