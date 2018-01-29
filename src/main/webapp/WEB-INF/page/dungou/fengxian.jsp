@@ -51,6 +51,7 @@
 
     </div>
     <div class="content">
+        <div class="page-nav"></div>
         <div class="content-top">
 
             <div id="earth" style="overflow:hidden">
@@ -96,6 +97,7 @@
 
 <script src="${ctx }/static/page/common/js/swiper-3.4.2.jquery.min.js"></script>
 <script src="${ctx }/static/page/dungou/common/js/appendHeader.js"></script>
+<script src="${ctx }/static/page/dungou/common/js/fengxianHeader.js"></script>
 <script src="${ctx }/static/page/common/js/nav.js"></script>
 <script src="${ctx }/static/page/dungou/fengxian/js/fengxian_viewer.js"></script>
 <script src="${ctx }/static/page/common/js/echarts.min.js"></script>

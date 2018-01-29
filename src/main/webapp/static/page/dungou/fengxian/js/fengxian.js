@@ -1,6 +1,7 @@
 $(function () {
     let scrWidth = window.screen.width;
     $(".three-menu li:nth-of-type(3) a").addClass("second-active").parent().siblings().children("a").removeClass("second-active");
+    $(".page-nav>ul>li:nth-of-type(1) a").addClass("active").parent().siblings().children("a").removeClass("active");
     if (scrWidth <= 1366) {
         new Swiper ('.swiper-container', {
             direction: 'vertical',
@@ -10,8 +11,15 @@ $(function () {
             spaceBetween: 30,
         });
     }
-    $(".dghh").on("click", function () {
-        window.location.href = "../../ProSystem/dungou/toBaseInformation"
+
+
+
+    $(".page-nav>ul>li").each(function () {
+        $(this).hover(function () {
+            $(this).children(".pull-down").stop().slideDown();
+        },function () {
+            $(this).children(".pull-down").stop().slideUp();
+        })
     });
    /* // 三维窗口的大小改变
     $(".main-page").on("click",function () {
