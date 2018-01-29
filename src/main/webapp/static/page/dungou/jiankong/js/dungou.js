@@ -359,7 +359,7 @@ function showhidelabels() {
         var str = "<p>泡沫系统</p><ul>"+$(".info-middle #4 ul").html()+"</ul>";
         if ($(this).prop('checked')){
             $("#tipbox5").append(str).css({
-                left : "35%",
+                left : "25%",
                 top : "20%"
             }).show();
 /*            FreedoApp.viewers["earth"].camera.setView({
@@ -375,7 +375,7 @@ function showhidelabels() {
         var str = "<p>掘进实时位置监控</p><ul>"+$(".info-middle #5 ul").html()+"</ul>";
         if ($(this).prop('checked')){
             $("#tipbox6").append(str).css({
-                left : "70%",
+                left : "60%",
                 top  : "20%"
             }).show();
 /*            FreedoApp.viewers["earth"].camera.setView({
