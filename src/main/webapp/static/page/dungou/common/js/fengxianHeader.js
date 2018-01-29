@@ -23,7 +23,32 @@ $(function () {
         '                        <li><a href="javascript:;">数据查看</a></li>\n' +
         '                        <li><a href="javascript:;">数据对比</a></li>\n' +
         '                    </ul></li>\n' +
-        '                <li><a href="javascript:;">综合统计</a></li>\n' +
+        '                <li><a href="javascript:;">综合统计</a><ul class="pull-down">\n' +
+        '                            <li>\n' +
+        '                                <a href="">风险预警统计</a>\n' +
+        '                            </li>\n' +
+        '                            <li>\n' +
+        '                                <a href="javascript:;">监理单位风险预警统计</a>\n' +
+        '                            </li>\n' +
+        '                            <li>\n' +
+        '                                <a href="javascript:;">施工单位风险预警统计</a>\n' +
+        '                            </li>\n' +
+        '                            <li>\n' +
+        '                                <a href="javascript:;">第三方风险预警统计</a>\n' +
+        '                            </li>\n' +
+        '                            <li>\n' +
+        '                                <a href="javascript:;">隐患分类统计</a>\n' +
+        '                            </li>\n' +
+        '                            <li>\n' +
+        '                                <a href="javascript:;">隐患各标段统计</a>\n' +
+        '                            </li>\n' +
+        '                            <li>\n' +
+        '                                <a href="javascript:;">新增一、二级隐患情况</a>\n' +
+        '\n' +
+        '                            <li>\n' +
+        '                                <a href="javascript:;">施工单位月末统计报表</a>\n' +
+        '                            </li>\n' +
+        '                        </ul>\n</li>\n' +
         '\n' +
         '            </ul>'
     $(".page-nav").append(str);

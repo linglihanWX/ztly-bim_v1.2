@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" contentType="text/html;charset=UTF-8"
-         pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <c:set var="ctx" value="<%=request.getContextPath()%>"></c:set>
@@ -118,7 +118,7 @@
 
         <li><span class="describe"><span class="must-write">*</span>排查时间:</span><input class="inp" required type="date">
         </li>
-        <li><span class="describe"><span class="must-write">*</span>排查时间:</span><input class="inp" required type="date">&nbsp;至&nbsp;<input
+        <li><span class="describe"><span class="must-write">*</span>整改时间:</span><input class="inp" required type="date">&nbsp;至&nbsp;<input
                 class="inp" required type="date">&nbsp;共&nbsp;<span class="total-days"></span>&nbsp;天
         </li>
         <li><span class="describe"><span class="must-write">*</span>隐患地点:</span><input class="inp" type="text"></li>
@@ -126,7 +126,8 @@
                 type="checkbox">安全隐患
         </li>
         <li>
-            <span class="describe"><span class="must-write">*</span>隐患统计类型:</span><input type="checkbox">施工材料<input type="checkbox">安全管理<input type="checkbox">质量管理<input type="checkbox">安全防护
+            <span class="describe"><span class="must-write">*</span>隐患统计类型:</span><input type="checkbox">施工材料<input type="checkbox">安全管理<input
+                type="checkbox">质量管理<input type="checkbox">安全防护
         </li>
         <li>
             <span class="describe"></span><input type="checkbox">消防安全<input type="checkbox">绿色施工<input type="checkbox">临时用电<input type="checkbox">施工机械
@@ -135,7 +136,7 @@
         <li><span class="describe"><span class="must-write">*</span>隐患描述:</span><textarea name="" id=""></textarea>
             </select></li>
         <li><span class="describe"><span class="must-write">*</span>隐患场景:</span><input type="file" name="" id=""><img
-                src="./img/doc.png" alt="" class="file-img"></li>
+                src="../../static/page/dungou/common/img/doc.png" alt="" class="file-img"></li>
 
         <li><input type="button" name="" id="save" class="btn-active" value="保存"><input type="button" name=""
                                                                                         id="cancel" value="取消"></li>
