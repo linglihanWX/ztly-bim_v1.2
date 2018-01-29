@@ -28,7 +28,7 @@ $(function(){
             { title: '风险所属工程', field: 'project', align: 'center'},
             { title: '风险发生点', field: 'place', align: 'center'},
             { title: '问题描述', field: 'description', align: 'left '},
-            { title: '处置措施建议', field: 'advice', align: 'center'},
+            { title: '处置措施建议', field: 'advice', align: 'left'},
             { title: '整改时限（h）', field: 'time', align: 'center'},
             { title: '上报人', field: 'people', align: 'center'},
             { title: '治理状态', field: 'sta', align: 'center',styler: function(value,row,index){
@@ -37,7 +37,7 @@ $(function(){
                 }else if(value == "已处置"){
                     return 'color:blue;';
                 }else if(value == "已消除"){
-                    return 'color:blue;';
+                    return 'color:#00FA9A;';
                 }
 
             }},
