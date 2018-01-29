@@ -102,13 +102,14 @@ $(function () {
                     });
 
                     //盾构机旋转
-/*                    var pitch = 0;
+                    var pitch = 0;
+
                     FreedoApp.viewers["earth"].scene.preRender.addEventListener(function(){
                         if(pitch>360)pitch=0;
                         pitch = pitch+1;
-                        primitive.modelMatrix = FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979,-23,287,pitch,0,1.2,1.2,1.2);
+                        daotou.modelMatrix = FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979,-491.5,165,pitch,0,1.4,1.4,1.4);
 
-                    });*/
+                    });
                     //加盾构机和盾构机机身
                     var daotou = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
                         {
