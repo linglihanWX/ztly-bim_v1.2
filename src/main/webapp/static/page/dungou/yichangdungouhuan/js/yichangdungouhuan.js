@@ -1,6 +1,6 @@
 $(function(){
-    $(".three-menu li:nth-of-type(6) a").addClass("second-active").parent().siblings().children("a").removeClass("second-active");
-    $(".page-nav ul li:nth-of-type(5) a").addClass("active").parent().siblings().children("a").removeClass("active");
+    $(".three-menu li:nth-of-type(2) a").addClass("second-active").parent().siblings().children("a").removeClass("second-active");
+    $(".page-nav ul li:nth-of-type(6) a").addClass("active").parent().siblings().children("a").removeClass("active");
     $(".content-top>ul li:last-of-type input").each(function (index, element) {
         $(element).on("click", function () {
             $(this).addClass("btn-active").siblings().removeClass("btn-active");

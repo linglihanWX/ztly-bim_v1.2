@@ -49,6 +49,9 @@
 
     </div>
     <div class="content">
+        <div class="page-nav">
+
+        </div>
         <div class="content-middle">
             <div id="earth" style="overflow:hidden">
                 <p>
@@ -261,6 +264,7 @@
     <ul class="list"></ul>
 </div>
 <script src="${ctx }/static/page/dungou/common/js/appendHeader.js"></script>
+<script src="${ctx }/static/page/dungou/common/js/danpanHeader.js"></script>
 <script src="${ctx }/static/page/common/js/nav.js"></script>
 <script src="${ctx }/static/page/common/js/drag.js"></script>
 <script src="${ctx }/static/page/dungou/jiankong/js/base-canvas.js"></script>

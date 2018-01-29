@@ -1,5 +1,6 @@
 $(function () {
     $(".three-menu li:nth-of-type(2) a").addClass("second-active").parent().siblings().children("a").removeClass("second-active");
+    $(".page-nav ul li:nth-of-type(1) a").addClass("active").parent().siblings().children("a").removeClass("active");
     var timer = null;
 
 
