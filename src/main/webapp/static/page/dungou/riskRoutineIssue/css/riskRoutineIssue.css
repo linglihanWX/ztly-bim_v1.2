@@ -285,7 +285,9 @@
     min-width: 40px;
     border: 1px solid #ccc;
 }
-
+.datagrid-body{
+    overflow-x: auto!important;
+}
 .datagrid-view2 .datagrid-header .datagrid-header-inner,
 .datagrid-view2 .datagrid-header .datagrid-header-inner .datagrid-htable,
 .datagrid-view2 .datagrid-body .datagrid-btable{

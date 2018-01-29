@@ -1,6 +1,7 @@
 $(function(){
     $(".three-menu li:nth-of-type(3) a").addClass("second-active").parent().siblings().children("a").removeClass("second-active");
-    $(".page-nav ul li:nth-of-type(3) a").addClass("second-active").parent().siblings().children("a").removeClass("second-active");
+
+    $(".page-nav>ul>li:nth-of-type(3) a").addClass("active").parent().siblings().children("a").removeClass("active");
     $(".content-top>ul li:last-of-type input").each(function (index, element) {
         $(element).on("click", function () {
             $(this).addClass("btn-active").siblings().removeClass("btn-active");
@@ -16,18 +17,17 @@ $(function(){
         url: "../../static/page/dungou/riskRoutineIssue/json/problemlist.json",
         method:"get",
         striped: true,
-        singleSelect: true,
         idField: "id",
+        nowrap:false,
         checkbox:true,
-        treeField:'name',
-        rownumbers:true,
+        treeField:'project',
         // pageList: [10,20,30],
         // pagination:true,
         columns: [[
             { title: '序号', field: 'num', align: 'center'},
             { title: '风险所属工程', field: 'project', align: 'center'},
             { title: '风险发生点', field: 'place', align: 'center'},
-            { title: '问题描述', field: 'description', align: 'center'},
+            { title: '问题描述', field: 'description', align: 'left '},
             { title: '处置措施建议', field: 'advice', align: 'center'},
             { title: '整改时限（h）', field: 'time', align: 'center'},
             { title: '上报人', field: 'people', align: 'center'},
