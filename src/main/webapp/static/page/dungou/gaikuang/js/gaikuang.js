@@ -731,6 +731,15 @@ function initEntities(viewer) {
     entityarray.push(posinf1);
     entityarray.push(posinf2);
     entityarray.push(tuding);
+    viewer.scene.primitives.add(new FreeDo.FreedoPModelset({
+        url: "http://182.92.7.32:9000/ztly/daliandimianjianzhu/dalian_chuan"
+    }));
+    viewer.scene.primitives.add(new FreeDo.FreedoPModelset({
+    	url: "http://182.92.7.32:9000/ztly/daliandimianjianzhu/dalian_jianzhu01"
+    }));
+    viewer.scene.primitives.add(new FreeDo.FreedoPModelset({
+    	url: "http://182.92.7.32:9000/ztly/daliandimianjianzhu/dalian_jianzhu02"
+    }));
     return entityarray;
 }
 
