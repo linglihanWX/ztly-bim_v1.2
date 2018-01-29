@@ -8,7 +8,7 @@ $(function(){
 
 
     $('#dataGrid').datagrid({
-        url: "../../static/page/dungou/ziliao/json/doc.json",
+        url: "../../static/page/dungou/baobiao/json/baobiaoinfo.json",
         method:"get",
         striped: true,
         singleSelect: true,

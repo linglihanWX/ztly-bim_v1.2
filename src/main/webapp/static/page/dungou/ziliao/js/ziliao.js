@@ -61,13 +61,12 @@ $.ajax({
                     return '<input type="checkbox" name="DataGridCheckbox">';
                 }
             },
-            { title: '工程名称', field: 'name', align: 'center'},
-            { title: '填报日期', field: 'time', align: 'center'},
-            { title: '填报人', field: 'menName', align: 'center'},
-            { title: '工作内容', field: 'content', align: 'center'},
-            { title: '状况', field: 'progress', align: 'center'},
-            { title: '问题及解决方案', field: 'problem', align: 'center'},
-            { title: '备注', field: 'mark', align: 'center'}
+            { title: '资料名称', field: 'name', align: 'center'},
+            { title: '形成时间', field: 'time', align: 'center'},
+            { title: '责任人', field: 'menName', align: 'center'},
+            { title: '形成单位', field: 'progress', align: 'center'},
+            { title: '保管单位', field: 'problem', align: 'center'},
+            { title: '预览', field: 'mark', align: 'center'}
         ]]
     });
 });
