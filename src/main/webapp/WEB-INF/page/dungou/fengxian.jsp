@@ -69,8 +69,8 @@
         -->
             </div>
             <div id="chartOne"></div>
-            <img src="${ctx }/static/page/dungou/fengxian/img/dungoutubiao.png"  class="icon-pos"/>
-            <!-- <i class="iconfont icon-pos"></i> -->
+         <%--    <img src="${ctx }/static/page/dungou/fengxian/img/dungoutubiao.png"  class="icon-pos"/> --%>
+            <i class="iconfont icon-pos"></i>
         </div>
         <div class="swiper-container">
             <div class="swiper-wrapper">
