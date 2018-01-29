@@ -303,3 +303,6 @@
 .tree-icon{
     display: none;
 }
+.panel-tool {
+    display: block;
+}

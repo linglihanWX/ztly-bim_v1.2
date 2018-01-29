@@ -37,7 +37,9 @@ $(function(){
             { title: '治理状态', field: 'stake', align: 'center'},
             { title: '填报日期', field: 'time', align: 'center'},
             { title: '填报人', field: 'menName', align: 'center'},
-            { title: '预览', field: 'mark', align: 'center'}
+            { title: '预览', field: 'mark', align: 'center',styler: function(value,row,index){
+                return 'color:blue;cursor:pointer;text-decoration:underline;';
+            }}
         ]],
         onDblClickRow:function (index,row) {
             $("#infoShow").window('open')

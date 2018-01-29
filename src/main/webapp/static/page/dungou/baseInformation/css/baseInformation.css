@@ -329,6 +329,9 @@ letter-spacing: 5px;
 .datagrid-view2 .datagrid-body .datagrid-btable{
     width: 100%;
 }
+.panel-tool {
+     display: block;
+}
 .panel-tool>a:not(:last-of-type){
     display: none;
 }

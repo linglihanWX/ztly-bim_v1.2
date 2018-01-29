@@ -1,62 +1,56 @@
 [
     {
         "id":1,
-        "name":"六院-土建-1标段隧道工程",
-        "time":"2016-2-12",
-        "menName":"李某人",
-        "content":"战场地段挖掘",
-        "progress":"已完成",
-        "problem":"无",
-        "mark":" 预览"
+        "name":"六院-土建-标段",
+        "time":"5215",
+        "menName":"1",
+        "content":"1点方向",
+        "problem":"李某",
+        "mark":"详情"
     },
     {
         "id":2,
-        "name":"六院-土建-2标段隧道工程",
-        "time":"2017-12-2",
-        "menName":"李某人",
-        "content":"战场地段挖掘",
-        "progress":"已完成",
-        "problem":"无",
-        "mark":"预览 "
+        "name":"六院-土建-标段",
+        "time":"587",
+        "menName":"2",
+        "content":"5点1处、3点1处",
+        "problem":"李某",
+        "mark":"详情"
     },
     {
         "id":3,
-        "name":"六院-土建-3标段隧道工程",
-        "time":"2006-12-1",
-        "menName":"李某人",
-        "content":"战场地段挖掘",
-        "progress":"已完成",
-        "problem":"无",
-        "mark":" 预览"
+        "name":"六院-土建-标段",
+        "time":"201",
+        "menName":"2",
+        "content":"3点1处、9点1处",
+        "problem":"李某",
+        "mark":"详情"
     },
     {
         "id":4,
-        "name":"六院-土建-4标段隧道工程",
-        "time":"2015-1-12",
-        "menName":"李某人",
-        "content":"战场地段挖掘",
-        "progress":"已完成",
-        "problem":"无",
-        "mark":" 预览"
+        "name":"六院-土建-标段",
+        "time":"852",
+        "menName":"5",
+        "content":"1点1处、10点1处、8点3处",
+        "problem":"李某",
+        "mark":"详情"
     },
     {
         "id":5,
-        "name":"六院-土建-5标段隧道工程",
-        "time":"2014-2-12",
-        "menName":"李某人",
-        "content":"战场地段挖掘",
-        "progress":"已完成",
-        "problem":"无",
-        "mark":" 预览"
+        "name":"六院-土建-标段",
+        "time":"647",
+        "menName":"3",
+        "content":"6点1处、3点2处",
+        "problem":"李某",
+        "mark":" 详情"
     },
     {
         "id":6,
-        "name":"六院-土建-6标段隧道工程",
-        "time":"2017-1-12",
-        "menName":"李某人",
-        "content":"战场地段挖掘",
-        "progress":"已完成",
-        "problem":"无",
-        "mark":"预览 "
+        "name":"六院-土建-标段",
+        "time":"1154",
+        "menName":"4",
+        "content":"10点2处、2点2处",
+        "problem":"李某",
+        "mark":"详情"
     }
 ]

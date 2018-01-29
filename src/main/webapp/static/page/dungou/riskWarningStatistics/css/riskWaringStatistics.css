@@ -22,18 +22,16 @@
     width: 130px;
     height: 30px;
     line-height: 30px;
+    margin-right: 20px;
     text-align: center;
 }
 .page-nav>ul>li a{
     display: block;
     width: 100%;
     height: 100%;
-
 }
-.page-nav>ul>li>a{
-    letter-spacing: 5px;
-}
-.page-nav>ul>li a.active,.page-nav>ul>li:hover>a{
+.page-nav>ul>li a.active,
+.page-nav>ul>li:hover>a{
     color: #147b97;
     font-weight: bold;
     border-bottom: 2px solid #147b97;
@@ -41,9 +39,7 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-.page-nav>ul>li:hover>a{
-    letter-spacing: 5px;
-}
+
 .pull-down{
     display: none;
     position: absolute;
@@ -66,25 +62,6 @@
 .pull-down li:hover{
     background-color: #e8e8e8;
 }
-.content-left{
-    float: left;
-    width: 250px;
-    height: calc(100% - 35px);
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 0 10px 10px 10px;
-    box-sizing: border-box;
-    font-size: 12px;
-}
-
-#detailed{
-    width: 100%;
-    height: calc(100% - 40px);
-}
-#dataOne{
-    overflow: auto;
-}
-
 .content-right{
     width: auto;
     height: calc(100% - 35px);
@@ -94,7 +71,7 @@
 }
 
 .content-top {
-    height: 170px;
+    height: 85px;
     width: 100%;
     padding: 0 5px 5px 5px;
     border-radius: 5px;
@@ -108,18 +85,16 @@
 .content-top>ul li {
     display: inline-block;
     vertical-align: top;
-
+    /*width: 40%;*/
+    margin-right: 20px;
     height: 40px;
     padding: 5px 0;
     box-sizing: border-box;
     line-height: 30px;
     font-size: 0;
 }
-.content-top>ul:first-of-type li{
-    width: 25%;
-}
 .content-top>ul li input {
-    width: 110px;
+    width: 150px;
     height: 25px;
     font-size: 14px;
     outline: none;
@@ -144,7 +119,7 @@
     width: 80px;
     text-align: right;
 }
-.content-top>ul:nth-of-type(3) li:last-of-type input,#report,#save,#cancel{
+.content-top>ul li:last-of-type input{
     background-color: #fff;
     width: 70px;
     height: 25px;
@@ -155,23 +130,35 @@
     text-align: center;
     cursor: pointer;
     font-size: 14px;
-    margin-left: 30px;
+    margin-left: 25px;
 }
-.content-top>ul:nth-of-type(3) li:last-of-type input.btn-active,#report:hover,#save:hover,#cancel:hover{
+.content-bottom>p>input,.save,.cancel{
+    background-color: #fff;
+    width: auto;
+    height: 25px;
+    border-radius: 4px;
+    vertical-align: middle;
+    border: 1px solid #ccc;
+    outline: none;
+    text-align: center;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0 10px;
+    margin-left: 10px;
+    font-weight:normal;
+}
+
+.content-top>ul li:last-of-type input.btn-active,
+.content-bottom>p>input:hover,
+.save:hover,.cancel:hover{
     background-color: #3168ba;
     color: #fff;
     border-color: #3168ba;
     text-indent: 0;
 }
-
-#report{
-    position: absolute;
-    right: 0;
-    top: 5px;
-}
 .content-bottom {
     width: 100%;
-    height: calc(100% - 175px);
+    height: calc(100% - 90px);
     margin-top: 5px;
     padding: 0 10px 10px 10px;
     border-radius: 5px;
@@ -189,6 +176,12 @@
     font-size: 18px;
     font-weight: bold;
     color: #000;
+}
+.content-bottom>p{
+    text-align: right;
+}
+.content-bottom>p span{
+    float: left;
 }
 
 .content-left>p::after,
@@ -221,19 +214,7 @@
     line-height: 30px;
     margin-bottom: 5px;
 }
-.add-dangers-info li input[type='checkbox']{
-     vertical-align: middle;
-     margin:0 10px 0 15px;
- }
-.add-dangers-info li input[type='file']{
-    border: 1px solid #ccc;
-    outline: none;
-}
-.file-img{
-    position: relative;
-    right: 20px;
 
-}
 .add-dangers-info li select{
     width: 140px;
     height: 25px;
@@ -279,10 +260,24 @@
     font-size: 20px;
     margin-right: 5px;
 }
-.add-dangers-info li:nth-of-type(5){
-     border-bottom: 1px solid #ccc;
-     padding-bottom: 15px;
- }
+
+
+#reportBox .describe{
+    width: 140px;
+}
+#editBox .inp,#editBox textarea,#editBox select,
+#reportBox .inp,#reportBox textarea,#reportBox select {
+    width: 280px;
+}
+#reportBox ul>li:nth-of-type(16){
+    width: 100%;
+}
+#reportBox ul>li:nth-of-type(15) textarea{
+    width: calc(100% - 170px);
+}
+#reportBox ul>li:last-of-type{
+    text-align: right;
+}
 .total-days{
     display: inline-block;
     vertical-align: middle;
@@ -301,6 +296,9 @@
 }
 .tree-icon{
     display: none;
+}
+.datagrid-cell-group{
+    width:auto!important;
 }
 .panel-tool {
     display: block;

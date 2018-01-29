@@ -24,13 +24,14 @@ $(function(){
                     return '<input type="checkbox" name="DataGridCheckbox">';
                 }
             },*/
-            { title: '工程名称', field: 'name', align: 'left'},
-            { title: '填报日期', field: 'time', align: 'center'},
-            { title: '填报人', field: 'menName', align: 'center'},
-            { title: '工作内容', field: 'content', align: 'center'},
-            { title: '状况', field: 'progress', align: 'center'},
-            { title: '问题及解决方案', field: 'problem', align: 'center'},
-            { title: '备注', field: 'mark', align: 'center'}
+            { title: '所属工程', field: 'name', align: 'left'},
+            { title: '破损环号', field: 'time', align: 'center'},
+            { title: '破损数量', field: 'menName', align: 'center'},
+            { title: '破损位置', field: 'content', align: 'center'},
+            { title: '负责人', field: 'problem', align: 'center'},
+            { title: '破损详情', field: 'mark', align: 'center',styler: function(value,row,index){
+                return 'color:blue;cursor:pointer;text-decoration:underline;';
+            }}
         ]],
         onDblClickRow:function (index,row) {
             $("#infoShow").window('open')

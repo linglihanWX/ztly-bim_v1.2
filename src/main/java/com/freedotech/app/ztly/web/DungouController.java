@@ -146,6 +146,14 @@ public class DungouController {
 		return "dungou/safetyRisk";
 	}
 	/**
+	 * 跳转到 盾构安全风险页面>风险预警统计页面
+	 *
+	 */
+	@RequestMapping(value="toRiskWarningStatistics")
+	public String toRiskWarningStatisticsPage() {
+		return "dungou/riskWarningStatistics";
+	}
+	/**
 	 * 跳转到 资料管理页面
 	 * @return
 	 */

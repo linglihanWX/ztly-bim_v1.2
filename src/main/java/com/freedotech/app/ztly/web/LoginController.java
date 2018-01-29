@@ -32,6 +32,7 @@ public class LoginController {
      */
     @RequestMapping(value = {"/","login"},method = RequestMethod.GET)
     public String login(){
+        System.out.println("我来登录了");
         return "login";
     }
     /**

@@ -31,10 +31,21 @@ $(function(){
             { title: '处置措施建议', field: 'advice', align: 'center'},
             { title: '整改时限（h）', field: 'time', align: 'center'},
             { title: '上报人', field: 'people', align: 'center'},
-            { title: '治理状态', field: 'state', align: 'center'},
+            { title: '治理状态', field: 'sta', align: 'center',styler: function(value,row,index){
+                if(value == "已发布"){
+                    return 'color:red;';
+                }else if(value == "已处置"){
+                    return 'color:blue;';
+                }else if(value == "已消除"){
+                    return 'color:blue;';
+                }
+
+            }},
             { title: '上报时间', field: 'date', align: 'center'},
             { title: '流程状态', field: 'processstate', align: 'center'},
-            { title: '操作', field: 'operation', align: 'center'}
+            { title: '操作', field: 'operation', align: 'center',styler: function(value,row,index){
+                    return 'color:blue;cursor:pointer;text-decoration:underline;';
+            }}
         ]]
     });
 

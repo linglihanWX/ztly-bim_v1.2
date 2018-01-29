@@ -7,7 +7,7 @@
     "advice":"1、及时更换替代钢管<br>2、对焊接质量较差的部位进行牢固化处理",
     "time":"48",
     "people":"乔玉杰",
-    "state":"已发布",
+    "sta":"已发布",
     "date":"2018-01-12",
     "processstate":"未处理",
     "operation":"流程查看"
@@ -20,7 +20,7 @@
     "advice":"规范施工，合理留置土台",
     "time":"24",
     "people":"李国超",
-    "state":"已处置",
+    "sta":"已处置",
     "date":"2018-01-11",
     "processstate":"已处置",
     "operation":"流程查看"
@@ -33,7 +33,7 @@
     "advice":"1、格栅连接筋采用帮焊筋、<br>2、对工人进行教育，增强意识",
     "time":"24",
     "people":"陈霄",
-    "state":"已处置",
+    "sta":"已处置",
     "date":"2018-01-10",
     "processstate":"已处置",
     "operation":"流程查看"
@@ -46,7 +46,7 @@
     "advice":"1、及时安装摄像头<br>2、及时对拱顶沉降进行检测",
     "time":"24",
     "people":"孙玮泽",
-    "state":"已消除",
+    "sta":"已消除",
     "date":"2018-01-09",
     "processstate":"已办结",
     "operation":"流程查看"
@@ -59,7 +59,7 @@
     "advice":"1、及时对中隔壁破除的洞进行修复<br>2、后续施工规范留置核心<br>3、对连接板存在的缝隙进行补救<br>4、及时补全专项施工方案",
     "time":"48",
     "people":"乔玉杰",
-    "state":"已消除",
+    "sta":"已消除",
     "date":"2018-01-08",
     "processstate":"已办结",
     "operation":"流程查看"
@@ -72,7 +72,7 @@
     "advice":"",
     "time":"48",
     "people":"孙玮泽",
-    "state":"已消除",
+    "sta":"已消除",
     "date":"2018-01-07",
     "processstate":"已办结",
     "operation":"流程查看"
