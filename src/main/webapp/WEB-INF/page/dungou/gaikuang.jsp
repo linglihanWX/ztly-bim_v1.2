@@ -63,7 +63,7 @@
                 </p>
                 <%-- <iframe src="${ctx }/static/page/dungou/gaikuang/iframeOpenLayer.html" style="width:100%;height:100%"></iframe> --%>
                 <img alt=""
-                     src="${ctx }/static/page/dungou/gaikuang/img/poumian.png"
+                     src="${ctx }/static/page/dungou/gaikuang/img/poumian1.png"
                      style="width:100%;height:100%">
             </div>
             <ul class="changeContent">
