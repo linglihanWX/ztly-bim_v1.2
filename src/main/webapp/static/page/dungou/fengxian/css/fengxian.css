@@ -74,14 +74,13 @@
     position: relative;
     width: 100%;
     height: calc(66% - 35px);
-    background-color: #e8e8e8;
     font-size: 0;
 }
 #chartOne{
     position: relative;
     display: inline-block;
     vertical-align: top;
-    width: calc(30% - 5px);
+    width: calc(30% - 10px);
     height: 100%;
     margin-left: 5px;
     border-radius: 5px;
@@ -102,7 +101,8 @@
 #earth{
     display: inline-block;
     position: relative;
-    width: 70%;
+    width: calc(70% - 5px);
+    margin-left: 5px;
     height: 100%;
     font-size: 14px;
 }
