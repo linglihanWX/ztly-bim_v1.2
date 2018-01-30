@@ -387,6 +387,19 @@ $(function () {
 
         }
     })
+    imageryLayers.addImageryProvider(new Freedo.WebMapServiceImageryProvider({
+                    url: 'http://182.92.7.32:9510/geoserver/shenmao/wms',
+                    layers: 'shenmao:dalian',
+                    parameters: {
+                        version: '1.1.1',
+                        transparent: true,
+                        format: 'image/png',
+                        //tiled: true,
+                        //gridSet: 'EPSG=3395'
+                    },
+				    /*minimumLevel: 12,
+					maximumLevel: 19,*/
+                }));
     var checkstr = ""
     for (var i = 0; i < 13; i++) {
         checkstr += '<li><input type="checkbox" checked name="">' + layersname[i] + '</li>';

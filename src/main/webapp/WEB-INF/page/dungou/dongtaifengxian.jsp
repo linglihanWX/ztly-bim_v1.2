@@ -21,7 +21,7 @@
     <link rel="stylesheet" type="text/css" href="${ctx }/static/page/dungou/common/font/iconfont.css">
 
     <link rel="stylesheet" href="${ctx }/static/page/dungou/dongtaifengxian/css/dongtaifengxian.css">
-    <%@ include file="/WEB-INF/page/common/common_FD.jsp" %>
+    <%@ include file="/WEB-INF/page/common/common_FDNew.jsp" %>
 </head>
 <body>
 <header id="header">
