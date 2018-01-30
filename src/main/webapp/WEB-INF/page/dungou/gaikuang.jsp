@@ -20,7 +20,7 @@
     <link rel="stylesheet"
           href="${ctx }/static/page/dungou/gaikuang/css/gaikuang.css">
     <script src="${ctx }/static/page/common/js/jquery-3.2.1.min.js"></script>
-    <%@ include file="/WEB-INF/page/common/common_FD.jsp" %>
+    <%@ include file="/WEB-INF/page/common/common_FDNew.jsp" %>
 </head>
 <body>
 <header id="header">
@@ -63,7 +63,7 @@
                 </p>
                 <%-- <iframe src="${ctx }/static/page/dungou/gaikuang/iframeOpenLayer.html" style="width:100%;height:100%"></iframe> --%>
                 <img alt=""
-                     src="${ctx }/static/page/dungou/gaikuang/img/poumian1.png"
+                     src="${ctx }/static/page/dungou/gaikuang/img/poumian2.png"
                      style="width:100%;height:100%">
             </div>
             <ul class="changeContent">
