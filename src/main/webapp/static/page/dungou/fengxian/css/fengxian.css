@@ -93,10 +93,9 @@
     position: absolute;
     top: 44%;
     right: 15%;
-    font-size: 72px;
+    font-size: 60px;
     color: rgba(0,0,0,.5);
     z-index: 5;
-    transform: rotateZ(-50deg);
 }
 #earth{
     display: inline-block;
