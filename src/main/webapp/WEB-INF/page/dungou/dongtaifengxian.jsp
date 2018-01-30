@@ -21,7 +21,7 @@
     <link rel="stylesheet" type="text/css" href="${ctx }/static/page/dungou/common/font/iconfont.css">
 
     <link rel="stylesheet" href="${ctx }/static/page/dungou/dongtaifengxian/css/dongtaifengxian.css">
-    <%@ include file="/WEB-INF/page/common/common_FD.jsp" %>
+    <%@ include file="/WEB-INF/page/common/common_FDNew.jsp" %>
 </head>
 <body>
 <header id="header">
@@ -98,6 +98,8 @@
 <script src="${ctx}/static/page/common/js/nav.js"></script>
 <script src="${ctx}/static/page/common/js/echarts.min.js"></script>
 <script src="${ctx}/static/page/dungou/dongtaifengxian/js/dongtaifengxian.js"></script>
+<script src="${ctx}/static/page/dungou/dongtaifengxian/js/dongtaifengxian_viewer.js"></script>
 <script src="${ctx}/static/page/dungou/dongtaifengxian/js/dongtaifengxian3d.js"></script>
+<script src="${ctx }/static/webgl/caozuoqi/cameraControlRightAdjust.js"></script>
 </body>
 </html>
