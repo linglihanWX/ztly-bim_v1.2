@@ -61,7 +61,7 @@
 }
 
 .content-top {
-    height: 80px;
+    height: 120px;
     width: 100%;
     padding: 0 10px 10px 10px;
     border-radius: 5px;
@@ -76,9 +76,10 @@
 
 .content-top>ul li {
     float: left;
+    width: 33%;
     height: 40px;
     padding: 5px 0;
-    margin-left: 20px;
+    /*margin-left: 20px;*/
     box-sizing: border-box;
     text-align: center;
     line-height: 30px;
@@ -145,9 +146,9 @@ span.btn-active{
 
 .content-bottom {
     width: 100%;
-    height: calc(100% - 90px);
+    height: calc(100% - 130px);
     margin-top: 10px;
-    padding: 0 10px 10px 10px;
+    padding: 0 10px 5px 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
     box-sizing: border-box;
