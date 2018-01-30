@@ -1,0 +1,47 @@
+[
+    {
+        "id":1,
+        "project":"六院-土建",
+        "place":"长春桥",
+        "issue":"车站二区中跨初支扣供 ",
+        "level":"二级",
+        "reportMan":"王五",
+        "allTime":5,
+        "governState":"未处理",
+        "foundTime":"2018-01-15",
+        "flowState":"未处理",
+        "suggest":"正常",
+        "handler":"正常",
+        "mark":"流程查看"
+    },
+    {
+        "id":2,
+        "project":"六院-土建1",
+        "place":"苏州街",
+        "issue":"车站二区中跨初支扣供 ",
+        "level":"一级",
+        "reportMan":"路遥",
+        "allTime":4,
+        "governState":"整改中",
+        "foundTime":"2018-01-15",
+        "flowState":"处理中",
+        "suggest":"超期",
+        "handler":"正常",
+        "mark":"流程查看"
+    },
+    {
+        "id":3,
+        "project":"六院-土建2",
+        "place":"五道口",
+        "issue":"车站二区中跨初支扣供 ",
+        "level":"三级",
+        "reportMan":"张琼",
+        "allTime":7,
+        "governState":"已整改",
+        "foundTime":"2018-01-15",
+        "flowState":"已处理",
+        "suggest":"正常",
+        "handler":"超期",
+        "mark":"流程查看"
+    }
+]

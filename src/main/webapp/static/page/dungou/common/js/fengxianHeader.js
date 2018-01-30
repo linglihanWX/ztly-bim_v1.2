@@ -4,7 +4,7 @@ $(function () {
         '                <li><a href="javascript:;">隐患管理</a>\n' +
         '                    <ul  class="pull-down">\n' +
         '                        <li><a href="../../ProSystem/dungou/toSafetyRisk">隐患上报</a></li>\n' +
-        '                        <li><a href="javascript:;">隐患处理</a></li>\n' +
+        '                        <li><a href="../../ProSystem/dungou/toHiddenDangerHandle">隐患处理</a></li>\n' +
         '                        <li><a href="javascript:;">施工单位月报</a></li>\n' +
         '                    </ul>\n' +
         '                </li>\n' +

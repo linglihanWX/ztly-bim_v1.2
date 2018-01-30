@@ -113,7 +113,7 @@ public class DungouController {
 
 	}
 	/**
-	 * 跳转到 盾构安全风险页面>
+	 * 跳转到 安全风险》风险概览页面
 	 *
 	 */
 	@RequestMapping(value="toFengxian")
@@ -122,7 +122,7 @@ public class DungouController {
 	}
 
 	/**
-	 * 跳转到 盾构安全风险页面>基础信息页面
+	 * 跳转到 安全风险》监控测量》基础信息页面
 	 *
 	 */
 	@RequestMapping(value="toBaseInformation")
@@ -130,7 +130,7 @@ public class DungouController {
 		return "dungou/baseInformation";
 	}
 	/**
-	 * 跳转到 盾构安全风险页面>问题上报页面
+	 * 跳转到 安全风险》隐患管理》问题上报页面
 	 *
 	 */
 	@RequestMapping(value="toRiskRoutineIssue")
@@ -138,7 +138,15 @@ public class DungouController {
 		return "dungou/riskRoutineIssue";
 	}
 	/**
-	 * 跳转到 盾构安全风险页面>页面
+	 * 跳转到 安全风险》隐患管理》隐患处理页面
+	 *
+	 */
+	@RequestMapping(value="toHiddenDangerHandle")
+	public String toHiddenDangerHandlePage() {
+		return "dungou/hiddenDangerHandle";
+	}
+	/**
+	 * 跳转到 安全风险》风险预警》风险常规问题页面
 	 *
 	 */
 	@RequestMapping(value="toSafetyRisk")
@@ -146,7 +154,7 @@ public class DungouController {
 		return "dungou/safetyRisk";
 	}
 	/**
-	 * 跳转到 盾构安全风险页面>风险预警统计页面
+	 * 跳转到 安全风险》综合统计》风险预警统计页面
 	 *
 	 */
 	@RequestMapping(value="toRiskWarningStatistics")
