@@ -77,7 +77,7 @@
 	<footer>
 
 		<p>
-			<span style="text-align:left;float:left">&copy; 2017版权北京飞渡有限公司所有</span>
+			<span style="text-align:left;float:left">&copy; 2018中铁第六勘察设计院集团有限公司</span>
 		</p>
 
 	</footer>
