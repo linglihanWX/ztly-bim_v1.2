@@ -19,7 +19,8 @@ $(function(){
         // pageList: [10,20,30],
         // pagination:true,
         columns: [[
-            {field:'ck',checkbox:true},
+
+            { field: 'ck', checkbox:true},
             { title: '名称', field: 'name', align: 'left'},
             { title: '规格', field: 'guige', align: 'center'},
             { title: '数量', field: 'number', align: 'center'},
@@ -27,7 +28,11 @@ $(function(){
             { title: '消耗程度', field: 'consume', align: 'center'},
             { title: '备注', field: 'mark', align: 'center'}
         ]],
-
+        /* onClickCell:function (row,field) {
+             if(field == "mark"){
+                 $("#infoShow").window('open');
+             }
+         },*/
         onCheck:function (index,row) {
             console.log(index);
             console.log(row);
@@ -36,11 +41,5 @@ $(function(){
             restAllEntity();
             setEntity(nodes);
         }
-       /* onCheckNode:function (row,checked) {
-            var nodes = $('#dataGrid').treegrid('getCheckedNodes'); // get checked nodes
-            console.log(nodes);
-            restAllEntity();
-            setEntity(nodes);
-        }*/
     });
 });

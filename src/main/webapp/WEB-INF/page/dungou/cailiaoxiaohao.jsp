@@ -52,19 +52,21 @@
         <div class="page-nav">
 
         </div>
+        <div class="three-box">
+            <p>三维模型</p>
+            <div id="earth"></div>
+        </div>
         <div id="info">
             <p>材料消耗列表</p>
             <div id="dataBox">
-                <table  id="dataGrid" style="width:100%;height:100%"></table >
+                <table id="dataGrid" style="width:100%;height:100%"></table>
             </div>
         </div>
 
-        <div class="three-box">
-            <p>三维模型</p>
-             <div id="earth" >
-        </div>
+
     </div>
 </div>
+
 
 <script src="${ctx}/static/page/common/js/jquery-3.2.1.min.js"></script>
 <script src="${ctx}/static/page/common/js/jquery-easyui-1.4.5/jquery.easyui.min.js"></script>

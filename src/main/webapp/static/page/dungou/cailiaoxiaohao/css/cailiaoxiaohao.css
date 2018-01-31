@@ -37,11 +37,12 @@
     box-sizing: border-box;
 }
 #info{
-    width: 70%;
-    height:calc(100% - 35px);
+    width: 100%;
+    height:calc(34% - 5px);
     display: inline-block;
     padding: 0 10px 10px 10px;
     border-radius: 5px;
+    margin-top: 5px;
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
@@ -73,9 +74,8 @@
 }
 
 .three-box{
-    float: right;
-    width: calc(30% - 5px);
-    height: calc(100% - 35px);
+    width: 100%;
+    height: calc(66% - 35px);
     padding: 0 10px 10px 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -85,9 +85,8 @@
 }
 
 #earth {
-    position: relative;
     width: 100%;
-    height: calc(100% - 40px) ;
+    height: calc(100% - 40px);
 }
 
 .panel-tool>a:not(:last-of-type){
