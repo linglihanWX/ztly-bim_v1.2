@@ -11,17 +11,11 @@ $(function(){
         url: "../../static/page/dungou/baobiao/json/baobiaoinfo.json",
         method:"get",
         striped: true,
-        singleSelect: true,
+        // singleSelect: true,
         idField: "id",
         rownumbers:true,
-        // pageList: [10,20,30],
-        // pagination:true,
         columns: [[
-            {
-                title: ' ', field: 'ck', align: 'center', width: 30, formatter: function (value, row, index) {
-                    return '<input type="checkbox" name="DataGridCheckbox">';
-                }
-            },
+            { field: 'ck', checkbox:true},
             { title: '工程名称', field: 'name', align: 'center'},
             { title: '填报日期', field: 'time', align: 'center'},
             { title: '填报人', field: 'menName', align: 'center'},
@@ -29,6 +23,12 @@ $(function(){
             { title: '状况', field: 'progress', align: 'center'},
             { title: '问题及解决方案', field: 'problem', align: 'center'},
             { title: '备注', field: 'mark', align: 'center'}
-        ]]
+        ]],
+        onCheck:function (index,row) {
+            console.log(index);
+            console.log(row);
+            let nodes = $("#dataGrid").datagrid("getChecked");
+            console.log(nodes);
+        }
     });
 });

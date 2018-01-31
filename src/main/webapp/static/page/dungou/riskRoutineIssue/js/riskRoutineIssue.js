@@ -13,18 +13,19 @@ $(function(){
         });
     });
 
-    $('#dataGrid').treegrid({
+    $('#dataGrid').datagrid({
         url: "../../static/page/dungou/riskRoutineIssue/json/problemlist.json",
         method:"get",
         striped: true,
         idField: "id",
         nowrap:false,
-        checkbox:true,
-        treeField:'project',
+        // checkbox:true,
+        // treeField:'project',
         // pageList: [10,20,30],
         // pagination:true,
+        rownumbers:true,
         columns: [[
-            { title: '序号', field: 'num', align: 'center'},
+            {field: 'ck', checkbox:true},
             { title: '风险所属工程', field: 'project', align: 'center'},
             { title: '风险发生点', field: 'place', align: 'center'},
             { title: '问题描述', field: 'description', align: 'left '},
@@ -46,7 +47,18 @@ $(function(){
             { title: '操作', field: 'operation', align: 'center',styler: function(value,row,index){
                     return 'color:blue;cursor:pointer;text-decoration:underline;';
             }}
-        ]]
+        ]],
+        onClickCell:function(row,field){
+            if(field == 'level') {
+                console.log(1);
+            }
+        },
+        onCheck:function (index,row) {
+            console.log(index);
+            console.log(row);
+            let nodes = $("#dataGrid").datagrid("getChecked");
+            console.log(nodes);
+        }
     });
 
 $(".content-bottom>p input").each(function () {

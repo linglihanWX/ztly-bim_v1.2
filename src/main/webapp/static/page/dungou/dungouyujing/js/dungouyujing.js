@@ -11,23 +11,19 @@ $(function(){
     });
 
 
-    $('#dataGrid').treegrid({
+    $('#dataGrid').datagrid({
         url: "../../static/page/dungou/dungouyujing/js/doc.json",
         method:"get",
         striped: true,
-        singleSelect: true,
+        // singleSelect: true,
         idField: "id",
-        checkbox:true,
-        treeField:'project',
+        // checkbox:true,
+        // treeField:'project',
         rownumbers:true,
         // pageList: [10,20,30],
         // pagination:true,
         columns: [[
-      /*      {
-                title: ' ', field: 'ck', align: 'center', width: 30, formatter: function (value, row, index) {
-                    return '<input type="checkbox" name="DataGridCheckbox">';
-                }
-            },*/
+            {field: 'ck',checkbox:true},
             { title: '风险所属工程', field: 'project', align: 'left'},
             { title: '风险发生点', field: 'point', align: 'center'},
             { title: '管片环号', field: 'num', align: 'center'},
@@ -41,13 +37,27 @@ $(function(){
                 return 'color:blue;cursor:pointer;text-decoration:underline;';
             }}
         ]],
-        onDblClickRow:function (index,row) {
+      /*  onDblClickRow:function (index,row) {
             $("#infoShow").window('open')
+        },*/
+        onClickCell:function(row,field){
+            if(field == 'mark') {
+              $("#infoShow").window('open');
+          }
         },
+        onCheck:function (index,row) {
+            console.log(index);
+            console.log(row);
+            let nodes = $("#dataGrid").datagrid("getChecked");
+            console.log(nodes);
+            restAllEntity();
+            setEntity(nodes);
+        }
+      /*
         onCheckNode:function (row,checked) {
         	var nodes = $('#dataGrid').treegrid('getCheckedNodes'); // get checked nodes
         	restAllEntity();
             setEntity(nodes);
-        }
+        }*/
     });
 });

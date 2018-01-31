@@ -7,14 +7,14 @@ $(function(){
         });
     });
 
-    $('#dataGrid').treegrid({
+    $('#dataGrid').datagrid({
         url: "../../static/page/dungou/guanpianposui/js/doc.json",
         method:"get",
         striped: true,
-        singleSelect: false,
+        // singleSelect: false,
         idField: "id",
-        checkbox:true,
-        treeField:'name',
+        // checkbox:true,
+        // treeField:'name',
         rownumbers:true,
         // pageList: [10,20,30],
         // pagination:true,
@@ -24,6 +24,7 @@ $(function(){
                     return '<input type="checkbox" name="DataGridCheckbox">';
                 }
             },*/
+            { field: 'ck',checkbox:true},
             { title: '所属工程', field: 'name', align: 'left'},
             { title: '破损环号', field: 'time', align: 'center'},
             { title: '破损数量', field: 'menName', align: 'center'},
@@ -33,13 +34,27 @@ $(function(){
                 return 'color:blue;cursor:pointer;text-decoration:underline;';
             }}
         ]],
-        onDblClickRow:function (index,row) {
+
+        onClickCell:function(row,field){
+            if(field == 'mark') {
+                $("#infoShow").window('open')
+            }
+        },
+        onCheck:function (index,row) {
+            console.log(index);
+            console.log(row);
+            let nodes = $("#dataGrid").datagrid("getChecked");
+            console.log(nodes);
+            restAllEntity();
+            setEntity(nodes);
+        }
+       /* onDblClickRow:function (index,row) {
             $("#infoShow").window('open')
         },
         onCheckNode:function (row,checked) {
         	var nodes = $('#dataGrid').treegrid('getCheckedNodes'); // get checked nodes
         	restAllEntity();
             setEntity(nodes);
-        }
+        }*/
     });
 });

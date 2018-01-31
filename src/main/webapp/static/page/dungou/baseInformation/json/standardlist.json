@@ -1,6 +1,6 @@
 [
   {
-  "num":1,
+  "id":1,
   "bnum":"(DBHC)-01",
   "project":"六院-土建-标段",
   "type":"沉降",
@@ -11,7 +11,7 @@
   "description":""
   },
   {
-    "num":2,
+    "id":2,
     "bnum":"(DBHC)-01",
     "project":"六院-土建-标段",
     "type":"沉降",
@@ -22,7 +22,7 @@
     "description":""
   },
   {
-    "num":3,
+    "id":3,
     "bnum":"(DBHC)-01",
     "project":"六院-土建-标段",
     "type":"沉降",
@@ -33,7 +33,7 @@
     "description":""
   },
   {
-    "num":4,
+    "id":4,
     "bnum":"(DBHC)-03",
     "project":"六院-土建-标段",
     "type":"拉力",
@@ -44,7 +44,7 @@
     "description":""
   },
   {
-    "num":5,
+    "id":5,
     "bnum":"(DBHC)-03",
     "project":"六院-土建-标段",
     "type":"拉力",
@@ -55,7 +55,7 @@
     "description":""
   },
   {
-    "num":6,
+    "id":6,
     "bnum":"(DBHC)-KJK",
     "project":"六院-土建-标段",
     "type":"位移",

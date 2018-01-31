@@ -22,19 +22,19 @@ $(function(){
 
 
 
-    $('#dataGrid').treegrid({
+    $('#dataGrid').datagrid({
         url: "../../static/page/dungou/baseInformation/json/standardlist.json",
         method:"get",
         striped: true,
-        singleSelect: true,
-        idField: "num",
-        checkbox:true,
-        treeField:'num',
+        // singleSelect: true,
+        idField: "id",
+        // checkbox:true,
+        // treeField:'num',
         rownumbers:true,
         // pageList: [10,20,30],
         // pagination:true,
         columns: [[
-            { title: '序号', field: 'num', align: 'left'},
+            {field: 'ck', checkbox:true},
             { title: '编号', field: 'bnum', align: 'center'},
             { title: '所属工程', field: 'project', align: 'center'},
             { title: '检测类型', field: 'type', align: 'center'},
@@ -43,7 +43,18 @@ $(function(){
             { title: '创建时间', field: 'createdate', align: 'center'},
             { title: '初始值', field: 'originnum', align: 'center'},
             { title: '描述', field: 'description', align: 'center'}
-        ]]
+        ]],
+        onClickCell:function(row,field){
+            if(field == 'level') {
+                console.log(1);
+            }
+        },
+        onCheck:function (index,row) {
+            console.log(index);
+            console.log(row);
+            let nodes = $("#dataGrid").datagrid("getChecked");
+            console.log(nodes);
+        }
     });
 
 $(".content-bottom>p input").each(function () {

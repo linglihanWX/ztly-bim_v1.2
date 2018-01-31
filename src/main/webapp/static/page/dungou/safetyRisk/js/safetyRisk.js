@@ -21,19 +21,16 @@ $(function(){
 
 
 
-    $('#dataGrid').treegrid({
+    $('#dataGrid').datagrid({
         url: "../../static/page/dungou/safetyRisk/json/standardlist.json",
         method:"get",
         striped: true,
-        singleSelect: true,
+        // singleSelect: true,
         idField: "num",
-        checkbox:true,
-        treeField:'num',
+        // treeField:'num',
         rownumbers:true,
-        // pageList: [10,20,30],
-        // pagination:true,
         columns: [[
-            { title: '序号', field: 'num', align: 'center'},
+            { field: '',checkbox:true},
             { title: '一级分类', field: 'type1', align: 'center'},
             { title: '名称', field: 'name', align: 'center'},
             { title: '隐患级别', field: 'level', align: 'center'},
@@ -42,7 +39,18 @@ $(function(){
             { title: '扣款金额', field: 'money', align: 'center'},
             { title: '整改期限', field: 'date', align: 'center'},
             { title: '扣分', field: 'score', align: 'center'}
-        ]]
+        ]],
+        onClickCell:function(row,field){
+            if(field == 'level') {
+                console.log(1);
+            }
+        },
+        onCheck:function (index,row) {
+            console.log(index);
+            console.log(row);
+            let nodes = $("#dataGrid").datagrid("getChecked");
+            console.log(nodes);
+        }
     });
 
 

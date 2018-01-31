@@ -50,23 +50,27 @@ $.ajax({
         url: "../../static/page/dungou/ziliao/json/doc.json",
         method:"get",
         striped: true,
-        singleSelect: true,
+        // singleSelect: true,
         idField: "id",
         rownumbers:true,
         // pageList: [10,20,30],
         // pagination:true,
         columns: [[
-            {
-                title: ' ', field: 'ck', align: 'center', width: 30, formatter: function (value, row, index) {
-                    return '<input type="checkbox" name="DataGridCheckbox">';
-                }
-            },
+            {field: 'ck',checkbox:true},
             { title: '资料名称', field: 'name', align: 'center'},
             { title: '形成时间', field: 'time', align: 'center'},
             { title: '责任人', field: 'menName', align: 'center'},
             { title: '形成单位', field: 'progress', align: 'center'},
             { title: '保管单位', field: 'problem', align: 'center'},
-            { title: '预览', field: 'mark', align: 'center'}
-        ]]
+            { title: '预览', field: 'mark', align: 'center',styler:function (text,row,index) {
+                return "text-decoration: underline;color:blue;cursor:pointer;"
+            }}
+        ]],
+        onCheck:function (index,row) {
+            console.log(index);
+            console.log(row);
+            let nodes = $("#dataGrid").datagrid("getChecked");
+            console.log(nodes);
+        }
     });
 });
