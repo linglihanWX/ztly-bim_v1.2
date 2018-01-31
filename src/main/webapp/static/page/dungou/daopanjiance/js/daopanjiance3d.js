@@ -3,7 +3,7 @@ var dungouModels = [];
 //高亮模型数量
 var highListModels = 0;
 //高亮颜色
-var highlight = FreeDo.Color.RED;
+var highlight = FreeDo.Color.YELLOW;
 //半透颜色
 var membranes = new FreeDo.Color(1, 1, 1, 0.2);
 //原色
@@ -22,11 +22,31 @@ $(function () {
 
     //隐藏指北针
     $(".compassDiv").hide();
-    //加载盾构模型
-    for (var i = 1; i < 10; i++) {
+    //加载刀盘
+    var daopan = viewer.scene.primitives.add(FreeDo.Model.fromGltf({
+        id: "盾构机刀盘",
+        url: "http://182.92.7.32:9000/ztly/dungoujiglb/daopan/daopan.glb",
+        show: true, // default
+        modelMatrix: FreeDoTool.getModelMatrix(113.6609628070344, 22.791190110267943, 10, 0, 0, 0, 1.8, 1.8, 1.8),
+        allowPicking: true, // not pickable
+        debugShowBoundingVolume: false, // default
+        debugWireframe: false
+    }))
+    dungouModels.push(daopan);
+    dungouModels.push(viewer.scene.primitives.add(FreeDo.Model.fromGltf({
+        id: 1,
+        url: "http://182.92.7.32:9000/ztly/dungoujiglb/daopian1/daoju_1.gltf",
+        show: true, // default
+        modelMatrix: FreeDoTool.getModelMatrix(113.6609628070344, 22.791190110267943, 10, 0, 0, 0, 1.8, 1.8, 1.8),
+        allowPicking: true, // not pickable
+        debugShowBoundingVolume: false, // default
+        debugWireframe: false
+    })))
+    //加载盾构机刀片
+    for (var i = 2; i < 6; i++) {
         dungouModels[i] = viewer.scene.primitives.add(FreeDo.Model.fromGltf({
             id: i,
-            url: "http://182.92.7.32:9000/ztly/glb/" + i + "/" + i + ".glb",
+            url: "http://182.92.7.32:9000/ztly/dungoujiglb/daopian" + i + "/daoju_" + i + ".glb",
             show: true, // default
             modelMatrix: FreeDoTool.getModelMatrix(113.6609628070344, 22.791190110267943, 10, 0, 0, 0, 1.8, 1.8, 1.8),
             allowPicking: true, // not pickable
@@ -34,9 +54,10 @@ $(function () {
             debugWireframe: false
         }))
     }
+    //加载盾构机车身
     var cheshen = viewer.scene.primitives.add(FreeDo.Model.fromGltf({
         id: "盾构机车身",
-        url: "http://182.92.7.32:9000/ztly/glb/cheshen.glb",
+        url: "http://182.92.7.32:9000/ztly/dungoujiglb/cheshen/cheshen.glb",
         show: true, // default
         modelMatrix: FreeDoTool.getModelMatrix(113.6609628070344, 22.791190110267943, 10, 0, 0, 0, 1.8, 1.8, 1.8),
         allowPicking: true, // not pickable
@@ -45,13 +66,16 @@ $(function () {
     }))
     dungouModels.push(cheshen);
     console.log(dungouModels)
+    //高亮测试
+    //dungouModels[3].color = highlight
+
     //相机定位
     viewer.camera.setView({
-        destination: new FreeDo.Cartesian3(-2361061.773916838,5388540.165346061,2455448.1596130435),
-        orientation: new FreeDo.HeadingPitchRoll(3.9860794109915956,-0.2521178744248991,6.281444640249074)
+        destination: new FreeDo.Cartesian3(-2361253.5947712236,5388460.664476279,2455456.610708957),
+        orientation: new FreeDo.HeadingPitchRoll(3.9860917599780463,-0.25215735048608234,6.2814420831405045)
     })
     //模型动画
-    var readynum = 0;
+/*    var readynum = 0;
     for (var i = 1; i < 10; i++) {
         FreeDo.when(dungouModels[i].readyPromise).then(function (model) {
             readynum = readynum + 1;
@@ -73,7 +97,7 @@ $(function () {
                 }
             }
         });
-    }
+    }*/
     click2DChange3D()
     getcamera()
 })
@@ -82,7 +106,7 @@ $(function () {
 function modelHighlight(id) {
     //没有高亮的模型情况。
     if (highListModels == 0) {
-        for (var i = 1; i < 11; i++) {
+        for (var i = 0; i < 7; i++) {
             if (i == id) {
                 //该模型高亮
                 if(dungouModels[i].color !== highlight){
@@ -95,7 +119,7 @@ function modelHighlight(id) {
             }
         }
     } else {//有高亮模型的情况下，该模型高亮其他不变
-        for (var i = 1; i < 11; i++) {
+        for (var i = 0; i < 7; i++) {
             if (i == id) {
                 if(dungouModels[i].color !== highlight){
                     dungouModels[i].color = highlight;
@@ -109,16 +133,16 @@ function modelHighlight(id) {
 
 //模型恢复原色
 function restoreColor(id) {
-    for (var i = 0; i < 11; i++) {
+    for (var i = 0; i < 7; i++) {
         if (i == id) {
             //高亮的模型仅有一个的情况
             if(highListModels==1){
-                if(id>0&&id<8){
+                if(id>0&&id<6){
                     var flag = intersect(bujians[id])
                     if(flag){
                         highListModels-=1;
                         //其它模型也恢复原色
-                        for (var j = 1; j < 11; j++) {
+                        for (var j = 0; j < 7; j++) {
                                 dungouModels[j].color = origin;
                         }
                         break;
@@ -147,49 +171,58 @@ function getcamera() {
 }
 var bujians = [];
 function click2DChange3D() {
-    for (var i = 1; i < 8; i++) {
+    /**
+     * 四个刀片
+     */
+    for (var i = 1; i < 5; i++) {
         bujians[i]=[];
     }
     for (let i = 0; i < 4; i++) {
-        bujians[i+3].push($("#part" + i + " .right-span"))
-        $(".span-box span").each(function () {
-            bujians[i+3].push($(this))
-        })
+        bujians[3].push($("#part" + i + " .right-span"))
+/*        $(".span-box span").each(function () {
+            bujians[3].push($(this))
+        })*/
 
 
         $("#part" + i + " .right-span").click(function () {
             if($(this).attr("data-mao")=="false"){
-                modelHighlight(i + 3);
+                modelHighlight(3);
                 $(this).attr("data-mao","true");
             }else{
-                restoreColor(i + 3);
+                restoreColor(3);
                 $(this).attr("data-mao","false");
             }
         })
+        $("#part" + i + " .left-span").each(function () {
+            bujians[3].push($(this));
+        })
         $("#part" + i + " .left-span").click(function () {
             if($(this).attr("data-mao")=="false"){
-                modelHighlight(i + 3);
+                modelHighlight(3);
                 $(this).attr("data-mao","true");
             }else{
-                restoreColor(i + 3);
+                restoreColor(3);
                 $(this).attr("data-mao","false");
             }
         })
     }
     for (let i = 0; i < 4; i++) {
         for (let j = 1; j < 4; j++) {
-            bujians[i+3].push($("#part" + i + " .right-span" + j))
+            bujians[3].push($("#part" + i + " .right-span" + j))
             $("#part" + i + " .right-span" + j).click(function () {
                 if($(this).attr("data-mao")=="false"){
-                    modelHighlight(i + 3);
+                    modelHighlight(3);
                     $(this).attr("data-mao","true");
                 }else{
-                    restoreColor(i + 3);
+                    restoreColor(3);
                     $(this).attr("data-mao","false");
                 }
             })
         }
     }
+    /**
+     * 两个棍
+     */
     for (let i = 0; i < 4; i++) {
         for (let j = 1; j < 7; j++) {
             if (i == 0 || i == 2) {
@@ -217,16 +250,19 @@ function click2DChange3D() {
             }
         }
     }
+    /**
+     * 四个角
+     */
     $(".span-box span").each(function () {
-        bujians[7].push($(this));
+        bujians[4].push($(this));
     })
     $(".span-box span").click(function () {
         console.log($(this).attr("data-mao"))
         if($(this).attr("data-mao")=="false"){
-            modelHighlight(7);
+            modelHighlight(4);
             $(this).attr("data-mao","true");
         }else{
-            restoreColor(7);
+            restoreColor(4);
             $(this).attr("data-mao","false");
         }
     })
@@ -242,6 +278,9 @@ function intersect(JQueryObjArr) {
     for (var i = 0; i < JQueryObjArr.length; i++) {
         if(JQueryObjArr[i].attr("data-mao")=="true") {
             sum+=1;
+            if(sum>1){
+                break;
+            }
         }
     }
     if(sum==1){
