@@ -82,10 +82,7 @@ DungouViewer.changeColor=function(picked){
                         conditions : allready
                     },
                     show :{
-                        conditions : [
-                            ["${component} ~==  \'9668\'", 'false'],
-                            ['true','true']
-                        ]}
+                        conditions : hiderings }
                 });
             }
         })

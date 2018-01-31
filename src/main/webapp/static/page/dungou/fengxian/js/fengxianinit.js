@@ -1,5 +1,6 @@
 var pmodel = {}
 var allready = [];
+var hiderings = [];
 var layers = []
 $(function () {
     var h = $("#content").height();
@@ -86,19 +87,21 @@ $(function () {
                 pmodel = modelTile;
                 if (model[key].name == "dalian2") {
                     //初始化模型的颜色，用来显示已经盾构的环和没有盾构的环
-                    for (var i = 2; i <= 9668; i += 18) {
-                        allready.push(["${component} ~==  \'" + i + "\'", 'color("aquamarine",0.5)'])
+                    for (var i = 2; i <=9668; i+=18) {
+                        allready.push(["${component} ~==  \'"+i+"\'", 'color("gray")'])
                     }
-                    allready.push(['true', 'color("white")'])
+                    allready.push(['true', 'color("white",0.3)'])
+                    //部分盾构环隐藏
+                    for (var i = 7868; i <=9668; i+=18){
+                        hiderings.push(["${component} ~==  \'"+i+"\'", 'false'])
+                    }
+                    hiderings.push(['true','true'])
                     pmodel.style = new FreeDo.FreedoPModelStyle({
                         color: {
                             conditions: allready
                         },
                         show: {
-                            conditions: [
-                                ["${component} ~==  \'9668\'", 'false'],
-                                ['true', 'true']
-                            ]
+                            conditions: hiderings
                         }
                     });
 
@@ -141,7 +144,7 @@ $(function () {
                             debugShowBoundingVolume: false, // default
                             debugWireframe: false
                         }));
-                    cheshen.color = FreeDo.Color.RED;
+                    //cheshen.color = FreeDo.Color.RED;
                     /*                    modelTile.readyPromise.then(function(){
                                         console.log(FreeDoTool.getSphereFromBoundsMinMax("5480.149836637288900,-255.272293286915470,-4820.024217262735900","5486.746820721270500,-240.645764969164760,-4805.037810776616400",pmodel));
                                         })*/
