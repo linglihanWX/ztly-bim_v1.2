@@ -288,3 +288,6 @@
     background-color: rgba(0, 0, 0, 0.2);
     -webkit-border-radius: 6px;
 }
+.content-top>ul li:last-of-type input {
+    text-indent: 0;
+}

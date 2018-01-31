@@ -344,3 +344,6 @@ letter-spacing: 5px;
 .tree-icon{
     display: none;
 }
+.content-top>ul li:last-of-type input {
+    text-indent: 0;
+}

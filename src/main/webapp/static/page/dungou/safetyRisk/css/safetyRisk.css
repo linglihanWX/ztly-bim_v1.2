@@ -311,3 +311,6 @@
 .panel-tool {
     display: block;
 }
+.content-top>ul li:last-of-type input {
+    text-indent: 0;
+}

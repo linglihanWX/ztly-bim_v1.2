@@ -240,3 +240,6 @@ span.btn-active{
 #dataGrid ul li span:last-of-type{
     border-right:none;
 }*/
+.content-top>ul li:last-of-type input {
+    text-indent: 0;
+}

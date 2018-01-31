@@ -123,3 +123,6 @@
 .tree-icon{
     display: none;
 }
+.content-top>ul li:last-of-type input {
+    text-indent: 0;
+}
