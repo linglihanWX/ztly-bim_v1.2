@@ -146,6 +146,14 @@ public class DungouController {
 		return "dungou/hiddenDangerHandle";
 	}
 	/**
+	 * 跳转到 安全风险》隐患管理》施工单位月报页面
+	 *
+	 */
+	@RequestMapping(value="toUnitMonthlyReport")
+	public String toUnitMonthlyReportPage() {
+		return "dungou/unitMonthlyReport";
+	}
+	/**
 	 * 跳转到 安全风险》风险预警》风险常规问题页面
 	 *
 	 */
