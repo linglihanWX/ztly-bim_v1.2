@@ -86,8 +86,6 @@
                             <option value="">C</option>
                         </select>
                     </li>
-                </ul>
-                <ul>
                     <li>
                         <span>偏差类型:&nbsp;</span>
                         <input type="text">
