@@ -37,34 +37,25 @@
     box-sizing: border-box;
 }
 #info{
-    width: 70%;
+    width: 100%;
     height:calc(100% - 35px);
     display: inline-block;
 }
-.content-top {
-    height: 100px;
+.content-bottom>ul {
     width: 100%;
-    padding: 0 10px 10px 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-.content-top>ul {
-    width: 100%;
-    height: auto;
+    height: 40px;
     font-size: 0;
 }
-.content-top>ul li {
+.content-bottom>ul li {
     display: inline-block;
     vertical-align: top;
-    width: 25%;
+    width: 20%;
     height: 40px;
     padding: 5px 0;
     box-sizing: border-box;
     line-height: 30px;
-    /* text-align: left; */
 }
-.content-top>ul li input {
+.content-bottom>ul li input {
     width: 110px;
     height: 25px;
     font-size: 14px;
@@ -73,7 +64,7 @@
     border-radius: 5px;
     text-indent: 5px;
 }
-.content-top>ul li select {
+.content-bottom>ul li select {
     width: 110px;
     height: 25px;
     font-size: 14px;
@@ -82,15 +73,15 @@
     border-radius: 5px;
     text-indent: 5px;
 }
-.content-top>ul li span{
+.content-bottom>ul li span{
     display: inline-block;
     font-size: 16px;
 }
-.content-top>ul li span:first-of-type {
+.content-bottom>ul li span:first-of-type {
     width: 80px;
     text-align: right;
 }
-.content-top>ul li:last-of-type input {
+.content-bottom>ul li:last-of-type input {
     background-color: #fff;
     width: 70px;
     height: 25px;
@@ -104,22 +95,29 @@
     margin-left: 30px;
 }
 
-.content-top>ul li:last-of-type input.btn-active{
+.content-bottom>ul li:last-of-type input.btn-active{
     background-color: #3168ba;
     color: #fff;
     border-color: #3168ba;
 }
 .content-bottom {
     width: 100%;
-    height: calc(100% - 110px);
-    margin-top: 10px;
+    height: calc(34% - 5px);
+    margin-top: 5px;
     padding: 0 10px 10px 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
-.content-top>p,
-.content-bottom>p,
+.content-bottom>ul li:first-of-type{
+    line-height: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+}
+.content-bottom>ul li:last-of-type input{
+    text-indent: 0;
+}
 .three-box>p{
     position: relative;
     width: 100%;
@@ -130,8 +128,8 @@
     font-weight: bold;
     color: #000;
 }
-.content-top>p::after,
-.content-bottom>p::after,
+
+.content-bottom>ul::after,
 .three-box>p::after{
     position: absolute;
     bottom: 0;
@@ -143,14 +141,12 @@
 }
 #dataBox {
     width: 100%;
-    height: calc(100% - 50px);
-    margin-top: 10px;
+    height: calc(100% - 35px);
 }
 
 .three-box{
-    float: right;
-    width: calc(30% - 5px);
-    height: calc(100% - 35px);
+    width: 100%;
+    height: 66%;
     padding: 0 10px 10px 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
