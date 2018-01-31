@@ -50,14 +50,26 @@
 <div id="contentBox">
     <div class="nav"></div>
     <div class="content">
+
         <div class="page-nav">
 
+        </div>
+        <div class="three-box">
+            <p>三维模型</p>
+            <div id="earth" style="overflow:hidden" class="rightmodel">
+                <p><span></span><span>一级预警</span><span></span><span>二级预警</span><span></span><span>三级预警</span><span>已经</span></p>
+            </div>
         </div>
         <div id="info">
             <div class="content-top">
                 <p>查询条件</p>
                 <ul>
-                    <li><span>预警时间:&nbsp;</span><input type="date" ><span>&nbsp;至&nbsp;</span><input type="date"></li>
+                    <li>
+                        <span>预警时间:&nbsp;</span>
+                        <input type="date">
+                        <span>&nbsp;至&nbsp;</span>
+                        <input type="date">
+                    </li>
                     <li>
                         <span>预警级别:&nbsp;</span>
                         <select>
@@ -76,54 +88,128 @@
                     </li>
                 </ul>
                 <ul>
-                    <li><span>偏差类型:&nbsp;</span><input type="text" ></li>
-                    <li><span>处理状态:&nbsp;</span><input type="text" ></li>
-                    <li><span>责任人:&nbsp;</span><input type="text" ></li>
-                    <li><input type="button" name="" id="search" class="btn-active" value="查询"><input type="button" name="" id="reset" value="重置"></li>
+                    <li>
+                        <span>偏差类型:&nbsp;</span>
+                        <input type="text">
+                    </li>
+                    <li>
+                        <span>处理状态:&nbsp;</span>
+                        <input type="text">
+                    </li>
+                    <li>
+                        <span>责任人:&nbsp;</span>
+                        <input type="text">
+                    </li>
+                    <li>
+                        <input type="button" name="" id="search" class="btn-active" value="查询">
+                        <input type="button" name="" id="reset" value="重置">
+                    </li>
                 </ul>
             </div>
             <div class="content-bottom">
-                <p>预警列表 <input type="button" name="" id="add" value="添加"></p>
+                <p>预警列表
+                    <input type="button" name="" id="add" value="添加">
+                </p>
                 <div id="dataBox">
                     <table id="dataGrid" style="width:100%;height:100%"></table>
                 </div>
             </div>
         </div>
-        <div class="three-box">
-            <p>三维模型</p>
-             <div id="earth" style="overflow:hidden" class="rightmodel">
-              <p><span></span><span>一级预警</span><span></span><span>二级预警</span><span></span><span>三级预警</span><span>已经</span></p>
-             </div>
-        </div>
+
+
     </div>
 </div>
 <div id="addDangers" class="easyui-window" title="预警上报" data-options="modal:true,closed:true" style="width:500px;height:530px;padding:10px;">
     <ul class="add-dangers-info">
-        <li><span class="describe"><span class="must-write">*</span>风险所属工程:</span><input class="inp" type="text" required placeholder="六院-土建-标段"></li>
-        <li><span class="describe"><span class="must-write">*</span>风险发生地:</span><input class="inp" type="text" required placeholder="六院-土建-标段"></li>
-        <li><span class="describe"><span class="must-write">*</span>管片环号:</span><input class="inp" type="text" required placeholder="526"></li>
+        <li>
+                <span class="describe">
+                    <span class="must-write">*</span>风险所属工程:</span>
+            <input class="inp" type="text" required placeholder="六院-土建-标段">
+        </li>
+        <li>
+                <span class="describe">
+                    <span class="must-write">*</span>风险发生地:</span>
+            <input class="inp" type="text" required placeholder="六院-土建-标段">
+        </li>
+        <li>
+                <span class="describe">
+                    <span class="must-write">*</span>管片环号:</span>
+            <input class="inp" type="text" required placeholder="526">
+        </li>
 
-        <li><span class="describe"><span class="must-write">*</span>偏差类型:</span><input class="inp" required type="text"></li>
-        <li><span class="describe">预警等级:</span><input class="inp" type="text"></li>
-        <li><span class="describe"><span class="must-write">*</span>处理状态:</span><input class="inp" required type="text"></li>
-        <li><span class="describe"><span class="must-write">*</span>上报日期:</span><input class="inp" required type="date"></li>
-        <li><span class="describe"><span class="must-write">*</span>上报人:</span><input class="inp" required type="text"></li>
-        <li><span class="describe">详情图片:</span><img src="${ctx }/static/page/dungou/common/img/avatar.jpg" alt=""></li>
-        <li><input type="button" name="" id="save" class="btn-active" value="保存"><input type="button" name="" id="cancel" value="取消"></li>
+        <li>
+                <span class="describe">
+                    <span class="must-write">*</span>偏差类型:</span>
+            <input class="inp" required type="text">
+        </li>
+        <li>
+            <span class="describe">预警等级:</span>
+            <input class="inp" type="text">
+        </li>
+        <li>
+                <span class="describe">
+                    <span class="must-write">*</span>处理状态:</span>
+            <input class="inp" required type="text">
+        </li>
+        <li>
+                <span class="describe">
+                    <span class="must-write">*</span>上报日期:</span>
+            <input class="inp" required type="date">
+        </li>
+        <li>
+                <span class="describe">
+                    <span class="must-write">*</span>上报人:</span>
+            <input class="inp" required type="text">
+        </li>
+        <li>
+            <span class="describe">详情图片:</span>
+            <img src="${ctx }/static/page/dungou/common/img/avatar.jpg" alt="">
+        </li>
+        <li>
+            <input type="button" name="" id="save" class="btn-active" value="保存">
+            <input type="button" name="" id="cancel" value="取消">
+        </li>
     </ul>
 </div>
 <div id="infoShow" class="easyui-window" title="预警详情" data-options="modal:true,closed:true" style="width:550px;height:530px;padding:10px;">
     <ul class="show-dangers-info">
-        <li><span class="describe1">风险所属工程:</span><span>六院-土建-标段</span></li>
-        <li><span class="describe1">风险发生地:</span><span>六院土建项目二级项目部</span></li>
-        <li><span class="describe1">详情描述:</span><span>526管片与轴线设计偏差较大</span></li>
+        <li>
+            <span class="describe1">风险所属工程:</span>
+            <span>六院-土建-标段</span>
+        </li>
+        <li>
+            <span class="describe1">风险发生地:</span>
+            <span>六院土建项目二级项目部</span>
+        </li>
+        <li>
+            <span class="describe1">详情描述:</span>
+            <span>526管片与轴线设计偏差较大</span>
+        </li>
 
-        <li><span class="describe1">原因分析:</span><span>受地质影响</span></li>
-        <li><span class="describe1">发生时间:</span><span>2016-12-31</span></li>
-        <li><span class="describe1">发生问题单位:</span><span>总体项目部</span></li>
-        <li><span class="describe1">发现问题人:</span><span>李某某</span></li>
-        <li><span class="describe1">要求整改完成时间:</span><span>2017-01-21</span></li>
-        <li><span class="describe1">详情图片:</span><img src="${ctx }/static/page/dungou/common/img/avatar.jpg" alt=""></li>
+        <li>
+            <span class="describe1">原因分析:</span>
+            <span>受地质影响</span>
+        </li>
+        <li>
+            <span class="describe1">发生时间:</span>
+            <span>2016-12-31</span>
+        </li>
+        <li>
+            <span class="describe1">发生问题单位:</span>
+            <span>总体项目部</span>
+        </li>
+        <li>
+            <span class="describe1">发现问题人:</span>
+            <span>李某某</span>
+        </li>
+        <li>
+            <span class="describe1">要求整改完成时间:</span>
+            <span>2017-01-21</span>
+        </li>
+        <li>
+            <span class="describe1">详情图片:</span>
+            <img src="${ctx }/static/page/dungou/common/img/avatar.jpg" alt="">
+        </li>
     </ul>
 </div>
 

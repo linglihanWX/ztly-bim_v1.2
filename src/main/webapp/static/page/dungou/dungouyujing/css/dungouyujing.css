@@ -88,14 +88,16 @@
     box-sizing: border-box;
 }
 #info{
-    width: 70%;
-    height:calc(100% - 35px);
+    width: 100%;
+    height:calc(34% - 5px);
+    margin-top: 5px;
     display: inline-block;
 }
 .content-top {
-    height: 160px;
-    width: 100%;
-    padding: 0 10px 10px 10px;
+    display:inline-block;
+    height: 100%;
+    width: 30%;
+    padding: 0 5px 5px 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
     box-sizing: border-box;
@@ -106,20 +108,13 @@
 }
 .content-top>ul li {
     display: inline-block;
-    width: auto;
-    height: 40px;
-    padding: 5px 0;
-    box-sizing: border-box;
+    width: 100%;
     line-height: 30px;
     font-size: 0;
-    /* text-align: left; */
+    text-align: center;
 }
-.content-top>ul li:not(:first-of-type){
-    margin-right: 10px;
-}
-.content-top>ul li:first-of-type{
-    width: 330px;
-}
+
+
 .content-top>ul li input {
     width: 110px;
     height: 25px;
@@ -129,8 +124,11 @@
     border-radius: 5px;
     text-indent: 5px;
 }
+.content-top>ul:nth-of-type(2) li input{
+    width: 245px;
+}
 .content-top>ul li select {
-    width: 110px;
+    width: 245px;
     height: 25px;
     font-size: 14px;
     outline: none;
@@ -172,9 +170,11 @@
     border-color: #3168ba;
 }
 .content-bottom {
-    width: 100%;
-    height: calc(100% - 170px);
-    margin-top: 10px;
+    float: right;
+    vertical-align: top;
+    width: calc(70% - 5px);
+    height: 100%;
+    margin-left: 5px;
     padding: 0 10px 10px 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -210,9 +210,8 @@
 }
 
 .three-box{
-    float: right;
-    width: calc(30% - 5px);
-    height: calc(100% - 35px);
+    width: 100%;
+    height: calc(66% - 35px);
     padding: 0 10px 10px 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -288,16 +287,15 @@
 }
 .must-write{
     display: inline-block;
-vertical-align: middle;
-color: red;
-font-size: 20px;
-margin-right: 5px;
+    vertical-align: middle;
+    color: red;
+    font-size: 20px;
+    margin-right: 5px;
 }
 
 @media screen and (max-width: 1366px) {
     .content-top>ul li{
         width: auto;
-        margin-right: 20px;
     }
 }
 .panel-tool{

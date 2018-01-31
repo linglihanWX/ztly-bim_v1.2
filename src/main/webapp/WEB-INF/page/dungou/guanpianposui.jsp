@@ -53,37 +53,35 @@
 
         </div>
         <div id="info">
-            <div class="content-top">
-                <p>筛选条件</p>
-                <ul>
+            <div class="three-box">
+                <p>三维模型</p>
+                <div id="earth" >
+                    <p><span></span><span>一级破损</span><span></span><span>二级破损</span><span></span><span>三级破损</span></p>
+                </div>
+            </div>
+            <!-- <div class="content-top">
+                 &lt;!&ndash;<p>筛选条件</p>&ndash;&gt;
 
-                    <li>
-                        <span>破损环数:&nbsp;</span>
-                        <select>
-                            <option value="">504</option>
-                            <option value="">404</option>
-                            <option value="">643</option>
-                        </select>
-                    </li>
+             </div>-->
+            <div class="content-bottom">
+                <!--<p>破损管片列表</p>-->
+                <ul><li>破损管片列表</li>
+                    <li><span>破损环数:&nbsp;</span><select>
+                        <option value="">504</option>
+                        <option value="">404</option>
+                        <option value="">643</option>
+                    </select></li>
                     <li><span>破损数量:&nbsp;</span><input type="text" value="10"></li>
                     <li><span>责任人:&nbsp;</span><input type="text" ></li>
                     <li><input type="button" name="" id="search" class="btn-active" value="查询"><input type="button" name="" id="reset" value="重置"></li>
                 </ul>
-            </div>
-            <div class="content-bottom">
-                <p>破损管片列表</p>
                 <div id="dataBox">
                     <table id="dataGrid" style="width:100%;height:100%"></table>
                 </div>
             </div>
         </div>
 
-        <div class="three-box">
-            <p>三维模型</p>
-            <div id="earth" >
-          		  <p><span></span><span>一级破损</span><span></span><span>二级破损</span><span></span><span>三级破损</span></p>
-            </div>
-        </div>
+
     </div>
 </div>
 
