@@ -1,0 +1,17 @@
+[
+    {
+        "id":1,
+        "project":"六院-土建-标段",
+        "place":"标段02",
+        "waringClassify":"巡视预警 ",
+        "waringLevel":"黄色预警",
+        "waringDescription":"检测报告中拱顶沉降值有误",
+        "pointTotal":2,
+        "pointNumber":"RG-11-01 RG-41-01",
+        "reportMan":"孙小龙",
+        "handleState":"已处理",
+        "reportTime":"2018-01-20",
+        "flowState":"未处理",
+        "operation":"流程查看"
+    }
+]

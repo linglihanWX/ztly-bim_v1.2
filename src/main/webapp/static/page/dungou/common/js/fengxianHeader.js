@@ -2,7 +2,7 @@ $(function () {
     let str = ' <ul>\n' +
         '                <li><a href="../../ProSystem/dungou/toFengxian">风险概览</a></li>\n' +
         '                <li><a href="javascript:;">隐患管理</a>\n' +
-        '                    <ul  class="pull-down">\n' +
+        '                     <ul  class="pull-down">\n' +
         '                        <li><a href="../../ProSystem/dungou/toSafetyRisk">隐患上报</a></li>\n' +
         '                        <li><a href="../../ProSystem/dungou/toHiddenDangerHandle">隐患处理</a></li>\n' +
         '                        <li><a href="../../ProSystem/dungou/toUnitMonthlyReport">施工单位月报</a></li>\n' +
@@ -11,9 +11,9 @@ $(function () {
         '                <li><a href="javascript:;">风险预警</a>\n' +
         '                    <ul class="pull-down">\n' +
         '                        <li><a href="../../ProSystem/dungou/toRiskRoutineIssue">风险常规问题</a></li>\n' +
-        '                        <li><a href="javascript:;">工作联系单</a></li>\n' +
-        '                        <li><a href="javascript:;">预警事件上报</a></li>\n' +
-        '                        <li><a href="javascript:;">预警事件处理</a></li>\n' +
+        '                        <li><a href="../../ProSystem/dungou/toWorkContactSheet">工作联系单</a></li>\n' +
+        '                        <li><a href="../../ProSystem/dungou/toRiskWarningReport">预警事件上报</a></li>\n' +
+        '                        <li><a href="../../ProSystem/dungou/toRiskWarningHandle">预警事件处理</a></li>\n' +
         '                    </ul></li>\n' +
         '                <li><a href="javascript:;">监控测量</a>\n' +
         '                    <ul class="pull-down">\n' +

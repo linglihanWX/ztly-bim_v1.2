@@ -258,3 +258,9 @@
 .content-top>ul li:last-of-type input {
     text-indent: 0;
 }
+.panel-tool{
+    display:block;
+}
+.window-shadow{
+    display:none!important;
+}

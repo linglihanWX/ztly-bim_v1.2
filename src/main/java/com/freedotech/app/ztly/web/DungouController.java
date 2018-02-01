@@ -162,6 +162,30 @@ public class DungouController {
 		return "dungou/safetyRisk";
 	}
 	/**
+	 * 跳转到 安全风险》风险预警》工作联系单页面
+	 *
+	 */
+	@RequestMapping(value="toWorkContactSheet")
+	public String toWorkContactSheetPage() {
+		return "dungou/workContactSheet";
+	}
+	/**
+	 * 跳转到 安全风险》风险预警》预警事件上报页面
+	 *
+	 */
+	@RequestMapping(value="toRiskWarningReport")
+	public String toRiskWarningReportPage() {
+		return "dungou/riskWarningReport";
+	}
+	/**
+	 * 跳转到 安全风险》风险预警》预警事件处理页面
+	 *
+	 */
+	@RequestMapping(value="toRiskWarningHandle")
+	public String toRiskWarningHandlePage() {
+		return "dungou/riskWarningHandle";
+	}
+	/**
 	 * 跳转到 安全风险》综合统计》风险预警统计页面
 	 *
 	 */

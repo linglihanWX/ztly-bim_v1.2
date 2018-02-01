@@ -9,8 +9,8 @@
 .page-nav{
     position: relative;
     width: 100%;
-    height: 30px;
-    padding: 0 0 0 10px;
+    height: 35px;
+    padding:0 0 5px 10px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -24,14 +24,13 @@
     line-height: 30px;
     text-align: center;
 }
+.page-nav>ul>li>a{
+    letter-spacing: 5px;
+}
 .page-nav>ul>li a{
     display: block;
     width: 100%;
     height: 100%;
-
-}
-.page-nav>ul>li>a{
-    letter-spacing: 5px;
 }
 .page-nav>ul>li a.active,
 .page-nav>ul>li:hover>a{
@@ -40,7 +39,6 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-letter-spacing: 5px;
 }
 
 .pull-down{
@@ -61,36 +59,10 @@ letter-spacing: 5px;
     line-height: 30px;
     font-size: 12px;
     cursor: pointer;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-
-}
-.pull-down li:not(:last-of-type){
-    border-bottom: 1px dashed #e8e8e8;
 }
 .pull-down li:hover{
     background-color: #e8e8e8;
 }
-.content-left{
-    float: left;
-    width: 250px;
-    height: calc(100% - 30px);
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 0 10px 10px 10px;
-    box-sizing: border-box;
-    font-size: 12px;
-}
-
-#detailed{
-    width: 100%;
-    height: calc(100% - 40px);
-}
-#dataOne{
-    overflow: auto;
-}
-
 .content-right{
     width: auto;
     height: calc(100% - 35px);
@@ -100,7 +72,7 @@ letter-spacing: 5px;
 }
 
 .content-top {
-    height: 80px;
+    height: 160px;
     width: 100%;
     padding: 0 5px 5px 5px;
     border-radius: 5px;
@@ -114,21 +86,28 @@ letter-spacing: 5px;
 .content-top>ul li {
     display: inline-block;
     vertical-align: top;
-    width: 40%;
+    width: 30%;
     height: 40px;
     padding: 5px 0;
     box-sizing: border-box;
     line-height: 30px;
     font-size: 0;
 }
+.content-top>ul li:nth-of-type(1),
+.content-top>ul li:nth-of-type(4){
+    width: 38%;
+}
 .content-top>ul li input {
-    width: 150px;
+    width: 130px;
     height: 25px;
     font-size: 14px;
     outline: none;
     border: 1px solid #ccc;
     border-radius: 5px;
     text-indent: 5px;
+}
+.content-top>ul li:last-of-type input {
+    text-indent: 0;
 }
 .content-top>ul li select {
     width: 110px;
@@ -186,7 +165,7 @@ letter-spacing: 5px;
 }
 .content-bottom {
     width: 100%;
-    height: calc(100% - 85px);
+    height: calc(100% - 165px);
     margin-top: 5px;
     padding: 0 10px 10px 10px;
     border-radius: 5px;
@@ -238,23 +217,13 @@ letter-spacing: 5px;
 .add-dangers-info li{
     position: relative;
     height: auto;
-    width: 100%;
+    float: left;
+    width: auto;
+    min-width: 50%;
     line-height: 30px;
     margin-bottom: 5px;
 }
-.add-dangers-info li input[type='checkbox']{
-     vertical-align: middle;
-     margin:0 10px 0 15px;
- }
-.add-dangers-info li input[type='file']{
-    border: 1px solid #ccc;
-    outline: none;
-}
-.file-img{
-    position: relative;
-    right: 20px;
 
-}
 .add-dangers-info li select{
     width: 140px;
     height: 25px;
@@ -281,7 +250,12 @@ letter-spacing: 5px;
     font-size: 14px;
 
 }
+.add-dangers-info li:nth-of-type(13){
+    width: 100%;
+}
+
 .add-dangers-info li:last-of-type{
+    width: 100%;
      text-align: right;
  }
 .inp{
@@ -301,18 +275,18 @@ letter-spacing: 5px;
     margin-right: 5px;
 }
 
-#reportBox ul>li {
-    float: left;
-    width: 50%;
-}
+
 #reportBox .describe{
     width: 140px;
 }
 #editBox .inp,#editBox textarea,#editBox select,
-#addBox .inp,#addBox textarea,#addBox select {
+#reportBox .inp,#reportBox textarea,#reportBox select {
     width: 280px;
 }
-#reportBox ul>li:nth-of-type(15),
+#reportBox ul>li img{
+    width: 150px;
+    height: auto;
+}
 #reportBox ul>li:nth-of-type(16){
     width: 100%;
 }
@@ -334,9 +308,6 @@ letter-spacing: 5px;
 .datagrid-view2 .datagrid-header .datagrid-header-inner .datagrid-htable,
 .datagrid-view2 .datagrid-body .datagrid-btable{
     width: 100%;
-}
-.panel-tool {
-     display: block;
 }
 .panel-tool>a:not(:last-of-type){
     display: none;
