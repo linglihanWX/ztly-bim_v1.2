@@ -52,7 +52,7 @@
         </div>
         <div class="content-right">
             <div class="content-top">
-                <p>工作联系单</p><ul>
+                <p>工作联系单查询</p><ul>
                 <li><span>上报时间:&nbsp;</span><input type="date"><span>&nbsp;至&nbsp;</span><input type="date" name=""
                                                                                                 id=""></li>
                 <li><span>上报人:&nbsp;</span><input type="text"></li>
@@ -71,7 +71,7 @@
             </div>
             <div class="content-bottom">
                 <p>
-                    <span>工作联系单</span>
+                    <span>工作联系单列表</span>
 
                     <input type="button" name="" id="edit" value="编辑">
                     <input type="button" name="" id="report" value="上报">
