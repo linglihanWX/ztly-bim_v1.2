@@ -15,9 +15,9 @@ $(function () {
     $(".dghh:last-of-type").on("click", function () {
     	$(this).toggleClass("bgcolor");
     	if($(this).hasClass("bgcolor")){
-    		alert("shuaige1")
+    		reloadJingMoDungouji();
     	}else{
-    		alert("shuaige2")
+    		reloadJianMoDungouji();
     	}
     });
 

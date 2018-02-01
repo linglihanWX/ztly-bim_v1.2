@@ -19,8 +19,8 @@ DungouViewer.initLeftClick = function(viewer,callback) {
 		var cartographic = viewer.scene.globe.ellipsoid.cartesianToCartographic(cartesian);
 		var point=[ cartographic.longitude / Math.PI * 180, cartographic.latitude / Math.PI * 180];*/
 		/*console.log(point);*/
-        /*console.log(FreedoApp.viewers["earth"].camera)
-        console.log(FreedoApp.viewers["earth"].camera.heading+","+FreedoApp.viewers["earth"].camera.pitch+","+FreedoApp.viewers["earth"].camera.roll)*/
+        console.log(FreedoApp.viewers["earth"].camera.position)
+        console.log(FreedoApp.viewers["earth"].camera.heading+","+FreedoApp.viewers["earth"].camera.pitch+","+FreedoApp.viewers["earth"].camera.roll)
         DungouViewer.changeColor(picked)
         if(picked==undefined){
 			callback(undefined,undefined);
@@ -87,7 +87,8 @@ DungouViewer.changeColor=function(picked){
             }
         })
 
-	}else{
+	}
+    /*else{
         if(flag){
             allready.splice(allready.length-2, 1);
         }
@@ -102,6 +103,6 @@ DungouViewer.changeColor=function(picked){
                     ['true','true']
                 ]}
         });
-	}
+	}*/
 }
 

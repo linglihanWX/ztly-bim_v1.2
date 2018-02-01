@@ -1,6 +1,16 @@
 var pmodel = {}
 var allready = [];
 var hiderings = []
+var daotou = null;
+var cheshen = null;
+var cameraPositionData = [
+	{x: -2604213.2030082094, y: 4229811.196133721, z: 3986730.838881603, hpr : [2.3637066360027617,0.00003633815467596335,0.00011722439689254571]},
+	{x: -2604228.0690015084, y: 4229809.95152005, z: 3986717.634444367, hpr : [2.348708320370112,0.00004117869581032885,0.00011650346437708237]},
+	{x: -2604318.055752073, y: 4229841.029760683, z: 3986604.4420111417, hpr : [2.3020492871006475,0.00006770979984604963,0.00010503888042023846]},
+	{x: -2604335.1311225835, y: 4229828.103609036, z: 3986605.576674064, hpr : [3.084465772093416,-0.000026181159926474962,0.00012558214577040872]},
+	{x: -2604346.0710227257, y: 4229841.824521296, z: 3986580.614643607, hpr : [2.7103281124878262,0.000026003386374373605,0.0001247688980736683]},
+	{x: -2604333.3674325626, y: 4229843.5839004, z: 3986587.8955007214, hpr : [2.490355364161721,0.00005037307603150687,0.0001154754685872561]}
+]
 $(function () {
     var h = $("#content").height();
     var h2 = $(".breadcrumb").height();
@@ -115,7 +125,7 @@ $(function () {
                     var deltaRadians = Freedo.Math.toRadians(3.0);
                     var daotouposition = new FreeDo.Cartesian3.fromDegrees(121.62022781066331, 38.93872856969979,-491.5)
                     //加盾构机和盾构机机身
-                    var daotou = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
+                    daotou = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
                         {
                             id: "盾构机刀头",
                             url: "http://182.92.7.32:9000/ztly/jianmiandungou/daotou/1.glb",
@@ -136,7 +146,7 @@ $(function () {
                  			Freedo.Transforms.headingPitchRollToFixedFrame(daotouposition, hpRoll, Freedo.Ellipsoid.WGS84, fixedFrameTransform, daotou.modelMatrix);
                  		}
                      });
-                    var cheshen = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
+                    cheshen = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
                         {
                             id: "盾构机车身",
                             url: "http://182.92.7.32:9000/ztly/jianmiandungou/cheshen/2.glb",
@@ -297,8 +307,113 @@ $(function () {
     showhidelabels()
 });
 
-    
-    
+//重新加载精模盾构机
+function reloadJingMoDungouji() {
+	 if(daotou)FreedoApp.viewers["earth"].scene.primitives.remove(daotou);
+	 if(cheshen)FreedoApp.viewers["earth"].scene.primitives.remove(cheshen);
+	 var fixedFrameTransform = Freedo.Transforms.localFrameToFixedFrameGenerator('north', 'west');
+     var hpRoll = new Freedo.HeadingPitchRoll();
+     hpRoll.heading = Freedo.Math.toRadians(340);
+     hpRoll.pitch = Freedo.Math.toRadians(5);
+     var deltaRadians = Freedo.Math.toRadians(3.0);
+     var daotouposition = new FreeDo.Cartesian3.fromDegrees(121.62022781066331, 38.93872856969979,-491.5)
+     //加盾构机和盾构机机身
+     daotou = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
+         {
+             id: "盾构机刀头",
+             url: "http://182.92.7.32:9000/ztly/jianmiandungou/daotou/1.glb",
+             //url: "http://192.168.8.102:9999/ztly/glb/dungoujidaotou/dun_gou_dao_tou.gltf",
+             show: true,                     // default
+             modelMatrix:Freedo.Transforms.headingPitchRollToFixedFrame(daotouposition, hpRoll, Freedo.Ellipsoid.WGS84, fixedFrameTransform),
+             allowPicking: true,            // not pickable
+             debugShowBoundingVolume: false, // default
+             debugWireframe: false
+     }));
+    /* FreedoApp.viewers["earth"].scene.preRender.addEventListener(function(){
+      	if(daotou){
+  			hpRoll.roll += deltaRadians;
+  			if (hpRoll.roll > Freedo.Math.TWO_PI) {
+  				hpRoll.roll -= Freedo.Math.TWO_PI;
+  			}
+  			//speedVector = Freedo.Cartesian3.multiplyByScalar(Freedo.Cartesian3.UNIT_X, speed / 10, speedVector);
+  			//position = Freedo.Matrix4.multiplyByPoint(planePrimitive.modelMatrix, speedVector, position);
+  			Freedo.Transforms.headingPitchRollToFixedFrame(daotouposition, hpRoll, Freedo.Ellipsoid.WGS84, fixedFrameTransform, daotou.modelMatrix);
+  		}
+      });*/
+    cheshen = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
+         {
+             id: "盾构机车身",
+             url: "http://182.92.7.32:9000/ztly/jianmiandungou/cheshen/2.glb",
+             //url: "http://192.168.8.102:9999/ztly/glb/cheshen.glb",
+             show: true,                     // default
+             modelMatrix:FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979,-491.5,249,6,0,1.2,1.2,1.2),
+             allowPicking: true,            // not pickable
+             debugShowBoundingVolume: false, // default
+             debugWireframe: false
+      }));
+    for(var i in cameraPositionData){
+    	 var cartographic = Freedo.Cartographic.fromCartesian(cameraPositionData[i]);
+    	 var citizensBankPark =  FreedoApp.viewers["earth"].entities.add( {  
+           id : 'cameraPos'+i,
+           type : 'cameraImg',
+           position :  Freedo.Cartesian3.fromRadians(cartographic.longitude,cartographic.latitude,cartographic.height+10),  
+           billboard : { //图标  
+               image : '../../static/page/dungou/guanpianposui/img/cheng_tanhao.png',  
+               width : 30,  
+               height : 47  
+           },
+           verticalOrigin : Freedo.VerticalOrigin.BOTTOM, //垂直方向以底部来计算标签的位置  
+           pixelOffset : new Freedo.Cartesian2( 0, 9 )   //偏移量  
+       } ); 
+    }
+}
+
+//重新加载减模盾构机
+function reloadJianMoDungouji() {
+	if(daotou)FreedoApp.viewers["earth"].scene.primitives.remove(daotou);
+	 if(cheshen)FreedoApp.viewers["earth"].scene.primitives.remove(cheshen);
+	 for(var i in cameraPositionData){
+		 FreedoApp.viewers["earth"].entities.removeById('cameraPos'+i);
+	 }
+	 var fixedFrameTransform = Freedo.Transforms.localFrameToFixedFrameGenerator('north', 'west');
+    var hpRoll = new Freedo.HeadingPitchRoll();
+    hpRoll.heading = Freedo.Math.toRadians(340);
+    hpRoll.pitch = Freedo.Math.toRadians(5);
+    var deltaRadians = Freedo.Math.toRadians(3.0);
+    var daotouposition = new FreeDo.Cartesian3.fromDegrees(121.62022781066331, 38.93872856969979,-491.5)
+    //加盾构机和盾构机机身
+    daotou = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
+        {
+            id: "盾构机刀头",
+            url: "http://182.92.7.32:9000/ztly/jianmiandungou/daotou/1.glb",
+            show: true,                     // default
+            modelMatrix:Freedo.Transforms.headingPitchRollToFixedFrame(daotouposition, hpRoll, Freedo.Ellipsoid.WGS84, fixedFrameTransform),
+            allowPicking: true,            // not pickable
+            debugShowBoundingVolume: false, // default
+            debugWireframe: false
+    }));
+   /* FreedoApp.viewers["earth"].scene.preRender.addEventListener(function(){
+     	if(daotou){
+ 			hpRoll.roll += deltaRadians;
+ 			if (hpRoll.roll > Freedo.Math.TWO_PI) {
+ 				hpRoll.roll -= Freedo.Math.TWO_PI;
+ 			}
+ 			//speedVector = Freedo.Cartesian3.multiplyByScalar(Freedo.Cartesian3.UNIT_X, speed / 10, speedVector);
+ 			//position = Freedo.Matrix4.multiplyByPoint(planePrimitive.modelMatrix, speedVector, position);
+ 			Freedo.Transforms.headingPitchRollToFixedFrame(daotouposition, hpRoll, Freedo.Ellipsoid.WGS84, fixedFrameTransform, daotou.modelMatrix);
+ 		}
+     });*/
+   cheshen = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
+        {
+            id: "盾构机车身",
+            url: "http://182.92.7.32:9000/ztly/jianmiandungou/cheshen/2.glb",
+            show: true,                     // default
+            modelMatrix:FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979,-491.5,249,6,0,1.2,1.2,1.2),
+            allowPicking: true,            // not pickable
+            debugShowBoundingVolume: false, // default
+            debugWireframe: false
+     }));
+}
 
 //显示标牌
 function showlabel(id,position){
@@ -354,6 +469,20 @@ function showtips(picked,screenposition){
 					$("#tipbox1 ul li span").text(picked.id.data[0]);
 					$("#tipbox3 ul li span").text(picked.id.data[1]);
 					$("#tipbox4 ul li span").text(picked.id.id);
+				}else if (picked.id.type=="cameraImg"){
+					var cameraid = picked.id.id.slice(9)
+					cameraid = parseInt(cameraid);
+					if(cameraid||cameraid==0){
+						//镜头定位
+	                    FreedoApp.viewers["earth"].camera.setView({
+	                        destination: new FreeDo.Cartesian3(cameraPositionData[cameraid].x,cameraPositionData[cameraid].y,cameraPositionData[cameraid].z),
+	                        orientation: {
+	                            heading: cameraPositionData[cameraid].hpr[0],
+	                            pitch: cameraPositionData[cameraid].hpr[1],
+	                            roll: cameraPositionData[cameraid].hpr[2]
+	                        }
+	                    });
+					}
 				}else{
 					hidetips();
 				}
