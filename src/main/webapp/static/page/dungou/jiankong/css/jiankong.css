@@ -43,6 +43,15 @@
     vertical-align: top;
     padding:0 10px;
 }
+.bgcolor{
+	 background-color:#00ff00;
+}
+.dghh:last-of-type{
+	position:relative;
+	left:300px;
+	cursor:pointer;
+}
+
 .line{
     color: #fff;
     margin: 10px;

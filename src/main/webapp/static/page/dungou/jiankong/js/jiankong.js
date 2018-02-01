@@ -11,6 +11,15 @@ $(function () {
     // 画坐标系
     renderTbmDeviation();
 
+    //盾构机姿态按钮
+    $(".dghh:last-of-type").on("click", function () {
+    	$(this).toggleClass("bgcolor");
+    	if($(this).hasClass("bgcolor")){
+    		alert("shuaige1")
+    	}else{
+    		alert("shuaige2")
+    	}
+    });
 
     // 三维窗口的大小改变
     $(".main-page").on("click", function () {
