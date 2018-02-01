@@ -51,7 +51,7 @@
 
         </div>
         <div class="content-left">
-            <p>工程信息</p>
+            <p>预警分类</p>
             <div id="detailed">
                 <div id="dataOne" style="width: 100%;height: 100%;"></div>
             </div>

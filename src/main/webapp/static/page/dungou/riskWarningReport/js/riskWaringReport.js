@@ -14,7 +14,7 @@ $(function(){
 
 
     $('#dataOne').tree({
-        url: "../../static/page/dungou/riskWarningReport/json/riskWaringReport.json",
+        url: "../../static/page/dungou/riskWarningReport/json/tree.json",
         method:"get",
         idField: "id",
         lines:true
