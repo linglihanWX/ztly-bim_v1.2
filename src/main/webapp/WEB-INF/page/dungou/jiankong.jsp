@@ -58,6 +58,7 @@
                     <span class="dghh">环号:506</span>
                     <span class="line">左线</span>当前环:<span class="line">110</span>状态停止
                     <span class="line">右线</span>当前环:<span class="line">110</span>状态停止
+                    <span id = "dungoujishijiao" class="dghh">盾构机姿态</span>
                     <img id="resetview"src="${ctx }/static/page/dungou/jiankong/img/danger.png" alt="">
                 </p>
                 <ul class="changeContent">
