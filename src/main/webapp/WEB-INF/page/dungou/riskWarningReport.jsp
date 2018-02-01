@@ -29,10 +29,18 @@
 <body>
 <header id="header">
     <div class="logo">
-        <img src="common/img/logo.png" alt="">
+        <img src="${ctx }/static/page/dungou/common/img/logo.png" alt="">
     </div>
     <div class="user">
-
+        <div class="user-info">
+            <img src="${ctx }/static/page/dungou/common/img/avatar.jpg" alt="" class="user-img">
+            <shiro:principal property="nickname"/>
+        </div>
+        <div class="user-handler">
+            <span><i class="iconfont icon-self"></i><span>个人中心</span></span>
+            <span><i class="iconfont icon-message"><span>2</span></i><span>消息中心</span></span>
+            <a href="${ctx }/logout"><span><i class="iconfont icon-out-login"></i><span>退出登录</span></span></a>
+        </div>
 
     </div>
 </header>
@@ -105,9 +113,9 @@
         </select></li>
         <li><span class="describe"><span class="must-write">*</span>点位数目:</span><input class="inp" required type="number"></li>
         <li><span class="describe"><span class="must-write">*</span>隐患描述:</span><textarea name="" id="" required></textarea></li>
-        <li><span class="describe"><span class="must-write">*</span>整改前图片:</span><img src="./img/avatar.jpg" alt="" class="pre"></li>
+        <li><span class="describe"><span class="must-write">*</span>整改前图片:</span><img src="${ctx }/static/page/dungou/common/img/avatar.jpg" alt="" class="pre"></li>
         <li><span class="describe"><span class="must-write">*</span> </span><input type="file" name="" id=""><img
-                src="./img/doc.png" alt="" class="file-img"></li>
+                src="${ctx }/static/page/dungou/common/img/doc.png" alt="" class="file-img"></li>
         <li><input type="button" name="" class="save btn-active" value="保存"><input type="button" name=""
                                                                                    class="cancel" value="取消"></li>
     </ul>
