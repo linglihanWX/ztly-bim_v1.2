@@ -39,10 +39,10 @@ $(function(){
             { title: '测点编号', field: 'pointNumber', align: 'center'},
             { title: '上报人', field: 'reportMan', align: 'center'},
             { title: '治理状态', field: 'handleState', align: 'center',styler:function (val,row,index) {
-                if(val == "未处理"){
+                if(val == "已处置"){
                     console.log(1);
-                    return  "color:yellow;"
-                }else if(val == "已处理"){
+                    return  "color:blue;"
+                }else if(val == "已发布"){
                     return  "color:red;"
                 }else if(val == "处理中"){
                     return  "color:orange;"

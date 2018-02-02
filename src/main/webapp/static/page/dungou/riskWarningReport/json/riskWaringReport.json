@@ -8,5 +8,55 @@
         "level":"黄色预警",
         "money":"2",
         "points":"1"
+    },
+    {
+        "id":2,
+        "firstClassify":"监测预警",
+        "waringClassify":"监测预警",
+        "name":"橙色监测预警 ",
+        "content":"黄色监测预警",
+        "level":"橙色预警",
+        "money":"2",
+        "points":"2"
+    },
+    {
+        "id":3,
+        "firstClassify":"巡视预警",
+        "waringClassify":"降水工程",
+        "name":"降水效果及状态 ",
+        "content":"边施工减水量",
+        "level":"黄色预警",
+        "money":"1",
+        "points":"1"
+    },
+    {
+        "id":1,
+        "firstClassify":"巡视预警",
+        "waringClassify":"降水工程",
+        "name":"降水效果及状态 ",
+        "content":"排水系统（排水量）",
+        "level":"黄色预警",
+        "money":"1",
+        "points":"1"
+    },
+    {
+        "id":1,
+        "firstClassify":"巡视预警",
+        "waringClassify":"降水工程",
+        "name":"降水效果及状态 ",
+        "content":"水中含沙量",
+        "level":"黄色预警",
+        "money":"2",
+        "points":"2"
+    },
+    {
+        "id":1,
+        "firstClassify":"巡视预警",
+        "waringClassify":"降水工程",
+        "name":"降水效果及状态 ",
+        "content":"各种原因造成的排水阻塞",
+        "level":"黄色预警",
+        "money":"2",
+        "points":"2"
     }
 ]
