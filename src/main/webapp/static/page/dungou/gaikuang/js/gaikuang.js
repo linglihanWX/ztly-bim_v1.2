@@ -594,11 +594,11 @@ function initEntities(viewer) {
             distanceDisplayCondition: new FreeDo.DistanceDisplayCondition(0.0, 10000)
         },
         label: { // 文字标签
-            text: "军港码头",
+            text: "危险源：军港码头",
             font: '20pt monospace',
             style: FreeDo.LabelStyle.FILL_AND_OUTLINE,
             outlineWidth: 2,
-            backgroundColor: FreeDo.Color.MEDIUMBLUE,
+            backgroundColor: FreeDo.Color.ORANGERED,
             showBackground: true,
             fillColor: FreeDo.Color.YELLOW,
             verticalOrigin: FreeDo.VerticalOrigin.BOTTOM, // 垂直方向以底部来计算标签的位置
@@ -618,11 +618,11 @@ function initEntities(viewer) {
             distanceDisplayCondition: new FreeDo.DistanceDisplayCondition(0.0, 10000)
         },
         label: { // 文字标签
-            text: "航母制造区",
+            text: "危险源： 航母制造区",
             font: '20pt monospace',
             style: FreeDo.LabelStyle.FILL_AND_OUTLINE,
             outlineWidth: 2,
-            backgroundColor: FreeDo.Color.MEDIUMBLUE,
+            backgroundColor: FreeDo.Color.ORANGERED,
             showBackground: true,
             fillColor: FreeDo.Color.YELLOW,
             verticalOrigin: FreeDo.VerticalOrigin.BOTTOM, // 垂直方向以底部来计算标签的位置
@@ -631,7 +631,7 @@ function initEntities(viewer) {
         }
     });
     var label4 = viewer.entities.add({
-        name: "疏港货运铁路",
+        name: "危险源： 疏港货运铁路",
         show: true,
         position: FreeDo.Cartesian3.fromDegrees(121.61497425831845, 38.92570034025223, 1),
         point: { // 点
@@ -646,7 +646,7 @@ function initEntities(viewer) {
             font: '20pt monospace',
             style: FreeDo.LabelStyle.FILL_AND_OUTLINE,
             outlineWidth: 2,
-            backgroundColor: FreeDo.Color.MEDIUMBLUE,
+            backgroundColor: FreeDo.Color.ORANGERED,
             showBackground: true,
             fillColor: FreeDo.Color.YELLOW,
             verticalOrigin: FreeDo.VerticalOrigin.BOTTOM, // 垂直方向以底部来计算标签的位置
@@ -657,7 +657,7 @@ function initEntities(viewer) {
     var label5 = viewer.entities.add({
         name: "中间风井（接收）",
         show: true,
-        position: FreeDo.Cartesian3.fromDegrees(121.6207361838563, 38.92834465015816, 1),
+        position: FreeDo.Cartesian3.fromDegrees(121.6207361838563, 38.92834465015816, 50),
         point: { // 点
             pixelSize: 5,
             color: FreeDo.Color.RED,
@@ -681,7 +681,7 @@ function initEntities(viewer) {
     var label6 = viewer.entities.add({
         name: "梭渔湾南站",
         show: true,
-        position: FreeDo.Cartesian3.fromDegrees(121.61392275532712, 38.95323841740604, 1),
+        position: FreeDo.Cartesian3.fromDegrees(121.61392275532712, 38.95323841740604, 50),
         label: { // 文字标签
             text: "梭渔湾南站",
             font: '16pt monospace',
@@ -703,7 +703,7 @@ function initEntities(viewer) {
     var label7 = viewer.entities.add({
         name: "火车站站",
         show: true,
-        position: FreeDo.Cartesian3.fromDegrees(121.62378599839502, 38.922779514349656, 1),
+        position: FreeDo.Cartesian3.fromDegrees(121.62378599839502, 38.922779514349656, 50),
         label: { // 文字标签
             text: "火车站站",
             font: '16pt monospace',
@@ -794,30 +794,6 @@ function initEntities(viewer) {
         }
     });
     viewer.entities.add({
-    	name: "危险源2",
-    	show: true,
-    	position: FreeDo.Cartesian3.fromDegrees(121.61218097766616, 38.940214688459356, 1),
-    	point: { // 点
-    		pixelSize: 5,
-    		color: FreeDo.Color.RED,
-    		outlineColor: FreeDo.Color.WHITE,
-    		outlineWidth: 2,
-    		distanceDisplayCondition: new FreeDo.DistanceDisplayCondition(0.0, 10000)
-    	},
-    	label: { // 文字标签
-    		text: "危险源： 航母建造区",
-    		font: '20pt monospace',
-    		style: FreeDo.LabelStyle.FILL_AND_OUTLINE,
-    		outlineWidth: 2,
-    		backgroundColor: FreeDo.Color.ORANGERED,
-    		showBackground: true,
-    		fillColor: FreeDo.Color.YELLOW,
-    		verticalOrigin: FreeDo.VerticalOrigin.BOTTOM, // 垂直方向以底部来计算标签的位置
-    		pixelOffset: new FreeDo.Cartesian2(0, -9),// 偏移量,
-    		distanceDisplayCondition: new FreeDo.DistanceDisplayCondition(0.0, 10000)
-    	}
-    });
-    viewer.entities.add({
     	name: "危险源3",
     	show: true,
     	position: FreeDo.Cartesian3.fromDegrees(121.61130812248769, 38.952837944195025, 1),
@@ -842,9 +818,33 @@ function initEntities(viewer) {
     	}
     });
     viewer.entities.add({
+    	name: "危险源5",
+    	show: true,
+    	position: FreeDo.Cartesian3.fromDegrees(121.62993526171284, 38.92870917585388, 1),
+    	point: { // 点
+    		pixelSize: 5,
+    		color: FreeDo.Color.RED,
+    		outlineColor: FreeDo.Color.WHITE,
+    		outlineWidth: 2,
+    		distanceDisplayCondition: new FreeDo.DistanceDisplayCondition(0.0, 10000)
+    	},
+    	label: { // 文字标签
+    		text: "危险源： 居民住宅区",
+    		font: '20pt monospace',
+    		style: FreeDo.LabelStyle.FILL_AND_OUTLINE,
+    		outlineWidth: 2,
+    		backgroundColor: FreeDo.Color.ORANGERED,
+    		showBackground: true,
+    		fillColor: FreeDo.Color.YELLOW,
+    		verticalOrigin: FreeDo.VerticalOrigin.BOTTOM, // 垂直方向以底部来计算标签的位置
+    		pixelOffset: new FreeDo.Cartesian2(0, -9),// 偏移量,
+    		distanceDisplayCondition: new FreeDo.DistanceDisplayCondition(0.0, 10000)
+    	}
+    });
+    viewer.entities.add({
     	name: "危险源4",
     	show: true,
-    	position: FreeDo.Cartesian3.fromDegrees(121.62038212898699, 38.94851299643816, 1),
+    	position: FreeDo.Cartesian3.fromDegrees(121.6168459694273, 38.9490763774809, 1),
     	point: { // 点
     		pixelSize: 5,
     		color: FreeDo.Color.RED,
