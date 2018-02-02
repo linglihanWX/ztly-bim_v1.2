@@ -202,7 +202,69 @@ $(function () {
                             debugWireframe : false
                         }));*/
     //showhidelabels(dungouprimitive);
+    $('#tree').tree({
+        method:"get",
+        data:[{
+            id:"-1",
+            text:"模型构件树",
+            state:"closed"
+        }],
+        onBeforeExpand:function(node,param){
+            if(node.id=="-1"){
+                $('#tree').tree('options').url = "../../PModel/getModelTreeAsyn?uid=-1";
+            }else{
+                $('#tree').tree('options').url = "../../PModel/getModelTreeAsyn?uid=" + node.id+"&tablename="+node.tablename;
+            }
 
+        },
+        onClick:function (node) {
+            var boundsmax = node.boundsmax;
+            var boundsmin = node.boundsmin;
+            if (node.tablename != undefined) {
+                //得到结点所存的表名，作为pmodels数组的索引找到对应的pmodel对象
+                var unitname = node.tablename;
+                //根据最大最小包围盒定位
+                var boundingSphere = FreeDoTool.getSphereFromBoundsMinMax(boundsmax, boundsmin, pmodels[unitname])
+                FreedoApp.viewers["earth"].camera.flyToBoundingSphere(boundingSphere,{duration:0})
+            }
+            DungouViewer.highlightmodel(node.id)
+        /*onCheck:function (node,checked) {
+            //得到所有未勾选的结点
+            var nodes = $('#tree').tree('getChecked', 'unchecked');
+            //用于存放style的数组，第一个PMODEL模型对象一个style
+            var models =[];
+            //用unitname作为models数据的索引，不同结点根据所属PMODEL模型对象，放入相应的style中
+            for(i in nodes){
+                var index = nodes[i].tablename;
+                var uid = ["${component} === \'" + nodes[i].uid + "\'", 'false'];
+                if(models[index]==null){
+                    models[index]=[];
+                }
+                models[index].push(uid)
+            }
+            //最后给没有勾选的结点设置成显示
+            for(var index in models){
+                models[index].push(['true', 'true'])
+            }
+            //遍历未勾选的结点
+            for(i in nodes){
+                //遍历模型对象
+                for (var index in pmodels) {
+                    //根据结点的表名对应模型数组的索引找到相应的模型对象，并设置对象的隐藏style
+                    if(index==nodes[i].tablename){
+                        pmodels[index].style = new FreeDo.FreedoPModelStyle({
+                            show: {
+                                conditions:models[index]
+                            }
+                        });
+                    }
+                }
+            }
+        },*/},
+        onLoadSuccess:function (node, data) {
+            // console.log(data);
+        }
+    });
 
     //entity绘制的线路
     var line1 = FreedoApp.viewers["earth"].entities.add({

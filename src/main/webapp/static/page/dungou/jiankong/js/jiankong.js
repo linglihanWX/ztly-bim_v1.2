@@ -2,8 +2,29 @@ $(function () {
     $(".three-menu li:nth-of-type(2) a").addClass("second-active").parent().siblings().children("a").removeClass("second-active");
     $(".page-nav ul li:nth-of-type(1) a").addClass("active").parent().siblings().children("a").removeClass("active");
     var timer = null;
+/*构件树*/
+    $(".tree-box-title .iconfont").on("click",function () {
+        if($(this).hasClass("icon-hidden")){
+            $(".tree-box").stop().animate({
+                left:-200
+            },"fast",function () {
+                $(".tree-box-title .iconfont").css({
+                    right:-30
+                })
+            });
 
+        }else{
+            $(".tree-box").stop().animate({
+                left:0
+            },"fast",function () {
+                $(".tree-box-title .iconfont").css({
+                    right:0
+                })
+            });
 
+        }
+        $(this).toggleClass("icon-hidden icon-show")
+    })
 
     // canvas画图
     renderDrilling();

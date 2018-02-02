@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="${ctx }/static/page/dungou/common/font/iconfont.css">
     <link rel="stylesheet" href="${ctx }/static/page/dungou/jiankong/css/jiankong.css">
     <script src="${ctx }/static/page/common/js/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="${ctx }/static/page/common/css/easyui.css">
     <link href="http://res.gbim360.com/lib/freedo/rel/1.5.3.1/Freedo/Widgets/widgets.css" rel="stylesheet">
     <script src="http://res.gbim360.com/lib/freedo/rel/1.5.3.1/Freedo/Freedo.js"></script>
     <script src="http://res.gbim360.com/shared/1710_lodash/lodash.min.js"></script>
@@ -61,10 +62,16 @@
                     <span id = "dungoujishijiao" class="dghh">盾构机姿态</span>
                     <img id="resetview"src="${ctx }/static/page/dungou/jiankong/img/danger.png" alt="">
                 </p>
+                <div class="tree-box">
+                    <p class="tree-box-title">tree <i class="iconfont icon-hidden"></i></p>
+                    <div id="tree">
+
+                    </div>
+                </div>
                 <ul class="changeContent">
-                    <li class="main-page"><i class="iconfont icon-main-page"></i>&nbsp;&nbsp;&nbsp;主页面</li>
-                    <li class="three-page"><i class="iconfont icon-swzs"></i>&nbsp;&nbsp;&nbsp;三维页面</li>
-                    <li class="two-page"><i class="iconfont icon-yemian"></i>&nbsp;&nbsp;&nbsp;二维页面</li>
+                    <li class="main-page"><i class="iconfont icon-main-page"></i>&nbsp;&nbsp;<span>主页面</span></li>
+                    <li class="three-page"><i class="iconfont icon-swzs"></i>&nbsp;&nbsp;<span>三维页面</span></li>
+                    <li class="two-page"><i class="iconfont icon-yemian"></i>&nbsp;&nbsp;<span>二维页面</span></li>
                 </ul>
                                 <div class="tipbox" id="tipbox1">
 					<p>提示</p>
@@ -264,6 +271,8 @@
     <span class="close">×</span>
     <ul class="list"></ul>
 </div>
+<script src="${ctx}/static/page/common/js/jquery-easyui-1.4.5/jquery.easyui.min.js"></script>
+<script src="${ctx}/static/page/common/js/jquery-easyui-1.4.5/locale/easyui-lang-zh_CN.js"></script>
 <script src="${ctx }/static/page/dungou/common/js/appendHeader.js"></script>
 <script src="${ctx }/static/page/dungou/common/js/danpanHeader.js"></script>
 <script src="${ctx }/static/page/common/js/nav.js"></script>
