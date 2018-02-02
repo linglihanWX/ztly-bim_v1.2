@@ -484,19 +484,54 @@ function initEntities(viewer) {
                     121.61419971201384, 38.952850605114364,
                     121.61488866358799, 38.95166932433065,
                     121.61504611872272, 38.95062460623984,
-                    121.62024154952725, 38.93020774283203,
-                    121.62079840051048, 38.92833355870257,
-                    121.6211754421881, 38.927660591537894,
-                    121.62203768455467, 38.92672914057143,
-                    121.62259337661449, 38.92564313453812,
-                    121.62330218345369, 38.92434019585824,
-                    121.62374838697704, 38.92305321084292,
-                    121.62404269310349, 38.92168051864768,
+                    121.6175697749288,38.94028519822586
                 ]),
-            width: 5,
-            material: FreeDo.Color.RED,
+            width: 25,
+            material:  new FreeDo.PolylineDashMaterialProperty({
+                color : FreeDo.Color.LIGHTYELLOW,
+                dashPattern: parseInt("11111111110", 2)
+            }),
             distanceDisplayCondition: new FreeDo.DistanceDisplayCondition(0.0, 10000)
         }
+    });
+    var suidao2 = viewer.entities.add({
+    	name: '隧道',
+    	polyline: {
+    		positions: new Freedo.Cartesian3.fromDegreesArray(
+    				[
+    					121.6175697749288,38.94028519822586,
+    					121.61803402054308,38.93896078953926
+    					]),
+    					width: 25,
+    					material:  new FreeDo.PolylineDashMaterialProperty({
+    						color : FreeDo.Color.GREEN,
+    						dashPattern: parseInt("11111111110", 2)
+    					}),
+    					distanceDisplayCondition: new FreeDo.DistanceDisplayCondition(0.0, 10000)
+    	}
+    });
+    var suidao3 = viewer.entities.add({
+    	name: '隧道',
+    	polyline: {
+    		positions: new Freedo.Cartesian3.fromDegreesArray(
+    				[
+    					121.61803402054308,38.93896078953926,
+    					121.62024154952725, 38.93020774283203,
+    					121.62079840051048, 38.92833355870257,
+    					121.6211754421881, 38.927660591537894,
+    					121.62203768455467, 38.92672914057143,
+    					121.62259337661449, 38.92564313453812,
+    					121.62330218345369, 38.92434019585824,
+    					121.62374838697704, 38.92305321084292,
+    					121.62404269310349, 38.92168051864768,
+    					]),
+    					width: 25,
+    					material:  new FreeDo.PolylineDashMaterialProperty({
+    						color : FreeDo.Color.LIGHTSKYBLUE,
+    						dashPattern: parseInt("11111111110", 2)
+    					}),
+    					distanceDisplayCondition: new FreeDo.DistanceDisplayCondition(0.0, 10000)
+    	}
     });
     var hangdaoletf = viewer.entities.add({
         name: '航道左',
@@ -733,6 +768,102 @@ function initEntities(viewer) {
             distanceDisplayCondition: new FreeDo.DistanceDisplayCondition(0.0, 10000)
         }
 
+    });
+    viewer.entities.add({
+        name: "危险源1",
+        show: true,
+        position: FreeDo.Cartesian3.fromDegrees(121.62682095605028, 38.92107920361492, 1),
+        point: { // 点
+            pixelSize: 5,
+            color: FreeDo.Color.RED,
+            outlineColor: FreeDo.Color.WHITE,
+            outlineWidth: 2,
+            distanceDisplayCondition: new FreeDo.DistanceDisplayCondition(0.0, 10000)
+        },
+        label: { // 文字标签
+            text: "危险源： 火车站",
+            font: '20pt monospace',
+            style: FreeDo.LabelStyle.FILL_AND_OUTLINE,
+            outlineWidth: 2,
+            backgroundColor: FreeDo.Color.ORANGERED,
+            showBackground: true,
+            fillColor: FreeDo.Color.YELLOW,
+            verticalOrigin: FreeDo.VerticalOrigin.BOTTOM, // 垂直方向以底部来计算标签的位置
+            pixelOffset: new FreeDo.Cartesian2(0, -9),// 偏移量,
+            distanceDisplayCondition: new FreeDo.DistanceDisplayCondition(0.0, 10000)
+        }
+    });
+    viewer.entities.add({
+    	name: "危险源2",
+    	show: true,
+    	position: FreeDo.Cartesian3.fromDegrees(121.61218097766616, 38.940214688459356, 1),
+    	point: { // 点
+    		pixelSize: 5,
+    		color: FreeDo.Color.RED,
+    		outlineColor: FreeDo.Color.WHITE,
+    		outlineWidth: 2,
+    		distanceDisplayCondition: new FreeDo.DistanceDisplayCondition(0.0, 10000)
+    	},
+    	label: { // 文字标签
+    		text: "危险源： 航母建造区",
+    		font: '20pt monospace',
+    		style: FreeDo.LabelStyle.FILL_AND_OUTLINE,
+    		outlineWidth: 2,
+    		backgroundColor: FreeDo.Color.ORANGERED,
+    		showBackground: true,
+    		fillColor: FreeDo.Color.YELLOW,
+    		verticalOrigin: FreeDo.VerticalOrigin.BOTTOM, // 垂直方向以底部来计算标签的位置
+    		pixelOffset: new FreeDo.Cartesian2(0, -9),// 偏移量,
+    		distanceDisplayCondition: new FreeDo.DistanceDisplayCondition(0.0, 10000)
+    	}
+    });
+    viewer.entities.add({
+    	name: "危险源3",
+    	show: true,
+    	position: FreeDo.Cartesian3.fromDegrees(121.61130812248769, 38.952837944195025, 1),
+    	point: { // 点
+    		pixelSize: 5,
+    		color: FreeDo.Color.RED,
+    		outlineColor: FreeDo.Color.WHITE,
+    		outlineWidth: 2,
+    		distanceDisplayCondition: new FreeDo.DistanceDisplayCondition(0.0, 10000)
+    	},
+    	label: { // 文字标签
+    		text: "危险源： 居民住宅区",
+    		font: '20pt monospace',
+    		style: FreeDo.LabelStyle.FILL_AND_OUTLINE,
+    		outlineWidth: 2,
+    		backgroundColor: FreeDo.Color.ORANGERED,
+    		showBackground: true,
+    		fillColor: FreeDo.Color.YELLOW,
+    		verticalOrigin: FreeDo.VerticalOrigin.BOTTOM, // 垂直方向以底部来计算标签的位置
+    		pixelOffset: new FreeDo.Cartesian2(0, -9),// 偏移量,
+    		distanceDisplayCondition: new FreeDo.DistanceDisplayCondition(0.0, 10000)
+    	}
+    });
+    viewer.entities.add({
+    	name: "危险源4",
+    	show: true,
+    	position: FreeDo.Cartesian3.fromDegrees(121.62038212898699, 38.94851299643816, 1),
+    	point: { // 点
+    		pixelSize: 5,
+    		color: FreeDo.Color.RED,
+    		outlineColor: FreeDo.Color.WHITE,
+    		outlineWidth: 2,
+    		distanceDisplayCondition: new FreeDo.DistanceDisplayCondition(0.0, 10000)
+    	},
+    	label: { // 文字标签
+    		text: "危险源： 海底溶洞",
+    		font: '20pt monospace',
+    		style: FreeDo.LabelStyle.FILL_AND_OUTLINE,
+    		outlineWidth: 2,
+    		backgroundColor: FreeDo.Color.ORANGERED,
+    		showBackground: true,
+    		fillColor: FreeDo.Color.YELLOW,
+    		verticalOrigin: FreeDo.VerticalOrigin.BOTTOM, // 垂直方向以底部来计算标签的位置
+    		pixelOffset: new FreeDo.Cartesian2(0, -9),// 偏移量,
+    		distanceDisplayCondition: new FreeDo.DistanceDisplayCondition(0.0, 10000)
+    	}
     });
     entityarray.push(label1);
     entityarray.push(label2);

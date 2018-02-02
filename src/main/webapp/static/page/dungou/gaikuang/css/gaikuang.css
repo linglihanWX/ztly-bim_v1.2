@@ -153,11 +153,11 @@
 }
 
 #earth>p>span:nth-of-type(2) {
-    background-color: #C33A30;
+    background-color: #00ff80;
 }
 
 #earth>p>span:nth-of-type(4) {
-    background-color: #FC733D;
+    background-color: #87CEFA;
 }
 
 .swiper-container {
