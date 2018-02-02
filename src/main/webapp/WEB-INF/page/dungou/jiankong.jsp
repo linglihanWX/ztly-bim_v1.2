@@ -63,7 +63,7 @@
                     <img id="resetview"src="${ctx }/static/page/dungou/jiankong/img/danger.png" alt="">
                 </p>
                 <div class="tree-box">
-                    <p class="tree-box-title">tree <i class="iconfont icon-hidden"></i></p>
+                    <p class="tree-box-title">模型构件树<i class="iconfont icon-hidden"></i></p>
                     <div id="tree">
 
                     </div>
