@@ -419,6 +419,18 @@ function reloadJingMoDungouji() {
            id : 'cameraPos'+i,
            type : 'cameraImg',
            position :  Freedo.Cartesian3.fromRadians(cartographic.longitude,cartographic.latitude,cartographic.height+10),  
+           label: { // 文字标签
+               text: "相机视角："+i,
+               font: '10pt monospace',
+               style: FreeDo.LabelStyle.FILL_AND_OUTLINE,
+               outlineWidth: 2,
+               backgroundColor: FreeDo.Color.LIGHTSKYBLUE,
+               showBackground: false,
+               fillColor: FreeDo.Color.LIGHTSKYBLUE,
+               verticalOrigin: FreeDo.VerticalOrigin.BOTTOM, // 垂直方向以底部来计算标签的位置
+               pixelOffset: new FreeDo.Cartesian2(0, -25),// 偏移量
+               distanceDisplayCondition: new FreeDo.DistanceDisplayCondition(0.0, 10000)
+           },
            billboard : { //图标  
                image : '../../static/page/dungou/guanpianposui/img/cheng_tanhao.png',  
                width : 30,  

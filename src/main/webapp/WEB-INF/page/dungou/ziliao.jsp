@@ -70,9 +70,11 @@
                 <ul>
                     <li><span>时间:</span><input type="date" name="" id=""></li>
                     <li><span>编号:</span><input type="text" name="" id=""></li>
+                    <li><input type="button" name="" id="search" class="btn-active btn" value="查询"></li>
                     <li><span>责任人:</span><input type="text" name="" id=""></li>
                     <li><span>资料形成单位:</span><input type="text" name="" id=""></li>
-                    <li><input type="button" name="" id="search" class="btn-active" value="查询"><input type="button" name="" id="reset" value="重置"></li>
+                     <li><input type="button" name="" id="reset" value="重置" class="btn"></li>
+                    
                 </ul>
             </div>
             <div class="content-bottom">
