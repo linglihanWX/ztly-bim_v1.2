@@ -1,8 +1,8 @@
 $(function(){
     $(".three-menu li:nth-of-type(5) a").addClass("second-active").parent().siblings().children("a").removeClass("second-active");
-    $(".content-top>ul li:last-of-type input").each(function (index, element) {
+    $(".btn").each(function (index, element) {
         $(element).on("click", function () {
-            $(this).addClass("btn-active").siblings().removeClass("btn-active");
+            $(this).addClass("btn-active").parent().siblings().children(".btn").removeClass("btn-active");
         });
     });
     $(".content-left ul li span").each(function (index, element) {
