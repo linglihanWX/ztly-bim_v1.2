@@ -4,7 +4,7 @@
     width: 100%;
     height: calc(100% - 30px) ;
 }
-#earth p{
+#earth>p{
     position: absolute;
     top: 0;
     left: 0;
@@ -331,9 +331,9 @@
 .panel-tool>a:not(:last-of-type){
     display: none;
 }
-.tree-icon{
-    display: none;
-}
+/*.tree-icon{*/
+    /*display: none;*/
+/*}*/
 .datagrid-view2 .datagrid-header .datagrid-header-inner,
 .datagrid-view2 .datagrid-header .datagrid-header-inner .datagrid-htable,
 .datagrid-view2 .datagrid-body .datagrid-btable{

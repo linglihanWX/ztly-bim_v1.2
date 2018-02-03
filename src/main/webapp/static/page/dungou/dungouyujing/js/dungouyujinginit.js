@@ -228,7 +228,7 @@ function setEntity (nodes){
 	            	 var cartographic = Freedo.Cartographic.fromCartesian(nowPos.center);
 	            	 var citizensBankPark =  FreedoApp.viewers["earth"].entities.add( {  
 		                name : imgpos[nodes[i].id-1].id,  
-		                position :  Freedo.Cartesian3.fromRadians(cartographic.longitude,cartographic.latitude,cartographic.height+3),  
+		                position :  Freedo.Cartesian3.fromRadians(cartographic.longitude,cartographic.latitude,cartographic.height+16),
 		                billboard : { //图标  
 		                    image : '../../static/page/dungou/guanpianposui/img/lu_tanhao.png',  
 		                    width : 30,  

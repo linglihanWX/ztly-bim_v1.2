@@ -85,17 +85,19 @@
 }
 
 #earth {
+    position: relative;
     width: 100%;
     height: calc(100% - 40px);
+    overflow: hidden;
 }
 
 .panel-tool>a:not(:last-of-type){
     display: none;
 }
 
-.tree-icon{
+/*.tree-icon{
     display: none;
-}
+}*/
 .datagrid-view2 .datagrid-header .datagrid-header-inner,
 .datagrid-view2 .datagrid-header .datagrid-header-inner .datagrid-htable,
 .datagrid-view2 .datagrid-body .datagrid-btable{

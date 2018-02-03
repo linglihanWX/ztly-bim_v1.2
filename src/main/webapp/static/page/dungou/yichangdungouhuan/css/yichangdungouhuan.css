@@ -71,8 +71,10 @@
     box-sizing: border-box;
 }
 #earth{
+    position: relative;
     width: 100%;
     height: calc(100% - 40px);
+    overflow: hidden;
 }
 .content-bottom {
     width: 100%;
@@ -120,9 +122,9 @@
     width: 100%;
 }
 
-.tree-icon{
+/*.tree-icon{
     display: none;
-}
+}*/
 .content-top>ul li:last-of-type input {
     text-indent: 0;
 }

@@ -61,6 +61,12 @@ $(function(){
             console.log(nodes);
             restAllEntity();
             setEntity(nodes);
+        },
+        onUncheck:function (index,row) {
+            let nodes = $("#dataGrid").datagrid("getChecked");
+            console.log(nodes);
+            restAllEntity();
+            setEntity(nodes);
         }
     });
 });

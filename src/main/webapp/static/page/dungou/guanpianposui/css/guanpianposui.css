@@ -158,8 +158,9 @@
     position: relative;
     width: 100%;
     height: calc(100% - 40px) ;
+    overflow: hidden;
 }
-#earth p{
+#earth>p{
     position: absolute;
     top: 0;
     left: 0;
@@ -237,9 +238,9 @@
     width: 150px;
     height: auto;
 }
-.tree-icon{
+/*.tree-icon{
     display: none;
-}
+}*/
 .panel-tool{
 	display:block;
 }

@@ -180,6 +180,36 @@ $(function(){
             }
         }
     });
+    $('#tree').tree({
+        method:"get",
+        data:[{
+            id:"-1",
+            text:"模型构件树",
+            state:"closed"
+        }],
+        onBeforeExpand:function(node,param){
+            if(node.id=="-1"){
+                $('#tree').tree('options').url = "../../PModel/getModelTreeAsyn?uid=-1";
+            }else{
+                $('#tree').tree('options').url = "../../PModel/getModelTreeAsyn?uid=" + node.id+"&tablename="+node.tablename;
+            }
+
+        },
+        onClick:function (node) {
+            var boundsmax = node.boundsmax;
+            var boundsmin = node.boundsmin;
+            if (node.tablename != undefined) {
+                //得到结点所存的表名，作为pmodels数组的索引找到对应的pmodel对象
+                var unitname = node.tablename;
+                //根据最大最小包围盒定位
+                var boundingSphere = FreeDoTool.getSphereFromBoundsMinMax(boundsmax, boundsmin, pmodels[unitname])
+                FreedoApp.viewers["earth"].camera.flyToBoundingSphere(boundingSphere,{duration:0})
+            }
+            DungouViewer.highlightmodel(node.id)},
+        onLoadSuccess:function (node, data) {
+            // console.log(data);
+        }
+    });
 });
 
 function setEntity (nodes){
