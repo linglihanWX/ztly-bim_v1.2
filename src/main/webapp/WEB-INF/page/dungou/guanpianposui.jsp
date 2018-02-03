@@ -57,6 +57,12 @@
                 <p>三维模型</p>
                 <div id="earth" >
                     <p><span></span><span>一级破损</span><span></span><span>二级破损</span><span></span><span>三级破损</span></p>
+                    <div class="tree-box">
+                        <p class="tree-box-title">模型构件树<i class="iconfont icon-hidden"></i></p>
+                        <div id="tree">
+
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- <div class="content-top">
@@ -109,6 +115,7 @@
 <script src="${ctx}/static/page/common/js/nav.js"></script>
 <script src="${ctx }/static/page/dungou/guanpianposui/js/guanpianposui.js"></script>
 <script src="${ctx }/static/page/dungou/guanpianposui/js/guanpianposui3D.js"></script>
+<script src="${ctx }/static/page/dungou/guanpianposui/js/guanpianposui_viewer.js"></script>
 <script src="${ctx }/static/webgl/caozuoqi/cameraControlRightAdjust.js"></script>
 </body>
 

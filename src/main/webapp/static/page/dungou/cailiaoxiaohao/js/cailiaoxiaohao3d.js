@@ -2,6 +2,7 @@ var pmodel = {}
 var allready = [];
 //存放盾构模型的数组
 var dungouModels = [];
+var hiderings = []
 var shuju = [
 	{
 		id:"1",
@@ -33,6 +34,7 @@ $(function(){
 	 //初始化地球
     FreedoApp.init("earth");
     cameraControl(FreedoApp.viewers["earth"]);
+    DungouViewer.initLeftClick(FreedoApp.viewers["earth"],function(){})
     var pmodels = [];
     $.ajax({
         url: "../../PModel/getPmodel",
@@ -107,18 +109,20 @@ $(function(){
                 if(model[key].name=="dalian2"){
                     //初始化模型的颜色，用来显示已经盾构的环和没有盾构的环
                     for (var i = 2; i <=9668; i+=18) {
-                        allready.push(["${component} ~==  \'"+i+"\'", 'color("aquamarine",0.5)'])
+                        allready.push(["${component} ~==  \'"+i+"\'", 'color("gray")'])
                     }
-                    allready.push(['true', 'color("white")'])
+                    allready.push(['true', 'color("white",0.3)'])
+                    //部分盾构环隐藏
+                    for (var i = 8984; i <=9668; i+=18){
+                        hiderings.push(["${component} ~==  \'"+i+"\'", 'false'])
+                    }
+                    hiderings.push(['true','true'])
                     pmodel.style = new FreeDo.FreedoPModelStyle({
                         color : {
                             conditions : allready
                         },
                         show :{
-                            conditions : [
-                                ["${component} ~==  \'9668\'", 'false'],
-                                ['true','true']
-                            ]
+                            conditions : hiderings
                         }
                     });
 
@@ -161,7 +165,7 @@ $(function(){
                     var cheshen = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
                         {
                             id: "盾构机车身",
-                            url: "http://182.92.7.32:9000/ztly/glb/cheshen.glb",
+                            url: "http://182.92.7.32:9000/ztly/jianmiandungou/cheshen/2.glb",
                             show: true,                     // default
                             modelMatrix:FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979,-491.5,249,6,0,1.2,1.2,1.2),
                             allowPicking: true,            // not pickable

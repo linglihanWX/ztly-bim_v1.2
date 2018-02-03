@@ -54,7 +54,14 @@
         </div>
         <div class="three-box">
             <p>三维模型</p>
-            <div id="earth"></div>
+            <div id="earth">
+                <div class="tree-box">
+                    <p class="tree-box-title">模型构件树<i class="iconfont icon-hidden"></i></p>
+                    <div id="tree">
+
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="info">
             <p>材料消耗列表</p>
@@ -76,6 +83,7 @@
 <script src="${ctx}/static/page/common/js/nav.js"></script>
 <script src="${ctx}/static/page/dungou/cailiaoxiaohao/js/cailiaoxiaohao.js"></script>
 <script src="${ctx}/static/page/dungou/cailiaoxiaohao/js/cailiaoxiaohao3d.js"></script>
+<script src="${ctx}/static/page/dungou/cailiaoxiaohao/js/cailiaoxiaohao_viewer.js"></script>
 <script src="${ctx }/static/webgl/caozuoqi/cameraControlRightAdjust.js"></script>
 </body>
 

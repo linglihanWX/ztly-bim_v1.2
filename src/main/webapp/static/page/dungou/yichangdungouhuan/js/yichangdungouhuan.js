@@ -6,7 +6,29 @@ $(function(){
             $(this).addClass("btn-active").siblings().removeClass("btn-active");
         });
     });
+    /*构件树*/
+    $(".tree-box-title .iconfont").on("click",function () {
+        if($(this).hasClass("icon-hidden")){
+            $(".tree-box").stop().animate({
+                left:-200
+            },"fast",function () {
+                $(".tree-box-title .iconfont").css({
+                    right:-30
+                })
+            });
 
+        }else{
+            $(".tree-box").stop().animate({
+                left:0
+            },"fast",function () {
+                $(".tree-box-title .iconfont").css({
+                    right:0
+                })
+            });
+
+        }
+        $(this).toggleClass("icon-hidden icon-show")
+    })
     $('#dataOne').tree({
         url: "../../static/page/dungou/yichangdungouhuan/js/tree1.json",
         method:"get",
@@ -36,6 +58,7 @@ $(function(){
         ]],
         onClickRow:function (index,row) {
         	console.log(index)
+            DungouViewer.highlightmodel(row.shuju)
         	DungouViewer.huoqushujuhuizhishiti(row.shuju);
         },
     });

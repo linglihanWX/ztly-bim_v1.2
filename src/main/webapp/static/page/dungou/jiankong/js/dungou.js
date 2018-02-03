@@ -452,7 +452,7 @@ function reloadJianMoDungouji() {
 	 for(var i in cameraPositionData){
 		 FreedoApp.viewers["earth"].entities.removeById('cameraPos'+i);
 	 }
-	 var fixedFrameTransform = Freedo.Transforms.localFrameToFixedFrameGenerator('north', 'west');
+	var fixedFrameTransform = Freedo.Transforms.localFrameToFixedFrameGenerator('north', 'west');
     var hpRoll = new Freedo.HeadingPitchRoll();
     hpRoll.heading = Freedo.Math.toRadians(340);
     hpRoll.pitch = Freedo.Math.toRadians(5);

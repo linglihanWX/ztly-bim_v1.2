@@ -10,7 +10,29 @@ $(function(){
        $("#addDangers").window('open')
     });
 
+    /*构件树*/
+    $(".tree-box-title .iconfont").on("click",function () {
+        if($(this).hasClass("icon-hidden")){
+            $(".tree-box").stop().animate({
+                left:-200
+            },"fast",function () {
+                $(".tree-box-title .iconfont").css({
+                    right:-30
+                })
+            });
 
+        }else{
+            $(".tree-box").stop().animate({
+                left:0
+            },"fast",function () {
+                $(".tree-box-title .iconfont").css({
+                    right:0
+                })
+            });
+
+        }
+        $(this).toggleClass("icon-hidden icon-show")
+    })
     $('#dataGrid').datagrid({
         url: "../../static/page/dungou/dungouyujing/js/doc.json",
         method:"get",

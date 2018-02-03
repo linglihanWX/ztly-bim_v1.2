@@ -67,7 +67,12 @@
             <div class="content-top">
                 <p>数据定位</p>
                 <div id="earth">
+                    <div class="tree-box">
+                        <p class="tree-box-title">模型构件树<i class="iconfont icon-hidden"></i></p>
+                        <div id="tree">
 
+                        </div>
+                    </div>
                 </div>
 
 
