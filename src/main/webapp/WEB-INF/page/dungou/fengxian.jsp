@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="${ctx }/static/page/dungou/common/css/header.css">
     <link rel="stylesheet" type="text/css" href="${ctx }/static/page/common/css/nav.css">
     <link rel="stylesheet" type="text/css" href="${ctx }/static/page/dungou/common/font/iconfont.css">
+    <link rel="stylesheet" href="${ctx }/static/page/common/css/easyui.css">
     <link rel="stylesheet" href="${ctx }/static/page/common/css/swiper-3.4.2.min.css">
     <link rel="stylesheet" href="${ctx }/static/page/dungou/fengxian/css/fengxian.css">
     <script src="${ctx }/static/page/common/js/jquery-3.2.1.min.js"></script>
@@ -61,6 +62,12 @@
                     <span class="line">右线</span>当前环:<span class="line">110</span>状态停止
                     <img id="resetview" src="${ctx }/static/page/dungou/jiankong/img/danger.png" alt="">
                 </p>
+                <div class="tree-box">
+                    <p class="tree-box-title">模型构件树<i class="iconfont icon-hidden"></i></p>
+                    <div id="tree">
+
+                    </div>
+                </div>
                 <!--  <ul class="changeContent">
                      <li class="main-page"><i class="iconfont icon-main-page"></i>&nbsp;&nbsp;&nbsp;主页面</li>
                      <li class="three-page"><i class="iconfont icon-swzs"></i>&nbsp;&nbsp;&nbsp;三维页面</li>
@@ -93,7 +100,8 @@
     </div>
 
 </div>
-
+<script src="${ctx}/static/page/common/js/jquery-easyui-1.4.5/jquery.easyui.min.js"></script>
+<script src="${ctx}/static/page/common/js/jquery-easyui-1.4.5/locale/easyui-lang-zh_CN.js"></script>
 
 <script src="${ctx }/static/page/common/js/swiper-3.4.2.jquery.min.js"></script>
 <script src="${ctx }/static/page/dungou/common/js/appendHeader.js"></script>
