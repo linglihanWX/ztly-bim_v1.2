@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="${ctx }/static/page/dungou/common/css/header.css">
     <link rel="stylesheet" type="text/css" href="${ctx }/static/page/common/css/nav.css">
     <link rel="stylesheet" type="text/css" href="${ctx }/static/page/dungou/common/font/iconfont.css">
-
+    <link rel="stylesheet" href="${ctx }/static/page/common/css/easyui.css">
     <link rel="stylesheet" href="${ctx }/static/page/dungou/dongtaifengxian/css/dongtaifengxian.css">
     <%@ include file="/WEB-INF/page/common/common_FDNew.jsp" %>
 </head>
@@ -63,6 +63,12 @@
                     <span class="line">左线</span>当前环:<span class="line">110</span>状态停止
                     <span class="line">右线</span>当前环:<span class="line">110</span>状态停止
                 </p>
+                <div class="tree-box">
+                    <p class="tree-box-title">模型构件树<i class="iconfont icon-hidden"></i></p>
+                    <div id="tree">
+
+                    </div>
+                </div>
             </div>
         </div>
         <div class="content-bottom">
@@ -90,9 +96,9 @@
         </div>
     </div>
 </div>
-
-
 <script src="${ctx}/static/page/common/js/jquery-3.2.1.min.js"></script>
+<script src="${ctx}/static/page/common/js/jquery-easyui-1.4.5/jquery.easyui.min.js"></script>
+<script src="${ctx}/static/page/common/js/jquery-easyui-1.4.5/locale/easyui-lang-zh_CN.js"></script>
 <script src="${ctx}/static/page/dungou/common/js/appendHeader.js"></script>
 <script src="${ctx }/static/page/dungou/common/js/danpanHeader.js"></script>
 <script src="${ctx}/static/page/common/js/nav.js"></script>

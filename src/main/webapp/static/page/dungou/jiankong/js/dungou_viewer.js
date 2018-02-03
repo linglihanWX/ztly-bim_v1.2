@@ -143,6 +143,4 @@ DungouViewer.restorelasthighlightmodel = function () {
             flag = false;
         }
     }
-
-
 }
