@@ -271,6 +271,19 @@
     <span class="close">×</span>
     <ul class="list"></ul>
 </div>
+<div class="list-box" id="aaa">
+       <ul class="list1">
+           <li><input type="radio" name="1" id="" value="1">相机视角1</li>
+           <li><input type="radio" name="1" id="" value="2">相机视角2</li>
+           <li><input type="radio" name="1" id="" value="3">相机视角3</li>
+           <li><input type="radio" name="1" id="" value="4">相机视角4</li>
+           <li><input type="radio" name="1" id="" value="5">相机视角5</li>
+           <li><input type="radio" name="1" id="" value="6">相机视角6</li>
+           <li><input type="radio" name="1" id="" value="7">相机视角7</li>
+           <li><input type="radio" name="1" id="" value="8">相机视角8</li>
+           <li><input type="radio" name="1" id="" value="9">相机视角9</li>
+       </ul>
+   </div>
 <script src="${ctx}/static/page/common/js/jquery-easyui-1.4.5/jquery.easyui.min.js"></script>
 <script src="${ctx}/static/page/common/js/jquery-easyui-1.4.5/locale/easyui-lang-zh_CN.js"></script>
 <script src="${ctx }/static/page/dungou/common/js/appendHeader.js"></script>

@@ -37,8 +37,27 @@ $(function () {
     	$(this).toggleClass("bgcolor");
     	if($(this).hasClass("bgcolor")){
     		reloadJingMoDungouji();
+    		
+    		 $("#aaa").stop().slideDown();
+    		  $("#aaa .list1 li input").each(function () {
+    		        $(this).change(function () {
+    		        	console.log($(this).parent().index())
+    		        	var cameraid = $(this).parent().index();
+    		        	//镜头定位
+	                    FreedoApp.viewers["earth"].camera.setView({
+	                        destination: new FreeDo.Cartesian3(cameraPositionData[cameraid].x,cameraPositionData[cameraid].y,cameraPositionData[cameraid].z),
+	                        orientation: {
+	                            heading: cameraPositionData[cameraid].hpr[0],
+	                            pitch: cameraPositionData[cameraid].hpr[1],
+	                            roll: cameraPositionData[cameraid].hpr[2]
+	                        }
+	                    });
+    		        })
+    		    });
+    		 
     	}else{
     		reloadJianMoDungouji();
+    		 $("#aaa").stop().slideUp();
     	}
     });
 
@@ -125,15 +144,15 @@ $(function () {
 
     // 隐藏按钮的点击
     $(".showCheckList").on("click", function () {
-        $(".list-box").stop().slideDown();
+        $("#listBox").stop().slideDown();
     });
     $(".close").on("click", function () {
-        $(".list-box").stop().slideUp();
+        $("#listBox").stop().slideUp();
     });
     drag("listBox");
-
+    drag("aaa");
     // 勾选改变事件
-    $(".list li input").each(function () {
+    $("#listBox .list li input").each(function () {
         $(this).change(function () {
             var id = $(this).attr("data-id");
             if ($(this).prop("checked")) {

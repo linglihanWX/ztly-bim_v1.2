@@ -3,13 +3,17 @@ var allready = [];
 var hiderings = []
 var daotou = null;
 var cheshen = null;
+var daotoujingmo =null;
 var cameraPositionData = [
-	{x: -2604213.2030082094, y: 4229811.196133721, z: 3986730.838881603, hpr : [2.3637066360027617,0.00003633815467596335,0.00011722439689254571]},
-	{x: -2604228.0690015084, y: 4229809.95152005, z: 3986717.634444367, hpr : [2.348708320370112,0.00004117869581032885,0.00011650346437708237]},
-	{x: -2604318.055752073, y: 4229841.029760683, z: 3986604.4420111417, hpr : [2.3020492871006475,0.00006770979984604963,0.00010503888042023846]},
-	{x: -2604335.1311225835, y: 4229828.103609036, z: 3986605.576674064, hpr : [3.084465772093416,-0.000026181159926474962,0.00012558214577040872]},
-	{x: -2604346.0710227257, y: 4229841.824521296, z: 3986580.614643607, hpr : [2.7103281124878262,0.000026003386374373605,0.0001247688980736683]},
-	{x: -2604333.3674325626, y: 4229843.5839004, z: 3986587.8955007214, hpr : [2.490355364161721,0.00005037307603150687,0.0001154754685872561]}
+	{x: -2604188.9576993342, y: 4229824.778363, z: 3986731.0884841816, hpr : [2.0252142504225823,0.000007846544693990154,0.000026888950068304496]},
+	{x: -2604224.4673070563, y: 4229818.616830873, z: 3986712.812646269, hpr : [2.025218485086487,0.000014116741498426677,0.00002599353000132254]},
+	{x: -2604265.8927270505, y: 4229819.418719316, z: 3986683.849421127, hpr : [0.19430335441427182,0.000016894271561040952,6.283158513157883]},
+	{x: -2604257.933181328, y: 4229829.02687125, z: 3986673.410764255, hpr : [1.1237271470013832,0.00002918490954328945,6.283182103378916]},
+	{x: -2604263.5177273056, y: 4229819.315546121, z: 3986676.015648537, hpr : [2.0319755196225096,0.000021483214336370793,0.000022482405923618387]},
+	{x: -2604258.1296531195, y: 4229801.581716012, z: 3986702.5833820356, hpr : [2.7501082991764827,-0.0000029759223332259666,0.00003366340501287368]},
+	{x: -2604274.20860252, y: 4229797.369361525, z: 3986693.9382822565, hpr : [3.2482999659034553,-0.000017437013012822078,0.00003078892946373202]},
+	{x: -2604268.7610574677, y: 4229784.110900352, z: 3986717.009697681, hpr : [3.7055416378430417,-0.00003299942673851142,0.0000179777853350771]},
+	{x: -2604263.0017969776, y: 4229772.431858155, z: 3986735.966840435, hpr : [3.705541792138672,-0.000036144374234714505,0.00001621457133449411]}
 ]
 $(function () {
     var h = $("#content").height();
@@ -101,7 +105,7 @@ $(function () {
                     }
                     allready.push(['true', 'color("white",0.3)'])
                     //部分盾构环隐藏
-                    for (var i = 7868; i <=9668; i+=18){
+                    for (var i = 8984; i <=9668; i+=18){
                         hiderings.push(["${component} ~==  \'"+i+"\'", 'false'])
                     }
                     hiderings.push(['true','true'])
@@ -375,40 +379,39 @@ function reloadJingMoDungouji() {
 	 if(cheshen)FreedoApp.viewers["earth"].scene.primitives.remove(cheshen);
 	 var fixedFrameTransform = Freedo.Transforms.localFrameToFixedFrameGenerator('north', 'west');
      var hpRoll = new Freedo.HeadingPitchRoll();
-     hpRoll.heading = Freedo.Math.toRadians(340);
-     hpRoll.pitch = Freedo.Math.toRadians(5);
+     hpRoll.heading = Freedo.Math.toRadians(160);
+     hpRoll.pitch = Freedo.Math.toRadians(-5);
      var deltaRadians = Freedo.Math.toRadians(3.0);
      var daotouposition = new FreeDo.Cartesian3.fromDegrees(121.62022781066331, 38.93872856969979,-491.5)
      //加盾构机和盾构机机身
-     daotou = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
+     daotoujingmo = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
          {
              id: "盾构机刀头",
-             url: "http://182.92.7.32:9000/ztly/jianmiandungou/daotou/1.glb",
-             //url: "http://192.168.8.102:9999/ztly/glb/dungoujidaotou/dun_gou_dao_tou.gltf",
+             url: "http://182.92.7.32:9000/ztly/jingmodungou/DP-HB/DP-HB_daopan.gltf",
              show: true,                     // default
              modelMatrix:Freedo.Transforms.headingPitchRollToFixedFrame(daotouposition, hpRoll, Freedo.Ellipsoid.WGS84, fixedFrameTransform),
              allowPicking: true,            // not pickable
              debugShowBoundingVolume: false, // default
              debugWireframe: false
      }));
-    /* FreedoApp.viewers["earth"].scene.preRender.addEventListener(function(){
-      	if(daotou){
+     FreedoApp.viewers["earth"].scene.preRender.addEventListener(function(){
+      	if(daotoujingmo){
   			hpRoll.roll += deltaRadians;
   			if (hpRoll.roll > Freedo.Math.TWO_PI) {
   				hpRoll.roll -= Freedo.Math.TWO_PI;
   			}
   			//speedVector = Freedo.Cartesian3.multiplyByScalar(Freedo.Cartesian3.UNIT_X, speed / 10, speedVector);
   			//position = Freedo.Matrix4.multiplyByPoint(planePrimitive.modelMatrix, speedVector, position);
-  			Freedo.Transforms.headingPitchRollToFixedFrame(daotouposition, hpRoll, Freedo.Ellipsoid.WGS84, fixedFrameTransform, daotou.modelMatrix);
+  			Freedo.Transforms.headingPitchRollToFixedFrame(daotouposition, hpRoll, Freedo.Ellipsoid.WGS84, fixedFrameTransform, daotoujingmo.modelMatrix);
   		}
-      });*/
+      });
     cheshen = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
          {
              id: "盾构机车身",
-             url: "http://182.92.7.32:9000/ztly/jianmiandungou/cheshen/2.glb",
-             //url: "http://192.168.8.102:9999/ztly/glb/cheshen.glb",
+             //url: "http://182.92.7.32:9000/ztly/jianmiandungou/cheshen/2.glb",
+             url: "http://182.92.7.32:9000/ztly/jingmodungou/DP-HB/DP-HB_jishen.gltf",
              show: true,                     // default
-             modelMatrix:FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979,-491.5,249,6,0,1.2,1.2,1.2),
+             modelMatrix:FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979,-491.5,69,-6,0,1.2,1.2,1.2),
              allowPicking: true,            // not pickable
              debugShowBoundingVolume: false, // default
              debugWireframe: false
@@ -444,7 +447,7 @@ function reloadJingMoDungouji() {
 
 //重新加载减模盾构机
 function reloadJianMoDungouji() {
-	if(daotou)FreedoApp.viewers["earth"].scene.primitives.remove(daotou);
+	if(daotoujingmo)FreedoApp.viewers["earth"].scene.primitives.remove(daotoujingmo);
 	 if(cheshen)FreedoApp.viewers["earth"].scene.primitives.remove(cheshen);
 	 for(var i in cameraPositionData){
 		 FreedoApp.viewers["earth"].entities.removeById('cameraPos'+i);

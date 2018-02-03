@@ -330,6 +330,9 @@
     background-color: #fff;
     z-index:2;
 }
+.list-box:last-of-type{
+	left: 80%;
+}
 .close{
     position: absolute;
     right: 0;
