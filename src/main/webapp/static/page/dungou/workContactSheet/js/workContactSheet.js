@@ -19,6 +19,7 @@ $(function(){
         striped: true,
         idField: "id",
         nowrap:false,
+        fit:true,
         // checkbox:true,
         // treeField:'project',
         // pageList: [10,20,30],

@@ -29,6 +29,7 @@ $(function(){
         // singleSelect: true,
         idField: "id",
         rownumbers:true,
+        fit:true,
         columns: [[
             { field: 'ck', checkbox:true},
             { title: '一级分类', field: 'firstClassify', align: 'left'},

@@ -14,6 +14,7 @@ $(function(){
     $('#dataGrid').treegrid({
         url: "../../static/page/dungou/riskWarningStatistics/json/riskWaringStatistics.json",
         method:"get",
+        fit:true,
         //striped: true,
         idField: "id",
         treeField:'line',

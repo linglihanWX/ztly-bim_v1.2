@@ -17,6 +17,7 @@ $(function(){
         url: "../../static/page/dungou/riskWarningHandle/json/riskWaringHandle.json",
         method:"get",
         striped: true,
+        fit:true,
         singleSelect: true,
         idField: "id",
         rownumbers:true,

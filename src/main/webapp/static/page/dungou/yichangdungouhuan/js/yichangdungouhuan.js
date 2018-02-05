@@ -44,6 +44,7 @@ $(function(){
         striped: true,
         singleSelect: true,
         idField: "id",
+        fit:true,
         rownumbers:true,
         // pageList: [10,20,30],
         // pagination:true,

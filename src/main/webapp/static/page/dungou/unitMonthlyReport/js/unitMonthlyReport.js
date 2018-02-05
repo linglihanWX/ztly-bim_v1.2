@@ -17,6 +17,7 @@ $(function(){
         method:"get",
         striped: true,
         singleSelect: true,
+        fit:true,
         idField: "id",
         rownumbers:true,
         columns: [[

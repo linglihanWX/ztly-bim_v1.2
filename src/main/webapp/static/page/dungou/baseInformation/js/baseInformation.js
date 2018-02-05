@@ -26,6 +26,7 @@ $(function(){
         url: "../../static/page/dungou/baseInformation/json/standardlist.json",
         method:"get",
         striped: true,
+        fit:true,
         // singleSelect: true,
         idField: "id",
         // checkbox:true,

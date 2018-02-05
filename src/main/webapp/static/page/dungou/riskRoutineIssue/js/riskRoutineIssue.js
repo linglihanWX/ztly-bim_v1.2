@@ -17,6 +17,7 @@ $(function(){
         url: "../../static/page/dungou/riskRoutineIssue/json/problemlist.json",
         method:"get",
         striped: true,
+        fit:true,
         idField: "id",
         nowrap:false,
         // checkbox:true,

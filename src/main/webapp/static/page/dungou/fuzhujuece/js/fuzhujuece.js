@@ -13,6 +13,7 @@ $(function () {
         singleSelect: true,
         idField: "id",
         rownumbers: true,
+        fit:true,
         //fitColumns:true,
         // pageList: [10,20,30],
         // pagination:true,

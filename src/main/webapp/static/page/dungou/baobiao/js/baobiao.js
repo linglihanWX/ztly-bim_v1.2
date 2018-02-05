@@ -11,6 +11,7 @@ $(function(){
         url: "../../static/page/dungou/baobiao/json/baobiaoinfo.json",
         method:"get",
         striped: true,
+        fit:true,
         // singleSelect: true,
         idField: "id",
         rownumbers:true,

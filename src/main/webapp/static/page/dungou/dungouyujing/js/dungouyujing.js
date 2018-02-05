@@ -37,6 +37,7 @@ $(function(){
         url: "../../static/page/dungou/dungouyujing/js/doc.json",
         method:"get",
         striped: true,
+        fit:true,
         // singleSelect: true,
         idField: "id",
         // checkbox:true,

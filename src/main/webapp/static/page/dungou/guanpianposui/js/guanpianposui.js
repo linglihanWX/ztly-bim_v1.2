@@ -33,6 +33,7 @@ $(function(){
         url: "../../static/page/dungou/guanpianposui/js/doc.json",
         method:"get",
         striped: true,
+        fit:true,
         // singleSelect: false,
         idField: "id",
         // checkbox:true,

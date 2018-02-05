@@ -19,6 +19,7 @@ $(function(){
         striped: true,
         singleSelect:true,
         idField: "id",
+        fit:true,
         rownumbers:true,
         columns: [[
             { field: 'ck',checkbox:true},

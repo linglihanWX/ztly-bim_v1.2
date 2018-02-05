@@ -33,6 +33,7 @@ $(function(){
         url: "../../static/page/dungou/cailiaoxiaohao/json/clxh.json",
         method:"get",
         striped: true,
+        fit:true,
         //singleSelect: true,
         // treeField:'name',
         idField: "id",
