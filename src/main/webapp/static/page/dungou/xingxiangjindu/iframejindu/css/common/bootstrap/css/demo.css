@@ -1,0 +1,326 @@
+.content{
+	width: 100%;
+}
+.content .nav-wrapper{
+	background-color: #1C2B36;
+	border-bottom: 0px solid #eee;
+}
+.content .nav, .content .tool-bar{
+	float: left;
+}
+.content .nav .item{
+	float: left;
+	/*width: 100px;*/
+	padding: 4px 8px;
+	font-size: 14px;
+	font-weight: lighter;
+	border-right: 1px solid #eee;
+	color: #fff;
+	cursor: pointer;
+	background-color: #1484c5;
+}
+.content .tool-bar{
+	float: right;
+	height: 14px;
+	margin: 2px 100px 0 0;
+}
+.content .tool-bar .group{
+	float: left;
+	border: 1px solid #4f5458;
+	border-radius: 6px;
+	margin-left: 10px;
+	background-color: #4f5458;
+}
+.content .tool-bar .item{
+	float: left;
+	color: #fff;
+
+}
+.content .tool-bar .item i{
+	padding: 2px 4px;
+	
+}
+.content .tool-bar .item:hover{
+	color: #1C2B36;
+}
+
+
+
+.container-wrapper{
+	position: relative;
+	
+}
+.container-wrapper .tree-wrapper{
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: #f7f7f7;
+	border: 1px solid #d7d7d7;
+	width: 220px;
+	z-index: 100;
+
+}
+.container-wrapper #tree{
+	overflow: auto;
+}
+.container-wrapper .tree-wrapper .title{
+	width: 220px;
+	font-size: 14px;
+	color: #555;
+	border-bottom: 1px solid #d7d7d7;
+	
+
+}
+.container-wrapper .tree-wrapper .title h4{
+	display: inline-block;
+	width: 190px;
+	padding-left: 10px;
+	
+}
+.container-wrapper .tree-wrapper .title i{
+	cursor: pointer;
+}
+
+
+.panel-body{
+	background-color: #f7f7f7;
+	border-color: #ddd;
+}
+.container-wrapper .treegrid-wrapper{
+	position: absolute;
+	top: 0;
+	width: 100%;
+	display: none;
+
+}
+.container-wrapper .treegrid-wrapper .title{
+	width: 100%;
+	font-size: 14px;
+	border: 1px solid #f7f7f7;
+}
+.container-wrapper .treegrid-wrapper .title h4{
+	display: inline-block;
+	padding-left: 10px;
+	color: #555;
+	font-size: 14px;
+
+	
+}
+.container-wrapper .treegrid-wrapper .title i{
+	width: 18px;
+	padding-top: 2px;
+	float: right;
+	cursor: pointer;
+}
+
+/*播放按钮部分*/
+
+.realityPlay,
+.planPlay {
+    /*display: none;*/
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    z-index: 2;
+    width: 870px;
+    height: 70px;
+    margin-left: -435px;
+    box-sizing: border-box;
+    background-color: #fff;
+    opacity: .4;
+}
+
+.control {
+    display: inline-block;
+    width: 100px;
+    height: 70px;
+    line-height: 70px;
+    float: left;
+    text-align: center;
+}
+
+.control i {
+    font-size: 20px;
+    color: #000;
+    cursor: pointer;
+}
+
+.progress {
+    display: inline-block;
+    position: relative;
+    height: 100%;
+    width: 620px;
+    padding-top: 10px;
+    box-sizing: border-box;
+}
+
+.progress .startTime,
+.progress .endTime {
+    position: absolute;
+    top: 45px;
+    width: 60px;
+    height: 25px;
+    font-size: 10px;
+    color: #fff;
+    line-height: 25px;
+    box-sizing: border-box;
+}
+
+.progress .startTime {
+    left: -30px;
+}
+
+.progress .endTime {
+    right: -30px;
+}
+.bar {
+    margin-top: 20px;
+    position: relative;
+    width: 620px;
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 5px;
+}
+
+.slider,
+.realSlider {
+    position: absolute;
+    left: 0;
+    top: -5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #000;
+    cursor: pointer;
+
+}
+
+.tip,
+.realTip {
+    display: block;
+    position: absolute;
+    left: -25px;
+    top: -25px;
+    width: 70px;
+    height: 16px;
+    color: #fff;
+    font-size: 12px;
+}
+.play-time{
+    display: inline-block;
+    width: 140px;
+    color: #000;
+    font-size: 12px;
+    height: 70px;
+    line-height: 70px;
+    float: right;
+}
+.min{
+    position: absolute;
+    color: #000;
+    top: -22px;
+    right: 30px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.close-play{
+    color: #000;
+    position: absolute;
+    top: -22px;
+    right: 2px;
+    font-size: 18px;
+    cursor: pointer;
+}
+.min-wrapper{
+    display: none;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 100
+}
+.min-wrapper .min-box{
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.4);
+}
+.min-wrapper .min-box .iconfont{
+    font-size: 30px;
+    text-align: center;
+    line-height: 60px;
+    padding-left: 12px;
+    cursor: pointer;
+}
+.min-wrapper .max{
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 16px;
+    cursor: pointer;
+}
+.edit-window{
+    display: none;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 300px;
+    
+    background: #f7f7f7;
+    border: 1px solid #D7D7D7;
+
+}
+.edit-window .title{
+    width: 100%;
+    font-size: 14px;
+    color: #555;
+}
+.edit-window .title h4{
+    display: inline-block;
+    width: 270px;
+    padding-left: 10px;
+    
+    
+}
+.edit-window .title i{
+    cursor: pointer;
+}
+.edit-window .record-list{
+    height: 300px;
+    border-top: 1px solid #ddd;
+    padding: 10px;
+}
+.edit-window .record-list .record-item{
+    margin-bottom: 4px;
+}
+.edit-window .record-list .record-item .text{
+    width: 120px;
+}
+.edit-window .record-list .record-item .number{
+    width: 20px;
+}
+.edit-window .record-list .record-item .btn-group{
+    display: inline-block;
+
+}
+.edit-window .record-list .record-item .btn-group i{
+    background-color: #eee;
+    padding: 4px;
+    border: 1px solid #ddd;
+}
+
+.edit-window .edit-footer{
+    padding: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

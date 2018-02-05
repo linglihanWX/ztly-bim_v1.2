@@ -1,0 +1,3 @@
+一：	在场景页面引入：compass/style/../compass.css
+				compass/Compass.js
+二：	在场景地球初始化后，创建new Compass(viewer);

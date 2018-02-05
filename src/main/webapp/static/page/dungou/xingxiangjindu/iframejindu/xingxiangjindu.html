@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>飞渡科技</title>
+ 
+<!-- 项目主重置脚本文件 -->
+<link href="./css/common/reset.css" rel="stylesheet">
+
+<!-- 当前html对应样式文件 -->
+<link href="./css/index.css" rel="stylesheet">
+
+<!-- bootstrap的css样式 -->
+<link rel="stylesheet" href="./css/common/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.css">
+
+<!-- common jquery脚本 -->
+<script type="text/javascript" src="./js/common/core/jquery-3.2.1.min.js"></script>
+
+<!-- bootstrap的脚本 -->
+<script src="./css/common/bootstrap/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<!-- index-banner-function -->
+<div class="index-banner">
+	<button type="button" class="btn btn-default btn-sm" onclick="ButtonClick.start();" title="开始">
+          <span class="glyphicon glyphicon-arrow-right"></span> start
+    </button>
+    <button type="button" class="btn btn-default btn-sm" id="pause" onclick="ButtonClick.pause();" title="暂停">
+          <span class="glyphicon glyphicon-pause"></span> Pause
+    </button>
+    <button type="button" class="btn btn-default btn-sm" id="play" onclick="ButtonClick.play();" title="继续">
+          <span class="glyphicon glyphicon-play"></span> Play
+    </button>	
+    <button type="button" class="btn btn-default btn-sm" id='stop' onclick="ButtonClick.stop();" title="停止">
+          <span class="glyphicon glyphicon-stop"></span> Stop
+    </button>
+</div>
+<!-- 此div是必须的  添加图片的容器 -->
+<div id="img-container" style=" position: fixed;z-index: 100; left: 5%; top: 16%; " ></div>
+
+
+</body>
+
+<!-- access相机脚本飞行 -->
+<script type="text/javascript" src="./js/freedo/access/FDFAction_SpaceLine.JS"></script>
+<!-- 空间图片脚本 -->
+<!-- lyh  图片的显示底层脚本 -->
+<script type="text/javascript" src="./js/freedo/access/picture_api.js"></script>
+<!-- 图片显示控制脚本 -->
+<script type="text/javascript" src="./js/freedo/access/FDPAction_SPaceImg.js"></script>
+<!-- 总控制时间调用脚本 -->
+<script type="text/javascript" src="./js/freedo/access/panel/PanelScript.js"></script>
+
+<!-- 控制按钮的事件 -->
+<script type="text/javascript" src="./js/freedo/control/freedo.control.button.js"></script>
+<!-- 主控脚本 -->
+<script type="text/javascript" src="./js/freedo/control/freedo.control.panel.js"></script>
+</html>

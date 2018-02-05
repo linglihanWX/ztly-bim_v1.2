@@ -49,7 +49,9 @@
 
     </div>
     <div class="content">
-		<!-- <iframe></iframe> -->
+	    <div class="content">
+	   <iframe src="${ctx }/static/page/dungou/xingxiangjindu/iframejindu/xingxiangjindu.html" style="width:100%;height:100%"></iframe>
+    </div>
     </div>
 </div>
 
