@@ -173,15 +173,15 @@ DungouViewer.huoqushujuhuizhishiti=function(componentId){
             	id:"shuxin",
                 name: '位置信息',
                 show: true,
-                position: new Freedo.Cartesian3.fromRadians(cartographic.longitude,cartographic.latitude,cartographic.height+3),
+                position: new Freedo.Cartesian3.fromRadians(cartographic.longitude,cartographic.latitude,cartographic.height+16),
                 label: { //文字标签
-                    text: '数据信息\n——————\n所在环数：第'+grandfatheruid.name+'环\n所在土层：中风化板岩\n风险预警：前方110米出现溶洞\n安全提示：请提前做好注浆工作',
+                    text: '数据信息\n————————————\n所在环数：第'+grandfatheruid.name+'环\n所在土层：中风化板岩\n风险预警：前方110米出现溶洞\n安全提示：请提前做好注浆工作',
                     font: '13px sans-serif',
                     style: FreeDo.LabelStyle.FILL,
                     fillColor: FreeDo.Color.WHITE,
                     verticalOrigin: FreeDo.VerticalOrigin.BOTTOM, //垂直方向以底部来计算标签的位置
                     pixelOffset: new FreeDo.Cartesian2(0, -9),  //偏移量
-                    backgroundColor: FreeDo.Color.BLACK.withAlpha(0.5),
+                    backgroundColor: FreeDo.Color.BLACK,
                     showBackground: true,
                     distanceDisplayCondition: new FreeDo.DistanceDisplayCondition(0.0, 10000)
                 },
