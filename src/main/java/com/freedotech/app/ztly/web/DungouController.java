@@ -194,6 +194,14 @@ public class DungouController {
 		return "dungou/riskWarningStatistics";
 	}
 	/**
+	 * 跳转到 形象进度
+	 *
+	 */
+	@RequestMapping(value="toGraphicProgress")
+	public String toGraphicProgressPage() {
+		return "dungou/xingxiangjindu";
+	}
+	/**
 	 * 跳转到 资料管理页面
 	 * @return
 	 */
