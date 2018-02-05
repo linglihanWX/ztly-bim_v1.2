@@ -58,7 +58,7 @@
                 <div id="earth" >
                     <p><span></span><span>一级破损</span><span></span><span>二级破损</span><span></span><span>三级破损</span></p>
                     <div class="tree-box">
-                        <p class="tree-box-title">模型构件树<i class="iconfont icon-hidden"></i></p>
+                        <p class="tree-box-title">构件树<i class="iconfont icon-hidden"></i></p>
                         <div id="tree">
 
                         </div>

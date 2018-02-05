@@ -59,7 +59,7 @@
             <div id="earth" style="overflow:hidden" class="rightmodel">
                 <p><span></span><span>一级预警</span><span></span><span>二级预警</span><span></span><span>三级预警</span><span>已经</span></p>
                 <div class="tree-box">
-                    <p class="tree-box-title">模型构件树<i class="iconfont icon-hidden"></i></p>
+                    <p class="tree-box-title">构件树<i class="iconfont icon-hidden"></i></p>
                     <div id="tree">
 
                     </div>

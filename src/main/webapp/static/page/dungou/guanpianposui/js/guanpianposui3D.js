@@ -171,7 +171,7 @@ $(function () {
                     method: "get",
                     data: [{
                         id: "-1",
-                        text: "模型构件树",
+                        text: "构件树",
                         state: "closed"
                     }],
                     onBeforeExpand: function (node, param) {

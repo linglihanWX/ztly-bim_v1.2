@@ -64,7 +64,7 @@
                     <span class="line">右线</span>当前环:<span class="line">110</span>状态停止
                 </p>
                 <div class="tree-box">
-                    <p class="tree-box-title">模型构件树<i class="iconfont icon-hidden"></i></p>
+                    <p class="tree-box-title">构件树<i class="iconfont icon-hidden"></i></p>
                     <div id="tree">
 
                     </div>
