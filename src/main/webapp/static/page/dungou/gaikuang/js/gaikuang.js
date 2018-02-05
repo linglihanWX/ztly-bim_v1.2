@@ -400,6 +400,16 @@ $(function () {
 				    /*minimumLevel: 12,
 					maximumLevel: 19,*/
                 }));
+    
+  //中文标识影像
+    imageryLayers.addImageryProvider( new Freedo.WebMapTileServiceImageryProvider({
+	    url: "http://t0.tianditu.com/cia_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=cia&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default.jpg",
+	    layer: "tdtAnnoLayer_biaoji",
+	    style: "default",
+	    format: "image/png",
+	    tileMatrixSetID: "tianditu",
+	    show: true
+	}));
     var checkstr = ""
     for (var i = 0; i < 13; i++) {
         checkstr += '<li><input type="checkbox" checked name="">' + layersname[i] + '</li>';
@@ -561,7 +571,7 @@ function initEntities(viewer) {
     var label1 = viewer.entities.add({
         name: "香炉礁航道",
         show: true,
-        position: FreeDo.Cartesian3.fromDegrees(121.62224889978843, 38.94270512602886, 1),
+        position: FreeDo.Cartesian3.fromDegrees(121.62224889978843, 38.94270512602886, 50),
         point: { // 点
             pixelSize: 5,
             color: FreeDo.Color.RED,
@@ -570,11 +580,11 @@ function initEntities(viewer) {
             distanceDisplayCondition: new FreeDo.DistanceDisplayCondition(0.0, 10000)
         },
         label: { // 文字标签
-            text: "香炉礁航道",
+            text: "危险源：香炉礁航道",
             font: '20pt monospace',
             style: FreeDo.LabelStyle.FILL_AND_OUTLINE,
             outlineWidth: 2,
-            backgroundColor: FreeDo.Color.MEDIUMBLUE,
+            backgroundColor: FreeDo.Color.ORANGERED,
             showBackground: true,
             fillColor: FreeDo.Color.YELLOW,
             verticalOrigin: FreeDo.VerticalOrigin.BOTTOM, // 垂直方向以底部来计算标签的位置
@@ -585,7 +595,7 @@ function initEntities(viewer) {
     var label2 = viewer.entities.add({
         name: "军港码头",
         show: true,
-        position: FreeDo.Cartesian3.fromDegrees(121.61997619924065, 38.933427729468725, 1),
+        position: FreeDo.Cartesian3.fromDegrees(121.61997619924065, 38.933427729468725, 50),
         point: { // 点
             pixelSize: 5,
             color: FreeDo.Color.RED,
@@ -609,7 +619,7 @@ function initEntities(viewer) {
     var label3 = viewer.entities.add({
         name: "航母制造区",
         show: true,
-        position: FreeDo.Cartesian3.fromDegrees(121.61391282811357, 38.934625366453034, 1),
+        position: FreeDo.Cartesian3.fromDegrees(121.61391282811357, 38.934625366453034, 50),
         point: { // 点
             pixelSize: 5,
             color: FreeDo.Color.RED,
@@ -633,7 +643,7 @@ function initEntities(viewer) {
     var label4 = viewer.entities.add({
         name: "危险源： 疏港货运铁路",
         show: true,
-        position: FreeDo.Cartesian3.fromDegrees(121.61497425831845, 38.92570034025223, 1),
+        position: FreeDo.Cartesian3.fromDegrees(121.61497425831845, 38.92570034025223, 50),
         point: { // 点
             pixelSize: 5,
             color: FreeDo.Color.RED,
@@ -772,7 +782,7 @@ function initEntities(viewer) {
     viewer.entities.add({
         name: "危险源1",
         show: true,
-        position: FreeDo.Cartesian3.fromDegrees(121.62682095605028, 38.92107920361492, 1),
+        position: FreeDo.Cartesian3.fromDegrees(121.62682095605028, 38.92107920361492, 50),
         point: { // 点
             pixelSize: 5,
             color: FreeDo.Color.RED,
@@ -796,7 +806,7 @@ function initEntities(viewer) {
     viewer.entities.add({
     	name: "危险源3",
     	show: true,
-    	position: FreeDo.Cartesian3.fromDegrees(121.61130812248769, 38.952837944195025, 1),
+    	position: FreeDo.Cartesian3.fromDegrees(121.61130812248769, 38.952837944195025, 50),
     	point: { // 点
     		pixelSize: 5,
     		color: FreeDo.Color.RED,
@@ -820,7 +830,7 @@ function initEntities(viewer) {
     viewer.entities.add({
     	name: "危险源5",
     	show: true,
-    	position: FreeDo.Cartesian3.fromDegrees(121.62993526171284, 38.92870917585388, 1),
+    	position: FreeDo.Cartesian3.fromDegrees(121.62993526171284, 38.92870917585388, 50),
     	point: { // 点
     		pixelSize: 5,
     		color: FreeDo.Color.RED,
@@ -844,7 +854,7 @@ function initEntities(viewer) {
     viewer.entities.add({
     	name: "危险源4",
     	show: true,
-    	position: FreeDo.Cartesian3.fromDegrees(121.6168459694273, 38.9490763774809, 1),
+    	position: FreeDo.Cartesian3.fromDegrees(121.6168459694273, 38.9490763774809, 50),
     	point: { // 点
     		pixelSize: 5,
     		color: FreeDo.Color.RED,

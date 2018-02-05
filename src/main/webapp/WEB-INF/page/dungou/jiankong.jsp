@@ -279,9 +279,9 @@
            <li><input type="radio" name="1" id="" value="4">相机视角4</li>
            <li><input type="radio" name="1" id="" value="5">相机视角5</li>
            <li><input type="radio" name="1" id="" value="6">相机视角6</li>
-           <li><input type="radio" name="1" id="" value="7">相机视角7</li>
+    <!--        <li><input type="radio" name="1" id="" value="7">相机视角7</li>
            <li><input type="radio" name="1" id="" value="8">相机视角8</li>
-           <li><input type="radio" name="1" id="" value="9">相机视角9</li>
+           <li><input type="radio" name="1" id="" value="9">相机视角9</li> -->
        </ul>
    </div>
 <script src="${ctx}/static/page/common/js/jquery-easyui-1.4.5/jquery.easyui.min.js"></script>
