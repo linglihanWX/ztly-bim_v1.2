@@ -14,16 +14,7 @@ $(function () {
         '                        <li><a href="../../ProSystem/dungou/toWorkContactSheet">工作联系单</a></li>\n' +
         '                        <li><a href="../../ProSystem/dungou/toRiskWarningReport">预警事件上报</a></li>\n' +
         '                        <li><a href="../../ProSystem/dungou/toRiskWarningHandle">预警事件处理</a></li>\n' +
-        '                    </ul></li>\n' +
-        '                <li><a href="javascript:;">监控测量</a>\n' +
-        '                    <ul class="pull-down">\n' +
-        '                        <li><a href="../../ProSystem/dungou/toBaseInformation">基础信息</a></li>\n' +
-        '                        <li><a href="javascript:;">第三方数据上报</a></li>\n' +
-        '                        <li><a href="javascript:;">施工方数据上报</a></li>\n' +
-        '                        <li><a href="javascript:;">数据查看</a></li>\n' +
-        '                        <li><a href="javascript:;">数据对比</a></li>\n' +
-        '                    </ul></li>\n' +
-        '                <li><a href="javascript:;">综合统计</a>' +
+        '                    </ul></li> <li><a href="javascript:;">综合统计</a>' +
         '                   <ul class="pull-down">\n' +
         '                            <li><a href="../../ProSystem/dungou/toRiskWarningStatistics">风险预警统计</a></li>\n' +
         '                            <li><a href="javascript:;">监理单位风险预警统计</a></li>\n' +

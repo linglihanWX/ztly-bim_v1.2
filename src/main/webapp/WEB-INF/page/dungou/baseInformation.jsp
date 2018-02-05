@@ -173,7 +173,7 @@
 <script src="${ctx}/static/page/common/js/jquery-3.2.1.min.js"></script>
 <script src="${ctx}/static/page/common/js/jquery-easyui-1.4.5/jquery.easyui.min.js"></script>
 <script src="${ctx}/static/page/common/js/jquery-easyui-1.4.5/locale/easyui-lang-zh_CN.js"></script>
-<script src="${ctx}/static/page/dungou/common/js/fengxianHeader.js"></script>
+<script src="${ctx}/static/page/dungou/common/js/jiankongceliangHeader.js"></script>
 <script src="${ctx}/static/page/dungou/common/js/appendHeader.js"></script>
 <script src="${ctx}/static/page/common/js/nav.js"></script>
 <script src="${ctx}/static/page/dungou/baseInformation/js/baseInformation.js"></script>
