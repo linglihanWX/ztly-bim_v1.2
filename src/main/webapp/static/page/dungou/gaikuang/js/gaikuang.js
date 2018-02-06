@@ -7,6 +7,7 @@ $(function () {
     let state = "full-screen";
     let state1 = "not-full-screen";
     let smallStr = false;
+    let timer = null;
     let smallStr1 = false;
     $(".icon-bqp").on("click", function () {
         if ($("#earth").hasClass("full-screen")) {
@@ -104,6 +105,44 @@ $(function () {
             spaceBetween: 30,
             //mousewheelControl: true
         });
+    }
+    // canvas画图
+    renderDrilling();
+    
+    /**
+     * canvas画图
+     */
+    function renderDrilling() {
+        clearInterval(timer);
+        var widthT = $("#chartFour").width();
+        var heightT = $("#chartFour").height();
+        var i = 0;
+        timer = setInterval(function () {
+            i++;
+            var options = {
+                id: 1,
+                width: widthT,
+                height: heightT,
+                sumGrouting: '数量100',
+                pushSpeed: 100,
+                knifeDishSpeed: 10,
+                penetration: 10,
+                knifeDishTorque: 10,
+                sumPush: 1000000,
+                thrustHydraulic: 10,
+                KN: [i, i, i, i], //参数每秒更新
+                mm: [3, 4, 5, 6],
+                barRed: [0, 1, 2, 3, 4, 5, 6, 7],
+                barBlue: [0, 1, 2, 3, 4, 5, 6, 7],
+                m3: [0, 1, 2, 3, 4, 5, 6, 7],
+                knifeDirection: '45°',
+                knifeRotateTime: 0,
+                cvs: document.getElementById('cvs'),
+                ctx: document.getElementById('cvs').getContext('2d'),
+            };
+            canvas.drilling.clear(options);
+            canvas.drilling.init(options);
+        }, 1000);
     }
 
 
@@ -261,7 +300,7 @@ $(function () {
     };
     chartThree.setOption(option3);
 
-    let arr = [];
+/*    let arr = [];
     if  (scrWidth > 1366)
         arr = [30, 110];
     else {
@@ -336,7 +375,7 @@ $(function () {
             }
         ]
     };
-    chartFour.setOption(option4);
+    chartFour.setOption(option4);*/
 
 
     FreedoApp.viewers["earth"].camera.setView({
@@ -537,9 +576,11 @@ function initEntities(viewer) {
     					]),
     					width: 25,
     					material:  new FreeDo.PolylineDashMaterialProperty({
-    						color : FreeDo.Color.LIGHTSKYBLUE,
-    						dashPattern: parseInt("11111111110", 2)
-    					}),
+    		                color : FreeDo.Color.LIGHTSKYBLUE,
+    		                gapColor : FreeDo.Color.RED,
+    		                dashLength : 10.0,
+    		                dashPattern: parseInt("1111111111111110", 2)
+    		            }),
     					distanceDisplayCondition: new FreeDo.DistanceDisplayCondition(0.0, 10000)
     	}
     });

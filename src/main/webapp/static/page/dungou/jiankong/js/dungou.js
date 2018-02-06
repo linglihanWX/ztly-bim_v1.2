@@ -132,7 +132,7 @@ $(function () {
                     daotou = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
                         {
                             id: "盾构机刀头",
-                            url: "http://182.92.7.32:9000/ztly/jianmiandungou/daotou/1.glb",
+                            url: "http://182.92.7.32:9000/ztly/jianmiandungou/daotou/1.gltf",
                             show: true,                     // default
                             modelMatrix:Freedo.Transforms.headingPitchRollToFixedFrame(daotouposition, hpRoll, Freedo.Ellipsoid.WGS84, fixedFrameTransform),
                             allowPicking: true,            // not pickable
@@ -153,7 +153,7 @@ $(function () {
                     cheshen = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
                         {
                             id: "盾构机车身",
-                            url: "http://182.92.7.32:9000/ztly/jianmiandungou/cheshen/2.glb",
+                            url: "http://182.92.7.32:9000/ztly/jianmiandungou/cheshen/2.gltf",
                             show: true,                     // default
                             modelMatrix:FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979,-491.5,249,6,0,1.2,1.2,1.2),
                             allowPicking: true,            // not pickable
@@ -472,7 +472,7 @@ function reloadJianMoDungouji() {
     daotou = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
         {
             id: "盾构机刀头",
-            url: "http://182.92.7.32:9000/ztly/jianmiandungou/daotou/1.glb",
+            url: "http://182.92.7.32:9000/ztly/jianmiandungou/daotou/1.gltf",
             show: true,                     // default
             modelMatrix:Freedo.Transforms.headingPitchRollToFixedFrame(daotouposition, hpRoll, Freedo.Ellipsoid.WGS84, fixedFrameTransform),
             allowPicking: true,            // not pickable
@@ -493,7 +493,7 @@ function reloadJianMoDungouji() {
    cheshen = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
         {
             id: "盾构机车身",
-            url: "http://182.92.7.32:9000/ztly/jianmiandungou/cheshen/2.glb",
+            url: "http://182.92.7.32:9000/ztly/jianmiandungou/cheshen/2.gltf",
             show: true,                     // default
             modelMatrix:FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979,-491.5,249,6,0,1.2,1.2,1.2),
             allowPicking: true,            // not pickable
