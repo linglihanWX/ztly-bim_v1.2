@@ -467,7 +467,8 @@ $(function () {
     })
     imageryLayers.addImageryProvider(new Freedo.WebMapServiceImageryProvider({
                     url: 'http://182.92.7.32:9510/geoserver/shenmao/wms',
-                    layers: 'shenmao:dalian',
+                    //layers: 'shenmao:dalian',
+                    layers: 'shenmao:dalianDemsuidao',
                     parameters: {
                         version: '1.1.1',
                         transparent: true,
