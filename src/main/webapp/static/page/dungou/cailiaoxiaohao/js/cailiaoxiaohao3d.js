@@ -114,7 +114,7 @@ $(function() {
                     for (var i = 2; i <= 9668; i += 18) {
                         allready.push(["${component} ~==  \'" + i + "\'", 'color("gray")'])
                     }
-                    allready.push(['true', 'color("white",0.3)'])
+                    allready.push(['true', 'color("white",0.2)'])
                     //部分盾构环隐藏
                     for (var i = 8984; i <= 9668; i += 18) {
                         hiderings.push(["${component} ~==  \'" + i + "\'", 'false'])
@@ -142,7 +142,7 @@ $(function() {
                     for (var i = 1; i < 10; i++) {
                         dungouModels[i] = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf({
                             id: i,
-                            url: "http://182.92.7.32:9000/ztly/glb/" + i + "/" + i + ".glb",
+                            url: "http://182.92.7.32:9000/ztly/glb/" + i + "/" + i + ".gltf",
                             show: true, // default
                             modelMatrix: FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979, -491.5, 255, 0, 0, 1.4, 1.4, 1.4),
                             allowPicking: true, // not pickable
@@ -167,7 +167,7 @@ $(function() {
                     var cheshen = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
                         {
                             id: "盾构机车身",
-                            url: "http://182.92.7.32:9000/ztly/jianmiandungou/cheshen/2.glb",
+                            url: "http://182.92.7.32:9000/ztly/jianmiandungou/cheshen/2.gltf",
                             show: true,                     // default
                             modelMatrix: FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979, -491.5, 249, 6, 0, 1.2, 1.2, 1.2),
                             allowPicking: true,            // not pickable

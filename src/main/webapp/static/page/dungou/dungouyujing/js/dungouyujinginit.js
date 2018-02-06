@@ -106,7 +106,7 @@ $(function(){
                     for (var i = 2; i <=9668; i+=18) {
                         allready.push(["${component} ~==  \'"+i+"\'", 'color("gray")'])
                     }
-                    allready.push(['true', 'color("white",0.3)'])
+                    allready.push(['true', 'color("white",0.2)'])
                     //部分盾构环隐藏
                     for (var i = 8984; i <=9668; i+=18){
                         hiderings.push(["${component} ~==  \'"+i+"\'", 'false'])
