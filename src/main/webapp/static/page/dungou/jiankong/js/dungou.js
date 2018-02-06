@@ -213,13 +213,6 @@ $(function () {
             text:"构件树",
             state:"closed"
         }],
-        onLoadSuccess:function(node,data){
-/*            var expandnode1 = $('#tree').tree("find","-1");
-            var expandnode2 = $('#tree').tree("find","0");
-            var expandnode3 = $('#tree').tree("find","9668");*/
-            $("#_easyui_tree_1 span:first-child").trigger("click")
-
-    },
         onBeforeExpand:function(node,param){
             if(node.id=="-1"){
                 $('#tree').tree('options').url = "../../PModel/getModelTreeAsyn?uid=-1";
@@ -272,12 +265,21 @@ $(function () {
                 }
             }
         },*/},
-        onLoadSuccess:function (node, data) {
-            // console.log(data);
+        onLoadSuccess:function (node,data) {
+            console.log(node);
+            if(node!=null){
+                if(node.id=="-1"){
+                    $("#_easyui_tree_2 span:eq(1)").click()
+                }else if(node.id=="0"){
+                    $("#_easyui_tree_539 span:eq(2)").click()
+                }else if(node.id=="9650"){
+                    $(this).tree("select",node.target)
+                    $(this).tree("scrollTo",node.target)
+                }
+            }
         }
     });
-   /* var expandnode1 = $('#tree').tree("find","-1");
-    $('#tree').tree("expandTo",expandnode1.target);*/
+    $("#_easyui_tree_1 span:eq(0)").click()
     //entity绘制的线路
     var line1 = FreedoApp.viewers["earth"].entities.add({
         id: 1,
