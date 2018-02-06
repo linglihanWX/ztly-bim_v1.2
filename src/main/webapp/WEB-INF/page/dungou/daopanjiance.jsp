@@ -48,7 +48,7 @@
     </div>
     <div class="page-info">
         <div class="page-nav">
-            <div class="btnChangePattern"><span class="bgBtn"></span><span class="spanActive">二维视图</span><span >三维视图</span></div>
+            <!-- <div class="btnChangePattern"><span class="bgBtn"></span><span class="spanActive">二维视图</span><span >三维视图</span></div> -->
         </div>
        <div class="content-box">
            <div class="page-info-top">

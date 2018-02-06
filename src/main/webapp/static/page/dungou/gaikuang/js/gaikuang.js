@@ -216,7 +216,7 @@ $(function () {
     let chartThree = echarts.init(document.getElementById('chartThree'));
     let option3 = {
         title: {
-            text: '检测信息',
+            text: '安全风险统计信息',
             left: 'left',
             textStyle: {
                 fontSize: 14
@@ -581,7 +581,7 @@ function initEntities(viewer) {
         },
         label: { // 文字标签
             text: "危险源：香炉礁航道",
-            font: '20pt monospace',
+            font: '12pt monospace',
             style: FreeDo.LabelStyle.FILL_AND_OUTLINE,
             outlineWidth: 2,
             backgroundColor: FreeDo.Color.ORANGERED,
@@ -605,7 +605,7 @@ function initEntities(viewer) {
         },
         label: { // 文字标签
             text: "危险源：军港码头",
-            font: '20pt monospace',
+            font: '12pt monospace',
             style: FreeDo.LabelStyle.FILL_AND_OUTLINE,
             outlineWidth: 2,
             backgroundColor: FreeDo.Color.ORANGERED,
@@ -629,7 +629,7 @@ function initEntities(viewer) {
         },
         label: { // 文字标签
             text: "危险源： 航母制造区",
-            font: '20pt monospace',
+            font: '12pt monospace',
             style: FreeDo.LabelStyle.FILL_AND_OUTLINE,
             outlineWidth: 2,
             backgroundColor: FreeDo.Color.ORANGERED,
@@ -652,8 +652,8 @@ function initEntities(viewer) {
             distanceDisplayCondition: new FreeDo.DistanceDisplayCondition(0.0, 10000)
         },
         label: { // 文字标签
-            text: "疏港货运铁路",
-            font: '20pt monospace',
+            text: "危险源：疏港货运铁路",
+            font: '12pt monospace',
             style: FreeDo.LabelStyle.FILL_AND_OUTLINE,
             outlineWidth: 2,
             backgroundColor: FreeDo.Color.ORANGERED,
@@ -677,7 +677,7 @@ function initEntities(viewer) {
         },
         label: { // 文字标签
             text: "中间风井（接收）",
-            font: '20pt monospace',
+            font: '12pt monospace',
             style: FreeDo.LabelStyle.FILL_AND_OUTLINE,
             outlineWidth: 2,
             backgroundColor: FreeDo.Color.MEDIUMBLUE,
@@ -792,7 +792,7 @@ function initEntities(viewer) {
         },
         label: { // 文字标签
             text: "危险源： 火车站",
-            font: '20pt monospace',
+            font: '12pt monospace',
             style: FreeDo.LabelStyle.FILL_AND_OUTLINE,
             outlineWidth: 2,
             backgroundColor: FreeDo.Color.ORANGERED,
@@ -816,7 +816,7 @@ function initEntities(viewer) {
     	},
     	label: { // 文字标签
     		text: "危险源： 居民住宅区",
-    		font: '20pt monospace',
+    		font: '12pt monospace',
     		style: FreeDo.LabelStyle.FILL_AND_OUTLINE,
     		outlineWidth: 2,
     		backgroundColor: FreeDo.Color.ORANGERED,
@@ -840,7 +840,7 @@ function initEntities(viewer) {
     	},
     	label: { // 文字标签
     		text: "危险源： 居民住宅区",
-    		font: '20pt monospace',
+    		font: '12pt monospace',
     		style: FreeDo.LabelStyle.FILL_AND_OUTLINE,
     		outlineWidth: 2,
     		backgroundColor: FreeDo.Color.ORANGERED,
@@ -864,7 +864,7 @@ function initEntities(viewer) {
     	},
     	label: { // 文字标签
     		text: "危险源： 海底溶洞",
-    		font: '20pt monospace',
+    		font: '12pt monospace',
     		style: FreeDo.LabelStyle.FILL_AND_OUTLINE,
     		outlineWidth: 2,
     		backgroundColor: FreeDo.Color.ORANGERED,

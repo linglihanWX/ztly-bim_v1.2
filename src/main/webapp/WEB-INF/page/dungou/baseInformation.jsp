@@ -59,8 +59,9 @@
             </div>
         </div>
         <div class="content-right">
+        <div id="earth"></div>
             <div class="content-top">
-                <p>风险监测</p>
+                <p>风险监测查询</p>
 
                 <ul>
                     <li><span>编号查询:&nbsp;</span><input type="number"></li>
