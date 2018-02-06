@@ -547,3 +547,56 @@ FDFAction_SpaceImg_changePosition = function( globalImg ,time , id , animateArra
 		return m_Time;
 	}
 }
+
+/**
+ * @describe 盾构机移动  控制动画同时改变姿态
+ * @author fanPeng
+ * @Date 2018年2月6日下午4:11:08
+ */
+FDFAction_SpaceImg_changePositionDunGou = function(time){
+	
+	var m_Time = time;					//调用方法的时间
+//	执行事件，事件执行完成返回 true, 否则返回 false.
+	this.Run = function( LastTime, NowTime )
+	{
+		if ( m_Time < LastTime )
+		{ 
+			return true;	//	事件时间已过，不执行，返回执行完成。
+		}
+		else if ( m_Time > NowTime )
+		{
+			return false;	//	事件时间未到，不执行，返回未执行。
+		}
+		else
+		{
+			//	执行事件
+			
+			var div=$("#imgBg37");
+		    div.animate({left:'1699px',top:'575px'},2000,function(){Img.position('imgBg37', 0, 0, 165); });
+		    div.animate({left:'1453px',top:'670px'},2000,function(){Img.position('imgBg37', 0, 0, 172); });
+		    div.animate({left:'887px',top:'741px'},2000,function(){Img.position('imgBg37', 0, 0, 192); });
+		    div.animate({left:'857px',top:'741px'},2000,function(){Img.position('imgBg37', 0, 0, 201);  });
+		    div.animate({left:'370px',top:'627px'},2000,function(){Img.position('imgBg37', 0, 0, 201); });
+		    div.animate({left:'97px',top:'520px'},2000,function(){Img.position('imgBg37', 0, 0, 182); });
+		    div.animate({left:'0px',top:'508px'},2000,function(){Img.position('imgBg37', 0, 0, 182); });
+			
+			
+			return true;	//	事件执行完成  返回 true;
+		}
+	}
+	
+	this.Clear = function()
+	{
+		//	没有资源需要清理。
+	}
+	
+	this.GetStartTime = function()
+	{
+		return m_Time;
+	}
+	
+	this.GetEndTime = function()
+	{
+		return m_Time;
+	}
+}

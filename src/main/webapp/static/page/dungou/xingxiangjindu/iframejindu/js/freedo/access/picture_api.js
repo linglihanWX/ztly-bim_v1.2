@@ -21,7 +21,7 @@ let Img = {
 			left: 0,
 			width: `${w}px`,
 			height: `${h}px`,
-			background: '#7777779c'
+			background: 'rgba(119, 119, 119, -0.39)'
 		})	
 	},
 	/*!
