@@ -224,7 +224,7 @@ function click2DChange3D() {
      * 两个棍
      */
     for (let i = 0; i < 4; i++) {
-        for (let j = 1; j < 7; j++) {
+        for (let j = 1; j < 8; j++) {
             if (i == 0 || i == 2) {
                 bujians[1].push($("#part" + i + " .middle-span" + j))
                 $("#part" + i + " .middle-span" + j).click(function () {
@@ -250,6 +250,16 @@ function click2DChange3D() {
             }
         }
     }
+    bujians[1].push($(".center-span"))
+    $(".center-span").click(function(){
+        if($(this).attr("data-mao")=="false"){
+            modelHighlight(1);
+            $(this).attr("data-mao","true");
+        }else{
+            restoreColor(1);
+            $(this).attr("data-mao","false");
+        }
+    })
     /**
      * 四个角
      */
