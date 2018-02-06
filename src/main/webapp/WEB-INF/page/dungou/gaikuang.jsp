@@ -107,7 +107,8 @@
                         </ul>
                     </div>
                     <div id="chartFour">
-                    <canvas id="cvs" width="500" height="500"></canvas>
+	                    <p>刀盘状态 <i class="iconfont icon-out"></i></p>
+	                    <canvas id="cvs" width="500" height="500"></canvas>
                     </div>
                 </div>
                 <div class="swiper-slide info-right">

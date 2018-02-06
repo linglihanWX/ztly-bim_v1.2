@@ -44,6 +44,10 @@ $(function () {
         state = $("#earth").attr("class");
         state1 = $("#earth1").attr("class");
     });
+    
+    $("#chartFour>p>i").on("click", function () {
+    	window.location.href = "../../ProSystem/dungou/toDaopanjiance";
+    });
 
     /**
      * 改变图标
@@ -115,7 +119,7 @@ $(function () {
     function renderDrilling() {
         clearInterval(timer);
         var widthT = $("#chartFour").width();
-        var heightT = $("#chartFour").height();
+        var heightT = $("#chartFour").height()-27;
         var i = 0;
         timer = setInterval(function () {
             i++;
@@ -201,55 +205,90 @@ $(function () {
 
     let chartTwo = echarts.init(document.getElementById('chartTwo'));
     let option2 = {
-        title: {
-            text: '进度情况',
-            left: 'left',
-            textStyle: {
-                fontSize: 14
-            }
-        },
-        tooltip: {
-            trigger: 'item',
-            formatter: '{a} <br/>{b} : {c}',
+            title: {
+                text: '进度曲线'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data:['掘进进度','轨道铺设','电器安装']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['三月份','四月份','五月份','六月份','七月份','八月份','九月份']
+            },
+            yAxis: {
+                type: 'value'
+            },
 
-        },
-        legend: {
-            left: 'right',
-            orient: "vertical",
-            data: ['按时', '按期']
-        },
-        xAxis: {
-            type: 'category',
-            name: '',
-            splitLine: {
-                show: false
-            },
-            data: ['本月']
-        },
-        grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-        },
-        yAxis: {
-            type: 'value',
-            name: ''
-        },
-        series: [{
-            name: '按时',
-            type: 'bar',
-            data: [10],
-            barWidth: 30
-        },
-            {
-                name: '按期',
-                type: 'bar',
-                data: [5],
-                barWidth: 30
-            },
-        ]
-    };
+            series: [
+                {
+                    name:'掘进进度',
+                    type:'line',
+                    smooth: true,
+                    data:[10, 11, 13, 16, 17, 19, 21],
+                    areaStyle: {
+                        normal: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                offset: 0,
+                                color: '#c23531'
+                            }, {
+                                offset: 1,
+                                color: '#ffe'
+                            }])
+                        }
+                    }
+                },
+                {
+                    name:'轨道铺设',
+                    type:'line',
+                    smooth: true,
+                    data:[4, 6, 9, 12, 15, 16, 20],
+                    areaStyle: {
+                        normal: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                offset: 0,
+                                color: '#2f4554'
+                            }, {
+                                offset: 1,
+                                color: '#ffe'
+                            }])
+                        }
+                    }
+                },
+                {
+                    name:'电器安装',
+                    type:'line',
+                    smooth: true,
+                    data:[3, 5, 7, 10, 14, 15, 18],
+                    areaStyle: {
+                        normal: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                offset: 0,
+                                color: '#61a0a8'
+                            }, {
+                                offset: 1,
+                                color: '#ffe'
+                            }])
+                        }
+                    }
+                }
+            ]
+        };
+
     chartTwo.setOption(option2);
 
     let chartThree = echarts.init(document.getElementById('chartThree'));

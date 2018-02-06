@@ -171,6 +171,11 @@
     box-sizing: border-box;
     overflow: hidden;
 }
+#chartFour>p>i {
+    float: right;
+    color: #147b97;
+    cursor: pointer;
+}
 
 .info-left,
 .info-right {

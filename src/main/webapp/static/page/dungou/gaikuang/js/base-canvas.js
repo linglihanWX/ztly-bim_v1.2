@@ -183,12 +183,6 @@ canvas.drilling.init = function  (options) {
             }
             ctx.restore()
         }
-        ctx.save();
-        ctx.font ='14px Arial';
-        ctx.textBaseline = 'middle';
-        ctx.fillStyle = "#000";
-        ctx.fillText('刀盘状态',10,10);
-        ctx.restore()
         // //环绕四边文字信息
         /*var arr = ["上","右","下","左"]
         for (var i = 0; i< 4; i++){
