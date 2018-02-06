@@ -7,7 +7,8 @@ $(function () {
     FreedoApp.viewers["earth"].camera.setView({
 //   	 destination :  new FreeDo.Cartesian3.fromDegrees(121.61949402684546,38.94285250833841,1000),
        destination: new FreeDo.Cartesian3(-2606029.8300439236, 4232695.952801313, 3989852.346352031),
-       orientation: new FreeDo.HeadingPitchRoll(4.76493381044884, -1.515738147823087, 6.223530529077095)
+      orientation: new FreeDo.HeadingPitchRoll(4.76493381044884, -1.515738147823087, 6.023530529077095)
+      
    })
 /*    FreedoApp.viewers["earth"].clock.onTick.addEventListener(function (clock) {
        var camera = FreedoApp.viewers["earth"].camera;
@@ -101,9 +102,7 @@ function initEntities(viewer) {
             width: 25,
             material:  new FreeDo.PolylineDashMaterialProperty({
                 color : FreeDo.Color.LIGHTYELLOW,
-                gapColor : FreeDo.Color.BLACK,
-                dashLength : 10.0,
-                dashPattern: parseInt("1111111111111110", 2)
+                dashPattern: parseInt("11111111110", 2)
             }),
             distanceDisplayCondition: new FreeDo.DistanceDisplayCondition(0.0, 10000)
         }
@@ -119,10 +118,8 @@ function initEntities(viewer) {
     					width: 25,
     					material:  new FreeDo.PolylineDashMaterialProperty({
     						color : FreeDo.Color.GREEN,
-    						gapColor : FreeDo.Color.BLACK,
-    		                dashLength : 10.0,
-    		                dashPattern: parseInt("1111111111111110", 2)
-    		            }),
+    						dashPattern: parseInt("11111111110", 2)
+    					}),
     					distanceDisplayCondition: new FreeDo.DistanceDisplayCondition(0.0, 10000)
     	}
     });
@@ -144,7 +141,7 @@ function initEntities(viewer) {
     					width: 25,
     					material:  new FreeDo.PolylineDashMaterialProperty({
     		                color : FreeDo.Color.LIGHTSKYBLUE,
-    		                gapColor : FreeDo.Color.BLACK,
+    		                gapColor : FreeDo.Color.RED,
     		                dashLength : 10.0,
     		                dashPattern: parseInt("1111111111111110", 2)
     		            }),
