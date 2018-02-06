@@ -30,11 +30,12 @@ var shuju = [
 	},
 ]
 
-$(function(){
-	 //初始化地球
+$(function() {
+    //初始化地球
     FreedoApp.init("earth");
     cameraControl(FreedoApp.viewers["earth"]);
-    DungouViewer.initLeftClick(FreedoApp.viewers["earth"],function(){})
+    DungouViewer.initLeftClick(FreedoApp.viewers["earth"], function () {
+    })
     var pmodels = [];
     $.ajax({
         url: "../../PModel/getPmodel",
@@ -91,111 +92,112 @@ $(function(){
                     });
                     $("#resetview").click(function () {
                         FreedoApp.viewers["earth"].camera.setView({
-                            destination : new FreeDo.Cartesian3.fromDegrees(model[key].cameralon, model[key].cameralat, model[key].cameraheight),
-                            orientation : new FreeDo.HeadingPitchRoll(model[key].cameraheading,model[key].camerapitch,model[key].cameraroll)
+                            destination: new FreeDo.Cartesian3.fromDegrees(model[key].cameralon, model[key].cameralat, model[key].cameraheight),
+                            orientation: new FreeDo.HeadingPitchRoll(model[key].cameraheading, model[key].camerapitch, model[key].cameraroll)
                         });
                     })
                 } else {
                     modelTile.readyPromise.then(function () {
-                        FreedoApp.viewers["earth"].camera.flyToBoundingSphere(modelTile.boundingSphere,{
-                            duration:0
+                        FreedoApp.viewers["earth"].camera.flyToBoundingSphere(modelTile.boundingSphere, {
+                            duration: 0
                         });
                     });
-                    $("#resetview").click(function () {FreedoApp.viewers["earth"].camera.flyToBoundingSphere(modelTile.boundingSphere,{
-                        duration:0
-                    });});
+                    $("#resetview").click(function () {
+                        FreedoApp.viewers["earth"].camera.flyToBoundingSphere(modelTile.boundingSphere, {
+                            duration: 0
+                        });
+                    });
                 }
                 pmodel = modelTile;
-                if(model[key].name=="dalian2"){
+                if (model[key].name == "dalian2") {
                     //初始化模型的颜色，用来显示已经盾构的环和没有盾构的环
-                    for (var i = 2; i <=9668; i+=18) {
-                        allready.push(["${component} ~==  \'"+i+"\'", 'color("gray")'])
+                    for (var i = 2; i <= 9668; i += 18) {
+                        allready.push(["${component} ~==  \'" + i + "\'", 'color("gray")'])
                     }
                     allready.push(['true', 'color("white",0.3)'])
                     //部分盾构环隐藏
-                    for (var i = 8984; i <=9668; i+=18){
-                        hiderings.push(["${component} ~==  \'"+i+"\'", 'false'])
+                    for (var i = 8984; i <= 9668; i += 18) {
+                        hiderings.push(["${component} ~==  \'" + i + "\'", 'false'])
                     }
-                    hiderings.push(['true','true'])
+                    hiderings.push(['true', 'true'])
                     pmodel.style = new FreeDo.FreedoPModelStyle({
-                        color : {
-                            conditions : allready
+                        color: {
+                            conditions: allready
                         },
-                        show :{
-                            conditions : hiderings
+                        show: {
+                            conditions: hiderings
                         }
                     });
 
                     //盾构机旋转
-/*                    var pitch = 0;
-                    FreedoApp.viewers["earth"].scene.preRender.addEventListener(function(){
-                        if(pitch>360)pitch=0;
-                        pitch = pitch+1;
-                        primitive.modelMatrix = FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979,-23,287,pitch,0,1.2,1.2,1.2);
+                    /*                    var pitch = 0;
+                                        FreedoApp.viewers["earth"].scene.preRender.addEventListener(function(){
+                                            if(pitch>360)pitch=0;
+                                            pitch = pitch+1;
+                                            primitive.modelMatrix = FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979,-23,287,pitch,0,1.2,1.2,1.2);
 
-                    });*/
-                    
+                                        });*/
+
                     //加载盾构模型
                     for (var i = 1; i < 10; i++) {
                         dungouModels[i] = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf({
                             id: i,
                             url: "http://182.92.7.32:9000/ztly/glb/" + i + "/" + i + ".glb",
                             show: true, // default
-                            modelMatrix: FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979,-491.5,255,0,0,1.4,1.4,1.4),
+                            modelMatrix: FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979, -491.5, 255, 0, 0, 1.4, 1.4, 1.4),
                             allowPicking: true, // not pickable
                             debugShowBoundingVolume: false, // default
                             debugWireframe: false
                         }))
                     }
-                    
-                    
-                    
-                 /*   //加盾构机和盾构机机身
-                    var daotou = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
-                        {
-                            id: "盾构机刀头",
-                            url: "http://182.92.7.32:9000/ztly/glb/dungoujidaotou/dun_gou_dao_tou.gltf",
-                            show: true,                     // default
-                            modelMatrix:FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979,-491.5,165,0,0,1.4,1.4,1.4),
-                            allowPicking: true,            // not pickable
-                            debugShowBoundingVolume: false, // default
-                            debugWireframe: false
-                    }));*/
+
+
+                    /*   //加盾构机和盾构机机身
+                       var daotou = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
+                           {
+                               id: "盾构机刀头",
+                               url: "http://182.92.7.32:9000/ztly/glb/dungoujidaotou/dun_gou_dao_tou.gltf",
+                               show: true,                     // default
+                               modelMatrix:FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979,-491.5,165,0,0,1.4,1.4,1.4),
+                               allowPicking: true,            // not pickable
+                               debugShowBoundingVolume: false, // default
+                               debugWireframe: false
+                       }));*/
 
                     var cheshen = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
                         {
                             id: "盾构机车身",
                             url: "http://182.92.7.32:9000/ztly/jianmiandungou/cheshen/2.glb",
                             show: true,                     // default
-                            modelMatrix:FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979,-491.5,249,6,0,1.2,1.2,1.2),
+                            modelMatrix: FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979, -491.5, 249, 6, 0, 1.2, 1.2, 1.2),
                             allowPicking: true,            // not pickable
                             debugShowBoundingVolume: false, // default
                             debugWireframe: false
-                     }));
-                   // cheshen.color = FreeDo.Color.RED;
-/*                    modelTile.readyPromise.then(function(){
-                    console.log(FreeDoTool.getSphereFromBoundsMinMax("5480.149836637288900,-255.272293286915470,-4820.024217262735900","5486.746820721270500,-240.645764969164760,-4805.037810776616400",pmodel));
-                    })*/
+                        }));
+                    // cheshen.color = FreeDo.Color.RED;
+                    /*                    modelTile.readyPromise.then(function(){
+                                        console.log(FreeDoTool.getSphereFromBoundsMinMax("5480.149836637288900,-255.272293286915470,-4820.024217262735900","5486.746820721270500,-240.645764969164760,-4805.037810776616400",pmodel));
+                                        })*/
                 }
             }
         }
     });
     $('#tree').tree({
-        method:"get",
-        data:[{
-            id:"-1",
-            text:"构件树",
-            state:"closed"
+        method: "get",
+        data: [{
+            id: "-1",
+            text: "构件树",
+            state: "closed"
         }],
-        onBeforeExpand:function(node,param){
-            if(node.id=="-1"){
+        onBeforeExpand: function (node, param) {
+            if (node.id == "-1") {
                 $('#tree').tree('options').url = "../../PModel/getModelTreeAsyn?uid=-1";
-            }else{
-                $('#tree').tree('options').url = "../../PModel/getModelTreeAsyn?uid=" + node.id+"&tablename="+node.tablename;
+            } else {
+                $('#tree').tree('options').url = "../../PModel/getModelTreeAsyn?uid=" + node.id + "&tablename=" + node.tablename;
             }
 
         },
-        onClick:function (node) {
+        onClick: function (node) {
             var boundsmax = node.boundsmax;
             var boundsmin = node.boundsmin;
             if (node.tablename != undefined) {
@@ -203,15 +205,26 @@ $(function(){
                 var unitname = node.tablename;
                 //根据最大最小包围盒定位
                 var boundingSphere = FreeDoTool.getSphereFromBoundsMinMax(boundsmax, boundsmin, pmodels[unitname])
-                FreedoApp.viewers["earth"].camera.flyToBoundingSphere(boundingSphere,{duration:0})
+                FreedoApp.viewers["earth"].camera.flyToBoundingSphere(boundingSphere, {duration: 0})
             }
-            DungouViewer.highlightmodel(node.id)},
-        onLoadSuccess:function (node, data) {
-            // console.log(data);
+            DungouViewer.highlightmodel(node.id)
+        },
+        onLoadSuccess: function (node, data) {
+            console.log(node);
+            if (node != null) {
+                if (node.id == "-1") {
+                    $("#_easyui_tree_2 span:eq(1)").click()
+                } else if (node.id == "0") {
+                    $("#_easyui_tree_539 span:eq(2)").click()
+                } else if (node.id == "9650") {
+                    $(this).tree("select", node.target)
+                    $(this).tree("scrollTo", node.target)
+                }
+            }
         }
     });
+    $("#_easyui_tree_1 span:eq(0)").click()
 });
-
 function setEntity (nodes){
 	 if(dungouModels){
 		 var cartographic=null;

@@ -207,10 +207,21 @@ $(function () {
                     }
                 }
             },*/},
-        onLoadSuccess:function (node, data) {
-            // console.log(data);
+        onLoadSuccess:function (node,data) {
+            console.log(node);
+            if(node!=null){
+                if(node.id=="-1"){
+                    $("#_easyui_tree_29 span:eq(1)").click()
+                }else if(node.id=="0"){
+                    $("#_easyui_tree_566 span:eq(2)").click()
+                }else if(node.id=="9650"){
+                    $(this).tree("select",node.target)
+                    $(this).tree("scrollTo",node.target)
+                }
+            }
         }
     });
+    $("#_easyui_tree_1 span:eq(0)").click()
     //showhidelabels(dungouprimitive);
 
 
