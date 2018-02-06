@@ -213,6 +213,13 @@ $(function () {
             text:"构件树",
             state:"closed"
         }],
+        onLoadSuccess:function(node,data){
+/*            var expandnode1 = $('#tree').tree("find","-1");
+            var expandnode2 = $('#tree').tree("find","0");
+            var expandnode3 = $('#tree').tree("find","9668");*/
+            $("#_easyui_tree_1 span:first-child").trigger("click")
+
+    },
         onBeforeExpand:function(node,param){
             if(node.id=="-1"){
                 $('#tree').tree('options').url = "../../PModel/getModelTreeAsyn?uid=-1";
@@ -269,7 +276,8 @@ $(function () {
             // console.log(data);
         }
     });
-
+   /* var expandnode1 = $('#tree').tree("find","-1");
+    $('#tree').tree("expandTo",expandnode1.target);*/
     //entity绘制的线路
     var line1 = FreedoApp.viewers["earth"].entities.add({
         id: 1,

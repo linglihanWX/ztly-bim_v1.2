@@ -67,8 +67,8 @@
             </div>
         </div>
         <div id="info">
-            <div class="content-top">
-                <p>查询条件</p>
+            <div class="content-top" id="riskTotal">
+            <%--    <p>查询条件</p>
                 <ul>
                     <li>
                         <span>预警时间:&nbsp;</span>
@@ -108,10 +108,21 @@
                         <input type="button" name="" id="search" class="btn-active" value="查询">
                         <input type="button" name="" id="reset" value="重置">
                     </li>
-                </ul>
+                </ul>--%>
             </div>
             <div class="content-bottom">
-                <p>预警列表
+                <p><span>预警列表</span>
+                    <select name="" id="">
+                        <option value="">请选择栏目</option>
+                        <option value="">工程名称</option>
+                        <option value="">填报日期</option>
+                        <option value="">填报人</option>
+                        <option value="">状况</option>
+                    </select>
+                    <input type="text" name="" id="" placeholder="请输入您搜索的内容">
+                    <input type="button" name="" id="search" value="搜索">
+
+
                     <input type="button" name="" id="add" value="添加">
                 </p>
                 <div id="dataBox">
@@ -218,6 +229,7 @@
 </div>
 
 <script src="${ctx}/static/page/common/js/jquery-3.2.1.min.js"></script>
+<script src="${ctx }/static/page/common/js/echarts.min.js"></script>
 <script src="${ctx}/static/page/common/js/jquery-easyui-1.4.5/jquery.easyui.min.js"></script>
 <script src="${ctx}/static/page/common/js/jquery-easyui-1.4.5/locale/easyui-lang-zh_CN.js"></script>
 <script src="${ctx }/static/webgl/caozuoqi/cameraControlRightAdjust.js"></script>

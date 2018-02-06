@@ -89,4 +89,80 @@ $(function(){
             setEntity(nodes);
         }*/
     });
+    let riskTotal = echarts.init(document.getElementById('riskTotal'));
+    let option1 =  {
+        title: {
+            text: '风险处理状态统计信息',
+            x: 'center',
+            textStyle: {
+                fontSize: 14
+            }
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b}: {c}条 ({d}%)"
+        },
+        legend: {
+            x: 'center',
+            y: 'bottom',
+            data: ['待整改', '进行中', '已清除', ]
+        },
+        toolbox: {
+            show: true,
+            feature: {
+                mark: {
+                    show: true
+                },
+                dataView: {
+                    show: false,
+                    readOnly: false
+                },
+                magicType: {
+                    show: true,
+                    type: ['pie', 'funnel']
+                },
+                restore: {
+                    show: true
+                },
+                saveAsImage: {
+                    show: true
+                }
+            }
+        },
+        calculable: true,
+        series: [
+
+            {
+                name:'统计信息',
+                type:'pie',
+                radius: ['50%', '70%'],
+                avoidLabelOverlap: false,
+                label: {
+                    normal: {
+                        show: false,
+                        position: 'center'
+                    },
+                    emphasis: {
+                        show: true,
+                        textStyle: {
+                            fontSize: '30',
+                            fontWeight: 'bold'
+                        }
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        show: false
+                    }
+                },
+                data:[
+                    {value:5, name:'待整改'},
+                    {value:6, name:'进行中'},
+                    {value:10, name:'已清除'},
+
+                ]
+            }
+        ]
+    };
+    riskTotal.setOption(option1);
 });

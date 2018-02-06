@@ -45,9 +45,23 @@ public class PModelServiceImpl implements PModelService {
 			}
 		}else{
 			List<Node4ZTree> treeList = pmodelDao.getChildrenByUid(tablename,uid);
-			for (Node4ZTree node: treeList) {
-				node.setTablename(tablename);
+			if(tablename.equals("t_unit16")){
+				for (Node4ZTree node: treeList) {
+					node.setTablename(tablename);
+					String id = node.getUid();
+					int leaf = node.getLeaf();
+					if(!id.equals("0")&&leaf!=1){
+						String name = "第"+((Integer.parseInt(id)-2)/18+1)+"环";
+						node.setName(name);
+					}
+
+				}
+			}else{
+				for (Node4ZTree node: treeList) {
+					node.setTablename(tablename);
+				}
 			}
+
 			return treeList;
 		}
 		return null;

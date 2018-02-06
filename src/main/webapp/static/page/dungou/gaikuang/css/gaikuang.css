@@ -85,7 +85,7 @@
     height: 20px;
     width: 100%;
     line-height: 20px;
-    padding-left: 20px;
+    padding-left: 10px;
     font-size: 14px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -121,8 +121,8 @@
     position: absolute!important;
     right: 0!important;
     bottom: 0!important;
-    width: 30%!important;
-    height: 50%!important;
+    width: 25%!important;
+    height: 30%!important;
     z-index: 3!important;
 }
 
@@ -149,7 +149,7 @@
     width: 20px;
     height: 15px;
     vertical-align: top;
-    margin: 3px 5px 0 10px;
+    margin: 3px 2px 0 5px;
 }
 
 #earth>p>span:nth-of-type(2) {

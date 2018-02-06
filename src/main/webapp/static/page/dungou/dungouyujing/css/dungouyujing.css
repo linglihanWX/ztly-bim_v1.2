@@ -147,7 +147,11 @@
 .content-top>ul li:last-of-type{
     display: block;
 }
-.content-top>ul li:last-of-type input,#add,#save,#cancel {
+#add,#search{
+    position: relative;
+    bottom: 2px;
+}
+.content-top>ul li:last-of-type input,#add,#save,#cancel,#search {
     background-color: #fff;
     width: 70px;
     height: 25px;
@@ -158,13 +162,13 @@
     text-align: center;
     cursor: pointer;
     font-size: 14px;
-    margin-left: 30px;
+    margin-left: 20px;
 }
-#add{
-    float: right;
-    margin:2px 20px 0 0;
+#add,#search{
+    position: relative;
+    bottom: 2px;
 }
-.content-top>ul li:last-of-type input.btn-active,#add:hover,#save:hover,#cancel:hover{
+.content-top>ul li:last-of-type input.btn-active,#add:hover,#save:hover,#cancel:hover,#search:hover{
     background-color: #3168ba;
     color: #fff;
     border-color: #3168ba;
@@ -180,8 +184,33 @@
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
+.content-bottom select,.content-bottom input{
+    outline: none;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.content-bottom>p>span{
+    position: absolute;
+    width: 80px;
+    height: 30px;
+    top: 0;
+    left: 0;
+    line-height: 30px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.content-bottom>p{
+    position: relative;
+    width: 100%;
+    height: 30px;
+    text-align: right;
+    line-height: 30px;
+}
 .content-top>p,
-.content-bottom>p,
 .three-box>p{
     position: relative;
     width: 100%;
@@ -321,6 +350,8 @@
         background-color: rgba(0, 0, 0, 0.2);
         -webkit-border-radius: 6px;
     }
+
+
 }
 .panel-tool{
 	display:block;
@@ -331,9 +362,9 @@
 .panel-tool>a:not(:last-of-type){
     display: none;
 }
-/*.tree-icon{*/
-    /*display: none;*/
-/*}*/
+/*.tree-icon{
+    display: none;
+}*/
 .datagrid-view2 .datagrid-header .datagrid-header-inner,
 .datagrid-view2 .datagrid-header .datagrid-header-inner .datagrid-htable,
 .datagrid-view2 .datagrid-body .datagrid-btable{

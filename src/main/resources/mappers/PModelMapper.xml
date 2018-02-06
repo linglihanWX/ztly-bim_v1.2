@@ -29,7 +29,7 @@
 	</select>
     <!-- 查询树节点数据 -->
     <select id="getChildrenByUid" resultType="com.freedotech.app.ztly.model.Node4ZTree" parameterType="String">
-		SELECT uid,pid,name,boundsmax,boundsmin,leaf FROM ${tableName} WHERE pid=#{uid} /*ORDER BY cast(uid as UNSIGNED INT)*/;
+		SELECT uid,pid,name,boundsmax,boundsmin,leaf FROM ${tableName} WHERE pid=#{uid} ORDER BY cast(uid as UNSIGNED INT);
 	</select>
     <!-- 判断是否是父节点 -->
     <select id="getTreeDataInUnit" resultType="com.freedotech.app.ztly.model.Node4ZTree" parameterType="String">
