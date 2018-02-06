@@ -216,7 +216,7 @@ $(function () {
     let chartThree = echarts.init(document.getElementById('chartThree'));
     let option3 = {
         title: {
-            text: '检测信息',
+            text: '安全风险统计信息',
             left: 'left',
             textStyle: {
                 fontSize: 14
