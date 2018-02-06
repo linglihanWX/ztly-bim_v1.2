@@ -50,35 +50,68 @@
     </div>
     <div class="content">
 
-        <div class="content-top">
+        <!--<div class="content-top">
             <p>查询条件</p>
             <ul>
-                <li><input type="checkbox"> <span>年报:</span><input type="date" name="" id=""></li>
-                <li><input type="checkbox"> <span>月报:</span><input type="month" name="" id=""></li>
-                <li><input type="checkbox"> <span>周报:</span><input type="week" name="" id=""></li>
+                <li>
+                    <input type="checkbox">
+                    <span>年报:</span>
+                    <input type="date" name="" id="">
+                </li>
+                <li>
+                    <input type="checkbox">
+                    <span>月报:</span>
+                    <input type="month" name="" id="">
+                </li>
+                <li>
+                    <input type="checkbox">
+                    <span>周报:</span>
+                    <input type="week" name="" id="">
+                </li>
             </ul>
             <ul>
-                <li><span>标题:</span><input type="text" name="" id=""></li>
-                <li><span>编号:</span><input type="text" name="" id=""></li>
-                <li><span>填报人:</span><input type="text" name="" id=""></li>
-                <li><input type="button" name="" id="search" class="btn-active" value="查询"><input type="button" name="" id="reset" value="重置"></li>
+                <li>
+                    <span>标题:</span>
+                    <input type="text" name="" id="">
+                </li>
+                <li>
+                    <span>编号:</span>
+                    <input type="text" name="" id="">
+                </li>
+                <li>
+                    <span>填报人:</span>
+                    <input type="text" name="" id="">
+                </li>
+                <li>
+                    <input type="button" name="" id="search" class="btn-active" value="查询">
+                    <input type="button" name="" id="reset" value="重置">
+                </li>
             </ul>
         </div>
         <div class="content-bottom">
-            <p>报表详情 <input type="button" name="" id="export" value="导出"></p>
+            <p>报表详情
+                <input type="button" name="" id="export" value="导出">
+            </p>
 
             <div id="dataBox">
-                <div id="dataGrid" style="width:100%;height:100%">
-                </div>
+                <table id="dataGrid" style="width:100%;height:100%">
+                </table>
 
 
             </div>
-        </div>
+        </div>-->
+        <div id="safe"></div>
+        <div id="progress"></div>
+        <div id="risk"></div>
+        <div id="4">chart1</div>
+        <div id="5">chart1</div>
+        <div id="6">chart1</div>
 
     </div>
 </div>
 
 <script src="${ctx}/static/page/common/js/jquery-3.2.1.min.js"></script>
+<script src="${ctx }/static/page/common/js/echarts.min.js"></script>
 <script src="${ctx}/static/page/common/js/jquery-easyui-1.4.5/jquery.easyui.min.js"></script>
 <script src="${ctx}/static/page/common/js/jquery-easyui-1.4.5/locale/easyui-lang-zh_CN.js"></script>
 <script src="${ctx}/static/page/dungou/common/js/appendHeader.js"></script>

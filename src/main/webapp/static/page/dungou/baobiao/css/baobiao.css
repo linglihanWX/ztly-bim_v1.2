@@ -7,6 +7,30 @@
     overflow: hidden;
 }
 
+.content>div{
+    float: left;
+    width: 33.33%;
+    height: 50%;
+    border: 1px solid #ccc;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 5px;
+}
+.content>div:nth-of-type(2),
+.content>div:nth-of-type(5){
+    margin-left:5px;
+    margin-right:5px;
+    width: calc(33.33% - 10px);
+}
+.content>div:nth-of-type(1),
+.content>div:nth-of-type(2),
+.content>div:nth-of-type(3){
+    margin-bottom:5px;
+    height:calc(50% - 5px);
+}
+/*
 .content-top {
     height: 160px;
     width: 100%;
@@ -15,12 +39,10 @@
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
-
 .content-top>ul {
     width: 100%;
     height: auto;
 }
-
 .content-top>ul li {
     display: inline-block;
     width: 30%;
@@ -29,9 +51,8 @@
     box-sizing: border-box;
     line-height: 30px;
     font-size: 0;
-    /* text-align: left; */
+    !* text-align: left; *!
 }
-
 .content-top>ul li input[type='checkbox'] {
     position: relative;
     top: -5px;
@@ -39,7 +60,6 @@
     width: 15px;
     height: 15px;
 }
-
 .content-top>ul li input:last-of-type {
     width: 160px;
     height: 25px;
@@ -49,18 +69,15 @@
     border-radius: 5px;
     text-indent: 5px;
 }
-
 .content-top>ul li span {
     display: inline-block;
-    width: 60px;
+    width: 50px;
     text-align: center;
     font-size: 14px;
 }
-
 .content-top>ul:nth-of-type(2) li span {
     margin-left: 15px;
 }
-
 .content-top>ul:nth-of-type(2) li:last-of-type input,#export {
     background-color: #fff;
     width: 70px;
@@ -78,14 +95,11 @@
     float: right;
     margin:10px 20px 0 0;
 }
-
 .content-top>ul:nth-of-type(2) li:last-of-type input.btn-active,#export:hover{
     background-color: #3168ba;
     color: #fff;
     border-color: #3168ba;
 }
-
-
 .content-bottom {
     width: 100%;
     height: calc(100% - 170px);
@@ -95,7 +109,6 @@
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
-
 .content-top>p,
 .content-bottom>p {
     position: relative;
@@ -107,7 +120,6 @@
     font-weight: bold;
     color: #000;
 }
-
 .content-top>p::after,
 .content-bottom>p::after {
     position: absolute;
@@ -118,18 +130,16 @@
     content: "";
     border-bottom: 1px solid #e5e5e5;
 }
-
-    #dataBox {
+#dataBox {
     width: 100%;
     height: calc(100% - 50px);
     margin-top: 10px;
 }
-
+.tree-icon{
+    display: none;
+}
 .datagrid-view2 .datagrid-header .datagrid-header-inner,
 .datagrid-view2 .datagrid-header .datagrid-header-inner .datagrid-htable,
 .datagrid-view2 .datagrid-body .datagrid-btable{
     width: 100%;
-}
-.content-top>ul li:last-of-type input {
-    text-indent: 0;
-}
+}*/
