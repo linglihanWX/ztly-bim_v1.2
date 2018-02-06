@@ -57,9 +57,9 @@ $(function () {
     //加载盾构机车身
     var cheshen = viewer.scene.primitives.add(FreeDo.Model.fromGltf({
         id: "盾构机车身",
-        url: "http://182.92.7.32:9000/ztly/dungoujiglb/cheshen/cheshen.glb",
+        url: "http://182.92.7.32:9000/ztly/jingmodungou/DP-HB/DP-HB_jishen.gltf",
         show: true, // default
-        modelMatrix: FreeDoTool.getModelMatrix(113.6609628070344, 22.791190110267943, 10, 0, 0, 0, 1.8, 1.8, 1.8),
+        modelMatrix: FreeDoTool.getModelMatrix(113.6629528070344, 22.791190110267943, 10, 180, 0, 0, 1.8, 1.8, 1.8),
         allowPicking: true, // not pickable
         debugShowBoundingVolume: false, // default
         debugWireframe: false
