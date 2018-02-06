@@ -109,7 +109,9 @@
                             </li>
                         </ul>
                     </div>
-                    <div id="chartFour"></div>
+                    <div id="chartFour">
+                    <canvas id="cvs" width="500" height="500"></canvas>
+                    </div>
                 </div>
                 <div class="swiper-slide info-right">
                     <div id="chartOne"></div>
@@ -127,6 +129,7 @@
     <ul class="list"></ul>
 </div>
 <script src="${ctx }/static/page/dungou/common/js/appendHeader.js"></script>
+<script src="${ctx }/static/page/dungou/gaikuang/js/base-canvas.js"></script>
 <script src="${ctx }/static/page/common/js/echarts.min.js"></script>
 <script src="${ctx }/static/page/common/js/nav.js"></script>
 <script src="${ctx }/static/page/common/js/swiper-3.4.2.jquery.min.js"></script>
