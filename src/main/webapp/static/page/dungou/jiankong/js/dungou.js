@@ -232,6 +232,9 @@ $(function () {
                 FreedoApp.viewers["earth"].camera.flyToBoundingSphere(boundingSphere,{duration:0})
             }
             DungouViewer.highlightmodel(node.id)
+            if(node.id!="-1"&&node.id!="0"){
+                $("#tipbox7").html("<p>"+node.text+"</p><ul><li>尺寸："+(Math.floor(Math.random()*40)+60)+"m</li><li>材质："+"水泥"+"</li><li>注浆量："+(Math.floor(Math.random()*40)+60)+"M³</li></ul>").show()
+            }
         /*onCheck:function (node,checked) {
             //得到所有未勾选的结点
             var nodes = $('#tree').tree('getChecked', 'unchecked');

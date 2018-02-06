@@ -105,6 +105,9 @@
 				<div class="tipbox" id="tipbox6">
 					
 				</div>
+                <div class="tipbox" id="tipbox7">
+
+				</div>
             </div>
         </div>
         <div class="content-bottom">
