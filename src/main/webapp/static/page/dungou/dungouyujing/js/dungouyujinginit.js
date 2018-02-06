@@ -184,10 +184,21 @@ $(function(){
                             FreedoApp.viewers["earth"].camera.flyToBoundingSphere(boundingSphere,{duration:0})
                         }
                         DungouViewer.highlightmodel(node.id)},
-                    onLoadSuccess:function (node, data) {
-                        // console.log(data);
+                    onLoadSuccess:function (node,data) {
+                        console.log(node);
+                        if(node!=null){
+                            if(node.id=="-1"){
+                                $("#_easyui_tree_2 span:eq(1)").click()
+                            }else if(node.id=="0"){
+                                $("#_easyui_tree_539 span:eq(2)").click()
+                            }else if(node.id=="9650"){
+                                $(this).tree("select",node.target)
+                                $(this).tree("scrollTo",node.target)
+                            }
+                        }
                     }
                 });
+                $("#_easyui_tree_1 span:eq(0)").click()
                 var screenSpaceEventHandler = new FreeDo.ScreenSpaceEventHandler(FreedoApp.viewers["earth"].canvas);
             	screenSpaceEventHandler.setInputAction(function(movement){
             		var picked = FreedoApp.viewers["earth"].scene.pick(movement.position);//屏幕坐标

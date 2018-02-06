@@ -56,6 +56,12 @@ public class PModelServiceImpl implements PModelService {
 					}
 
 				}
+				if(treeList.get(0).getLeaf()==1){
+					Node4ZTree n1 = new Node4ZTree("camera1",uid,"监测点1","","",1);
+					Node4ZTree n2 = new Node4ZTree("camera2",uid,"监测点2","","",1);
+					treeList.add(n1);
+					treeList.add(n2);
+				}
 			}else{
 				for (Node4ZTree node: treeList) {
 					node.setTablename(tablename);
