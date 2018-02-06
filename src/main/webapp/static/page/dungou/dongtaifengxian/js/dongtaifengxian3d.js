@@ -101,7 +101,9 @@ function initEntities(viewer) {
             width: 25,
             material:  new FreeDo.PolylineDashMaterialProperty({
                 color : FreeDo.Color.LIGHTYELLOW,
-                dashPattern: parseInt("11111111110", 2)
+                gapColor : FreeDo.Color.BLACK,
+                dashLength : 10.0,
+                dashPattern: parseInt("1111111111111110", 2)
             }),
             distanceDisplayCondition: new FreeDo.DistanceDisplayCondition(0.0, 10000)
         }
@@ -117,8 +119,10 @@ function initEntities(viewer) {
     					width: 25,
     					material:  new FreeDo.PolylineDashMaterialProperty({
     						color : FreeDo.Color.GREEN,
-    						dashPattern: parseInt("11111111110", 2)
-    					}),
+    						gapColor : FreeDo.Color.BLACK,
+    		                dashLength : 10.0,
+    		                dashPattern: parseInt("1111111111111110", 2)
+    		            }),
     					distanceDisplayCondition: new FreeDo.DistanceDisplayCondition(0.0, 10000)
     	}
     });
@@ -140,7 +144,7 @@ function initEntities(viewer) {
     					width: 25,
     					material:  new FreeDo.PolylineDashMaterialProperty({
     		                color : FreeDo.Color.LIGHTSKYBLUE,
-    		                gapColor : FreeDo.Color.RED,
+    		                gapColor : FreeDo.Color.BLACK,
     		                dashLength : 10.0,
     		                dashPattern: parseInt("1111111111111110", 2)
     		            }),
