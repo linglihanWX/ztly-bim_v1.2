@@ -183,7 +183,7 @@ $(function () {
 */
     }
 
-    spanStr += '<span class="center-span"></span>';
+    spanStr += '<span class="center-span" data-mao="false"></span>';
 
     $(".top-two>div").append(spanStr);
     $.each($('.span-click'),function (i,dom) {
