@@ -8,7 +8,7 @@
         "progress":"0.03",
         "problem":"0.02",
         "mark":" 0",
-        "shuju":"8768"
+        "shuju":"12440"
     },
     {
         "id":2,
@@ -19,7 +19,7 @@
         "progress":"0.01",
         "problem":"...",
         "mark":"0 ",
-        "shuju":"8786"
+        "shuju":"11576"
     },
     {
         "id":3,
@@ -30,7 +30,7 @@
         "progress":"0.51",
         "problem":"...",
         "mark":" 0",
-        "shuju":"8804"
+        "shuju":"10280"
     },
     {
         "id":4,
@@ -52,7 +52,7 @@
         "progress":"0.06",
         "problem":"...",
         "mark":" 0",
-        "shuju":"8840"
+        "shuju":"8012"
     },
     {
         "id":6,
@@ -63,6 +63,6 @@
         "progress":"0.27",
         "problem":"...",
         "mark":"0 ",
-        "shuju":"8858"
+        "shuju":"7220"
     }
 ]
