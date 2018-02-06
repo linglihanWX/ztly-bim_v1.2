@@ -63,12 +63,6 @@
                     <span class="line">左线</span>当前环:<span class="line">110</span>状态停止
                     <span class="line">右线</span>当前环:<span class="line">110</span>状态停止
                 </p>
-                <div class="tree-box">
-                    <p class="tree-box-title">构件树<i class="iconfont icon-hidden"></i></p>
-                    <div id="tree">
-
-                    </div>
-                </div>
             </div>
         </div>
         <div class="content-bottom">
@@ -77,7 +71,10 @@
                 <i class="iconfont icon-fxyj"></i>
                 <span>风险预警</span>
             </p>
-            <iframe src="${ctx}/static/page/dungou/dongtaifengxian/iframeOpenLayer.html" style="width: 100%;height: 100%"></iframe>
+            <img alt=""
+                     src="${ctx }/static/page/dungou/dongtaifengxian/img/webwxgetmsgimg.jpg"
+                     style="width:100%;height:100%">
+            <%-- <iframe src="${ctx}/static/page/dungou/dongtaifengxian/iframeOpenLayer.html" style="width: 100%;height: 100%"></iframe> --%>
             <div id="chartBox">
 
                 <div id="chart"></div>
