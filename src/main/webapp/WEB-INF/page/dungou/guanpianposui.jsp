@@ -79,7 +79,7 @@
                     </select></li>
                     <li><span>破损数量:&nbsp;</span><input type="text" value="10"></li>
                     <li><span>责任人:&nbsp;</span><input type="text" ></li>
-                    <li><input type="button" name="" id="search" class="btn-active" value="查询"><input type="button" name="" id="reset" value="重置"></li>
+                    <li><input type="button" name="" id="search" class="btn-active" value="查询"><input type="button" name="" id="reset" value="重置"><input type="button" name="" id="handle" value="处置"></li>
                 </ul>
                 <div id="dataBox">
                     <table id="dataGrid" style="width:100%;height:100%"></table>
@@ -104,6 +104,30 @@
         <li><span class="describe1">破损照片:</span><img src="${ctx }/static/page/dungou/guanpianposui/img/posun2.png" alt=""></li>
         <li><span class="describe1">破损原因:</span><span>拼装质量不好造成管片错台，</span></li>
         <li><span class="describe1">处理及防范措施:</span><span>管片拼装应先上后下，左右交叉，最后封顶块的安装原则。发现问题及时对破损处打磨修补。</span></li>
+    </ul>
+</div>
+<div id="handleBox" class="easyui-window" title="风险监测指标编辑" data-options="modal:true,closed:true"
+     style="width:450px;height:410px;padding:10px;">
+    <ul class="add-dangers-info">
+
+        <li><span class="describe"><span class="must-write">*</span>编号:</span><input class="inp" required type="text"></li>
+        <li><span class="describe"><span class="must-write">*</span>所属工程:</span><select name="" id="">
+            <option value="">六院-土建</option>
+        </select></li>
+        <li><span class="describe"><span class="must-write">*</span>检测类型:</span><select name="" id="">
+            <option value="">沉降</option>
+        </select></li>
+
+        <li><span class="describe"><span class="must-write">*</span>第三方检测:</span><input class="inp" required type="text">
+        </li>
+        <li><span class="describe"><span class="must-write">*</span>检测时间:</span><input class="inp" required type="date">
+        </li>
+        <li><span class="describe"><span class="must-write">*</span>创建时间:</span><input class="inp" required type="date"></li>
+        <li><span class="describe"><span class="must-write">*</span>初始值:</span><input class="inp" required type="text"></li>
+        <li><span class="describe"><span class="must-write">*</span>描述:</span><textarea name="" id="" ></textarea></li>
+
+        <li><input type="button" name="" class="save btn-active" value="保存"><input type="button" name=""
+                                                                                   class="cancel" value="取消"></li>
     </ul>
 </div>
 

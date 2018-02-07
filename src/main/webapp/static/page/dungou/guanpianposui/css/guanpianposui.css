@@ -81,7 +81,7 @@
     width: 80px;
     text-align: right;
 }
-.content-bottom>ul li:last-of-type input {
+.content-bottom>ul li:last-of-type input,.save,.cancel {
     background-color: #fff;
     width: 70px;
     height: 25px;
@@ -92,11 +92,16 @@
     text-align: center;
     cursor: pointer;
     font-size: 14px;
-    margin-left: 30px;
+    margin-left: 5px;
 }
 
 .content-bottom>ul li:last-of-type input.btn-active{
     background-color: #3168ba;
+    color: #fff;
+    border-color: #3168ba;
+}
+.save:hover,.cancel:hover{
+	 background-color: #3168ba;
     color: #fff;
     border-color: #3168ba;
 }
@@ -305,4 +310,83 @@
 
 .tree-node-hover{
     background: none!important;
+}
+
+
+.add-dangers-info{
+    width: 100%;
+    height:100%;
+}
+.add-dangers-info li{
+    position: relative;
+    height: auto;
+    width: 100%;
+    line-height: 30px;
+    margin-bottom: 5px;
+}
+.add-dangers-info li input[type='checkbox']{
+     vertical-align: middle;
+     margin:0 10px 0 15px;
+ }
+.add-dangers-info li input[type='file']{
+    border: 1px solid #ccc;
+    outline: none;
+}
+.add-dangers-info li select{
+    width: 140px;
+    height: 25px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.add-dangers-info li textarea{
+    width: 270px;
+    height: 60px;
+    resize: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.describe{
+    display: inline-block;
+    vertical-align: top;
+    width: 105px;
+    height: 30px;
+    line-height: 30px;
+    text-align: right;
+    margin-right: 10px;
+    font-size: 14px;
+
+}
+.add-dangers-info li:last-of-type{
+     text-align: right;
+ }
+.inp{
+    width: 140px;
+    height: 25px;
+    border-radius: 3px;
+    outline: none;
+    border: 1px solid #ccc;
+    text-indent: .5rem;
+
+}
+.must-write{
+    display: inline-block;
+    vertical-align: middle;
+    color: red;
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+#editBox .inp,#editBox textarea,#editBox select{
+    width: 280px;
+}
+
+
+
+@media screen and (min-width: 1367px) {
+	.content-bottom>ul li:last-of-type input {
+
+    margin-left: 20px;
+}
 }
