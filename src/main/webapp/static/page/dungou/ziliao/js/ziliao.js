@@ -1,5 +1,5 @@
 $(function(){
-    $(".three-menu li:nth-of-type(5) a").addClass("second-active").parent().siblings().children("a").removeClass("second-active");
+    $(".three-menu li:nth-of-type(6) a").addClass("second-active").parent().siblings().children("a").removeClass("second-active");
     $(".btn").each(function (index, element) {
         $(element).on("click", function () {
             $(this).addClass("btn-active").parent().siblings().children(".btn").removeClass("btn-active");

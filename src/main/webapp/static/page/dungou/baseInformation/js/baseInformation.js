@@ -3,7 +3,7 @@
 	
 //	var getValueByid =getValueByid ||{} ;
 $(function(){
-    $(".three-menu li:nth-of-type(7) a").addClass("second-active").parent().siblings().children("a").removeClass("second-active");
+    $(".three-menu li:nth-of-type(4) a").addClass("second-active").parent().siblings().children("a").removeClass("second-active");
     $(".page-nav>ul>li:nth-of-type(1) a").addClass("active").parent().siblings().children("a").removeClass("active");
     $(".content-top>ul li:last-of-type input").each(function (index, element) {
         $(element).on("click", function () {
