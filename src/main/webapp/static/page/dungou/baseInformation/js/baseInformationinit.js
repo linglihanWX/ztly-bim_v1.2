@@ -1,39 +1,59 @@
-var pmodel = {}
 var allready = [];
+var pmodel = null;
+var isDalian = false;
 var hiderings = []
-var daotou = null;
-var cheshen = null;
-var daotoujingmo =null;
-var cameraPositionData = [
-	{x: -2604188.9576993342, y: 4229824.778363, z: 3986731.0884841816, hpr : [2.0252142504225823,0.000007846544693990154,0.000026888950068304496]},
-	{x: -2604224.4673070563, y: 4229818.616830873, z: 3986712.812646269, hpr : [2.025218485086487,0.000014116741498426677,0.00002599353000132254]},
-	{x: -2604265.8927270505, y: 4229819.418719316, z: 3986683.849421127, hpr : [0.19430335441427182,0.000016894271561040952,6.283158513157883]},
-	{x: -2604257.933181328, y: 4229829.02687125, z: 3986673.410764255, hpr : [1.1237271470013832,0.00002918490954328945,6.283182103378916]},
-	{x: -2604263.5177273056, y: 4229819.315546121, z: 3986676.015648537, hpr : [2.0319755196225096,0.000021483214336370793,0.000022482405923618387]},
-	{x: -2604258.1296531195, y: 4229801.581716012, z: 3986702.5833820356, hpr : [2.7501082991764827,-0.0000029759223332259666,0.00003366340501287368]},
-	/*{x: -2604274.20860252, y: 4229797.369361525, z: 3986693.9382822565, hpr : [3.2482999659034553,-0.000017437013012822078,0.00003078892946373202]},
-	{x: -2604268.7610574677, y: 4229784.110900352, z: 3986717.009697681, hpr : [3.7055416378430417,-0.00003299942673851142,0.0000179777853350771]},
-	{x: -2604263.0017969776, y: 4229772.431858155, z: 3986735.966840435, hpr : [3.705541792138672,-0.000036144374234714505,0.00001621457133449411]}*/
+var imgpos = [
+    {
+        id:"8858",
+        img: "cheng_tanhao.png",
+        min:"5564.924732483346800,-233.593031705635500,-4797.562221778230200",
+        max:"5571.524369492354700,-218.966451213975090,-4782.576447108573100",
+    },
+    {
+        id:"8714",
+        img: "hong_tanhao.png",
+        min:"5580.045031306928600,-230.423668468702030,-4793.802116091998000",
+        max:"5586.454365614838900,-215.153719140996710,-4778.584325199320100",
+    },
+    {
+        id:"8498",
+        img: "huang_tanhao.png",
+        min:"5602.240752589121300,-224.506978349117670,-4786.943222850076400",
+        max:"5609.277833230161400,-210.145596507611460,-4773.094147694190700",
+    },
+    {
+        id:"8300",
+        img: "lu_tanhao.png",
+        min:"5623.355463332095500,-219.551076281830570,-4781.857623648792500",
+        max:"5629.763121255636200,-204.281079508400610,-4766.639406283188700"
+    },
+    {
+        id:"8048",
+        img: "lu_tanhao.png",
+        min:"5649.714971434714200,-212.961190858722350,-4774.832145857118100",
+        max:"5656.122992677406700,-197.691149208512000,-4759.614200913742000"
+    },
+    {
+        id:"7850",
+        img: "hong_tanhao.png",
+        min:"5670.356199198314200,-207.235202035250180,-4769.450052719749700",
+        max:"5676.954901169137900,-192.608650624620280,-4754.464024114919100"
+    },
 ]
 $(function () {
-    var h = $("#content").height();
-    var h2 = $(".breadcrumb").height();
-    $("#content .row-fluid").height(h - h2);
+    //初始化地球
     FreedoApp.init("earth");
-    FreedoApp.viewers["earth"].scene.globe.depthTestAgainstTerrain =true;
-    FreedoApp.viewers["earth"].scene._screenSpaceCameraController.enableCollisionDetection =false;
-    DungouViewer.initLeftClick(FreedoApp.viewers["earth"], showtips);
-    DungouViewer.initLeftDbClick(FreedoApp.viewers["earth"])
-    DungouViewer.initLeftDown(FreedoApp.viewers["earth"], hidetips)
-    // var surveymanager = new SurveyManager(FreedoApp.viewers["earth"],function(){});
     cameraControl(FreedoApp.viewers["earth"]);
+    DungouViewer.initLeftClick(FreedoApp.viewers["earth"], function () {
+        }
+    )
     var pmodels = [];
     $.ajax({
         url: "../../PModel/getPmodel",
         type: "get",
         dataType: "json",
         success: function (data) {
-            //解析json
+            //解析json`
             var model = eval(data);
             for (var key in model) {
                 //挖坑数据
@@ -83,45 +103,45 @@ $(function () {
                     });
                     $("#resetview").click(function () {
                         FreedoApp.viewers["earth"].camera.setView({
-                            destination : new FreeDo.Cartesian3.fromDegrees(model[key].cameralon, model[key].cameralat, model[key].cameraheight),
-                            orientation : new FreeDo.HeadingPitchRoll(model[key].cameraheading,model[key].camerapitch,model[key].cameraroll)
+                            destination: new FreeDo.Cartesian3.fromDegrees(model[key].cameralon, model[key].cameralat, model[key].cameraheight),
+                            orientation: new FreeDo.HeadingPitchRoll(model[key].cameraheading, model[key].camerapitch, model[key].cameraroll)
                         });
                     })
                 } else {
                     modelTile.readyPromise.then(function () {
-                        FreedoApp.viewers["earth"].camera.flyToBoundingSphere(modelTile.boundingSphere,{
-                            duration:0
+                        FreedoApp.viewers["earth"].camera.flyToBoundingSphere(modelTile.boundingSphere, {
+                            duration: 0
                         });
                     });
-                    $("#resetview").click(function () {FreedoApp.viewers["earth"].camera.flyToBoundingSphere(modelTile.boundingSphere,{
-                        duration:0
-                    });});
+                    $("#resetview").click(function () {
+                        FreedoApp.viewers["earth"].camera.flyToBoundingSphere(modelTile.boundingSphere, {
+                            duration: 0
+                        });
+                    });
                 }
-                pmodel = modelTile;
-                if(model[key].name=="dalian2"){
+
+                if (model[key].name == "dalian2") {
+                    pmodel = modelTile;
                     //初始化模型的颜色，用来显示已经盾构的环和没有盾构的环
-                    for (var i = 2; i <=9668; i+=18) {
-                        allready.push(["${component} ~==  \'"+i+"\'", 'color("gray")'])
+                    for (var i = 2; i <= 9668; i += 18) {
+                        allready.push(["${component} ~==  \'" + i + "\'", 'color("gray")'])
                     }
-                    allready.push(['true', 'color("white",0.3)'])
+                    allready.push(['true', 'color("white",0.2)'])
                     //部分盾构环隐藏
-                    for (var i = 8984; i <=9668; i+=18){
-                        hiderings.push(["${component} ~==  \'"+i+"\'", 'false'])
+                    for (var i = 8984; i <= 9668; i += 18) {
+                        hiderings.push(["${component} ~==  \'" + i + "\'", 'false'])
                     }
-                    hiderings.push(['true','true'])
+                    hiderings.push(['true', 'true'])
                     pmodel.style = new FreeDo.FreedoPModelStyle({
-                        color : {
-                            conditions : allready
+                        color: {
+                            conditions: allready
                         },
-                        show :{
-                            conditions : hiderings
+                        show: {
+                            conditions: hiderings
                         }
                     });
 
-                    //盾构机旋转
-                    var pitch = 0;
-
-                    
+                  
                     var fixedFrameTransform = Freedo.Transforms.localFrameToFixedFrameGenerator('north', 'west');
                     var hpRoll = new Freedo.HeadingPitchRoll();
                     hpRoll.heading = Freedo.Math.toRadians(340);
@@ -138,408 +158,162 @@ $(function () {
                             allowPicking: true,            // not pickable
                             debugShowBoundingVolume: false, // default
                             debugWireframe: false
-                    }));
-                    FreedoApp.viewers["earth"].scene.preRender.addEventListener(function(){
-                     	if(daotou){
-                 			hpRoll.roll += deltaRadians;
-                 			if (hpRoll.roll > Freedo.Math.TWO_PI) {
-                 				hpRoll.roll -= Freedo.Math.TWO_PI;
-                 			}
-                 			//speedVector = Freedo.Cartesian3.multiplyByScalar(Freedo.Cartesian3.UNIT_X, speed / 10, speedVector);
-                 			//position = Freedo.Matrix4.multiplyByPoint(planePrimitive.modelMatrix, speedVector, position);
-                 			Freedo.Transforms.headingPitchRollToFixedFrame(daotouposition, hpRoll, Freedo.Ellipsoid.WGS84, fixedFrameTransform, daotou.modelMatrix);
-                 		}
-                     });
-                    cheshen = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
+                        }));
+
+                    var cheshen = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
                         {
                             id: "盾构机车身",
                             url: "http://182.92.7.32:9000/ztly/jianmiandungou/cheshen/2.gltf",
                             show: true,                     // default
-                            modelMatrix:FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979,-491.5,249,6,0,1.2,1.2,1.2),
+                            modelMatrix: FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979, -491.5, 249, 6, 0, 1.2, 1.2, 1.2),
                             allowPicking: true,            // not pickable
                             debugShowBoundingVolume: false, // default
                             debugWireframe: false
-                     }));
-                    //cheshen.color = FreeDo.Color.RED;
-/*                    modelTile.readyPromise.then(function(){
-                    console.log(FreeDoTool.getSphereFromBoundsMinMax("5480.149836637288900,-255.272293286915470,-4820.024217262735900","5486.746820721270500,-240.645764969164760,-4805.037810776616400",pmodel));
-                    })*/
-                }
-            }
-        }
-    });
-   
-    //showhidelabels(dungouprimitive);
-    $('#tree').tree({
-        method:"get",
-        data:[{
-            id:"-1",
-            text:"构件树",
-            state:"closed"
-        }],
-        onBeforeExpand:function(node,param){
-            if(node.id=="-1"){
-                $('#tree').tree('options').url = "../../PModel/getModelTreeAsyn?uid=-1";
-            }else{
-                $('#tree').tree('options').url = "../../PModel/getModelTreeAsyn?uid=" + node.id+"&tablename="+node.tablename;
-            }
+                        }));
 
-        },
-        onClick:function (node) {
-            var boundsmax = node.boundsmax;
-            var boundsmin = node.boundsmin;
-            if (node.tablename != undefined) {
-                //得到结点所存的表名，作为pmodels数组的索引找到对应的pmodel对象
-                var unitname = node.tablename;
-                //根据最大最小包围盒定位
-                var boundingSphere = FreeDoTool.getSphereFromBoundsMinMax(boundsmax, boundsmin, pmodels[unitname])
-                FreedoApp.viewers["earth"].camera.flyToBoundingSphere(boundingSphere,{duration:0})
-            }
-            DungouViewer.highlightmodel(node.id)
-            if(node.id!="-1"&&node.id!="0"){
-                $("#tipbox7").html("<p>"+node.text+"</p><ul><li>尺寸："+(Math.floor(Math.random()*40)+60)+"m</li><li>材质："+"水泥"+"</li><li>注浆量："+(Math.floor(Math.random()*40)+60)+"M³</li></ul>").show()
-            }
-},
-        onLoadSuccess:function (node,data) {
-            console.log(node);
-            if(node!=null){
-                if(node.id=="-1"){
-                    $("#_easyui_tree_2 span:eq(1)").click()
-                }else if(node.id=="0"){
-                    $("#_easyui_tree_539 span:eq(2)").click()
-                }else if(node.id=="9650"){
-                    $(this).tree("select",node.target)
-                    $(this).tree("scrollTo",node.target)
                 }
+                $('#tree').tree({
+                    method: "get",
+                    data: [{
+                        id: "-1",
+                        text: "构件树",
+                        state: "closed"
+                    }],
+                    onBeforeExpand: function (node, param) {
+                        if (node.id == "-1") {
+                            $('#tree').tree('options').url = "../../PModel/getModelTreeAsyn?uid=-1";
+                        } else {
+                            $('#tree').tree('options').url = "../../PModel/getModelTreeAsyn?uid=" + node.id + "&tablename=" + node.tablename;
+                        }
+
+                    },
+                    onClick: function (node) {
+                        var boundsmax = node.boundsmax;
+                        var boundsmin = node.boundsmin;
+                        if (node.tablename != undefined) {
+                            //得到结点所存的表名，作为pmodels数组的索引找到对应的pmodel对象
+                            var unitname = node.tablename;
+                            //根据最大最小包围盒定位
+                            var boundingSphere = FreeDoTool.getSphereFromBoundsMinMax(boundsmax, boundsmin, pmodels[unitname])
+                            FreedoApp.viewers["earth"].camera.flyToBoundingSphere(boundingSphere,{duration:0,offset: new Freedo.HeadingPitchRange(Freedo.Math.toRadians(60), Freedo.Math.toRadians(0), boundingSphere.radius * 10.0)})
+                        }
+                        DungouViewer.highlightmodel(node.id)
+                      
+                    },
+                    onLoadSuccess:function (node,data) {
+                        console.log(node);
+                        if(node!=null){
+                            if(node.id=="-1"){
+                                $("#_easyui_tree_2 span:eq(1)").click()
+                            }else if(node.id=="0"){
+                                $("#_easyui_tree_539 span:eq(2)").click()
+                            }else if(node.id=="9650"){
+                                $(this).tree("select",node.target)
+                                $(this).tree("scrollTo",node.target)
+                            }
+                        }
+                    }
+                });
+                $("#_easyui_tree_1 span:eq(0)").click()
+                var screenSpaceEventHandler = new FreeDo.ScreenSpaceEventHandler(FreedoApp.viewers["earth"].canvas);
+                screenSpaceEventHandler.setInputAction(function (movement) {
+                    var picked = FreedoApp.viewers["earth"].scene.pick(movement.position);
+                    var cartesianWordPos = FreedoApp.viewers["earth"].scene.pickPosition(movement.position);
+                    var cartographic = FreedoApp.viewers["earth"].scene.globe.ellipsoid.cartesianToCartographic(cartesianWordPos);
+                    if (picked) {
+                        if (picked instanceof FreeDo.FreedoPModelFeature) {
+                            var id = picked.getProperty('component');
+                            if (FreeDo.defined(id)) {
+                                var style = new FreeDo.FreedoPModelStyle({
+                                    show: {
+                                        conditions: [["${component} === '" + id + "'", 'false'], ['true', 'true']]
+                                    }
+                                    /*color: {
+                                        conditions: [["${component} === \'" + id + "\'", "color('gold')"],["true", "color('white')"]]
+                                    }*/
+                                });
+                                pmodel.style = style;
+                                console.log("id:" + id + "  cameraposition" + FreedoApp.viewers["earth"].camera.position + FreedoApp.viewers["earth"].camera.heading + "," + FreedoApp.viewers["earth"].camera.pitch + "," + FreedoApp.viewers["earth"].camera.roll + "," + "    pickedpos" + cartesianWordPos);
+                            }
+                        } else {
+
+                        }
+                    }
+                }, FreeDo.ScreenSpaceEventType.RIGHT_CLICK);
+
+
             }
         }
     });
-    $("#_easyui_tree_1 span:eq(0)").click()
-    //entity绘制的线路
-    var line1 = FreedoApp.viewers["earth"].entities.add({
-        id: 1,
-        name: '线',
-        type: "line",
-        data: [60, 130],
-        polyline: {
-            positions: FreeDo.Cartesian3.fromDegreesArrayHeights(
-                [
-                    121.60592745779262, 38.953991486827306, -180,
-                    121.61385178949371, 38.948083100516946, -280
-                ]
-            ),
-            width: 5,
-            material: new FreeDo.PolylineOutlineMaterialProperty({
-                color: FreeDo.Color.GREEN,
-                outlineWidth: 1,
-                outlineColor: FreeDo.Color.BLACK
-            })
-        }
-    });
-    var line2 = FreedoApp.viewers["earth"].entities.add({
-        id: 2,
-        name: '线',
-        type: "line",
-        data: [50, 120],
-        polyline: {
-            positions: FreeDo.Cartesian3.fromDegreesArrayHeights(
-                [
-                    121.61385178949371, 38.948083100516946, -280,
-                    121.61758807016263, 38.943420806881576, -350
-                ]
-            ),
-            width: 5,
-            material: new FreeDo.PolylineOutlineMaterialProperty({
-                color: FreeDo.Color.BLUE,
-                outlineWidth: 1,
-                outlineColor: FreeDo.Color.BLACK
-            })
-        }
-    });
-    var line3 = FreedoApp.viewers["earth"].entities.add({
-        id: 3,
-        name: '线',
-        type: "line",
-        data: [40, 110],
-        polyline: {
-            positions: FreeDo.Cartesian3.fromDegreesArrayHeights(
-                [
-                    121.61758807016263, 38.943420806881576, -350,
-                    121.62004836953294, 38.9385202916514, -400
-                ]
-            ),
-            width: 5,
-            material: new FreeDo.PolylineOutlineMaterialProperty({
-                color: FreeDo.Color.BLUEVIOLET,
-                outlineWidth: 1,
-                outlineColor: FreeDo.Color.BLACK
-            })
-        }
-    });
-    var line4 = FreedoApp.viewers["earth"].entities.add({
-        id: 4,
-        name: '线',
-        type: "line",
-        data: [30, 100],
-        polyline: {
-            positions: FreeDo.Cartesian3.fromDegreesArrayHeights(
-                [
-                    121.62004836953294, 38.9385202916514, -400,
-                    121.62410255554124, 38.930786875534515, -500
-                ]
-            ),
-            width: 5,
-            material: new FreeDo.PolylineOutlineMaterialProperty({
-                color: FreeDo.Color.BLUE,
-                outlineWidth: 1,
-                outlineColor: FreeDo.Color.BLACK
-            })
-        }
-    });
-    var verticaline = FreedoApp.viewers["earth"].entities.add({
-        id: 5,
-        name: '线',
-        type: "verticaline",
-        polyline: {
-            positions: FreeDo.Cartesian3.fromDegreesArrayHeights(
-                [
-                    121.62004836953294, 38.9385202916514, -400,
-                    121.62004836953294, 38.9385202916514, -800
-                ]
-            ),
-            width: 5,
-            material: new FreeDo.PolylineOutlineMaterialProperty({
-                color: FreeDo.Color.ORANGE,
-                outlineWidth: 1,
-                outlineColor: FreeDo.Color.BLACK
-            })
-        }
-    });
-    showhidelabels()
 });
 
-//重新加载精模盾构机
-function reloadJingMoDungouji() {
-	 if(daotou)FreedoApp.viewers["earth"].scene.primitives.remove(daotou);
-	 if(cheshen)FreedoApp.viewers["earth"].scene.primitives.remove(cheshen);
-	 var fixedFrameTransform = Freedo.Transforms.localFrameToFixedFrameGenerator('north', 'west');
-     var hpRoll = new Freedo.HeadingPitchRoll();
-     hpRoll.heading = Freedo.Math.toRadians(160);
-     hpRoll.pitch = Freedo.Math.toRadians(-5);
-     var deltaRadians = Freedo.Math.toRadians(3.0);
-     var daotouposition = new FreeDo.Cartesian3.fromDegrees(121.62022781066331, 38.93872856969979,-491.5)
-     //加盾构机和盾构机机身
-     daotoujingmo = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
-         {
-             id: "盾构机刀头",
-             url: "http://182.92.7.32:9000/ztly/jingmodungou/DP-HB/DP-HB_daopan.gltf",
-             show: true,                     // default
-             modelMatrix:Freedo.Transforms.headingPitchRollToFixedFrame(daotouposition, hpRoll, Freedo.Ellipsoid.WGS84, fixedFrameTransform),
-             allowPicking: true,            // not pickable
-             debugShowBoundingVolume: false, // default
-             debugWireframe: false
-     }));
-     FreedoApp.viewers["earth"].scene.preRender.addEventListener(function(){
-      	if(daotoujingmo){
-  			hpRoll.roll += deltaRadians;
-  			if (hpRoll.roll > Freedo.Math.TWO_PI) {
-  				hpRoll.roll -= Freedo.Math.TWO_PI;
-  			}
-  			//speedVector = Freedo.Cartesian3.multiplyByScalar(Freedo.Cartesian3.UNIT_X, speed / 10, speedVector);
-  			//position = Freedo.Matrix4.multiplyByPoint(planePrimitive.modelMatrix, speedVector, position);
-  			Freedo.Transforms.headingPitchRollToFixedFrame(daotouposition, hpRoll, Freedo.Ellipsoid.WGS84, fixedFrameTransform, daotoujingmo.modelMatrix);
-  		}
-      });
-    cheshen = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
-         {
-             id: "盾构机车身",
-             //url: "http://182.92.7.32:9000/ztly/jianmiandungou/cheshen/2.glb",
-             url: "http://182.92.7.32:9000/ztly/jingmodungou/DP-HB/DP-HB_jishen.gltf",
-             show: true,                     // default
-             modelMatrix:FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979,-491.5,69,-6,0,1.2,1.2,1.2),
-             allowPicking: true,            // not pickable
-             debugShowBoundingVolume: false, // default
-             debugWireframe: false
-      }));
-    for(var i in cameraPositionData){
-    	 var cartographic = Freedo.Cartographic.fromCartesian(cameraPositionData[i]);
-    	 var citizensBankPark =  FreedoApp.viewers["earth"].entities.add( {  
-           id : 'cameraPos'+i,
-           type : 'cameraImg',
-           position :  Freedo.Cartesian3.fromRadians(cartographic.longitude,cartographic.latitude,cartographic.height+10),  
-           label: { // 文字标签
-               text: "相机视角："+i,
-               font: '10pt monospace',
-               style: FreeDo.LabelStyle.FILL_AND_OUTLINE,
-               outlineWidth: 2,
-               backgroundColor: FreeDo.Color.LIGHTSKYBLUE,
-               showBackground: false,
-               fillColor: FreeDo.Color.LIGHTSKYBLUE,
-               verticalOrigin: FreeDo.VerticalOrigin.BOTTOM, // 垂直方向以底部来计算标签的位置
-               pixelOffset: new FreeDo.Cartesian2(0, -25),// 偏移量
-               distanceDisplayCondition: new FreeDo.DistanceDisplayCondition(0.0, 10000)
-           },
-           billboard : { //图标  
-               image : '../../static/page/dungou/guanpianposui/img/cheng_tanhao.png',  
-               width : 30,  
-               height : 47  
-           },
-           verticalOrigin : Freedo.VerticalOrigin.BOTTOM, //垂直方向以底部来计算标签的位置  
-           pixelOffset : new Freedo.Cartesian2( 0, 9 )   //偏移量  
-       } ); 
+function setEntity(nodes) {
+    if (pmodel) {
+        pmodel.readyPromise.then(function () {
+            for (i in nodes) {
+                var nowPos = getSphereFromBoundsMinMax(imgpos[nodes[i].id - 1].min, imgpos[nodes[i].id - 1].max, pmodel);
+                var cartographic = Freedo.Cartographic.fromCartesian(nowPos.center);
+                var citizensBankPark = FreedoApp.viewers["earth"].entities.add({
+                    name: imgpos[nodes[i].id - 1].id,
+                    position: Freedo.Cartesian3.fromRadians(cartographic.longitude, cartographic.latitude, cartographic.height + 16),
+                    billboard: { //图标
+                        image: '../../static/page/dungou/baseInformation/img/' + imgpos[nodes[i].id - 1].img,
+                        width: 30,
+                        height: 47
+                    },
+                    verticalOrigin: Freedo.VerticalOrigin.BOTTOM, //垂直方向以底部来计算标签的位置
+                    pixelOffset: new Freedo.Cartesian2(0, 9)   //偏移量
+                });
+            }
+        });
+/*        allready = []
+        for (i in nodes) {
+            allready.push(["${component} ~==  \'" + imgpos[nodes[i].id - 1].id + "\'", 'color("red")'])
+        }
+        allready.push(['true', 'color("white")'])
+        pmodel.style = new FreeDo.FreedoPModelStyle({
+            color: {
+                conditions: allready
+            }
+        });*/
+DungouViewer.highlightmodel(imgpos[nodes[i].id - 1].id);
     }
 }
 
-//重新加载减模盾构机
-function reloadJianMoDungouji() {
-	if(daotoujingmo)FreedoApp.viewers["earth"].scene.primitives.remove(daotoujingmo);
-	 if(cheshen)FreedoApp.viewers["earth"].scene.primitives.remove(cheshen);
-	 for(var i in cameraPositionData){
-		 FreedoApp.viewers["earth"].entities.removeById('cameraPos'+i);
-	 }
-	var fixedFrameTransform = Freedo.Transforms.localFrameToFixedFrameGenerator('north', 'west');
-    var hpRoll = new Freedo.HeadingPitchRoll();
-    hpRoll.heading = Freedo.Math.toRadians(340);
-    hpRoll.pitch = Freedo.Math.toRadians(5);
-    var deltaRadians = Freedo.Math.toRadians(3.0);
-    var daotouposition = new FreeDo.Cartesian3.fromDegrees(121.62022781066331, 38.93872856969979,-491.5)
-    //加盾构机和盾构机机身
-    daotou = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
-        {
-            id: "盾构机刀头",
-            url: "http://182.92.7.32:9000/ztly/jianmiandungou/daotou/1.gltf",
-            show: true,                     // default
-            modelMatrix:Freedo.Transforms.headingPitchRollToFixedFrame(daotouposition, hpRoll, Freedo.Ellipsoid.WGS84, fixedFrameTransform),
-            allowPicking: true,            // not pickable
-            debugShowBoundingVolume: false, // default
-            debugWireframe: false
-    }));
-
-   cheshen = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
-        {
-            id: "盾构机车身",
-            url: "http://182.92.7.32:9000/ztly/jianmiandungou/cheshen/2.gltf",
-            show: true,                     // default
-            modelMatrix:FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979,-491.5,249,6,0,1.2,1.2,1.2),
-            allowPicking: true,            // not pickable
-            debugShowBoundingVolume: false, // default
-            debugWireframe: false
-     }));
+function restAllEntity() {
+    FreedoApp.viewers["earth"].entities.removeAll();
 }
 
-//显示标牌
-function showlabel(id,position){
-	$(".msgInfo").hide();
-	var pick= new FreeDo.Cartesian2(position.x,position.y);
-	cartesian = FreedoApp.viewers["earth"].scene.globe.pick(FreedoApp.viewers["earth"].camera.getPickRay(pick), FreedoApp.viewers["earth"].scene);
-	if(id!=undefined&&id.indexOf("管道")>-1){
-		removeFollowLisener();
-		addFollowListener();
-		$(".msgInfo").html(id).show();
-	}
-}
-//标牌跟随移动
-var cartesian= null;
-var flag = false;
-var htmlOverlay = document.getElementById('showmsg');
-var addFollowListener=function(){
-	flag = FreedoApp.viewers["earth"].scene.preRender.addEventListener(setScreenPostion);
-}
-var removeFollowLisener= function(){
-	if(flag==true){
-		FreedoApp.viewers["earth"].scene.preRender.removeEventListener(setScreenPostion);
-		flag = false;
-	}
-}
-var setScreenPostion=function (){	
-	var canvasPosition = FreedoApp.viewers["earth"].scene.cartesianToCanvasCoordinates(cartesian);
-	    if (FreeDo.defined(canvasPosition)) {
-	        htmlOverlay.style.top = canvasPosition.y -150+ 'px';
-	        htmlOverlay.style.left = canvasPosition.x +220+ 'px';
-	    }
-}
+function getSphereFromBoundsMinMax(boundsMin, boundsMax, modelTile) {
+    var index1 = boundsMax.indexOf(",", 0);
+    var index2 = boundsMax.indexOf(",", index1 + 1);
+    var xMax = parseFloat(boundsMax.substr(0, index1));
+    var yMax = parseFloat(boundsMax.substr(index1 + 1, index2 - index1 - 1));
+    var zMax = parseFloat(boundsMax.substr(index2 + 1, boundsMax.length - index2 - 1));
+    var maxcorner = new FreeDo.Cartesian3(xMax, yMax, zMax);
 
-function showtips(picked,screenposition){
-			if(picked!=undefined&&picked.id!=undefined&&picked.id.type!=undefined){				
-				if(picked.id.type=="line"){
-					$("#tipbox1").css({
-						left:screenposition.x-150,
-						top:screenposition.y-50
-					}).show()
-					$("#tipbox2").css({
-						left:screenposition.x+150,
-						top:screenposition.y-70
-					}).show()
-					$("#tipbox3").css({
-						left:screenposition.x-150,
-						top:screenposition.y+50
-					}).show()
-					$("#tipbox4").css({
-						left:screenposition.x+150,
-						top:screenposition.y+70
-					}).show()
-					$("#tipbox1 ul li span").text(picked.id.data[0]);
-					$("#tipbox3 ul li span").text(picked.id.data[1]);
-					$("#tipbox4 ul li span").text(picked.id.id);
-				}else if (picked.id.type=="cameraImg"){
-					var cameraid = picked.id.id.slice(9)
-					cameraid = parseInt(cameraid);
-					if(cameraid||cameraid==0){
-						//镜头定位
-	                    FreedoApp.viewers["earth"].camera.setView({
-	                        destination: new FreeDo.Cartesian3(cameraPositionData[cameraid].x,cameraPositionData[cameraid].y,cameraPositionData[cameraid].z),
-	                        orientation: {
-	                            heading: cameraPositionData[cameraid].hpr[0],
-	                            pitch: cameraPositionData[cameraid].hpr[1],
-	                            roll: cameraPositionData[cameraid].hpr[2]
-	                        }
-	                    });
-					}
-				}else{
-					hidetips();
-				}
-			}else{
-				hidetips();
-			}
-}
-function hidetips(){
-	$(".tipbox").hide();
-    $("#tipbox5").children().remove()
-    $("#tipbox6").children().remove()
-	$("#sanwei4").prop("checked",false);
-	$("#sanwei5").prop("checked",false);
-}
-function showhidelabels() {
-    $("#sanwei4").change(function(){
-        var str = "<p>泡沫系统</p><ul>"+$(".info-middle #4 ul").html()+"</ul>";
-        if ($(this).prop('checked')){
-            $("#tipbox5").append(str).css({
-                left : "25%",
-                top : "20%"
-            }).show();
-/*            FreedoApp.viewers["earth"].camera.setView({
-                destination : new FreeDo.Cartesian3.fromDegrees(113.65726697957768, 22.78663303799991,-620),
-                orientation : new FreeDo.HeadingPitchRoll(5.437420397295509,-0.11731154719345604,6.281381851419862)
-            });*/
-        }else{
-            $("#tipbox5").children().remove().hide();
-        }
-    })
+    index1 = boundsMin.indexOf(",", 0);
+    index2 = boundsMin.indexOf(",", index1 + 1);
+    var xMin = parseFloat(boundsMin.substr(0, index1));
+    var yMin = parseFloat(boundsMin.substr(index1 + 1, index2 - index1 - 1));
+    var zMin = parseFloat(boundsMin.substr(index2 + 1, boundsMin.length - index2 - 1));
+    var mincorner = new Freedo.Cartesian3(xMin, yMin, zMin);
 
-    $("#sanwei5").change(function(){
-        var str = "<p>掘进实时位置监控</p><ul>"+$(".info-middle #5 ul").html()+"</ul>";
-        if ($(this).prop('checked')){
-            $("#tipbox6").append(str).css({
-                left : "60%",
-                top  : "20%"
-            }).show();
-/*            FreedoApp.viewers["earth"].camera.setView({
-                destination : new FreeDo.Cartesian3.fromDegrees(113.65726697957768, 22.78663303799991,-620),
-                orientation : new FreeDo.HeadingPitchRoll(5.437420397295509,-0.11731154719345604,6.281381851419862)
-            });*/
-        }else{
-            $("#tipbox6").children().remove().hide();
-        }
-    })
+    //局部坐标转全局坐标
+    //var local2world = FreeDo.Transforms.eastNorthUpToFixedFrame(position);
 
+    var t = mincorner.y;
+    mincorner.y = -mincorner.z;
+    mincorner.z = t;
+    t = maxcorner.y;
+    maxcorner.y = -maxcorner.z;
+    maxcorner.z = t;
+    //Freedo.Matrix4.multiplyByPoint(local2world, mincorner, mincorner);
+    //Freedo.Matrix4.multiplyByPoint(local2world, maxcorner, maxcorner);
+
+    Freedo.Matrix4.multiplyByPoint(modelTile._root.computedTransform, mincorner, mincorner);
+    Freedo.Matrix4.multiplyByPoint(modelTile._root.computedTransform, maxcorner, maxcorner);
+
+    var sphere = FreeDo.BoundingSphere.fromCornerPoints(mincorner, maxcorner);
+    return sphere;
 }

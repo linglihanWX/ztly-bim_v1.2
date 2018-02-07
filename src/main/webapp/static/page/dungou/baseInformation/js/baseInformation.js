@@ -182,7 +182,8 @@ $(function(){
             console.log(index);
             console.log(row);
             let nodes = $("#dataGrid").datagrid("getChecked");
-            console.log(nodes);
+            restAllEntity();
+            setEntity(nodes);
         }
 
     });
