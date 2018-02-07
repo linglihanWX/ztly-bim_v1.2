@@ -54,12 +54,14 @@ $(function(){
             if(field == 'mark') {
                 $("#infoShow").window('open')
             }
+            console.log(row);
         },
         onCheck:function (index,row) {
             console.log(index);
             console.log(row);
             let nodes = $("#dataGrid").datagrid("getChecked");
             console.log(nodes);
+            console.log(row);
             restAllEntity();
             setEntity(nodes);
         },
