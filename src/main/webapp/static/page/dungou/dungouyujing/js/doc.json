@@ -7,21 +7,8 @@
         "deviationtype":"水平偏差",
         "deviationdata":"60mm",
         "grade":"一级",
-        "stake":"进行中",
-        "time":"2016-12-13",
-         "menName":"李某 ",
-          "mark":"预览 "
-    },
-    {
-        "id":6,
-        "project":"六院-土建-标段",
-        "point":"盾尾间隙",
-        "num":"495",
-        "deviationtype":"盾尾间隙",
-        "deviationdata":"120mm",
-        "grade":"--",
-        "stake":"已清除",
-        "time":"2016-12-15",
+        "stake":"进行中 ",
+        "time":"2016-12-13 ",
          "menName":"李某 ",
           "mark":"预览 "
     },
@@ -33,8 +20,8 @@
         "deviationtype":"水平偏差",
         "deviationdata":"55mm",
         "grade":"二级",
-        "stake":"进行中",
-        "time":"2016-12-13",
+        "stake":"进行中 ",
+        "time":"2016-12-13 ",
          "menName":"李某 ",
           "mark":"预览 "
     },
@@ -46,8 +33,8 @@
         "deviationtype":"垂直偏差",
         "deviationdata":"56mm",
         "grade":"二级",
-        "stake":"进行中",
-        "time":"2016-12-15",
+        "stake":"进行中 ",
+        "time":"2016-12-15 ",
          "menName":"李某 ",
           "mark":"预览 "
     },
@@ -59,8 +46,8 @@
         "deviationtype":"水平偏差",
         "deviationdata":"45mm",
         "grade":"三级",
-        "stake":"待整改",
-        "time":"2016-12-15",
+        "stake":"待整改 ",
+        "time":"2016-12-15 ",
          "menName":"李某 ",
           "mark":"预览 "
     },
@@ -72,10 +59,22 @@
         "deviationtype":"垂直偏差",
         "deviationdata":"60mm",
         "grade":"三级",
-        "stake":"已清除",
-        "time":"2016-12-23",
+        "stake":"已清除 ",
+        "time":"2016-12-23 ",
+         "menName":"李某 ",
+          "mark":"预览 "
+    },
+    {
+        "id":6,
+        "project":"六院-土建-标段",
+        "point":"盾尾间隙",
+        "num":"495",
+        "deviationtype":"盾尾间隙",
+        "deviationdata":"120mm",
+        "grade":"--",
+        "stake":"已清除 ",
+        "time":"2016-12-15",
          "menName":"李某 ",
           "mark":"预览 "
     }
-    
 ]
