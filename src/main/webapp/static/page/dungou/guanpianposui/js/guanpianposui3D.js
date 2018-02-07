@@ -202,7 +202,7 @@ $(function () {
                             var unitname = node.tablename;
                             //根据最大最小包围盒定位
                             var boundingSphere = FreeDoTool.getSphereFromBoundsMinMax(boundsmax, boundsmin, pmodels[unitname])
-                            FreedoApp.viewers["earth"].camera.flyToBoundingSphere(boundingSphere, {duration: 0})
+                            FreedoApp.viewers["earth"].camera.flyToBoundingSphere(boundingSphere,{duration:0,offset: new Freedo.HeadingPitchRange(Freedo.Math.toRadians(60), Freedo.Math.toRadians(0), boundingSphere.radius * 10.0)})
                         }
                         DungouViewer.highlightmodel(node.id)
                         /*onCheck:function (node,checked) {
