@@ -144,7 +144,8 @@
 }
 
 #earth>p>span:nth-of-type(2),
-#earth>p>span:nth-of-type(4) {
+#earth>p>span:nth-of-type(4),
+#earth>p>span:nth-of-type(6) {
     display: inline-block;
     width: 20px;
     height: 15px;
@@ -158,6 +159,10 @@
 
 #earth>p>span:nth-of-type(4) {
     background-color: #87CEFA;
+}
+
+#earth>p>span:nth-of-type(6) {
+    background-color: #ffffff;
 }
 
 .swiper-container {

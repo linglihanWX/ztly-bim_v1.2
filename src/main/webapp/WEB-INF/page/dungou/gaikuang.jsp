@@ -51,7 +51,7 @@
         <div class="content-middle">
             <div id="earth" class="full-screen">
                 <p>
-                    <span>俯视视图</span><span></span><span>按时掘进</span><span></span><span>掘进延时</span>
+                    <span>俯视视图</span><span></span><span>掘进中</span><span></span><span>未掘进</span><span></span><span>已完成</span>
                     <i class="iconfont icon-bqp size"></i><i
                         class="iconfont icon-zxh"></i></p>
                

@@ -556,35 +556,40 @@ function getPoints(viewer) {
 
 function initEntities(viewer) {
     var entityarray = []
-    //线
-    var suidao = viewer.entities.add({
-        name: '隧道',
-        polyline: {
-            positions: new Freedo.Cartesian3.fromDegreesArray(
-                [
-                    121.6174590015098, 38.95874455713569,
-                    121.61620866389461, 38.95850677314042,
-                    121.61540662903757, 38.958213704595344,
-                    121.61434819575115, 38.95757077980332,
-                    121.6135457552831, 38.95697455120128,
-                    121.61290596157349, 38.956174751834915,
-                    121.61286001141309, 38.955303559050506,
-                    121.61311573725642, 38.95458901085754,
-                    121.61419971201384, 38.952850605114364,
-                    121.61488866358799, 38.95166932433065,
-                    121.61504611872272, 38.95062460623984,
-                    121.6175697749288,38.94028519822586
-                ]),
-            width: 25,
-            material:  new FreeDo.PolylineDashMaterialProperty({
-                color : FreeDo.Color.LIGHTYELLOW,
-                gapColor : FreeDo.Color.BLACK,
-                dashLength : 10.0,
-                dashPattern: parseInt("1111111111111110", 2)
-            }),
-            distanceDisplayCondition: new FreeDo.DistanceDisplayCondition(0.0, 10000)
-        }
-    });
+    var pos1 = [
+    	/*121.6174590015098, 38.95874455713569,
+        121.61620866389461, 38.95850677314042,
+        121.61540662903757, 38.958213704595344,
+        121.61434819575115, 38.95757077980332,
+        121.6135457552831, 38.95697455120128,*/
+        121.61290596157349, 38.956174751834915,
+        121.61286001141309, 38.955303559050506,
+        121.61311573725642, 38.95458901085754,
+        121.61419971201384, 38.952850605114364,
+        121.61488866358799, 38.95166932433065,
+        121.61504611872272, 38.95062460623984,
+        121.6175697749288,38.94028519822586
+    ]
+    for(var i = 0; i<=pos1.length-4;i+=2){
+    	viewer.entities.add({
+            name: '隧道',
+            polyline: {
+                positions: new Freedo.Cartesian3.fromDegreesArray(
+                    [
+                    	pos1[i],pos1[i+1],
+                    	pos1[i+2],pos1[i+3]
+                    ]),
+                width: 18.75,
+                material:  new FreeDo.PolylineDashMaterialProperty({
+                    color : FreeDo.Color.LIGHTYELLOW,
+                    gapColor : FreeDo.Color.BLACK,
+                    dashLength : 10.0,
+                    dashPattern: parseInt("1111111111111110", 2)
+                }),
+                distanceDisplayCondition: new FreeDo.DistanceDisplayCondition(0.0, 10000)
+            }
+        });
+    }
     var suidao2 = viewer.entities.add({
     	name: '隧道',
     	polyline: {
@@ -593,7 +598,7 @@ function initEntities(viewer) {
     					121.6175697749288,38.94028519822586,
     					121.61803402054308,38.93896078953926
     					]),
-    					width: 25,
+    					width: 18.75,
     					material:  new FreeDo.PolylineDashMaterialProperty({
     						color : FreeDo.Color.GREEN,
     						gapColor : FreeDo.Color.BLACK,
@@ -603,31 +608,37 @@ function initEntities(viewer) {
     					distanceDisplayCondition: new FreeDo.DistanceDisplayCondition(0.0, 10000)
     	}
     });
-    var suidao3 = viewer.entities.add({
-    	name: '隧道',
-    	polyline: {
-    		positions: new Freedo.Cartesian3.fromDegreesArray(
-    				[
-    					121.61803402054308,38.93896078953926,
-    					121.62024154952725, 38.93020774283203,
-    					121.62079840051048, 38.92833355870257,
-    					121.6211754421881, 38.927660591537894,
-    					121.62203768455467, 38.92672914057143,
-    					121.62259337661449, 38.92564313453812,
-    					121.62330218345369, 38.92434019585824,
-    					121.62374838697704, 38.92305321084292,
-    					121.62404269310349, 38.92168051864768,
-    					]),
-    					width: 25,
-    					material:  new FreeDo.PolylineDashMaterialProperty({
-    		                color : FreeDo.Color.LIGHTSKYBLUE,
-    		                gapColor : FreeDo.Color.BLACK,
-    		                dashLength : 10.0,
-    		                dashPattern: parseInt("1111111111111110", 2)
-    		            }),
-    					distanceDisplayCondition: new FreeDo.DistanceDisplayCondition(0.0, 10000)
-    	}
-    });
+    var pos3 = [
+    	121.61803402054308,38.93896078953926,
+		121.62024154952725, 38.93020774283203,
+		121.62079840051048, 38.92833355870257,
+		121.6211754421881, 38.927660591537894,
+		121.62203768455467, 38.92672914057143,
+		121.62259337661449, 38.92564313453812,
+		121.62330218345369, 38.92434019585824,
+		121.62374838697704, 38.92305321084292,
+		121.62404269310349, 38.92168051864768,
+    ]
+    for(var i = 0; i<=pos3.length-4;i+=2){
+    	viewer.entities.add({
+            name: '隧道',
+            polyline: {
+                positions: new Freedo.Cartesian3.fromDegreesArray(
+                    [
+                    	pos3[i],pos3[i+1],
+                    	pos3[i+2],pos3[i+3]
+                    ]),
+                width: 18.75,
+                material:  new FreeDo.PolylineDashMaterialProperty({
+	                color : FreeDo.Color.LIGHTSKYBLUE,
+	                gapColor : FreeDo.Color.BLACK,
+	                dashLength : 10.0,
+	                dashPattern: parseInt("1111111111111110", 2)
+	            }),
+                distanceDisplayCondition: new FreeDo.DistanceDisplayCondition(0.0, 10000)
+            }
+        });
+    }
     var hangdaoletf = viewer.entities.add({
         name: '航道左',
         polyline: {
