@@ -24,6 +24,10 @@
     <link rel="stylesheet" type="text/css" href="${ctx }/static/page/common/css/nav.css">
     <link rel="stylesheet" type="text/css" href="${ctx }/static/page/dungou/common/font/iconfont.css">
     <link rel="stylesheet" href="${ctx }/static/page/dungou/baseInformation/css/baseInformation.css">
+        <script src="http://res.gbim360.com/lib/freedo/rel/1.5.3.1/Freedo/Freedo.js"></script>
+    <script src="http://res.gbim360.com/shared/1710_lodash/lodash.min.js"></script>
+       <script src="${ctx }/static/page/common/js/jquery-3.2.1.min.js"></script>
+        <%@ include file="/WEB-INF/page/common/common_FDNew.jsp" %>
 </head>
 
 <body>
@@ -171,13 +175,17 @@
                                                                                    class="cancel" value="取消"></li>
     </ul>
 </div>
-<script src="${ctx}/static/page/common/js/jquery-3.2.1.min.js"></script>
+
 <script src="${ctx}/static/page/common/js/jquery-easyui-1.4.5/jquery.easyui.min.js"></script>
 <script src="${ctx}/static/page/common/js/jquery-easyui-1.4.5/locale/easyui-lang-zh_CN.js"></script>
 <script src="${ctx}/static/page/dungou/common/js/jiankongceliangHeader.js"></script>
 <script src="${ctx}/static/page/dungou/common/js/appendHeader.js"></script>
 <script src="${ctx}/static/page/common/js/nav.js"></script>
+<script src="${ctx }/static/webgl/caozuoqi/cameraControlRightAdjust.js"></script>
 <script src="${ctx}/static/page/dungou/baseInformation/js/baseInformation.js"></script>
+<script src="${ctx}/static/page/dungou/baseInformation/js/baseInfomation_viewer.js"></script>
+<script src="${ctx}/static/page/dungou/baseInformation/js/baseInformationinit.js"></script>
+
 </body>
 
 </html>
