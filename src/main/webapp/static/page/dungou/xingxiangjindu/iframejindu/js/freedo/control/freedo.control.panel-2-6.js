@@ -29,15 +29,19 @@ $(function(){
 	var addImg2 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg2', './img/access/PNG/sanwei/ditu.png', 0, 100+288, 1740, 446, 0);
 	var addImg3 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg3', './img/access/PNG/sjz.png', 0, 546+288, 1740, 40, 0);
 	var addImg4 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg4', './img/access/PNG/weiWa.png', 0, 216+288, 1740, 300, 1);
-	var addImg5 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg5', './img/access/PNG/gongQi/01.png', 0, 0, 725, 100, 0);
+	
+	var addImg5 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg5', './img/access/PNG/1.png', 0, 0, 725, 715, -1);
+	var addImg6 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg6', './img/access/PNG/2.png', 0, 0, 1012, 715, -1);
+	
+	/*var addImg5 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg5', './img/access/PNG/gongQi/01.png', 0, 0, 725, 100, 0);
 	var addImg5_02 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg5-02', './img/access/PNG/gongQi/02.png', 0, 100, 725, 100, 0);
 	var addImg5_03 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg5-03', './img/access/PNG/gongQi/03.png', 0, 200, 725, 100, 0);
-	var addImg5_04 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg5-04', './img/access/PNG/gongQi/04.png', 0, 300, 725, 100, -1);
+	var addImg5_04 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg5-04', './img/access/PNG/gongQi/04.png', 0, 300, 725, 100, -1);*/
 	
-	var addImg6 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg6', './img/access/PNG/jinDu/01.png', 727, 0, 1012, 100, 0);
+	/*var addImg6 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg6', './img/access/PNG/jinDu/01.png', 727, 0, 1012, 100, 0);
 	var addImg6_02 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg6-02', './img/access/PNG/jinDu/02.png', 727, 100, 1012, 100, 0);
 	var addImg6_03 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg6-03', './img/access/PNG/jinDu/03.png', 727, 200, 1012, 100, 0);
-	var addImg6_04 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg6-04', './img/access/PNG/jinDu/04.png', 727, 300, 1012, 100, -1);
+	var addImg6_04 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg6-04', './img/access/PNG/jinDu/04.png', 727, 300, 1012, 100, -1);*/
 	
 	
 	var addImg7 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg7', '', 0, 100, 1740, 288, 0);
@@ -47,34 +51,34 @@ $(function(){
 	
 	var addImg10 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg10', './img/access/PNG/sanwei/huoCheZhan.png', 24, 104+288, 78, 44, 2);
 	var addImg11 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg11', './img/access/PNG/sanwei/zhongJianFengJing2.png', 0, 163+288, 16, 118, 2);
-	var addImg12 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg12', './img/access/PNG/sanwei/fu0Dian2BaiFenHao.png', 40, 194+288, 78, 27, 2);
-	var addImg13 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg13', './img/access/PNG/sanwei/danDongDanXianDunGouFa.png', 5, 271+288, 175, 29, 3);
+	var addImg12 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg12', './img/access/PNG/sanwei/fu0Dian2BaiFenHao.png', 40, 194+288, 78, 27, 9);
+	var addImg13 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg13', './img/access/PNG/sanwei/danDongDanXianDunGouFa.png', 5, 271+288, 175, 29, 9);
 	var addImg14 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg14', './img/access/PNG/sanwei/zhongJianFengJingDiTu.png', 188, 160+288, 58, 218, 2);
 	var addImg15 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg15', './img/access/PNG/sanwei/zhongJianFengJingWenZi.png', 199, 175+288, 30, 102, 2);
 	var addImg16 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg16', './img/access/PNG/sanwei/zhongFengHuaBanYan.png', 199, 477+288, 125, 27, 2);
 	var addImg17 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg17', './img/access/PNG/sanwei/10Dian5Gang11Dian4Mi.png', 256, 262+288, 125, 27, 2);
-	var addImg18 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg18', './img/access/PNG/sanwei/fu2Dian8BaiFenHao.png', 256, 320+288, 78, 25, 3);
+	var addImg18 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg18', './img/access/PNG/sanwei/fu2Dian8BaiFenHao.png', 256, 320+288, 78, 25, 9);
 	var addImg19 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg19', './img/access/PNG/sanwei/junGangMaTou.png', 399, 125+288, 104, 28, 3);
 	var addImg20 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg20', './img/access/PNG/sanwei/10Dian5Gang11Dian4MiJianTou.png', 432, 272+288, 17, 63, 3);
 	var addImg21 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg21', './img/access/PNG/sanwei/quanQiangFengHuaBanYan.png', 445, 296+288, 152, 29, 3);
-	var addImg22 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg22', './img/access/PNG/sanwei/fu1Dian5BanFenHao.png', 519, 395+288, 77, 24, 3);
+	var addImg22 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg22', './img/access/PNG/sanwei/fu1Dian5BanFenHao.png', 519, 395+288, 77, 24, 9);
 	var addImg23 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg23', './img/access/PNG/sanwei/12Dian4MiJianTou.png', 589, 266+288, 22, 126, 3);
 	var addImg24 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg24', './img/access/PNG/sanwei/12Dian4Mi.png', 642, 322+288, 89, 31, 3);
-	var addImg25 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg25', './img/access/PNG/sanwei/danDongShuangXianDunGouFa.png', 642, 430+288, 175, 29, 3);
-	var addImg26 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg26', './img/access/PNG/sanwei/haiDiBengFang.png', 823, 489+288, 105, 30, 3);
+	var addImg25 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg25', './img/access/PNG/sanwei/danDongShuangXianDunGouFa.png', 642, 430+288, 175, 29, 9);
+	var addImg26 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg26', './img/access/PNG/sanwei/haiDiBengFang.png', 823, 489+288, 105, 30, 9);
 	var addImg27 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg27', './img/access/PNG/sanwei/lingYuWanHaiYu.png', 904, 223+288, 129, 29, 3);
 	var addImg28 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg28', './img/access/PNG/sanwei/yuNiLuanShiJiNianTuCeng.png', 904, 302+288, 227, 29, 3);
 	var addImg29 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg29', './img/access/PNG/sanwei/quanQiangFengHuaBaiYunYan.png', 1052, 359+288, 189, 28, 3);
-	var addImg30 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg30', './img/access/PNG/sanwei/0Dian8BaiFenHao.png', 1052, 440+288, 62, 25, 3);
+	var addImg30 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg30', './img/access/PNG/sanwei/0Dian8BaiFenHao.png', 1052, 440+288, 62, 25, 9);
 	var addImg31 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg31', './img/access/PNG/sanwei/zhongFengHuaBaiYunYanYanRongFaYu.png', 1296, 488+288, 273, 28, 3);
-	var addImg32 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg32', './img/access/PNG/sanwei/2Dian6BaiFenHao.png', 1502, 368+288, 64, 25, 3);
+	var addImg32 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg32', './img/access/PNG/sanwei/2Dian6BaiFenHao.png', 1502, 368+288, 64, 25, 9);
 	var addImg33 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg33', './img/access/PNG/sanwei/12Dian2Mi.png', 1539, 258+288, 89, 30, 3);
 	var addImg34 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg34', './img/access/PNG/sanwei/12Dian2MiJianTou.png', 1619, 232+288, 19, 75, 3);
 	var addImg35 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg35', './img/access/PNG/sanwei/suoYuWanNanZhan.png', 1600, 100+288, 127, 44, 3);
 	var addImg37 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg37', './img/access/PNG/dungou02.png', 1722, 280+288, 17, 58, 3);
 	var addImg38 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg38', './img/access/PNG/zhiZhen.png', 0, 546+288, 19, 40, 3);
 	var addImg39 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg39', './img/access/PNG/yiWa.png', 0, 216+288, 1740, 300, 2);
-	var addImg40 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg40', './img/access/PNG/sanwei/0Dian2BaiFenHao.png', 1654, 307+288, 63, 27, 2);
+	var addImg40 = new FDFAction_SpaceImg_AddImg(Img,0,'imgBg40', './img/access/PNG/sanwei/0Dian2BaiFenHao.png', 1654, 307+288, 63, 27, 9);
 	
 	
 	
@@ -87,17 +91,20 @@ $(function(){
 	FDPScript.AddAction( addImg2 );  //中间地图
 	FDPScript.AddAction( addImg3 );  //底部地图
 	FDPScript.AddAction( addImg4 );  //中间以挖
-	FDPScript.AddAction( addImg5 );  //工期-01
+	FDPScript.AddAction( addImg5 );  //中间以挖
+	FDPScript.AddAction( addImg6 );  //中间以挖
+	
+	/*FDPScript.AddAction( addImg5 );  //工期-01
 	FDPScript.AddAction( addImg5_02 );//工期-02
 	FDPScript.AddAction( addImg5_03 );//工期-03
 	FDPScript.AddAction( addImg5_04 );//工期-04
+*/	
 	
-	
-	FDPScript.AddAction( addImg6 );     //进度-01
+	/*FDPScript.AddAction( addImg6 );     //进度-01
 	FDPScript.AddAction( addImg6_02 );  //进度-02
 	FDPScript.AddAction( addImg6_03 );  //进度-03
 	FDPScript.AddAction( addImg6_04 );  //进度-04
-	
+*/	
 	
 	FDPScript.AddAction( addImg10 );  //火车站
 	FDPScript.AddAction( addImg11 );  //中间风景2
@@ -152,7 +159,7 @@ $(function(){
 	
 	//debug 时间戳
 	var timestampArray = new Array;
-	timestampArray.push({x:1705,y:546+288,s:16000});
+	timestampArray.push({x:1705,y:546+288,s:44000});
 	var changePosition1 = new FDFAction_SpaceImg_changePosition(Img,0,'imgBg38',timestampArray);
 	FDPScript.AddAction( changePosition1 ); 
 	
@@ -180,9 +187,10 @@ $(function(){
 	   }
    },0);
 	
-	
-	
-
+   
+ 
+   
+  
 	
 	
 	

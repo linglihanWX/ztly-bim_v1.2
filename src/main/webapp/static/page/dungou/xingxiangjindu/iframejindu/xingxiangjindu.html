@@ -3,7 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <title>飞渡科技</title>
- 
+    <style>
+   /*隐藏滚动条*/
+     ::-webkit-scrollbar {display:none};
+     
+       </style>
 <!-- 项目主重置脚本文件 -->
 <link href="./css/common/reset.css" rel="stylesheet">
 
@@ -26,7 +30,7 @@
 	<button type="button" class="btn btn-default btn-sm" onclick="ButtonClick.start();" title="开始">
           <span class="glyphicon glyphicon-arrow-right"></span> start
     </button>
-    <button type="button" class="btn btn-default btn-sm" id="pause" onclick="ButtonClick.pause();" title="暂停">
+    <!-- <button type="button" class="btn btn-default btn-sm" id="pause" onclick="ButtonClick.pause();" title="暂停">
           <span class="glyphicon glyphicon-pause"></span> Pause
     </button>
     <button type="button" class="btn btn-default btn-sm" id="play" onclick="ButtonClick.play();" title="继续">
@@ -34,7 +38,7 @@
     </button>	
     <button type="button" class="btn btn-default btn-sm" id='stop' onclick="ButtonClick.stop();" title="停止">
           <span class="glyphicon glyphicon-stop"></span> Stop
-    </button>
+    </button> -->
 </div>
 <!-- 此div是必须的  添加图片的容器 -->
 <div id="img-container" style=" position: fixed;z-index: 100; width:100%; height:100%; " ></div>

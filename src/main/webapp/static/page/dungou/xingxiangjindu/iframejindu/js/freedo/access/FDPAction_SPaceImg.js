@@ -572,15 +572,54 @@ FDFAction_SpaceImg_changePositionDunGou = function(time){
 			//	执行事件
 			
 			var div=$("#imgBg37");
-		    div.animate({left:'1699px',top:'575px'},2000,function(){Img.position('imgBg37', 0, 0, 165); });
-		    div.animate({left:'1453px',top:'670px'},2000,function(){Img.position('imgBg37', 0, 0, 172); });
-		    div.animate({left:'887px',top:'741px'},2000,function(){Img.position('imgBg37', 0, 0, 192); });
-		    div.animate({left:'857px',top:'741px'},2000,function(){Img.position('imgBg37', 0, 0, 201);  });
-		    div.animate({left:'370px',top:'627px'},2000,function(){Img.position('imgBg37', 0, 0, 201); });
-		    div.animate({left:'97px',top:'520px'},2000,function(){Img.position('imgBg37', 0, 0, 182); });
-		    div.animate({left:'0px',top:'508px'},2000,function(){Img.position('imgBg37', 0, 0, 182); });
+			div.animate({left:'1722px',top:'569px'},0,function(){Img.position('imgBg37', 0, 0, 180); });
+			div.animate({left:'1708px',top:'569px'},500,function(){Img.position('imgBg37', 0, 0, 171); });
+		    div.animate({left:'1699px',top:'575px'},1500,function(){Img.position('imgBg37', 0, 0, 165); });
+		    div.animate({left:'1453px',top:'670px'},8000,function(){Img.position('imgBg37', 0, 0, 172); });
+		    div.animate({left:'887px',top:'741px'},12000,function(){Img.position('imgBg37', 0, 0, 192); });
+		   // div.animate({left:'857px',top:'741px'},1000,function(){Img.position('imgBg37', 0, 0, 201);  });
+		    div.animate({left:'370px',top:'627px'},7000,function(){Img.position('imgBg37', 0, 0, 201); });
+		    div.animate({left:'244px',top:'581px'},4000,function(){Img.position('imgBg37', 0, 0, 201); $("#imgBg37").css("height","47px")});
+		   
+		    div.animate({left:'85px',top:'513px'},6000,function(){Img.position('imgBg37', 0, 0, 182); $("#imgBg37").css("height","47px") });
+		    div.animate({left:'0px',top:'508px'},4500,function(){Img.position('imgBg37', 0, 0, 182); $("#imgBg37").css("height","47px")});
 			
-			
+		    //给项目进度增加事件
+		    $("#imgBg5").wrap("<div id='imgBg5-warp' style='width:725px; height:379px;  overflow: auto; position: absolute;'></div>");
+			$("#imgBg6").wrap("<div id='imgBg6-warp' style='width:1012px; height:379px;  overflow: auto; position: absolute; left:727px'></div>");
+			//$("#img-container").after('<div id="RightToolTree" style="height: 418px; width: 1740px; position: absolute; top: 0px; z-index: 100;  background: rgba(0,0,0,0.1);"><div style="border: 1px red solid; height: 23px; top: 92px; position: relative; background: rgba(0,0,0,-48);"></div></div>');
+			$("#img-container").after('<div id="RightToolTree-0" style="height: 72px; width: 1740px; position: absolute; top: 0px; z-index: 100;  background: rgba(0,0,0,0.1);"></div>');
+			$("#img-container").after('<div id="RightToolTree-1" style="height: 324px; width: 1740px; position: absolute; top: 94px; z-index: 100;  background: rgba(0,0,0,0.1);"></div>');
+				
+			//空白款向下走
+			   var hei=72;
+			   var top0=94;
+			   var hei1=324;
+			   var dynamicClip0 = setInterval(function(){
+				   hei+=0.05;
+				   top0+=0.05;
+				   hei1-=0.05;
+				   $("#RightToolTree-0").css('height',`${hei}px`);
+				   $("#RightToolTree-1").css('top',`${top0}px`);
+				   $("#RightToolTree-1").css('height',`${hei1}px`);
+				   if(hei1<8){
+					   clearInterval(dynamicClip0);
+					   test();
+				   }
+			   },0);
+			   
+			   //项目进度向上走
+			    var num1=1;
+				var test = function(){
+					 var dynamicClip1 = setInterval(function(){
+						   num1+=0.1;
+						   $("#imgBg5-warp").scrollTop(num1);
+						   $("#imgBg6-warp").scrollTop(num1);
+						   if(num1>700){
+							   clearInterval(dynamicClip1);
+						   }
+					   },0);
+				}
 			return true;	//	事件执行完成  返回 true;
 		}
 	}
