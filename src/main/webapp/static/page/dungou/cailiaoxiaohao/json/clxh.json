@@ -1,56 +1,56 @@
 [
     {
         "id":1,
-        "name":"履带式起重机",
+        "name":"8连中心滚刀",
         "guige":"QUY400T",
         "number":"1",
-        "unit":"台",
+        "unit":"条",
         "consume":"30%",
-        "mark":" 主力吊机"
+        "mark":" 刀盘"
     },
     {
         "id":2,
-        "name":"汽车吊",
+        "name":"双刃滚刀",
         "guige":"100T",
-        "number":"1",
-        "unit":"台",
+        "number":"8",
+        "unit":"个",
         "consume":"10%",
-        "mark":" 辅助吊机"
+        "mark":" 刀盘"
     },
     {
         "id":3,
-        "name":"无接头钢丝绳",
+        "name":"切削刀1",
         "guige":"46mm*12m",
-        "number":"2",
-        "unit":"条",
+        "number":"16",
+        "unit":"个",
         "consume":"40%",
         "mark":" 刀盘"
     },
     {
         "id":4,
-        "name":"无接头钢丝绳",
+        "name":"切削刀2",
         "guige":"46mm*12m",
-        "number":"4",
-        "unit":"条",
+        "number":"16",
+        "unit":"个",
         "consume":"20%",
-        "mark":" 前盾、中盾"
+        "mark":" 刀盘"
     },
     {
         "id":5,
-        "name":"压接钢丝绳",
-        "guige":"22mm*8m(4m)",
-        "number":"4",
-        "unit":"条",
+        "name":"切削刀3",
+        "guige":"46mm*12m",
+        "number":"16",
+        "unit":"个",
         "consume":"30%",
-        "mark":"盾尾、管片拼装机"
+        "mark":"刀盘"
     },
     {
         "id":6,
-        "name":"卡环",
-        "guige":"35T马蹄形",
-        "number":"4",
+        "name":"切削刀4",
+        "guige":"46mm*12m",
+        "number":"16",
         "unit":"个",
         "consume":"30%",
-        "mark":"其他部件"
+        "mark":"刀盘"
     }
 ]

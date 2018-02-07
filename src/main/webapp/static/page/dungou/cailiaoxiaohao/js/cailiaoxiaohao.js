@@ -59,6 +59,11 @@ $(function(){
         onCheck:function (index,row) {
             console.log(index);
             console.log(row);
+            FreedoApp.viewers["earth"].camera.setView({
+                destination:new FreeDo.Cartesian3(-2604166.7490350944, 4229826.361886186, 3986742.1368004004)/*.fromDegrees(121.61177642111602,38.935618295037756,-480)*/,
+                orientation:new FreeDo.HeadingPitchRoll(1.9395050968831375,0.00007457759024265265,0.00009238897133201363)
+
+            })
             let nodes = $("#dataGrid").datagrid("getChecked");
             console.log(nodes);
             restAllEntity();

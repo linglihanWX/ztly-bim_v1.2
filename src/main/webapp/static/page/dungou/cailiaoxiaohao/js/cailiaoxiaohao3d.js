@@ -142,7 +142,7 @@ $(function() {
                     for (var i = 1; i < 10; i++) {
                         dungouModels[i] = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf({
                             id: i,
-                            url: "http://182.92.7.32:9000/ztly/glb/" + i + "/" + i + ".gltf",
+                            url: "http://182.92.7.32:9000/ztly/glb/" + i + "/" + i + ".glb",
                             show: true, // default
                             modelMatrix: FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979, -491.5, 255, 0, 0, 1.4, 1.4, 1.4),
                             allowPicking: true, // not pickable
@@ -151,18 +151,6 @@ $(function() {
                         }))
                     }
 
-
-                    /*   //加盾构机和盾构机机身
-                       var daotou = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
-                           {
-                               id: "盾构机刀头",
-                               url: "http://182.92.7.32:9000/ztly/glb/dungoujidaotou/dun_gou_dao_tou.gltf",
-                               show: true,                     // default
-                               modelMatrix:FreeDoTool.getModelMatrix(121.62022781066331, 38.93872856969979,-491.5,165,0,0,1.4,1.4,1.4),
-                               allowPicking: true,            // not pickable
-                               debugShowBoundingVolume: false, // default
-                               debugWireframe: false
-                       }));*/
 
                     var cheshen = FreedoApp.viewers["earth"].scene.primitives.add(FreeDo.Model.fromGltf(
                         {
@@ -236,10 +224,10 @@ function setEntity (nodes){
         }
         var citizensBankPark =  FreedoApp.viewers["earth"].entities.add( {  
             name : 1,  
-            position :  Freedo.Cartesian3.fromRadians(cartographic.longitude,cartographic.latitude,cartographic.height+3),  
+            position :  Freedo.Cartesian3.fromRadians(cartographic.longitude,cartographic.latitude,cartographic.height+8),
             label : { //文字标签  
                 text : '消耗程度'+Math.round(Math.random()*100)+'%',  
-                font : '14pt monospace',  
+                font : '16pt monospace',
                 style : Freedo.LabelStyle.FILL_AND_OUTLINE,  
                 outlineWidth : 2,  
                 verticalOrigin : Freedo.VerticalOrigin.BOTTOM, //垂直方向以底部来计算标签的位置  
