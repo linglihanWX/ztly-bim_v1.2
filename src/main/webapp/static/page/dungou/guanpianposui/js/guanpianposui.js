@@ -54,7 +54,12 @@ $(function(){
             if(field == 'mark') {
                 $("#infoShow").window('open')
             }
-            console.log(row);
+
+        },
+        onClickRow:function (index,row) {
+            var index = row.id-1
+            var boundingsphere = getSphereFromBoundsMinMax(imgpos[index].min,imgpos[index].max,pmodel)
+            FreedoApp.viewers["earth"].camera.flyToBoundingSphere(boundingsphere,{duration:0,offset: new Freedo.HeadingPitchRange(Freedo.Math.toRadians(60), Freedo.Math.toRadians(0), boundingsphere.radius * 10.0)})
         },
         onCheck:function (index,row) {
             console.log(index);

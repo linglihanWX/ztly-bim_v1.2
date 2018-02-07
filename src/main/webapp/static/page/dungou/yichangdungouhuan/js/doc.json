@@ -1,68 +1,68 @@
 [
     {
         "id":1,
-        "name":"665",
+        "name":"0492",
         "time":"0.4",
         "menName":"58",
         "content":"8.7",
         "progress":"0.03",
         "problem":"0.02",
         "mark":" 0",
-        "shuju":"12440"
+        "shuju":"8858"
     },
     {
         "id":2,
-        "name":"666",
+        "name":"0484",
         "time":"0.4",
         "menName":"...",
         "content":"10.1",
         "progress":"0.01",
         "problem":"...",
         "mark":"0 ",
-        "shuju":"11576"
+        "shuju":"8714"
     },
     {
         "id":3,
-        "name":"667",
+        "name":"0472",
         "time":"0.4",
         "menName":"60.9",
         "content":"10.0",
         "progress":"0.51",
         "problem":"...",
         "mark":" 0",
-        "shuju":"10280"
+        "shuju":"8498"
     },
     {
         "id":4,
-        "name":"668",
+        "name":"0461",
         "time":"0.7",
         "menName":"...",
         "content":"8.3",
         "progress":"0.02",
         "problem":"0.01",
         "mark":"0",
-        "shuju":"8822"
+        "shuju":"8300"
     },
     {
         "id":5,
-        "name":"669",
+        "name":"0447",
         "time":"0.3",
         "menName":"61.6",
         "content":"9.2",
         "progress":"0.06",
         "problem":"...",
         "mark":" 0",
-        "shuju":"8012"
+        "shuju":"8048"
     },
     {
         "id":6,
-        "name":"670",
+        "name":"0436",
         "time":"0.7",
         "menName":"54.5",
         "content":"7.1",
         "progress":"0.27",
         "problem":"...",
         "mark":"0 ",
-        "shuju":"7220"
+        "shuju":"7850"
     }
 ]
