@@ -53,7 +53,7 @@ public class PModelServiceImpl implements PModelService {
 					String id = node.getUid();
 					int leaf = node.getLeaf();
 					if(!id.equals("0")&&leaf!=1){
-						String num = f.format((Integer.parseInt(id)-2)/18+1);
+						String num = f.format((Integer.parseInt(id)-2)/18);
 						String name = "第"+num+"环";
 						node.setName(name);
 					}

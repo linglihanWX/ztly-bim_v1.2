@@ -169,13 +169,14 @@ DungouViewer.huoqushujuhuizhishiti=function(componentId){
 
             var nowPos =  getSphereFromBoundsMinMax(grandfatheruid.boundsmin,grandfatheruid.boundsmax,pmodel);
        	 	var cartographic = Freedo.Cartographic.fromCartesian(nowPos.center);
+       	 	var num = (parseInt(grandfatheruid.name)-2)/18
             var posinf1 = FreedoApp.viewers["earth"].entities.add({
             	id:"shuxin",
                 name: '位置信息',
                 show: true,
-                position: new Freedo.Cartesian3.fromRadians(cartographic.longitude,cartographic.latitude,cartographic.height+16),
+                position: new Freedo.Cartesian3.fromRadians(cartographic.longitude,cartographic.latitude,cartographic.height+8),
                 label: { //文字标签
-                    text: '数据信息\n————————————\n所在环数：第'+grandfatheruid.name+'环\n所在土层：中风化板岩\n风险预警：前方110米出现溶洞\n安全提示：请提前做好注浆工作',
+                    text: '数据信息\n————————————\n所在环数：第0'+num+'环\n所在土层：中风化板岩\n风险预警：前方110米出现溶洞\n安全提示：请提前做好注浆工作',
                     font: '13px sans-serif',
                     style: FreeDo.LabelStyle.FILL,
                     fillColor: FreeDo.Color.WHITE,
