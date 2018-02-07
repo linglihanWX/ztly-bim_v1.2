@@ -1,3 +1,7 @@
+	var	data1Array = [];//存放查询数据的数组
+	var jsonData=[];
+	
+//	var getValueByid =getValueByid ||{} ;
 $(function(){
     $(".three-menu li:nth-of-type(7) a").addClass("second-active").parent().siblings().children("a").removeClass("second-active");
     $(".page-nav>ul>li:nth-of-type(1) a").addClass("active").parent().siblings().children("a").removeClass("active");
@@ -17,10 +21,133 @@ $(function(){
         url: "../../static/page/dungou/baseInformation/json/gongchenginfo.json",
         method:"get",
         idField: "id",
-        lines:true
+        lines:true,
+        onSelect: function(node){  
+//        	var dataArray = node;
+//        	 dataArray = $('#dataOne').tree('find', node.text);
+        	var dataArray = [
+        		  {
+        		  "id":1,
+        		  "bnum":"(DBHC)-01",
+        		  "project":"六院-土建-标段",
+        		  "type":"沉降",
+        		  "threetest":"否",
+        		  "testdate":"2017-01-11",
+        		  "createdate":"2017-01-08",
+        		  "originnum":"31351.4",
+        		  "description":"",
+        		  "text":"区间一"
+        		  },
+        		  {
+        		    "id":2,
+        		    "bnum":"(DBHC)-01",
+        		    "project":"六院-土建-标段",
+        		    "type":"沉降",
+        		    "threetest":"否",
+        		    "testdate":"2017-01-12",
+        		    "createdate":"2017-01-08",
+        		    "originnum":"31521.1",
+        		    "description":"",
+        		    "text":"区间一"
+        		  },
+        		  {
+        		    "id":3,
+        		    "bnum":"(DBHC)-01",
+        		    "project":"六院-土建-标段",
+        		    "type":"沉降",
+        		    "threetest":"否",
+        		    "testdate":"2017-01-13",
+        		    "createdate":"2017-01-08",
+        		    "originnum":"33421.1",
+        		    "description":"",
+        		    "text":"区间一"
+        		  },
+        		  {
+        		    "id":4,
+        		    "bnum":"(DBHC)-03",
+        		    "project":"六院-土建-标段",
+        		    "type":"拉力",
+        		    "threetest":"否",
+        		    "testdate":"2017-01-14",
+        		    "createdate":"2017-01-08",
+        		    "originnum":"31264.3",
+        		    "description":"",
+        		    "text":"区间一"
+        		  },
+        		  {
+        		    "id":5,
+        		    "bnum":"(DBHC)-03",
+        		    "project":"六院-土建-标段",
+        		    "type":"拉力",
+        		    "threetest":"否",
+        		    "testdate":"2017-01-15",
+        		    "createdate":"2017-01-08",
+        		    "originnum":"63461.3",
+        		    "description":"",
+        		    "text":"区间一"
+        		  },
+        		  {
+        		    "id":6,
+        		    "bnum":"(DBHC)-KJK",
+        		    "project":"六院-土建-标段",
+        		    "type":"位移",
+        		    "threetest":"否",
+        		    "testdate":"2017-01-16",
+        		    "createdate":"2017-01-08",
+        		    "originnum":"31561.1",
+        		    "description":"",
+        		    "text":"区间二"
+        		  },
+        		  {
+          		    "id":7,
+          		    "bnum":"(DBHC)-KJK",
+          		    "project":"六院-土建-标段",
+          		    "type":"位移",
+          		    "threetest":"否",
+          		    "testdate":"2017-01-16",
+          		    "createdate":"2017-01-08",
+          		    "originnum":"31561.1",
+          		    "description":"",
+          		    "text":"区间二"
+          		  },
+          		  {
+            		    "id":8,
+            		    "bnum":"(DBHC)-KJK",
+            		    "project":"六院-土建-标段",
+            		    "type":"位移",
+            		    "threetest":"否",
+            		    "testdate":"2017-01-16",
+            		    "createdate":"2017-01-08",
+            		    "originnum":"31561.1",
+            		    "description":"",
+            		    "text":"区间二"
+            	   },
+            		     {
+                		    "id":9,
+                		    "bnum":"(DBHC)-KJK",
+                		    "project":"六院-土建-标段",
+                		    "type":"位移",
+                		    "threetest":"否",
+                		    "testdate":"2017-01-16",
+                		    "createdate":"2017-01-08",
+                		    "originnum":"31561.1",
+                		    "description":"",
+                		    "text":"区间二"
+                		  }
+        		]
+        	
+        	var getValueByid = $('#dataOne').tree('find',node.id);  
+        	data1Array=[];
+        	for(let i=0;i<dataArray.length;i++){
+        		if(dataArray[i].text==getValueByid.text){
+        		data1Array.push(dataArray[i])
+        		}
+        	}
+    			$("#dataGrid").datagrid("loadData",{ "total":"2",rows:data1Array});
+        }
+        
     });
-
-
+    
 
     $('#dataGrid').datagrid({
         url: "../../static/page/dungou/baseInformation/json/standardlist.json",
@@ -32,6 +159,7 @@ $(function(){
         // checkbox:true,
         // treeField:'num',
         rownumbers:true,
+       // data:columns[],
         // pageList: [10,20,30],
         // pagination:true,
         columns: [[
@@ -45,7 +173,7 @@ $(function(){
             { title: '初始值', field: 'originnum', align: 'center'},
             { title: '描述', field: 'description', align: 'center'}
         ]],
-        onClickCell:function(row,field){
+         onClickCell:function(row,field){
             if(field == 'level') {
                 console.log(1);
             }
@@ -56,6 +184,7 @@ $(function(){
             let nodes = $("#dataGrid").datagrid("getChecked");
             console.log(nodes);
         }
+
     });
 
 $(".content-bottom>p input").each(function () {
