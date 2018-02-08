@@ -106,7 +106,7 @@
         <li><span class="describe1">处理及防范措施:</span><span>管片拼装应先上后下，左右交叉，最后封顶块的安装原则。发现问题及时对破损处打磨修补。</span></li>
     </ul>
 </div>
-<div id="handleBox" class="easyui-window" title="风险监测指标编辑" data-options="modal:true,closed:true"
+<div id="handleBox" class="easyui-window" title="破损管片处置" data-options="modal:true,closed:true"
      style="width:450px;height:410px;padding:10px;">
     <ul class="add-dangers-info">
 
@@ -114,13 +114,18 @@
         <li><span class="describe"><span class="must-write">*</span>所属工程:</span><select name="" id="">
             <option value="">六院-土建</option>
         </select></li>
-        <li><span class="describe"><span class="must-write">*</span>检测类型:</span><select name="" id="">
-            <option value="">沉降</option>
+        <li><span class="describe"><span class="must-write">*</span>管片ID:</span><select name="" id="">
+            <option value="">第0001环</option>
+            <option value="">第0002环</option>
+            <option value="">第0003环</option>
+            <option value="">第0004环</option>
+            <option value="">第0005环</option>
+            <option value="">第0006环</option>
         </select></li>
 
         <li><span class="describe"><span class="must-write">*</span>第三方检测:</span><input class="inp" required type="text">
         </li>
-        <li><span class="describe"><span class="must-write">*</span>检测时间:</span><input class="inp" required type="date">
+        <li><span class="describe"><span class="must-write">*</span>处置时间:</span><input class="inp" required type="date">
         </li>
         <li><span class="describe"><span class="must-write">*</span>创建时间:</span><input class="inp" required type="date"></li>
         <li><span class="describe"><span class="must-write">*</span>初始值:</span><input class="inp" required type="text"></li>
