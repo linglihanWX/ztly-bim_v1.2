@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.freedotech.app.ztly.model.Project;
 import com.freedotech.app.ztly.model.User;
 import com.freedotech.app.ztly.service.IProjectService;
@@ -33,5 +35,24 @@ public class ProjectController {
     	//保存项目列表
     	model.addAttribute("plist", plist);
         return "main";
+    }
+    
+    /**
+	 * 登录后跳转到主页面
+	 * @param model
+	 * @return
+	 */
+    @RequestMapping(value = "/mainGetPrjData",method = RequestMethod.GET)
+    @ResponseBody
+    public List<Project> indexGetPrjData(Model model){
+    	//得到当前认证实体，并强转为User对象
+    	User user = (User) SecurityUtils.getSubject().getPrincipal();
+    	//得到当前用户的id
+    	int userid = user.getId();
+    	//根据用户的id得到与其相关联的项目
+    	List<Project> plist = projectService.listProjectByUserId(userid);
+    	//保存项目列表
+    	//model.addAttribute("plist", plist);
+        return plist;
     }
 }

@@ -14,6 +14,7 @@
 	<meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 	<!-- end: Meta -->
 	<%@ include file="/WEB-INF/page/common/common.jsp" %>
+	<%@ include file="/WEB-INF/page/common/common_FDNew.jsp" %>
 	<!-- start: Mobile Specific -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- end: Mobile Specific -->
@@ -50,7 +51,7 @@
 				</ul>
 
 				<!-- 图片列表 -->
-				<ul class="listProject">
+				<%-- <ul class="listProject">
 				  <c:forEach items="${plist}" var="project">
                        <li>
 						<a href="${ctx }/keyan/toGaikuang?projectid=${project.id}">
@@ -64,7 +65,8 @@
 						</a>
 					</li>
                   </c:forEach>
-				</ul>
+				</ul> --%>
+				<div id="cx"></div>
 			</div>
 			<!--/.fluid-container-->
 

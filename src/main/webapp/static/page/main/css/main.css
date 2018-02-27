@@ -18,13 +18,27 @@ p {
 	width: 100% !important;
 	margin-left: 0 !important;
 	min-height: 0 !important;
+	
+	/* ---->>>>>>>>>>>>>> 2018-2-27王鑫修改项目选择地球的div窗口布局*/
+	padding:0!important;
+	height:100%;
 }
-
-@media screen and (min-width: 767px) {
+.breadcrumb {
+	margin:0;
+}	
+#aaa>.row-fluid{
+	height:100%
+}
+/* @media screen and (min-width: 767px) {
 	.breadcrumb {
 		margin: -28px -28px 0 -28px;
 	}
+} */
+#cx{
+	height:calc(100% - 50px)
 }
+/* ----<<<<<<<<<<<<<<<<< 2018-2-27王鑫修改项目选择地球的div窗口布局*/
+
 @media screen and (max-width: 767px) {
 	.nav {
 		background: #000;

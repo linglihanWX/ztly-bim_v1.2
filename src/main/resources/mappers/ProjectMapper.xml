@@ -9,7 +9,10 @@
         SELECT
             tp.`id`,
             tp.`name`,
-            tp.`imgurl`
+            tp.`imgurl`,
+            tp.`position_lon`,
+            tp.`position_lat`,
+            tp.`position_height`
             FROM `t_project` tp
             LEFT JOIN `t_user_project` tup ON tp.`id` = tup.project_id
             LEFT JOIN `t_shiro_user` tu ON tup.`user_id` = tu.id

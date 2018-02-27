@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.freedotech.app.ztly.service.ShigongService;
@@ -27,7 +29,11 @@ public class DungouController {
 	 * @return
 	 */
 	@RequestMapping(value="toGaikuang")
-	public String toGaikuangPage() {
+	public String toGaikuangPage(@RequestParam(required=false) String projectid) {
+		if(projectid!=null) {
+    		//获取当前认证实体，并把所进入项目的id存到其session中
+    		SecurityUtils.getSubject().getSession().setAttribute("projectid", Integer.parseInt(projectid));    		
+    	}
 		return "dungou/gaikuang";
 
 	}
