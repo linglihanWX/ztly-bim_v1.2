@@ -426,3 +426,87 @@
 .compassDiv{
     top:20px!important;
 }
+
+/* ---------->>>>>>>>>>>>>>>>>>>>>王鑫添加 */
+ .biaozhubox{
+    position: absolute;
+    bottom:0;
+    /* top: calc(100% - 95px); */
+    left: 0;
+    width: auto;
+    height:auto;
+    border: 1px solid #000;
+    z-index: 10;
+    padding:10px;
+    background-color: #fff;
+    border-radius:4px;
+}
+ .biaozhubox ul{
+    height: auto;
+    list-style: none;
+    overflow: hidden;
+    
+}
+ .biaozhubox ul>li{
+    /* float: left; */
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+}
+ .biaozhubox ul>li>span{
+    display: inline-block;
+    width: 30px;
+    height: 20px;
+    vertical-align: text-bottom;
+    background-color: red;
+}
+ .biaozhubox ul>li:nth-of-type(2)>span{
+    background-color: darkgreen;
+}
+ .biaozhubox ul>li:nth-of-type(3)>span{
+    background-color: yellow;
+}
+ .biaozhubox ul>li:nth-of-type(4)>span{
+    background-color: orange;
+}
+ .biaozhubox ul>li:nth-of-type(5)>span{
+    background-color: red;
+}
+ .biaozhubox ul>li:nth-of-type(6)>span{
+    background-color: palevioletred;
+}
+
+.first{
+	width: 100%;
+}
+.first:nth-of-type(1)>li:nth-of-type(1){
+	text-align: center;
+}
+.first:nth-of-type(1)>li:not(:nth-of-type(1)){
+	margin-left: 5px;
+}
+.first:nth-of-type(1)>li>img{
+	width:auto;
+	height:30px;
+	vertical-align: middle;
+	margin-right:10px;
+}
+
+/* .second .three{
+	width: 50%;
+	float: left;
+} */
+.dashed{
+	border-right: 1px dashed #ccc;
+    box-sizing: border-box;
+   /*  margin-left: 20px; */
+}
+ .second ul>li, .three ul>li{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+}
+.second, .three{
+	display:none;
+}
+/* ---------->>>>>>>>>>>>>>>>>>>>>王鑫添加 */

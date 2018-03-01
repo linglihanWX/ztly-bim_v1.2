@@ -54,7 +54,38 @@
                     <span>俯视视图</span><span></span><span>掘进中</span><span></span><span>未掘进</span><span></span><span>已完成</span>
                     <i class="iconfont icon-bqp size"></i><i
                         class="iconfont icon-zxh"></i></p>
-               
+                <div class="biaozhubox" id="biaozhubox1">
+				    <ul class="first">
+				    	<li>盾构施工图例</li>
+				        <li><img alt="" src="${ctx }/static/page/dungou/gaikuang/img/biaoshitupianB.png">正在施工</li>
+				        <li><img alt="" src="${ctx }/static/page/dungou/gaikuang/img/biaoshitupianG.png">穿越重特大风险源</li>
+				        <li><img alt="" src="${ctx }/static/page/dungou/gaikuang/img/biaoshitupianO.png">数据异常</li>
+				    </ul>
+				     <ul class="second ">
+				     <li>安全状态图例</li>
+				        <li><span></span>正常状态</li>
+				        <li><span></span>黄色预警</li>
+				        <li><span></span>橙色预警</li>
+				        <li><span></span>红色预警</li>
+				    </ul>
+				     <ul class="three <!-- dashed -->">
+				     <li>工点工法图例</li>
+				        <li><span></span>明挖法工点</li>
+				        <li><span></span>矿山法工点</li>
+				        <li><span></span>盾构法工点</li>
+				        <li><span></span>高架工点</li>
+				        <li><span></span>围挖法工点</li>
+				        <li><span></span>其他工法工点</li>
+				
+				    </ul>
+				    <!-- <ul class="three">
+				    <li>施工状态图例</li>
+				        <li><span></span>已开工</li>
+				        <li><span></span>未开工</li>
+				       
+				
+				    </ul> -->
+				</div>
             </div>
             <div id="earth1" class="not-full-screen">
              <p>剖面视图
@@ -70,6 +101,8 @@
                 <li class="main-page"><i class="iconfont icon-main-page"></i>&nbsp;&nbsp;&nbsp;主页面
                 </li>
                 <li class="three-page"><i class="iconfont icon-swzs"></i>&nbsp;&nbsp;&nbsp;三维页面
+                </li>
+                <li class="layerControl-page"><i class="iconfont icon-swzs"></i>&nbsp;&nbsp;&nbsp;图层控制
                 </li>
             </ul>
         </div>
@@ -126,11 +159,16 @@
     <span class="close">×</span>
     <ul class="list"></ul>
 </div>
+<div class="list-box" id="listBox1">
+    <span class="close">×</span>
+    <ul class="list"></ul>
+</div>
 <script src="${ctx }/static/page/dungou/common/js/appendHeader.js"></script>
 <script src="${ctx }/static/page/dungou/gaikuang/js/base-canvas.js"></script>
 <script src="${ctx }/static/page/common/js/echarts.min.js"></script>
 <script src="${ctx }/static/page/common/js/nav.js"></script>
 <script src="${ctx }/static/page/common/js/swiper-3.4.2.jquery.min.js"></script>
 <script src="${ctx }/static/page/dungou/gaikuang/js/gaikuang.js"></script>
+<script src="${ctx }/static/page/dungou/gaikuang/js/gaikuang3d.js"></script>
 </body>
 </html>
